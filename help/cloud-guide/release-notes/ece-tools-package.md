@@ -2,11 +2,11 @@
 title: Notes de mise à jour de CEE-Outils
 description: Consultez la liste des dernières améliorations apportées au module d'outils de la CEE.
 recommendations: noDisplay, catalog
-last-substantial-update: 2024-01-16T00:00:00Z
+last-substantial-update: 2024-04-08T00:00:00Z
 exl-id: a464b940-c56e-4a7c-9948-559539e25361
-source-git-commit: f2aa4aa183298d829d27c4641f21acef1514d312
+source-git-commit: e21f21e34f89b62842bd22c99ff5705f984898e0
 workflow-type: tm+mt
-source-wordcount: '2887'
+source-wordcount: '2905'
 ht-degree: 0%
 
 ---
@@ -28,7 +28,15 @@ Les notes de mise à jour incluent :
 
 <!--Add release notes below-->
 
-## v2002.1.17 {#latest}
+
+## v2002.1.18 {#latest}
+
+Date de publication : 8 avril 2024
+
+- ![nouvelle icône](../../assets/new.svg) **PHP** — Prise en charge de PHP 8.3.
+- ![icône de correctif](../../assets/fix.svg) Validator : validateur de fin de vie mis à jour.
+
+## v2002.1.17
 
 Date de publication : 16 janvier 2024
 

@@ -2,11 +2,11 @@
 title: Correctifs de cloud pour Commerce
 description: Consultez la liste des dernières améliorations apportées au module Correctifs Cloud .
 recommendations: noDisplay, catalog
-last-substantial-update: 2024-01-16T00:00:00Z
+last-substantial-update: 2024-04-08T00:00:00Z
 exl-id: ae6b511b-a37d-4776-9a5e-ad7d9f9f6611
-source-git-commit: 1e06545340cb63df483d1db5b2a890499e99e6d3
+source-git-commit: d5ab7c4f1d2edbd85eab5a4ca098b3d156e562e5
 workflow-type: tm+mt
-source-wordcount: '2175'
+source-wordcount: '2187'
 ht-degree: 0%
 
 ---
@@ -29,7 +29,13 @@ La variable `magento/magento-cloud-patches` Le package utilise la séquence de v
 
 <!--Add release notes below-->
 
-## v1.0.25 {#latest}
+## v1.0.26 {#latest}
+
+Date de publication : 8 avril 2024
+
+- ![nouvelle icône](../../assets/new.svg) **PHP** — Prise en charge de PHP 8.3.
+
+## v1.0.25
 
 Date de publication : 16 janvier 2024
 

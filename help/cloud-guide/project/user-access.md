@@ -6,9 +6,9 @@ feature: Cloud, Roles/Permissions
 last-substantial-update: 2023-06-27T00:00:00Z
 topic: Security
 exl-id: 3357a3ea-bf86-4a65-95d1-6b24f1152248
-source-git-commit: 13e76d3e9829155995acbb72d947be3041579298
+source-git-commit: b85a163ff62f8a63430dff7c96b5cf391cf38d79
 workflow-type: tm+mt
-source-wordcount: '1441'
+source-wordcount: '1454'
 ht-degree: 0%
 
 ---
@@ -161,7 +161,11 @@ Vous pouvez utiliser la variable [[!DNL Cloud Console]](../../get-started/cloud-
 
 1. Cliquez sur **[!UICONTROL Add User]**.
 
-1. Après avoir ajouté des utilisateurs, redéployez tous les environnements pour appliquer les modifications. L’ajout d’un utilisateur ne déclenche pas automatiquement un déploiement. Le redéploiement est une étape importante pour s’assurer que l’utilisateur peut accéder à un environnement à l’aide de SSH.
+   >[!IMPORTANT]
+   >
+   >L’ajout d’un utilisateur ne déclenche pas automatiquement un déploiement.
+
+1. Après avoir ajouté des utilisateurs, redéployez tous les environnements pour appliquer les modifications. L’ajout d’un utilisateur ne déclenche pas automatiquement un déploiement. Le redéploiement est une étape importante pour s’assurer que l’utilisateur peut accéder à un environnement à l’aide de SSH ou effectuer des tâches d’administrateur.
 
 Une fois l’utilisateur ajouté, Adobe envoie un courrier électronique à l’adresse spécifiée avec des instructions pour accéder au projet d’infrastructure cloud Adobe Commerce.
 

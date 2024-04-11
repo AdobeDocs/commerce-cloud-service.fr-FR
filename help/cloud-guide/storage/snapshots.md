@@ -3,9 +3,9 @@ title: Gestion des sauvegardes
 description: Découvrez comment créer et restaurer manuellement une sauvegarde pour votre projet d’infrastructure cloud Adobe Commerce.
 feature: Cloud, Paas, Snapshots, Storage
 exl-id: 1cb00db7-2375-4761-9c07-1e20a74859e0
-source-git-commit: 1d8ffabb9f903e89495d11c973a9f0a5a8dd1d43
+source-git-commit: 069cbc233492d22932e8dce5bf0426dce8459727
 workflow-type: tm+mt
-source-wordcount: '682'
+source-wordcount: '685'
 ht-degree: 0%
 
 ---
@@ -16,7 +16,7 @@ Vous pouvez à tout moment effectuer une sauvegarde manuelle des environnements 
 
 une sauvegarde ou _instantané_ est une sauvegarde complète des données d’environnement qui inclut toutes les données persistantes provenant des services en cours d’exécution (base de données MySQL) et tous les fichiers stockés sur les volumes montés (var, pub/media, app/etc). L’instantané fonctionne _not_ inclure du code, puisque le code est déjà stocké dans le référentiel basé sur Git. Vous ne pouvez pas télécharger une copie d’un instantané.
 
-La fonction de sauvegarde fonctionne **not** s’appliquent aux environnements Pro. Les environnements d’évaluation et de production Pro reçoivent par défaut des sauvegardes régulières à des fins de reprise après sinistre. Voir [Sauvegarde et reprise sur sinistre Pro](../architecture/pro-architecture.md#backup-and-disaster-recovery). Contrairement aux sauvegardes en direct automatiques sur les environnements d’évaluation et de production, les sauvegardes sont **not** automatique. Il s’agit de _your_ responsabilité de créer manuellement une sauvegarde ou de configurer une tâche cron pour créer régulièrement une sauvegarde de vos environnements d’intégration Starter ou Pro.
+La fonction de sauvegarde/instantané fonctionne **not** s’appliquent aux environnements d’évaluation et de production Pro, qui reçoivent par défaut des sauvegardes régulières à des fins de reprise après sinistre. Voir [Sauvegarde et reprise sur sinistre Pro](../architecture/pro-architecture.md#backup-and-disaster-recovery) pour plus d’informations. Contrairement aux sauvegardes en direct automatiques sur les environnements d’évaluation et de production, les sauvegardes sont **not** automatique. Il s’agit de _your_ responsabilité de créer manuellement une sauvegarde ou de configurer une tâche cron pour créer régulièrement une sauvegarde de vos environnements d’intégration Starter ou Pro.
 
 ## Création d’une sauvegarde manuelle
 

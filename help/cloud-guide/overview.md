@@ -1,6 +1,6 @@
 ---
 title: Commerce sur l’infrastructure cloud
-description: Découvrez comment créer, déployer et gérer l’infrastructure Commerce on Cloud.
+description: Découvrez comment créer, déployer et gérer Commerce sur l’infrastructure cloud.
 exl-id: c0accd55-95ac-49d9-b6f4-0da19b82c28f
 source-git-commit: eace5d84fa0915489bf562ccf79fde04f6b9d083
 workflow-type: tm+mt
@@ -20,7 +20,7 @@ Adobe Commerce sur l’infrastructure cloud fournit une plateforme d’hébergem
 
 ![Avantages du cloud](../assets/CloudBenefits.svg)
 
-Afficher la variable [Pile de technologie](architecture/tech-stack.md) en détail ou en savoir plus sur les fonctionnalités spécifiques et les produits pris en charge dans [Architecture cloud pour Commerce](architecture/cloud-architecture.md).
+Afficher la variable [Pile de technologie](architecture/tech-stack.md) en détail ou en savoir plus sur les fonctionnalités spécifiques et les produits pris en charge dans [Architecture du cloud pour Commerce](architecture/cloud-architecture.md).
 
 <div id="recs-overview-body-1"></div>
 <div id="recs-overview-body-2"></div>
@@ -31,7 +31,7 @@ Afficher la variable [Pile de technologie](architecture/tech-stack.md) en détai
 
 ## Documentation Adobe Commerce
 
-Le guide Commerce on Cloud Infrastructure suppose que vous possédez une connaissance et une compréhension opérationnelles de l’application Adobe Commerce. Vous pouvez consulter la section [!DNL Commerce] Guides du développeur et de l’utilisateur ci-dessous :
+Le guide Commerce on Cloud Infrastructure suppose que vous disposez de connaissances pratiques et de compréhension de l’application Adobe Commerce. Vous pouvez consulter la section [!DNL Commerce] Guides du développeur et de l’utilisateur ci-dessous :
 
 - [Documentation destinée aux développeurs Adobe Commerce](https://developer.adobe.com/commerce/docs/) (site Adobe Developer) : développez, personnalisez, intégrez, étendez et utilisez des fonctionnalités avancées.
 

@@ -4,7 +4,7 @@ description: Découvrez les environnements pris en charge par l’architecture P
 feature: Cloud, Auto Scaling, Iaas, Paas, Storage
 topic: Architecture
 exl-id: d10d5760-44da-4ffe-b4b7-093406d8b702
-source-git-commit: 6807b572366d28fd54fbec89e7c119ec158b5e10
+source-git-commit: 95b033ba430cb5dc74fa654b9d519dfcd5b6d319
 workflow-type: tm+mt
 source-wordcount: '1472'
 ht-degree: 0%
@@ -195,8 +195,6 @@ Le RTO dépend de la taille du stockage. Les gros volumes EBS nécessitent plus 
 - Une base de données volumineuse (200 Go ou plus) peut prendre 5 heures.
 - Une base de données moyenne (150 Go) peut prendre 2 heures et demie.
 - Une petite base de données (60 Go) peut prendre 1 heure
-
-{{pro-backups}}
 
 ## Mise à l’échelle Pro
 

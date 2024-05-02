@@ -2,9 +2,9 @@
 title: Configuration des emails sortants
 description: Découvrez comment activer les emails sortants pour Adobe Commerce sur l’infrastructure cloud.
 exl-id: 814fe2a9-15bf-4bcb-a8de-ae288fd7f284
-source-git-commit: 13e76d3e9829155995acbb72d947be3041579298
+source-git-commit: 59f82d891bb7b1953c1e19b4c1d0a272defb89c1
 workflow-type: tm+mt
-source-wordcount: '279'
+source-wordcount: '363'
 ht-degree: 0%
 
 ---
@@ -13,13 +13,21 @@ ht-degree: 0%
 
 Vous pouvez activer et désactiver les emails sortants pour chaque environnement à partir du [!DNL Cloud Console] ou à partir de la ligne de commande. Activez les e-mails sortants pour les environnements d’intégration et d’évaluation afin d’envoyer des e-mails d’authentification à deux facteurs ou de réinitialisation de mot de passe pour les utilisateurs de projet Cloud.
 
-Par défaut, les emails sortants sont activés dans les environnements de production. La variable [!UICONTROL Enable outgoing emails] peut apparaître désactivée dans les paramètres d’environnement, quel que soit l’état, jusqu’à ce que vous définissiez la variable [`enable_smtp` property](#enable-emails-in-the-cli).
+Par défaut, les emails sortants sont activés dans les environnements de production et d’évaluation. Cependant, [!UICONTROL Enable outgoing emails] peut apparaître désactivée dans les paramètres de l’environnement jusqu’à ce que vous définissiez la variable `enable_smtp` par l’intermédiaire de la propriété [ligne de commande](#enable-emails-in-the-cli) ou [Cloud Console](outgoing-emails.md#enable-emails-in-the-cloud-console).
+
+Mise à jour de la [!UICONTROL enable_smtp] valeur de propriété par [ligne de commande](#enable-emails-in-the-cli) modifie également la variable [!UICONTROL Enable outgoing emails] valeur de cet environnement sur Cloud Console.
 
 {{redeploy-warning}}
 
-## Activation des emails dans [!DNL Cloud Console]
+## Activation des emails dans la console Cloud
 
 Utilisez la variable **[!UICONTROL Outgoing emails]** bascule dans le _Configuration de l’environnement_ pour activer ou désactiver la prise en charge des emails.
+
+Si les emails sortants doivent être désactivés ou réactivés dans les environnements de production ou d’évaluation, vous pouvez envoyer une [ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide).
+
+>[!TIP]
+>
+>L’état des courriers électroniques sortants peut ne pas être reflété pour les environnements Pro dans Cloud Console. Utilisez plutôt la variable [ligne de commande](#enable-emails-in-the-cli) pour activer et tester les emails sortants.
 
 **Pour gérer la prise en charge des courriers électroniques à partir du[!DNL Cloud Console]**:
 
@@ -61,4 +69,10 @@ Vous pouvez modifier la configuration de l’email pour un environnement actif �
 
    ```bash
    php -r 'mail("mail@example.com", "test message", "just testing", "From: tester@example.com");'
+   ```
+
+1. Vérifiez que le courrier électronique est bien récupéré par SendGrid.
+
+   ```bash
+   grep mail@example.com /var/log/mail.log
    ```

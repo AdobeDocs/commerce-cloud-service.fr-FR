@@ -2,9 +2,9 @@
 title: Service de messagerie SendGrid
 description: Découvrez le service de messagerie SendGrid pour Adobe Commerce sur l’infrastructure cloud et comment tester votre configuration DNS.
 exl-id: 30d3c780-603d-4cde-ab65-44f73c04f34d
-source-git-commit: 7c22dc3b0e736043a3e176d2b7ae6c9dcbbf1eb5
+source-git-commit: 2b106edcaaacb63c0e785f094b7e1b755885abd0
 workflow-type: tm+mt
-source-wordcount: '1019'
+source-wordcount: '1090'
 ht-degree: 0%
 
 ---
@@ -27,13 +27,21 @@ Le proxy SMTP SendGrid n’est pas destiné à être utilisé comme serveur de m
 
 ## Activation ou désactivation d’un email
 
-Par défaut, les emails sortants sont activés dans les environnements Pro Production et Test. La variable [!UICONTROL Outgoing emails] peut apparaître dans les paramètres d’environnement, quel que soit l’état, jusqu’à ce que vous définissiez la variable `enable_smtp` . Vous pouvez activer les courriers électroniques sortants pour d’autres environnements afin d’envoyer des courriers électroniques d’authentification à deux facteurs aux utilisateurs de projet Cloud. Voir [Configuration d’emails à des fins de test](outgoing-emails.md).
+Vous pouvez activer ou désactiver les emails sortants pour chaque environnement à partir de Cloud Console ou de la ligne de commande.
+
+Par défaut, les emails sortants sont activés dans les environnements de production et d’évaluation. Cependant, [!UICONTROL Outgoing emails] peut apparaître désactivée dans les paramètres de l’environnement jusqu’à ce que vous définissiez la variable `enable_smtp` par l’intermédiaire de la propriété [ligne de commande](outgoing-emails.md#enable-emails-in-the-cli) ou [Cloud Console](outgoing-emails.md#enable-emails-in-the-cloud-console). Vous pouvez activer les courriers électroniques sortants pour les environnements d’intégration et d’évaluation afin d’envoyer des courriers électroniques d’authentification à deux facteurs ou de réinitialisation de mot de passe pour les utilisateurs de projet Cloud. Voir [Configuration d’emails à des fins de test](outgoing-emails.md).
+
+Si les emails sortants doivent être désactivés ou réactivés dans les environnements de production ou d’évaluation, vous pouvez envoyer une [ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide).
+
+>[!TIP]
+>
+>Mise à jour de la [!UICONTROL enable_smtp] valeur de propriété par [ligne de commande](outgoing-emails.md#enable-emails-in-the-cli) modifie également la variable [!UICONTROL Enable outgoing emails] de cet environnement sur la [Cloud Console](outgoing-emails.md#enable-emails-in-the-cloud-console).
 
 ## Tableau de bord SendGrid
 
 Tous les projets Cloud sont gérés sous un compte central. Dès lors, seul l’assistance a accès au tableau de bord SendGrid. SendGrid ne fournit pas de fonctions de restriction de sous-compte.
 
-Pour consulter les logs d’activité pour connaître l’état de la diffusion ou une liste des adresses email bloquées, rejetées ou rebonds, [envoyer un ticket d’assistance Adobe Commerce ;](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket). L’équipe d’assistance **cannot** récupérer les journaux d’activité de plus de 30 jours.
+Pour consulter les logs d’activité pour connaître l’état de la diffusion ou une liste des adresses email bloquées, rejetées ou rebonds, [envoyer un ticket d’assistance Adobe Commerce ;](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide#submit-ticket). L’équipe d’assistance **cannot** récupérer les journaux d’activité de plus de 30 jours.
 
 Si possible, incluez les informations suivantes dans votre requête :
 
@@ -47,7 +55,7 @@ DKIM est une technologie d&#39;authentification d&#39;email qui permet aux fourn
 
 >[!WARNING]
 >
->Les signatures DKIM SendGrid et la prise en charge de l’authentification de domaine sont disponibles uniquement pour les projets Pro et non pour Starter. Par conséquent, les emails transactionnels sortants sont susceptibles d’être marqués par des filtres de spam. L’utilisation de DKIM améliore le taux de diffusion en tant qu’expéditeur d’email authentifié. Pour améliorer le taux de diffusion des messages, vous pouvez effectuer une mise à niveau de Starter vers Pro ou utiliser votre propre serveur SMTP ou votre propre fournisseur de services de diffusion par email. Voir [Configuration des connexions par e-mail](https://experienceleague.adobe.com/docs/commerce-admin/systems/communications/email-communications.html) dans le _Guide sur les systèmes d’administration_.
+>Les signatures DKIM SendGrid et la prise en charge de l’authentification de domaine ne sont disponibles que pour les projets Pro et non pour les projets de démarrage. Par conséquent, les emails transactionnels sortants sont susceptibles d’être marqués par des filtres de spam. L’utilisation de DKIM améliore le taux de diffusion en tant qu’expéditeur d’email authentifié. Pour améliorer le taux de diffusion des messages, vous pouvez effectuer une mise à niveau de Starter vers Pro ou utiliser votre propre serveur SMTP ou votre propre fournisseur de services de diffusion par email. Voir [Configuration des connexions par e-mail](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/communications/email-communications) dans le _Guide sur les systèmes d’administration_.
 
 ### Authentification de l&#39;expéditeur et du domaine
 
@@ -55,7 +63,7 @@ Pour que SendGrid envoie des emails transactionnels en votre nom depuis des envi
 
 **Pour activer l’authentification de domaine**:
 
-1. Envoyer un [ticket de support](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) qui demande d’activer le DKIM pour un domaine spécifique (**Environnements d’évaluation et de production professionnels uniquement**).
+1. Envoyer un [ticket de support](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide#submit-ticket) pour demander l’activation de DKIM pour un domaine spécifique (**Environnements d’évaluation et de production professionnels uniquement**).
 1. Mettez à jour votre configuration DNS avec la fonction `TXT` et `CNAME` les enregistrements vous ont été fournis dans le ticket d’assistance.
 
 **Exemple `TXT` enregistrement avec ID de compte**:
@@ -106,7 +114,7 @@ dig CNAME s2._domainkey.domain_name
 
 Le seuil de courriel transactionnel fait référence au nombre de messages électroniques transactionnels que vous pouvez envoyer à partir des environnements Pro au cours d’une période spécifique, comme 12 000 emails par mois provenant d’environnements hors production. Le seuil est conçu pour empêcher l’envoi de spam et d’endommager potentiellement la réputation de votre email.
 
-Il n’existe aucune limite stricte au nombre d’emails pouvant être envoyés dans l’environnement de production, à condition que le score de réputation de l’expéditeur soit supérieur à 95 %. La réputation est affectée par le nombre d’emails rejetés ou rebonds et si les registres de spam basés sur DNS ont marqué votre domaine comme source potentielle de spam. Voir [Emails non envoyés lorsque les crédits SendGrid ont été dépassés sur Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/miscellaneous/emails-not-being-sent-sendgrid-credits-exceeded.html) dans le _Base de connaissances pour l’assistance commerciale_.
+Il n’existe aucune limite stricte au nombre d’emails pouvant être envoyés dans l’environnement de production, à condition que le score de réputation de l’expéditeur soit supérieur à 95 %. La réputation est affectée par le nombre d’emails rejetés ou rebonds et si les registres de spam basés sur DNS ont marqué votre domaine comme source potentielle de spam. Voir [Emails non envoyés lorsque les crédits SendGrid ont été dépassés sur Adobe Commerce](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/troubleshooting/miscellaneous/emails-not-being-sent-sendgrid-credits-exceeded) dans le _Base de connaissances pour la prise en charge de Commerce_.
 
 **Pour vérifier si le nombre maximal de crédits est dépassé**:
 
@@ -120,8 +128,8 @@ Il n’existe aucune limite stricte au nombre d’emails pouvant être envoyés 
 
 1. Vérifiez les `/var/log/mail.log` pour `authentication failed : Maxium credits exceeded` entrées.
 
-   Si vous voyez des `authentication failed` les entrées du journal et la variable **Email sending réputation** est d’au moins 95, vous pouvez [Envoi d’un ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) pour demander une augmentation des crédits alloués.
+   Si vous voyez des `authentication failed` les entrées du journal et la variable **Email sending réputation** est d’au moins 95, vous pouvez [Envoi d’un ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide#submit-ticket) pour demander une augmentation des crédits alloués.
 
 ### Email sending réputation
 
-Une réputation d’envoi d’email est un score attribué par un fournisseur d’accès Internet (FAI) à une entreprise qui envoie des emails. Plus le score est élevé, plus un FAI est susceptible de diffuser des messages vers la boîte de réception d’un destinataire. Si le score est inférieur à un certain niveau, le FAI peut acheminer les messages vers le dossier spam des destinataires, voire rejeter complètement les messages. Le score de réputation est déterminé par plusieurs facteurs, tels qu’une moyenne de 30 jours de vos adresses IP par rapport à d’autres adresses IP et au taux de plaintes pour spam. Voir [5 façons de vérifier votre réputation d’envoi](https://sendgrid.com/blog/5-ways-check-sending-reputation/).
+Une réputation d’envoi d’email est un score attribué par un fournisseur d’accès Internet (FAI) à une entreprise qui envoie des emails. Plus le score est élevé, plus un FAI est susceptible de diffuser des messages vers la boîte de réception d’un destinataire. Si le score est inférieur à un certain niveau, le FAI peut acheminer les messages vers le dossier spam des destinataires, voire rejeter complètement les messages. Le score de réputation est déterminé par plusieurs facteurs, tels qu’une moyenne de 30 jours de vos adresses IP par rapport à d’autres adresses IP et au taux de plaintes pour spam. Voir [8 façons de vérifier la réputation de l’envoi d’emails](https://sendgrid.com/en-us/blog/5-ways-check-sending-reputation).

@@ -3,9 +3,9 @@ title: Affichage et gestion des journaux
 description: Découvrez les types de fichiers journaux disponibles dans l’infrastructure cloud et où les trouver.
 last-substantial-update: 2023-05-23T00:00:00Z
 exl-id: d7f63dab-23bf-4b95-b58c-3ef9b46979d4
-source-git-commit: 13e76d3e9829155995acbb72d947be3041579298
+source-git-commit: 86af69eed16e8fe464de93bd0f33cfbfd4ed8f49
 workflow-type: tm+mt
-source-wordcount: '1024'
+source-wordcount: '1056'
 ht-degree: 0%
 
 ---
@@ -76,7 +76,7 @@ ssh 1.ent-project-environment-id@ssh.region.magento.cloud "cat var/log/cron.log"
 
 >[!TIP]
 >
->Pour les environnements Pro, la rotation, la compression et la suppression automatiques des journaux sont activées pour les fichiers journaux dont le nom est fixe. Chaque type de fichier journal a un modèle et une durée de vie rotatifs. Les environnements de démarrage n’ont pas de rotation de journal. Vous trouverez des détails complets sur la rotation des journaux de l’environnement et la durée de vie des journaux compressés dans : `/etc/logrotate.conf` et `/etc/logrotate.d/<various>`
+>Dans les environnements d’évaluation et de production, la rotation, la compression et la suppression automatiques des journaux sont activées pour les fichiers journaux dont le nom est fixe. Chaque type de fichier journal a un modèle et une durée de vie rotatifs. Les environnements de démarrage n’ont pas de rotation de journal. Vous trouverez des détails complets sur la rotation des journaux de l’environnement et la durée de vie des journaux compressés dans : `/etc/logrotate.conf` et `/etc/logrotate.d/<various>`. La rotation du journal ne peut pas être configurée dans les environnements Pro Integration. Pour l’intégration Pro, vous devez mettre en oeuvre une solution/un script personnalisé et [configurer votre cron](../application/crons-property.md) pour exécuter le script selon les besoins.
 
 ## Création et déploiement des journaux
 

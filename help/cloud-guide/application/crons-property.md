@@ -3,9 +3,9 @@ title: Propriété Cron
 description: Voir des exemples de configuration de la propriété `crons` dans la [!DNL Commerce] fichier de configuration de l’application.
 feature: Cloud, Configuration
 exl-id: 67d592c1-2933-4cdf-b4f6-d73cd44b9f59
-source-git-commit: eace5d84fa0915489bf562ccf79fde04f6b9d083
+source-git-commit: 1c0e05c3d8461bea473bcf6ec35162d65ef2774f
 workflow-type: tm+mt
-source-wordcount: '1063'
+source-wordcount: '1069'
 ht-degree: 0%
 
 ---
@@ -27,7 +27,7 @@ La variable `crons` décrit les processus déclenchés selon un planning. Chaque
 - `shutdown_timeout`—(_Facultatif_) Si une tâche cron est annulée, il s’agit du nombre de secondes après lequel un signal SIGKILL est envoyé pour arrêter la tâche ou le processus. La valeur par défaut est de 10 secondes.
 - `timeout`—(_Facultatif_) La durée maximale pendant laquelle une tâche cron peut s’exécuter avant expiration. La valeur par défaut est de 86 400 secondes (24 heures).
 
-Par défaut, chaque projet Commerce Cloud présente la valeur par défaut suivante : `crons` dans la `.magento.app.yaml` fichier :
+Par défaut, chaque projet cloud Commerce possède la valeur par défaut suivante : `crons` dans la `.magento.app.yaml` fichier :
 
 ```yaml
 crons:
@@ -56,7 +56,7 @@ Vous pouvez utiliser des `crontab` pour passer en revue la configuration des pro
 
    >[!NOTE]
    >
-   >Si la variable `crontab -l` renvoie une `Command not found` erreur, vous devez [Envoi d’un ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) pour activer l’option de configuration en libre-service autocrons sur votre projet Pro.
+   >Si la variable `crontab -l` renvoie une `Command not found` (dans les environnements d’évaluation et de production de Pro uniquement), vous devez [Envoi d’un ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) pour activer l’option de configuration en libre-service autocrons sur votre projet.
 
 L’exemple suivant illustre la variable `crontab` sortie pour un environnement qui n’a que la valeur par défaut `crons` configuration :
 

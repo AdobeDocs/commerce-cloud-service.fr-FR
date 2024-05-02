@@ -3,9 +3,9 @@ title: Gestion des sauvegardes
 description: Découvrez comment créer et restaurer manuellement une sauvegarde pour votre projet d’infrastructure cloud Adobe Commerce.
 feature: Cloud, Paas, Snapshots, Storage
 exl-id: 1cb00db7-2375-4761-9c07-1e20a74859e0
-source-git-commit: 069cbc233492d22932e8dce5bf0426dce8459727
+source-git-commit: 4c3f3f2775e8327476233520e52b589f7264786f
 workflow-type: tm+mt
-source-wordcount: '685'
+source-wordcount: '711'
 ht-degree: 0%
 
 ---
@@ -130,6 +130,10 @@ Les délais de restauration varient en fonction de la taille de votre base de do
    ```bash
    magento-cloud snapshot:restore <snapshot-id>
    ```
+
+## Restauration d’un instantané de reprise sur sinistre
+
+Pour restaurer l’instantané de la reprise sur sinistre dans les environnements d’évaluation et de production Pro, [Importez directement le fichier de vidage de la base depuis le serveur](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/how-to/restore-a-db-snapshot-from-staging-or-production#meth3).
 
 ## Restaurer le code
 

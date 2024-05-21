@@ -1,21 +1,21 @@
 ---
-title: Correctifs de cloud pour Commerce
+title: Correctifs cloud pour Commerce
 description: Consultez la liste des dernières améliorations apportées au module Correctifs Cloud .
 recommendations: noDisplay, catalog
-last-substantial-update: 2024-04-08T00:00:00Z
+last-substantial-update: 2024-05-21T00:00:00Z
 exl-id: ae6b511b-a37d-4776-9a5e-ad7d9f9f6611
-source-git-commit: d5ab7c4f1d2edbd85eab5a4ca098b3d156e562e5
+source-git-commit: 61c42a1bd1d5a28f90b8756032ee6f45be4565b2
 workflow-type: tm+mt
-source-wordcount: '2187'
+source-wordcount: '2208'
 ht-degree: 0%
 
 ---
 
-# Correctifs de cloud pour Commerce
+# Correctifs cloud pour Commerce
 
 La variable [Correctifs du cloud](https://github.com/magento/magento-cloud-patches) Le module fournit un ensemble de correctifs requis qui améliorent l’intégration de toutes les versions d’Adobe Commerce avec les environnements cloud et prennent en charge la livraison rapide de correctifs critiques.
 
-Le module Cloud Patches for Commerce est une dépendance du module CEE-Outils. Il est installé et mis à jour lorsque vous installez ou mettez à jour le module CEE-Outils. Vous pouvez également utiliser et gérer des correctifs Cloud pour Commerce en tant que module autonome pour appliquer des correctifs à un projet Adobe Commerce qui n’est pas sur la plateforme Cloud. Ces notes de mise à jour décrivent les dernières améliorations apportées à ce module.
+Le package Cloud Patches for Commerce est une dépendance du package CEE-Outils. Il est installé et mis à jour lorsque vous installez ou mettez à jour le package CEE-Outils. Vous pouvez également utiliser et gérer des correctifs Cloud pour Commerce sous la forme d’un module autonome afin d’appliquer des correctifs à un projet Adobe Commerce qui ne se trouve pas sur la plateforme Cloud. Ces notes de mise à jour décrivent les dernières améliorations apportées à ce module.
 
 >[!TIP]
 >
@@ -29,7 +29,13 @@ La variable `magento/magento-cloud-patches` Le package utilise la séquence de v
 
 <!--Add release notes below-->
 
-## v1.0.26 {#latest}
+## v1.0.27 {#latest}
+
+Date de publication : 21 mai 2024
+
+- **Prise en charge de PHP 8.3**—Ce correctif résout les erreurs de compatibilité entre php 8.3 et la version du package compositeur.
+
+## v1.0.26
 
 Date de publication : 8 avril 2024
 
@@ -272,7 +278,7 @@ Cette version comprend les correctifs et correctifs critiques suivants :
 
 - **Correctif de pagination de catalogue Elasticsearch** —Remplacement du correctif de pagination de catalogue Elasticsearch fourni dans magento/magento-cloud-patches v1.0 par un correctif plus efficace.<!--MAGECLOUD-4847-->
 
-- **Correctifs du créateur de pages**—Dans Cloud Patches for Commerce 1.0.0, nous avons regroupé des correctifs de Page Builder pour répondre à une vulnérabilité d’exécution de code à distance de Page Builder connue (RCE), avec le correctif initial basé sur Adobe Commerce 2.3.3. Nous avons mis à jour ces correctifs avec une mise en oeuvre plus stable basée sur Adobe Commerce 2.3.4., qui comprend plusieurs optimisations pour résoudre le problème.<!--MAGECLOUD-4884-->
+- **Correctifs du créateur de pages**—Dans Correctifs Cloud pour Commerce 1.0.0, nous avons regroupé les correctifs de Page Builder pour répondre à une vulnérabilité d’exécution de code à distance de Page Builder connue (RCE), avec le correctif initial basé sur Adobe Commerce 2.3.3. Nous avons mis à jour ces correctifs avec une mise en oeuvre plus stable basée sur Adobe Commerce 2.3.4., qui comprend plusieurs optimisations pour résoudre le problème.<!--MAGECLOUD-4884-->
 
   Si vous disposez du package magento/magento-cloud-Correctifs 1.0.0, vous êtes toujours protégé des problèmes de vulnérabilité du RCE de Page Builder. Si vous effectuez une mise à jour vers la version 1.0.1 ou ultérieure, vous disposez d’une meilleure mise en oeuvre du même correctif.
 

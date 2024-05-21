@@ -2,11 +2,11 @@
 title: Notes de mise à jour de CEE-Outils
 description: Consultez la liste des dernières améliorations apportées au module d'outils de la CEE.
 recommendations: noDisplay, catalog
-last-substantial-update: 2024-04-08T00:00:00Z
+last-substantial-update: 2024-05-21T00:00:00Z
 exl-id: a464b940-c56e-4a7c-9948-559539e25361
-source-git-commit: e21f21e34f89b62842bd22c99ff5705f984898e0
+source-git-commit: 923e2114270df22e134e0676ac97f84d770bb226
 workflow-type: tm+mt
-source-wordcount: '2905'
+source-wordcount: '2929'
 ht-degree: 0%
 
 ---
@@ -28,8 +28,14 @@ Les notes de mise à jour incluent :
 
 <!--Add release notes below-->
 
+## v2002.1.19 {#latest}
 
-## v2002.1.18 {#latest}
+Date de publication : 21 mai 2024
+
+- ![nouvelle icône](../../assets/new.svg) **Lua**—Ajout de l’option useLua pour CACHE_CONFIGURATION.
+- ![icône de correctif](../../assets/fix.svg) **Validator**: mise à jour des validateurs pour les nouvelles versions de Redis et RabbitMQ.
+
+## v2002.1.18
 
 Date de publication : 8 avril 2024
 
@@ -63,7 +69,7 @@ Date de publication : 31 juillet 2023
 Date de publication : 10 mars 2023
 
 - ![nouvelle icône](../../assets/new.svg) **PHP**: ajout de la prise en charge de PHP 8.2.
-- ![nouvelle icône](../../assets/new.svg) **Validateurs pour les services**—Mise à jour des validateurs pour les services requis de Commerce 2.4.6 : MariaDB 10.6, Redis 7.0, PHP 8.2, OpenSearch 2.x et RabbitMQ 3.9.
+- ![nouvelle icône](../../assets/new.svg) **Validateurs pour les services**—Mise à jour des validateurs pour les services requis Commerce 2.4.6 : MariaDB 10.6, Redis 7.0, PHP 8.2, OpenSearch 2.x et RabbitMQ 3.9.
 - ![icône de correctif](../../assets/fix.svg) **ece-tools db-dump**: correction d’un problème en raison duquel la variable `db-dump` pour arrêter prématurément.
 
 ## v2002.1.13
@@ -313,7 +319,7 @@ Date de publication : 6 février 2020
 
 - ![nouvelle icône](../../assets/new.svg) **Mises à jour de l’infrastructure**—
 
-   - ![nouvelle icône](../../assets/new.svg) **Ajout d’un package distinct pour Cloud Docker pour Commerce.**: dissociation du module Docker du `ece-tools` pour maintenir la qualité du code et fournir des versions indépendantes. Mises à jour et correctifs liés à `ece-tools` sont gérées à partir de la fonction [magento-cloud-docker](https://github.com/magento/magento-cloud-docker) Référentiel GitHub.<!--MAGECLOUD-2927-->
+   - ![nouvelle icône](../../assets/new.svg) **Ajout d’un package distinct pour Cloud Docker pour Commerce**: dissociation du module Docker du `ece-tools` pour maintenir la qualité du code et fournir des versions indépendantes. Mises à jour et correctifs liés à `ece-tools` sont gérées à partir de la fonction [magento-cloud-docker](https://github.com/magento/magento-cloud-docker) Référentiel GitHub.<!--MAGECLOUD-2927-->
 
    - ![nouvelle icône](../../assets/new.svg) **Fonctionnalités de correction mises à jour**: Déplacement de la fonctionnalité de correctif du package CEE-Outils vers un package distinct. [magento-cloud-Correctifs](https://github.com/magento/magento-cloud-patches) module. Pendant le déploiement, `ece-tools` utilise le nouveau package pour appliquer des correctifs. Voir [Notes de mise à jour des correctifs de cloud](cloud-patches.md).<!--MAGECLOUD-4567-->
 

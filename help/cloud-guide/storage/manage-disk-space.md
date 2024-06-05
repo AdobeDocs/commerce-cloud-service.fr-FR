@@ -3,9 +3,9 @@ title: Gestion de l’espace disque
 description: Découvrez comment gérer l’espace disque à l’aide de l’interface de ligne de commande.
 feature: Cloud, Storage
 exl-id: 480cb33b-ac83-441d-946e-5b4de09ad84e
-source-git-commit: 1253d8357fd2554050d1775fefbc420a2097db5f
+source-git-commit: 8b40397796ee865aefbf8a7948cc9a3aceb1d35c
 workflow-type: tm+mt
-source-wordcount: '693'
+source-wordcount: '714'
 ht-degree: 0%
 
 ---
@@ -132,7 +132,7 @@ Deux [fichiers de configuration](../environment/overview.md) contrôler l’allo
 
 >[!IMPORTANT]
 >
->Pour les environnements de production et intermédiaires, vous devez [Envoi d’un ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) pour modifier l’allocation de l’espace disque. Une augmentation de la taille des environnements de production et d’évaluation peut uniquement survenir à certains intervalles. Par conséquent, selon l’utilisation actuelle de l’espace disque, la prise en charge peut recommander une augmentation de l’allocation de l’espace disque d’au moins 10 Go. Une fois allouée, l’augmentation de stockage pour l’évaluation et la production Pro ne peut pas être annulée.
+>Pour les environnements de production et intermédiaires, vous devez [Envoi d’un ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) pour modifier l’allocation de l’espace disque. Une augmentation de la taille des environnements de production et d’évaluation peut uniquement survenir à certains intervalles. Par conséquent, selon l’utilisation actuelle de l’espace disque, la prise en charge peut recommander une augmentation de l’allocation de l’espace disque d’au moins 10 Go. Une fois allouée, l’augmentation de stockage pour l’évaluation et la production Pro ne peut pas être annulée. Le stockage ne peut pas être réalloué ni redistribué entre les ressources. Pour ajouter plus d’espace de stockage de fichiers, réduisez l’espace disque alloué à MySQL.
 
 ### Espace disque de l’application
 

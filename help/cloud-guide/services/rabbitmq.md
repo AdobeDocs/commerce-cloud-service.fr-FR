@@ -3,9 +3,9 @@ title: Configuration du service RabbitMQ
 description: Découvrez comment activer le service RabbitMQ pour gérer les files d’attente de messages pour Adobe Commerce sur l’infrastructure cloud.
 feature: Cloud, Services
 exl-id: 85794b8f-2260-4a6e-b5a6-a1b4c356594e
-source-git-commit: d4c36b084094846cfad69adc2bffd567a58fab26
+source-git-commit: adcfbb7217c70122a4003a66d1bec1a623fbf11a
 workflow-type: tm+mt
-source-wordcount: '378'
+source-wordcount: '399'
 ht-degree: 0%
 
 ---
@@ -114,7 +114,7 @@ Le MQF utilise [RabbitMQ](https://www.rabbitmq.com/) en tant que courtier de mes
    }
    ```
 
-1. Activez le transfert de port local vers RabbitMQ.
+1. Activez le transfert de port local vers RabbitMQ (si votre projet se trouve dans une autre région telle que les États-Unis-3, l’UE-5 ou la région AP-3, remplacez ``us-3``/``eu-5``/``ap-3`` pour ``us``)
 
    ```bash
    ssh -L <port-number>:rabbitmq.internal:<port-number> <project-ID>-<branch-ID>@ssh.us.magentosite.cloud

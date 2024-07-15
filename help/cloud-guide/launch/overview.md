@@ -25,7 +25,7 @@ Nous vous recommandons vivement de tester dans les environnements d’intégrati
 
 - Les environnements d’intégration ne prennent pas en charge certains services disponibles dans les environnements d’évaluation et de production, tels que Fastly et New Relic.
 
-- [Test complet](../test/guidance.md) votre site avec divers outils d’évaluation pour le chargement, le stress, les performances et les ressources du site.
+- [Testez entièrement](../test/guidance.md) votre site avec divers outils d’évaluation pour la charge, le stress, les performances et les ressources du site.
 
 - Dans la mesure où les environnements d’intégration peuvent uniquement comporter des bases de données remplies de données de test, ne correspondant pas à un environnement de type production, vous risquez de rencontrer des erreurs supplémentaires ou un comportement inattendu lors des tests dans les environnements d’évaluation ou de production.
 
@@ -39,11 +39,11 @@ Vous avez besoin des informations et ressources suivantes pour vous préparer au
 
 - Certificat SSL/TLS
 
-Dans le cadre d’Adobe Commerce sur l’abonnement à l’infrastructure cloud, Adobe fournit un certificat SSL/TLS validé par le domaine, émis par Let’s Encrypt. Chaque production, évaluation et démarrage (`master`) a un certificat unique qui couvre tous les domaines et sous-domaines de cet environnement. Ces certificats sont configurés et téléchargés automatiquement sur votre site après la mise à jour de votre configuration DNS pour le développement et la production. Voir [Configuration de certificats SSL/TLS](../cdn/fastly-configuration.md#provision-ssltls-certificates).
+Dans le cadre d’Adobe Commerce sur l’abonnement à l’infrastructure cloud, Adobe fournit un certificat SSL/TLS validé par le domaine, émis par Let’s Encrypt. Chaque environnement de production, d’évaluation et de production de démarrage (`master`) Pro comporte un certificat unique qui couvre tous les domaines et sous-domaines de cet environnement. Ces certificats sont configurés et téléchargés automatiquement sur votre site après la mise à jour de votre configuration DNS pour le développement et la production. Voir [Configuration de certificats SSL/TLS](../cdn/fastly-configuration.md#provision-ssltls-certificates).
 
 >[!NOTE]
 >
->Si vous souhaitez déployer votre propre certificat SSL de validation étendue pour votre entreprise au lieu d’utiliser le certificat de chiffrement, contactez votre CTA ou [Envoi d’un ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket).
+>Si vous souhaitez déployer votre propre certificat SSL de validation étendue pour votre entreprise au lieu d’utiliser le certificat de chiffrement, contactez votre CTA ou [Envoyez un ticket de support Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket).
 
 ## Configuration de l’outil d’analyse de sécurité
 
@@ -59,13 +59,13 @@ Dans le cadre d’Adobe Commerce sur l’abonnement à l’infrastructure cloud,
 >
 >Ajoutez ces adresses IP à une liste autorisée dans les règles de pare-feu de votre réseau pour permettre à l’outil d’analyser votre site. L’outil publie des requêtes sur les ports 80 et 443 uniquement.
 
-L’outil d’analyse de sécurité vous permet de surveiller régulièrement vos sites web de magasin et de recevoir des mises à jour concernant les risques de sécurité connus, les logiciels malveillants et les logiciels obsolètes. Cet outil est un service gratuit disponible pour toutes les mises en oeuvre et versions d’Adobe Commerce sur l’infrastructure cloud. Vous accédez à l’outil via votre [Compte de Commerce Marketplace](https://account.magento.com/customer/account/login).
+L’outil d’analyse de sécurité vous permet de surveiller régulièrement vos sites web de magasin et de recevoir des mises à jour concernant les risques de sécurité connus, les logiciels malveillants et les logiciels obsolètes. Cet outil est un service gratuit disponible pour toutes les mises en oeuvre et versions d’Adobe Commerce sur l’infrastructure cloud. Vous accédez à l’outil via votre [compte de Commerce Marketplace](https://account.magento.com/customer/account/login).
 
 - Surveiller l’état de sécurité de vos sites et appliquer les mises à jour de sécurité
 
 - Recevoir les mises à jour de sécurité et les notifications spécifiques au site
 
-Voir [Guide de l’utilisateur](https://docs.magento.com/user-guide/magento/security-scan.html) pour plus d’informations sur la configuration et l’utilisation de l’outil d’analyse de sécurité. En règle générale, vous commencez à utiliser cet outil lorsque vous commencez les tests d’acceptation utilisateur (UAT).
+Pour plus d’informations sur la configuration et l’utilisation de l’outil d’analyse de sécurité, consultez le [Guide de l’utilisateur](https://docs.magento.com/user-guide/magento/security-scan.html) . En règle générale, vous commencez à utiliser cet outil lorsque vous commencez les tests d’acceptation utilisateur (UAT).
 
 Chaque site que vous analysez doit être enregistré via l’onglet Analyse de sécurité . Pendant le processus d’enregistrement, vous devez accepter la clause de non-responsabilité avant de pouvoir commencer l’analyse. Vous contrôlez le planning et autorisez l’utilisateur à recevoir des notifications une fois chaque analyse terminée. Vous pouvez planifier des analyses pour une date et une heure récurrentes spécifiques, ou exécuter une analyse à la demande, si nécessaire.
 
@@ -80,17 +80,17 @@ Visbot/2.0 (+http://www.visvo.com/en/webmasters.jsp;bot@visvo.com)
 
 ## Analyser votre site
 
-1. Accédez à [Compte de Commerce Marketplace](https://account.magento.com/customer/account/login).
+1. Accédez à votre [compte de Commerce Marketplace](https://account.magento.com/customer/account/login).
 
 1. Cliquez sur l’onglet Analyse de sécurité et sélectionnez **Accéder à l’analyse de sécurité**.
 
-1. Dans le _Actions_ pour le site, sélectionnez **Exécution de l’analyse**. Un état de notification affiche l’analyse planifiée.
+1. Dans la colonne _Actions_ du site, sélectionnez **Exécuter l’analyse**. Un état de notification affiche l’analyse planifiée.
 
 ### Pour consulter le rapport :
 
 1. Une fois le rapport terminé, une notification s’affiche.
 
-1. Sur la ligne du site, sélectionnez le rapport à afficher dans la **Rapports** colonne . La commande est la plus récente à la plus ancienne.
+1. Sur la ligne du site, sélectionnez le rapport à afficher dans la colonne **Rapports**. La commande est la plus récente à la plus ancienne.
 
 Le rapport répertorie les problèmes, notamment les analyses ayant échoué, les résultats non identifiés et les analyses ayant réussi. Chaque entrée fournit des informations détaillées sur l’analyse, une liste des problèmes à examiner et des actions à entreprendre. Certaines de ces actions peuvent nécessiter le téléchargement et l’installation de correctifs de sécurité. Ajoutez les correctifs requis à une branche de développement sur votre poste de travail local avant de les ajouter à la branche de production.
 

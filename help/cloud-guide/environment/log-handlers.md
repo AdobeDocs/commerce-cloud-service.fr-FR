@@ -13,9 +13,9 @@ ht-degree: 0%
 
 # Gestionnaires de journaux
 
-Vous pouvez configurer des gestionnaires de journaux pour envoyer des messages à un serveur de journalisation distant. Un gestionnaire de journaux envoie les journaux de création et de déploiement vers d’autres systèmes, de la même manière que vous envoyez les journaux vers Slack et e-mail. Vous pouvez activer une _syslog_ gestionnaire, idéal pour la journalisation des messages liés au matériel, ou gestionnaire GELF (Graylog Extended Log Format), idéal pour la journalisation des messages à partir d’applications logicielles.
+Vous pouvez configurer des gestionnaires de journaux pour envoyer des messages à un serveur de journalisation distant. Un gestionnaire de journaux envoie les journaux de création et de déploiement vers d’autres systèmes, de la même manière que vous envoyez les journaux vers Slack et e-mail. Vous pouvez activer un gestionnaire _syslog_, idéal pour consigner les messages liés au matériel, ou un gestionnaire GELF (Graylog Extended Log Format), idéal pour consigner les messages à partir d’applications logicielles.
 
-L’exemple suivant configure ces deux gestionnaires en ajoutant la configuration à la variable `.magento.env.yaml` fichier . Pour le niveau de journalisation minimal (`min_level`), voir [Niveaux de journalisation](#log-levels).
+L’exemple suivant configure ces deux gestionnaires en ajoutant la configuration au fichier `.magento.env.yaml`. Pour obtenir les valeurs de niveau de journalisation minimum (`min_level`), voir [Niveaux de journalisation](#log-levels).
 
 ```yaml
 log:
@@ -56,13 +56,13 @@ log:
 
 ## Niveaux de journalisation
 
-Les niveaux de journal déterminent le niveau de détail dans les messages de notification. Les catégories de niveau journal suivantes incluent chaque niveau de journal situé en dessous. Par exemple, un `debug` inclut la journalisation à partir de tous les niveaux, tandis qu’un `alert` n’affiche que les alertes et les urgences.
+Les niveaux de journal déterminent le niveau de détail dans les messages de notification. Les catégories de niveau journal suivantes incluent chaque niveau de journal situé en dessous. Par exemple, un niveau `debug` comprend la journalisation à partir de chaque niveau, tandis qu’un niveau `alert` affiche uniquement les alertes et les urgences.
 
 - **debug**—informations de débogage détaillées
-- **info**: événements intéressants, tels qu’une connexion utilisateur ou un journal SQL
-- **notice**—événements normaux mais significatifs
-- **warning**: occurrences exceptionnelles qui ne sont pas des erreurs, telles que l’utilisation d’une API obsolète ou une mauvaise utilisation d’une API
-- **error**—erreurs d’exécution qui ne nécessitent pas d’action immédiate
-- **critique**: conditions critiques, telles qu’un composant d’application indisponible ou une exception inattendue
-- **alerte**: action immédiate requise (par exemple, un site web est hors service ou la base de données est indisponible) qui déclenche une alerte SMS
-- **urgence**—system est inutilisable
+- **info** : événements intéressants, tels qu’une connexion utilisateur ou un journal SQL
+- **notice** : événements normaux mais significatifs
+- **warning** : occurrences exceptionnelles qui ne sont pas des erreurs, telles que l’utilisation d’une API obsolète ou l’utilisation incorrecte d’une API
+- **error** : erreurs d’exécution qui ne nécessitent pas d’action immédiate
+- **critical** : conditions critiques telles qu’un composant d’application indisponible ou une exception inattendue
+- **alert** : action immédiate requise (par exemple, un site web est en panne ou la base de données n’est pas disponible) qui déclenche une alerte SMS
+- **urgence** : le système est inutilisable

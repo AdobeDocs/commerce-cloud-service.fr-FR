@@ -18,7 +18,7 @@ Vous pouvez activer la mise en cache dans l’environnement de projet de votre i
 
 ## Configuration de la mise en cache
 
-Activez la mise en cache de votre application en configurant les règles de mise en cache dans le `.magento/routes.yaml` comme suit :
+Activez la mise en cache de votre application en configurant les règles de mise en cache dans le fichier `.magento/routes.yaml` comme suit :
 
 ```yaml
 http://{default}/:
@@ -68,17 +68,17 @@ Et les itinéraires suivants sont **not** mis en cache :
 
 >[!NOTE]
 >
->Les expressions régulières des itinéraires sont **not** pris en charge.
+>Les expressions régulières dans les itinéraires ne sont **pas** prises en charge.
 
 ## Durée du cache
 
-La durée du cache est déterminée par la variable `Cache-Control` valeur de l’en-tête de réponse. Si non `Cache-Control` L’en-tête se trouve dans la réponse, la variable `default_ttl` est utilisée.
+La durée du cache est déterminée par la valeur de l’en-tête de réponse `Cache-Control`. Si aucun en-tête `Cache-Control` n’est présent dans la réponse, la clé `default_ttl` est utilisée.
 
 ## Clé de cache
 
-Pour décider comment mettre en cache une réponse, Adobe Commerce crée une clé de cache qui dépend de plusieurs facteurs et stocke la réponse associée à cette clé. Lorsqu’une requête est fournie avec la même clé de cache, la réponse est réutilisée. Son objectif est similaire au HTTP [`Vary` header](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.44).
+Pour décider comment mettre en cache une réponse, Adobe Commerce crée une clé de cache qui dépend de plusieurs facteurs et stocke la réponse associée à cette clé. Lorsqu’une requête est fournie avec la même clé de cache, la réponse est réutilisée. Son objectif est similaire à l’en-tête HTTP [`Vary`](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.44).
 
-Les paramètres `headers` et `cookies` Les clés permettent de modifier cette clé de cache.
+Les paramètres `headers` et les clés `cookies` vous permettent de modifier cette clé de cache.
 
 La valeur par défaut de ces clés est la suivante :
 
@@ -93,13 +93,13 @@ cache:
 
 ### `enabled`
 
-Lorsque la variable est définie sur `true`, activez le cache pour cet itinéraire. Lorsque la variable est définie sur `false`, désactivez le cache de cet itinéraire.
+Lorsqu’elle est définie sur `true`, activez le cache pour cet itinéraire. Lorsqu’elle est définie sur `false`, désactivez le cache pour cet itinéraire.
 
 ### `headers`
 
 Définit les valeurs dont doit dépendre la clé de cache.
 
-Par exemple, si la variable `headers` clé est la suivante :
+Par exemple, si la clé `headers` est la suivante :
 
 ```yaml
 cache:
@@ -107,11 +107,11 @@ cache:
     headers: ["Accept"]
 ```
 
-Adobe Commerce met ensuite en cache une réponse différente pour chaque valeur de la variable `Accept` En-tête HTTP.
+Ensuite, Adobe Commerce met en cache une réponse différente pour chaque valeur de l’en-tête HTTP `Accept`.
 
 ### `cookies`
 
-La variable `cookies` key définit les valeurs dont la clé de cache doit dépendre.
+La clé `cookies` définit les valeurs dont la clé de cache doit dépendre.
 
 Par exemple :
 
@@ -121,19 +121,19 @@ cache:
     cookies: ["value"]
 ```
 
-La clé de cache dépend de la valeur de la variable `value` dans la requête.
+La clé de cache dépend de la valeur du cookie `value` dans la requête.
 
-Il existe un cas particulier si la variable `cookies` La clé contient la variable `["*"]` . Cette valeur signifie que toute requête avec un cookie contourne le cache. Il s’agit de la valeur par défaut.
+Il existe un cas spécial si la clé `cookies` a la valeur `["*"]`. Cette valeur signifie que toute requête avec un cookie contourne le cache. Il s’agit de la valeur par défaut.
 
 >[!NOTE]
 >
->Vous ne pouvez pas utiliser de caractères génériques dans le nom du cookie. Utilisez un nom de cookie précis ou faites correspondre tous les cookies à un astérisque (`*`). Par exemple : `SESS*` ou `~SESS` sont actuellement **not** valeurs valides.
+>Vous ne pouvez pas utiliser de caractères génériques dans le nom du cookie. Utilisez un nom de cookie précis ou faites correspondre tous les cookies à un astérisque (`*`). Par exemple, `SESS*` ou `~SESS` sont actuellement **et non** des valeurs valides.
 
 Les cookies comportent les restrictions suivantes :
 
-- Vous pouvez définir le nombre maximal de **50 cookies** dans le système. Dans le cas contraire, l’application renvoie une `Unable to send the cookie. Maximum number of cookies would be exceeded` exception.
-- La taille maximale du cookie est **4 096 octets**. Dans le cas contraire, l’application renvoie une `Unable to send the cookie. Size of '%name' is %size bytes` exception.
+- Vous pouvez définir un maximum de **50 cookies** dans le système. Dans le cas contraire, l’application renvoie une exception `Unable to send the cookie. Maximum number of cookies would be exceeded`.
+- La taille maximale des cookies est de **4 096 octets**. Dans le cas contraire, l’application renvoie une exception `Unable to send the cookie. Size of '%name' is %size bytes`.
 
 ### `default_ttl`
 
-Si la réponse n’a pas de `Cache-Control` en-tête, `default_ttl` est utilisée pour définir la durée du cache, en secondes. La valeur par défaut est `0`, ce qui signifie que rien n’est mis en cache.
+Si la réponse ne comporte pas d’en-tête `Cache-Control`, la clé `default_ttl` est utilisée pour définir la durée du cache, en secondes. La valeur par défaut est `0`, ce qui signifie que rien n’est mis en cache.

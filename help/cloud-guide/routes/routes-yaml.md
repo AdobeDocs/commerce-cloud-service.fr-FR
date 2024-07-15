@@ -12,9 +12,9 @@ ht-degree: 0%
 
 # Configuration des itinéraires
 
-La variable `routes.yaml` dans le fichier `.magento/routes.yaml` définit les itinéraires de votre Adobe Commerce dans les environnements d’intégration, d’évaluation et de production de l’infrastructure cloud. Les itinéraires déterminent la manière dont l’application traite les requêtes HTTP et HTTPS entrantes.
+Le fichier `routes.yaml` du répertoire `.magento/routes.yaml` définit les itinéraires de votre Adobe Commerce dans les environnements d’intégration, d’évaluation et de production de l’infrastructure cloud. Les itinéraires déterminent la manière dont l’application traite les requêtes HTTP et HTTPS entrantes.
 
-Par défaut `routes.yaml` Le fichier spécifie les modèles d’itinéraire pour le traitement des requêtes HTTP au format HTTPS sur les projets ayant un seul domaine par défaut et sur les projets configurés pour plusieurs domaines :
+Le fichier `routes.yaml` par défaut spécifie les modèles d’itinéraire pour le traitement des requêtes HTTP en tant que HTTPS sur les projets ayant un seul domaine par défaut et sur les projets configurés pour plusieurs domaines :
 
 ```yaml
 "http://{default}/":
@@ -25,7 +25,7 @@ Par défaut `routes.yaml` Le fichier spécifie les modèles d’itinéraire pour
     upstream: "mymagento:http"
 ```
 
-Utilisez la variable `magento-cloud` Interface en ligne de commande pour afficher la liste des itinéraires configurés :
+Utilisez l’interface de ligne de commande `magento-cloud` pour afficher la liste des itinéraires configurés :
 
 ```bash
 magento-cloud environment:routes
@@ -43,9 +43,9 @@ magento-cloud environment:routes
 
 ## Modèles d’itinéraire
 
-La variable `routes.yaml` est une liste d’itinéraires modélisés et de leurs configurations. Vous pouvez utiliser les espaces réservés suivants dans les modèles d’itinéraire :
+Le fichier `routes.yaml` est une liste d’itinéraires modélisés et de leurs configurations. Vous pouvez utiliser les espaces réservés suivants dans les modèles d’itinéraire :
 
-- La variable `{default}` placeholder représente le nom de domaine qualifié configuré par défaut pour le projet.
+- L’espace réservé `{default}` représente le nom de domaine qualifié configuré par défaut pour le projet.
 
   Par exemple, un projet avec le domaine par défaut `example.com` et les modèles d’itinéraire suivants :
 
@@ -61,9 +61,9 @@ La variable `routes.yaml` est une liste d’itinéraires modélisés et de leurs
   https://example.com/blog
   ```
 
-- La variable `{all}` espace réservé représente tous les noms de domaine configurés pour le projet.
+- L’espace réservé `{all}` représente tous les noms de domaine configurés pour le projet.
 
-  Par exemple, un projet avec `example.com` et `example1.com` domaines avec les modèles d’itinéraire suivants :
+  Par exemple, un projet avec des domaines `example.com` et `example1.com` avec les modèles d’itinéraire suivants :
 
   ```text
   https://www.{all}/
@@ -83,17 +83,17 @@ La variable `routes.yaml` est une liste d’itinéraires modélisés et de leurs
   https://example1.com/blog
   ```
 
-  La variable `{all}` espace réservé est utile pour les projets configurés pour plusieurs domaines. Dans une branche hors production, `{all}` est remplacé par l’ID de projet et l’ID d’environnement pour chaque domaine.
+  L’espace réservé `{all}` est utile pour les projets configurés pour plusieurs domaines. Dans une branche hors production, `{all}` est remplacé par l’ID de projet et l’ID d’environnement pour chaque domaine.
 
-  Si aucun domaine n’est configuré pour un projet, ce qui est courant pendant le développement, la variable `{all}` se comporte de la même manière que le `{default}` espace réservé.
+  Si un projet ne comporte aucun domaine configuré, ce qui est courant pendant le développement, l’espace réservé `{all}` se comporte de la même manière que l’espace réservé `{default}`.
 
-Adobe Commerce génère également des itinéraires pour chaque environnement d’intégration actif. Pour les environnements d’intégration, la variable `{default}` L’espace réservé est remplacé par le nom de domaine suivant :
+Adobe Commerce génère également des itinéraires pour chaque environnement d’intégration actif. Pour les environnements d’intégration, l’espace réservé `{default}` est remplacé par le nom de domaine suivant :
 
 ```text
 [branch]-[per-environment-random-string]-[project-id].[region].magentosite.cloud
 ```
 
-Par exemple, la variable `refactorcss` pour la `mswy7hzcuhcjw` hébergé dans le `us` La grappe possède le domaine suivant :
+Par exemple, la branche `refactorcss` du projet `mswy7hzcuhcjw` hébergée sur la grappe `us` possède le domaine suivant :
 
 ```text
 https://refactorcss-oy3m2pq-mswy7hzcuhcjw.us.magentosite.cloud/
@@ -101,11 +101,11 @@ https://refactorcss-oy3m2pq-mswy7hzcuhcjw.us.magentosite.cloud/
 
 >[!NOTE]
 >
->Si votre projet Cloud prend en charge plusieurs magasins, suivez les instructions de configuration d’itinéraire pour [plusieurs sites web ou magasins ;](../store/multiple-sites.md).
+>Si votre projet Cloud prend en charge plusieurs magasins, suivez les instructions de configuration d’itinéraire pour [ plusieurs sites web ou magasins](../store/multiple-sites.md).
 
 ### Barre oblique
 
-Les définitions d’itinéraire contiennent une barre oblique pour indiquer un dossier ou un répertoire. Toutefois, le même contenu peut être diffusé avec ou sans barre oblique. Les URL suivantes résolvent le même problème, mais peuvent être interprétées comme _deux différents_ URL :
+Les définitions d’itinéraire contiennent une barre oblique pour indiquer un dossier ou un répertoire. Toutefois, le même contenu peut être diffusé avec ou sans barre oblique. Les URL suivantes résolvent le même problème, mais peuvent être interprétées comme _deux URL_ différentes :
 
 ```text
 https://www.example.com/blog/
@@ -157,7 +157,7 @@ Tous les environnements prennent automatiquement en charge les protocoles HTTP e
 
 Servez toutes les pages sur TLS. Pour cette configuration, vous devez configurer des redirections pour toutes les requêtes non chiffrées vers l’équivalent TLS à l’aide de l’une des méthodes suivantes :
 
-- Remplacez le protocole par HTTPS dans la variable `routes.yaml` fichier .
+- Définissez le protocole sur HTTPS dans le fichier `routes.yaml`.
 
   ```yaml
   "https://{default}/":
@@ -168,7 +168,7 @@ Servez toutes les pages sur TLS. Pour cette configuration, vous devez configurer
       upstream: "mymagento:http"
   ```
 
-- Pour les environnements d’évaluation et de production, activez l’option [Forcer TLS sur Fastly](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/how-to/redirect-http-to-https-for-all-pages-on-cloud-force-tls.html) dans l’interface utilisateur d’administration. Lorsque vous utilisez cette option, gère rapidement la redirection vers HTTPS, de sorte que vous n’avez pas à mettre à jour la variable `routes.yaml` configuration.
+- Pour les environnements d’évaluation et de production, activez l’option [Forcer TLS sur Fastly](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/how-to/redirect-http-to-https-for-all-pages-on-cloud-force-tls.html) de l’interface utilisateur d’administration. Lorsque vous utilisez cette option, gère rapidement la redirection vers HTTPS, de sorte que vous n&#39;avez pas à mettre à jour la configuration `routes.yaml`.
 
 ## Options d’itinéraire
 
@@ -176,15 +176,15 @@ Configurez séparément chaque itinéraire à l’aide des propriétés suivante
 
 | Propriété | Description |
 | ---------------- | ----------- |
-| `type: upstream` | Diffuse une application. Il comporte également une `upstream` qui spécifie le nom de l’application (tel que défini dans `.magento.app.yaml`), suivie de la fonction `:http` point de terminaison . |
-| `type: redirect` | Redirige vers un autre itinéraire. Il est suivi de la fonction `to` , qui est une redirection HTTP vers un autre itinéraire identifié par son modèle. |
-| `cache:` | Contrôles [mise en cache de l’itinéraire](caching.md). |
-| `redirects:` | Contrôles [règles de redirection](redirects.md). |
-| `ssi:` | Contrôle de l’activation de [Inclusions côté serveur](server-side-includes.md). |
+| `type: upstream` | Diffuse une application. En outre, il possède une propriété `upstream` qui spécifie le nom de l’application (tel que défini dans `.magento.app.yaml`) suivie du point de terminaison `:http`. |
+| `type: redirect` | Redirige vers un autre itinéraire. Il est suivi de la propriété `to`, qui est une redirection HTTP vers un autre itinéraire identifié par son modèle. |
+| `cache:` | Contrôle la [mise en cache de l’itinéraire](caching.md). |
+| `redirects:` | Contrôle les [règles de redirection](redirects.md). |
+| `ssi:` | Contrôle l’activation de [Server Side Includes](server-side-includes.md). |
 
 ## Itinéraires simples
 
-Dans les exemples suivants, la configuration de l’itinéraire achemine le domaine apex et le `www` sous-domaine vers `mymagento` application. Cet itinéraire ne redirige pas les demandes HTTPS.
+Dans les exemples suivants, la configuration de l’itinéraire achemine le domaine apex et le sous-domaine `www` vers l’application `mymagento`. Cet itinéraire ne redirige pas les demandes HTTPS.
 
 **Exemple 1 :**
 
@@ -206,7 +206,7 @@ Dans cet exemple, le routage des demandes suit ces règles :
   http://example.com/path
   ```
 
-- Le serveur émet un _Redirection 301_ pour les requêtes avec le modèle d’URL suivant :
+- Le serveur émet une _301 redirect_ pour les requêtes avec le modèle d’URL suivant :
 
   ```text
   http://www.example.com/mypath
@@ -249,7 +249,7 @@ Vous pouvez acheminer vers un système qui n’est pas mappé à un domaine à l
 
 **Exemple :**
 
-Un projet avec une `add-theme` branche achemine vers l’URL suivante :
+Un projet avec une branche `add-theme` achemine vers l’URL suivante :
 
 ```text
 http://add-theme-projectID.us.magento.com/
@@ -284,7 +284,7 @@ http://foo.add-theme-projectID.us.magentosite.cloud/
 http://bar.add-theme-projectID.us.magentosite.cloud/
 ```
 
-Vous pouvez afficher le modèle d’itinéraire pour les domaines non mappés en établissant une connexion SSH à l’environnement et en utilisant la variable `magento-cloud` Interface de ligne de commande pour répertorier les itinéraires :
+Vous pouvez afficher le modèle d’itinéraire pour les domaines non mappés en établissant une connexion SSH à l’environnement et en utilisant l’interface de ligne de commande `magento-cloud` pour répertorier les itinéraires :
 
 ```terminal
 web@mymagento.0:~$ vendor/bin/ece-tools env:config:show routes
@@ -315,7 +315,7 @@ Magento Cloud Routes:
 
 ## Redirections et mise en cache
 
-Comme décrit plus en détail [Redirections](redirects.md), vous pouvez gérer des règles de redirection complexes, telles que _redirections partielles_ et spécifier des règles pour les itinéraires [mise en cache](caching.md):
+Comme expliqué plus en détail dans la section [Redirections](redirects.md), vous pouvez gérer des règles de redirection complexes, telles que des _redirections partielles_, et spécifier des règles pour la [mise en cache](caching.md) basée sur un itinéraire :
 
 ```yaml
 https://www.{default}/:

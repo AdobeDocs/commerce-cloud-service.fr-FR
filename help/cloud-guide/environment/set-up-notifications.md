@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Configuration des notifications
 
-Par défaut, Adobe Commerce sur l’infrastructure cloud écrit et déploie les actions sur la `app/var/log/cloud.log` dans le répertoire de l’application racine Adobe Commerce. Vous pouvez éventuellement envoyer des journaux à un système de messagerie, tel que Slack et courrier électronique, pour recevoir des notifications en temps réel.
+Par défaut, Adobe Commerce sur l’infrastructure cloud écrit et déploie les actions sur le fichier `app/var/log/cloud.log` dans le répertoire d’application racine Adobe Commerce. Vous pouvez éventuellement envoyer des journaux à un système de messagerie, tel que Slack et courrier électronique, pour recevoir des notifications en temps réel.
 
 Par exemple, vous pouvez envoyer un message d’alerte à un groupe de personnes en cas d’échec d’un déploiement et demander une enquête sur les problèmes.
 
@@ -35,9 +35,9 @@ Par exemple, lors du développement initial, vous préférez peut-être recevoir
 Pour configurer les notifications :
 
 1. Sur votre poste de travail local, modifiez le répertoire de votre projet.
-1. Dans le `.magento.env.yaml` dans la racine de votre projet, ajoutez les paramètres de votre système de messagerie, y compris les notifications de votre choix. [Niveaux de journalisation](log-handlers.md#log-levels).
+1. Dans le fichier `.magento.env.yaml` de la racine de votre projet, ajoutez les paramètres de votre système de messagerie, y compris la notification préférée [Niveaux de journal](log-handlers.md#log-levels).
 
-   Par exemple, pour configurer les deux Slack _et_ les configurations d’email, utilisez ce qui suit :
+   Par exemple, pour configurer les configurations de courrier électronique des Slack _et_, utilisez les éléments suivants :
 
    ```yaml
    log:
@@ -80,10 +80,10 @@ log:
     min_level: "info"
 ```
 
-- `token`: votre Slack [jeton utilisateur](https://api.slack.com/docs/token-types#user). Votre jeton utilisateur autorise Adobe Commerce sur l’infrastructure cloud pour envoyer des messages.
-- `channel`: nom du canal Slack Adobe Commerce sur l’infrastructure cloud envoie des notifications.
-- `username`—Nom d’utilisateur Adobe Commerce sur l’infrastructure cloud utilise pour envoyer des messages de notification en Slack.
-- `min_level`—Niveau de journal minimum pour les messages de notification. Nous vous recommandons d’utiliser `info`.
+- `token` : votre Slack [jeton utilisateur](https://api.slack.com/docs/token-types#user). Votre jeton utilisateur autorise Adobe Commerce sur l’infrastructure cloud pour envoyer des messages.
+- `channel` : nom du canal Slack Adobe Commerce sur l’infrastructure cloud envoie des notifications.
+- `username` : nom d’utilisateur Adobe Commerce sur l’infrastructure cloud utilise pour envoyer des messages de notification dans Slack.
+- `min_level` : niveau de journalisation minimal pour les messages de notification. Nous vous recommandons d’utiliser `info`.
 
 ### Exemple de configuration de courrier électronique
 
@@ -102,7 +102,7 @@ log:
     min_level: "notice"
 ```
 
-- `to`: adresse électronique Adobe Commerce envoie des messages de notification sur l’infrastructure cloud.
-- `from`: adresse email pour envoyer des messages de notification aux destinataires.
-- `subject`—Description de l’email.
-- `min_level`—Niveau de journal minimum pour les messages de notification. Nous vous recommandons d’utiliser `notice` ou `warning`.
+- `to` : l’adresse électronique Adobe Commerce sur l’infrastructure cloud envoie des messages de notification.
+- `from` : adresse électronique pour envoyer des messages de notification aux destinataires.
+- `subject` : description de l’email.
+- `min_level` : niveau de journalisation minimal pour les messages de notification. Nous vous recommandons d’utiliser `notice` ou `warning`.

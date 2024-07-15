@@ -12,19 +12,19 @@ ht-degree: 0%
 
 # Interface de ligne de commande du cloud
 
-La variable `magento-cloud` L’outil d’interface de ligne de commande permet aux développeurs et aux administrateurs système de gérer les projets et environnements cloud, d’exécuter des routines et d’exécuter des tâches d’automatisation. La variable `magento-cloud` L’interface de ligne de commande étend les fonctionnalités de [[!DNL Cloud Console]](../../get-started/cloud-console.md). Après avoir installé la variable `magento-cloud` Interface en ligne de commande sur votre poste de travail local, vous pouvez l’utiliser pour gérer votre Adobe Commerce dans les environnements d’intégration Starter et Pro de l’infrastructure cloud.
+L’outil d’interface de ligne de commande `magento-cloud` permet aux développeurs et aux administrateurs système de gérer des projets et des environnements cloud, d’exécuter des routines et d’exécuter des tâches d’automatisation. L’interface de ligne de commande `magento-cloud` étend les fonctionnalités de [[!DNL Cloud Console]](../../get-started/cloud-console.md). Une fois que vous avez installé l’interface de ligne de commande `magento-cloud` sur votre poste de travail local, vous pouvez l’utiliser pour gérer votre Adobe Commerce dans les environnements d’intégration Starter et Pro de l’infrastructure cloud.
 
-**Pour installer le `magento-cloud` CLI**:
+**Pour installer l’ `magento-cloud` CLI** :
 
-1. Sur votre poste de travail local, modifiez le répertoire dans lequel vous avez l’intention de cloner le projet Cloud et où le [propriétaire du système de fichiers](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/prerequisites/file-system/configure-permissions.html) has _write_ accès.
+1. Sur votre poste de travail local, modifiez le répertoire dans lequel vous avez l’intention de cloner le projet Cloud et où le [propriétaire du système de fichiers](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/prerequisites/file-system/configure-permissions.html) a accès à _write_.
 
-1. Installez le `magento-cloud` Interface de ligne de commande.
+1. Installez l’interface de ligne de commande `magento-cloud`.
 
    ```bash
    curl -sS https://accounts.magento.cloud/cli/installer | php
    ```
 
-1. Ajouter `magento-cloud` Interface de ligne de commande du profil bash.
+1. Ajoutez l’interface de ligne de commande `magento-cloud` au profil bash.
 
    ```bash
    export PATH=$PATH:$HOME/.magento-cloud/bin
@@ -48,7 +48,7 @@ La variable `magento-cloud` L’outil d’interface de ligne de commande permet 
    Your email address or username:
    ```
 
-1. Vérifiez les `magento-cloud` est dans votre chemin d’accès. L’exemple suivant répertorie les commandes disponibles.
+1. Vérifiez que la commande `magento-cloud` se trouve dans votre chemin d’accès. L’exemple suivant répertorie les commandes disponibles.
 
    ```bash
    magento-cloud list
@@ -56,9 +56,9 @@ La variable `magento-cloud` L’outil d’interface de ligne de commande permet 
 
 ## Commandes courantes
 
-Adobe a conçu ces commandes pour gérer les environnements d’intégration Cloud et vous recommande d’exécuter la `magento-cloud` Interface de ligne de commande d’un répertoire de projet afin que vous puissiez omettre la variable `-p <project-ID>` .
+Adobe a conçu ces commandes pour gérer les environnements d’intégration Cloud et vous recommande d’exécuter l’interface de ligne de commande `magento-cloud` à partir d’un répertoire de projet afin que vous puissiez omettre le paramètre `-p <project-ID>`.
 
-La liste suivante des `magento-cloud` Les commandes de l’interface de ligne de commande incluent uniquement les options requises. Vous pouvez utiliser la variable `--help` avec n’importe quelle commande pour afficher plus d’informations.
+La liste suivante des commandes de l’interface de ligne de commande `magento-cloud` couramment utilisées comprend uniquement les options requises. Vous pouvez utiliser l’option `--help` avec n’importe quelle commande pour afficher plus d’informations.
 
 | Commande | Description |
 | ------------------------------------ | -------------------------------------------------- |
@@ -74,11 +74,11 @@ La liste suivante des `magento-cloud` Les commandes de l’interface de ligne de
 
 ## Commandes d’environnement
 
-L&#39;environnement _name_ est différent de l’environnement _ID_ uniquement si vous utilisez des espaces ou des majuscules dans le nom de l’environnement. Un ID d’environnement se compose de toutes les lettres minuscules, de tous les nombres et de tous les symboles autorisés. Les majuscules d’un nom d’environnement sont converties en minuscules dans l’identifiant ; les espaces d’un nom d’environnement sont convertis en tirets.
+L&#39;environnement _name_ diffère de l&#39;environnement _ID_ uniquement si vous utilisez des espaces ou des majuscules dans le nom de l&#39;environnement. Un ID d’environnement se compose de toutes les lettres minuscules, de tous les nombres et de tous les symboles autorisés. Les majuscules d’un nom d’environnement sont converties en minuscules dans l’identifiant ; les espaces d’un nom d’environnement sont convertis en tirets.
 
-Un nom d’environnement _cannot_ incluez des caractères réservés à votre shell Linux ou à des expressions régulières. Les caractères interdits incluent des accolades (`{ }`), parenthèses, astérisque (`*`), chevrons (`< >`), esperluette (`&`), pourcentage (`%`), et autres caractères.
+Un nom d’environnement _ne peut pas_ inclure des caractères réservés à votre shell Linux ou à des expressions régulières. Les caractères interdits sont les accolades (`{ }`), les parenthèses, l’astérisque (`*`), les chevrons (`< >`), l’esperluette (`&`), le pourcentage (`%`) et d’autres caractères.
 
-La variable `magento-cloud environment:list` affiche des hiérarchies d’environnement, alors que `git branch` ne le fait pas. Si vous disposez d’environnements imbriqués, utilisez les méthodes suivantes :
+La commande `magento-cloud environment:list` affiche des hiérarchies d’environnement, contrairement à `git branch`. Si vous disposez d’environnements imbriqués, utilisez les méthodes suivantes :
 
 ```bash
 magento-cloud environment:list
@@ -102,9 +102,9 @@ Are you sure you want to redeploy the environment <environment-name>? [Y/n]
 
 ## Commandes Git
 
-Vous remarquerez peut-être que certaines de ces commandes sont similaires aux commandes Git. La variable `magento-cloud` Les commandes se connectent directement au projet Cloud basé sur Git avec des fonctionnalités supplémentaires. Si vous créez une branche sans utiliser la variable `magento-cloud` Interface en ligne de commande, elle n’est pas &quot;activée&quot; et ne se génère pas automatiquement lorsque vous placez des modifications dans l’environnement distant. La variable `magento-cloud` La commande d’interface de ligne de commande inclut l’activation.
+Vous remarquerez peut-être que certaines de ces commandes sont similaires aux commandes Git. Les commandes `magento-cloud` se connectent directement au projet Cloud basé sur Git avec des fonctionnalités supplémentaires. Si vous créez une branche sans utiliser l’interface de ligne de commande `magento-cloud`, elle n’est pas &quot;activée&quot; et ne se crée pas automatiquement lorsque vous placez des modifications dans l’environnement distant. La commande d’interface de ligne de commande `magento-cloud` inclut l’activation.
 
-Pour créer une branche, utilisez la méthode `magento-cloud` pour activer la branche.
+Pour créer une branche, utilisez la commande `magento-cloud` afin que la branche soit activée.
 
 ```bash
 magento-cloud environment:branch <new-name> <parent-branch>
@@ -112,8 +112,8 @@ magento-cloud environment:branch <new-name> <parent-branch>
 
 Pour l’état de la branche :
 
-- Utilisez la variable `magento-cloud env` pour afficher la liste des branches de l&#39;environnement et leur état : actif ou inactif.
-- Utilisez la variable `magento-cloud environment:activate` pour activer une branche d’environnement.
+- Utilisez la commande `magento-cloud env` pour afficher la liste des branches de l&#39;environnement et leur état : actif ou inactif.
+- Utilisez la commande `magento-cloud environment:activate` pour activer une branche d’environnement.
 
 Envoyez une validation Git vide pour déclencher un déploiement. Par exemple :
 
@@ -129,7 +129,7 @@ Les étapes suivantes montrent comment gérer votre environnement local à l’a
 
 1. Sur votre poste de travail local, modifiez le répertoire de votre projet.
 
-1. Basculez vers le [propriétaire du système de fichiers](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/prerequisites/file-system/configure-permissions.html).
+1. Passez à l’ [propriétaire du système de fichiers](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/prerequisites/file-system/configure-permissions.html).
 
 1. Connectez-vous à votre projet.
 
@@ -151,7 +151,7 @@ Les étapes suivantes montrent comment gérer votre environnement local à l’a
 
    >[!NOTE]
    >
-   >Il est important d’utiliser la variable `magento-cloud environment:list` , car elle affiche des hiérarchies d’environnement, tandis que la fonction `git branch` ne l’est pas.
+   >Il est important d’utiliser la commande `magento-cloud environment:list`, car elle affiche des hiérarchies d’environnement, contrairement à la commande `git branch`.
 
 1. Récupérez les branches d’origine pour obtenir le code le plus récent.
 
@@ -165,11 +165,11 @@ Les étapes suivantes montrent comment gérer votre environnement local à l’a
    magento-cloud environment:checkout <environment-ID>
    ```
 
-   Les commandes Git extraient uniquement la branche Git. La variable `magento-cloud checkout` extrait la branche et bascule vers l’environnement actif.
+   Les commandes Git extraient uniquement la branche Git. La commande `magento-cloud checkout` extrait la branche et passe à l’environnement actif.
 
    >[!TIP]
    >
-   >Vous pouvez créer une branche d’environnement à l’aide de la fonction `magento-cloud environment:branch <environment-name> <parent-environment-ID>` syntaxe de commande. La création et l’activation d’une branche d’environnement peuvent prendre du temps.
+   >Vous pouvez créer une branche d’environnement à l’aide de la syntaxe de commande `magento-cloud environment:branch <environment-name> <parent-environment-ID>`. La création et l’activation d’une branche d’environnement peuvent prendre du temps.
 
 1. Utilisez l’ID d’environnement pour extraire le code mis à jour dans votre environnement local. Cela n’est pas nécessaire si la branche d’environnement est nouvelle.
 
@@ -185,9 +185,9 @@ Les étapes suivantes montrent comment gérer votre environnement local à l’a
 
 ## Mise à jour de l’interface de ligne de commande
 
-La variable `magento-cloud` L’interface en ligne de commande recherche les mises à jour disponibles lorsque vous vous connectez, mais vous pouvez les rechercher à l’aide de la variable `self:update` . Si une mise à jour est disponible, suivez les instructions pour mettre à jour l’interface de ligne de commande.
+L’interface de ligne de commande `magento-cloud` recherche les mises à jour disponibles lorsque vous vous connectez, mais vous pouvez rechercher les mises à jour à l’aide de la commande `self:update`. Si une mise à jour est disponible, suivez les instructions pour mettre à jour l’interface de ligne de commande.
 
-Si votre `magento-cloud` L’interface en ligne de commande est à jour. La réponse suivante s’affiche :
+Si votre interface de ligne de commande `magento-cloud` est à jour, la réponse suivante s’affiche :
 
 ```bash
 magento-cloud update

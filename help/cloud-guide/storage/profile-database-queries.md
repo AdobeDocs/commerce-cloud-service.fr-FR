@@ -14,9 +14,9 @@ ht-degree: 0%
 
 Lorsque vous écrivez dans une base de données, il peut être utile d’exécuter le profilage pour identifier l’impact de ces modifications. Le profilage conserve un journal des requêtes de la base de données et augmente la précision d’exécution.
 
-**Pour activer le profilage des requêtes de base de données**:
+**Pour activer le profilage des requêtes de base de données** :
 
-1. [Connexion à la base de données](../services/mysql.md#connect-to-the-database).
+1. [Connectez-vous à la base de données](../services/mysql.md#connect-to-the-database).
 
 1. Activez le profilage.
 

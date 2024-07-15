@@ -5,7 +5,7 @@ source-wordcount: '96'
 ht-degree: 0%
 
 ---
-# Extensions PHP pour le Cloud
+# Extensions PHP pour Cloud
 
 <table style="table-layout:auto">
     <thead>
@@ -14,10 +14,10 @@ ht-degree: 0%
             Extensions par défaut
         </th>
         <th>
-            Extensions installées ne pouvant pas être désinstallées
+            Extensions installées non désinstallées
         </th>
         <th>
-            Les extensions qui peuvent être installées et désinstallées si nécessaire
+            Extensions qui peuvent être installées et désinstallées si nécessaire
         </th>
       </tr>
     </thead>
@@ -26,7 +26,7 @@ ht-degree: 0%
             <td>
                 bcmath<br>
                 bz2<br>
-                calendrier<br>
+                calendar<br>
                 exif<br>
                 gd<br>
                 gettext<br>
@@ -34,42 +34,42 @@ ht-degree: 0%
                 libxml<br>
                 mysqli<br>
                 opcache<br>
-                ouate ouverte<br>
+                openswoole<br>
                 pcntl<br>
                 pdo_mysql<br>
-                Réflexion<br>
-                savon<br>
+                Reflection<br>
+                soap<br>
                 sockets<br>
                 SPL<br>
-                norme<br>
+                standard<br>
                 sysvmsg<br>
-                système<br>
-                systemShm<br>
+                sysvsem<br>
+                sysvshm<br>
                 zip<br>
                 zlib<br>
             </td>
             <td>
                 ctype<br>
-                boucler<br>
+                curl<br>
                 date<br>
                 dba<br>
                 dom<br>
                 fileinfo<br>
-                filtre<br>
+                filter<br>
                 ftp<br>
-                hachage<br>
+                hash<br>
                 iconv<br>
                 json<br>
                 mbstring<br>
                 mysqlnd<br>
                 openssl<br>
                 pcre<br>
-                aop<br>
+                pdo<br>
                 pdo_sqlite<br>
                 phar<br>
                 posix<br>
-                ligne de lecture<br>
-                séance<br>
+                readline<br>
+                session<br>
                 sqlite3<br>
                 tokenizer<br>
                 xml<br>
@@ -77,27 +77,27 @@ ht-degree: 0%
                 xmlwriter<br>
             </td>
             <td>
-                géoip<br>
+                geoip<br>
                 gmp<br>
-                igbinaire<br>
+                igbinary<br>
                 imagick<br>
                 imap<br>
                 ldap<br>
-                analyse de courrier<br>
+                mailparse<br>
                 mcrypt<br>
                 msgpack<br>
                 mysqli<br>
                 oauth<br>
                 pdo_mysql<br>
                 propro<br>
-                épeler<br>
-                graphique<br>
-                recoder<br>
-                rouge<br>
-                douilles de décharge<br>
+                pspell<br>
+                raphf<br>
+                enregistrement<br>
+                redis<br>
+                sockets shmop<br>
                 sodium<br>
                 ssh2<br>
-                bien rangé<br>
+                tidy<br>
                 xdebug<br>
                 xmlrpc<br>
                 xsl<br>

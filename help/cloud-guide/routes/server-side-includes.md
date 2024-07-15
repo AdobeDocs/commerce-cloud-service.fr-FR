@@ -12,9 +12,9 @@ ht-degree: 0%
 
 # Inclusions côté serveur
 
-[Inclusions côté serveur](https://nginx.org/en/docs/http/ngx_http_ssi_module.html) (SSI) sont des directives dans les pages de HTML qui sont évaluées sur le serveur pendant le rendu des pages. SSI vous permet d’ajouter du contenu généré dynamiquement à une page de HTML existante sans diffuser la page entière.
+[Les inclusions côté serveur](https://nginx.org/en/docs/http/ngx_http_ssi_module.html) (SSI) sont des directives dans les pages d’HTML qui sont évaluées sur le serveur pendant le rendu des pages. SSI vous permet d’ajouter du contenu généré dynamiquement à une page d’HTML existante sans diffuser la page entière.
 
-Dans votre `.magento/routes.yaml`; par exemple :
+Vous pouvez activer ou désactiver l’SSI sur une base par itinéraire dans votre `.magento/routes.yaml`, par exemple :
 
 ```yaml
     "http://{default}/":
@@ -31,18 +31,18 @@ Dans votre `.magento/routes.yaml`; par exemple :
             enabled: true
 ```
 
-SSI vous permet d’inclure dans vos directives de réponse de HTML qui font que le serveur remplit des parties du HTML, en respectant les directives existantes. [configuration de mise en cache](caching.md).
+SSI vous permet d’inclure dans vos directives de réponse à l’HTML, en raison desquelles le serveur remplit certaines parties de l’HTML, en respectant toute configuration de [mise en cache](caching.md) existante.
 
 L’exemple suivant montre comment insérer une commande de date dynamique en haut d’une page et une autre commande de date en bas, qui se met à jour toutes les 600 secondes :
 
-Ajoutez ce qui suit à n’importe quelle page, par exemple `/index.php`:
+Ajoutez ce qui suit à n’importe quelle page, par exemple `/index.php` :
 
 ```php?start_inline=1
 echo date(DATE_RFC2822);
 <!--#include virtual="time.php" -->
 ```
 
-Ajoutez ce qui suit à `time.php`:
+Ajoutez ce qui suit à `time.php` :
 
 ```php?start_inline=1
 header("Cache-Control: max-age=600");

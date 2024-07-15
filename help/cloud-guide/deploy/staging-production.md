@@ -20,49 +20,49 @@ Lorsque vous êtes prêt à déployer votre magasin, vous devez effectuer le dé
 >
 >Adobe recommande de créer une [sauvegarde](../storage/snapshots.md) de l’environnement avant les déploiements.
 
-Vous pouvez également activer [Suivi des déploiements avec New Relic](../monitor/track-deployments.md) pour surveiller les événements de déploiement et vous aider à analyser les performances entre les déploiements.
+En outre, vous pouvez activer le [suivi des déploiements avec New Relic](../monitor/track-deployments.md) pour surveiller les événements de déploiement et vous aider à analyser les performances entre les déploiements.
 
 ## Flux de déploiement de démarrage
 
-Adobe recommande de créer une `staging` de la branche `master` pour prendre en charge au mieux le développement et le déploiement de votre plan de démarrage. Deux de vos quatre environnements actifs sont ensuite prêts : `master` pour la production et `staging` pour l’évaluation.
+Adobe recommande de créer une branche `staging` à partir de la branche `master` pour prendre en charge au mieux le développement et le déploiement de votre plan de démarrage. Ensuite, deux de vos quatre environnements actifs sont prêts : `master` pour la production et `staging` pour l’évaluation.
 
-Pour plus d’informations sur le processus, voir [Démarrer le développement et le déploiement du workflow](../architecture/starter-develop-deploy-workflow.md).
+Pour plus d’informations sur le processus, voir [Démarrer le développement et le déploiement du processus](../architecture/starter-develop-deploy-workflow.md).
 
 ## Flux de déploiement Pro
 
-Pro est fourni avec un grand environnement d’intégration avec deux branches actives, une `master` branches Branche, Évaluation et Production. Lorsque vous créez votre projet, le code est prêt à se branche, à se développer et à effectuer des transmissions pour créer et déployer votre site. Bien que l’environnement d’intégration puisse comporter de nombreuses branches, l’évaluation et la production ne comportent qu’une seule branche pour chaque environnement.
+Pro est fourni avec un grand environnement d’intégration avec deux branches actives, une branche globale `master`, des branches d’évaluation et de production. Lorsque vous créez votre projet, le code est prêt à se branche, à se développer et à effectuer des transmissions pour créer et déployer votre site. Bien que l’environnement d’intégration puisse comporter de nombreuses branches, l’évaluation et la production ne comportent qu’une seule branche pour chaque environnement.
 
-Pour plus d’informations sur le processus, voir [Processus de développement et de déploiement Pro](../architecture/pro-develop-deploy-workflow.md).
+Pour plus d’informations sur le processus, voir [Workflow de développement et de déploiement Pro](../architecture/pro-develop-deploy-workflow.md).
 
 ## Déploiement du code vers l’évaluation
 
-L’environnement d’évaluation fournit un environnement de quasi-production qui comprend une base de données, un serveur web et tous les services, y compris Fastly et New Relic. Vous pouvez entièrement effectuer des transmissions de type push, fusion et déploiement via le [[!DNL Cloud Console]](../project/overview.md) ou [Commandes de l’interface de ligne de commande du cloud](../dev-tools/cloud-cli-overview.md) par le biais d’une application terminal.
+L’environnement d’évaluation fournit un environnement de quasi-production qui comprend une base de données, un serveur web et tous les services, y compris Fastly et New Relic. Vous pouvez entièrement pousser, fusionner et déployer par le biais des [[!DNL Cloud Console]](../project/overview.md) ou des [commandes de l’interface de ligne de commande Cloud](../dev-tools/cloud-cli-overview.md) via une application de terminal.
 
 ### Déployez du code avec le [!DNL Cloud Console]
 
-La variable [!DNL Cloud Console] fournit des fonctionnalités pour créer, gérer et déployer du code dans les environnements d’intégration, d’évaluation et de production pour les plans Starter et Pro.
+[!DNL Cloud Console] fournit des fonctionnalités pour créer, gérer et déployer du code dans les environnements d’intégration, d’évaluation et de production pour les plans Starter et Pro.
 
-**Pour les projets Pro, déployez la branche d’intégration vers l’évaluation.**:
+**Pour les projets Pro, déployez la branche d’intégration vers l’évaluation** :
 
-1. [Connexion](https://accounts.magento.cloud) à votre projet.
-1. Sélectionnez la variable `integration` branche.
-1. Sélectionnez la variable **Fusion** pour effectuer un déploiement vers l’évaluation.
+1. [Connectez-vous](https://accounts.magento.cloud) à votre projet.
+1. Sélectionnez la branche `integration`.
+1. Sélectionnez l’option **Fusionner** à déployer vers l’évaluation.
 
-   ![Fusion](../../assets/button-merge.png){width="150"}
+   ![Fusionner](../../assets/button-merge.png){width="150"}
 
-1. Compléter tout [test](../test/staging-and-production.md) dans l’environnement d’évaluation.
-1. Lorsque l’évaluation est prête, sélectionnez la variable **Fusion** pour effectuer un déploiement vers Production.
+1. Complétez tous les [tests](../test/staging-and-production.md) dans l’environnement d’évaluation.
+1. Lorsque l’évaluation est prête, sélectionnez l’option **Fusionner** à déployer en production.
 
-**Pour commencer, déployez la branche de développement vers l’évaluation.**:
+**Pour commencer, déployez la branche de développement vers l’évaluation** :
 
-1. [Connexion](https://accounts.magento.cloud) à votre projet.
+1. [Connectez-vous](https://accounts.magento.cloud) à votre projet.
 1. Sélectionnez la branche de code préparée.
-1. Sélectionnez la variable **Fusion** pour effectuer un déploiement vers l’évaluation.
+1. Sélectionnez l’option **Fusionner** à déployer vers l’évaluation.
 
-   ![Fusion](../../assets/button-merge.png){width="150"}
+   ![Fusionner](../../assets/button-merge.png){width="150"}
 
-1. Compléter tout [test](../test/staging-and-production.md) dans l’environnement d’évaluation.
-1. Lorsque l’évaluation est prête, sélectionnez la variable **Fusion** option de déploiement en production (`master`).
+1. Complétez tous les [tests](../test/staging-and-production.md) dans l’environnement d’évaluation.
+1. Lorsque l’évaluation est prête, sélectionnez l’option **Fusionner** à déployer en production (`master`).
 
 ### Déploiement du code avec la ligne de commande
 
@@ -140,11 +140,11 @@ L’interface de ligne de commande de Cloud fournit des commandes pour déployer
 
 ## Migration de fichiers statiques
 
-[Fichiers statiques](https://experienceleague.adobe.com/docs/commerce-operations/operational-playbook/glossary.html) sont stockées dans `mounts`. Il existe deux méthodes pour migrer des fichiers d’un emplacement de montage source, tel que votre environnement local, vers un emplacement de montage de destination. Les deux méthodes utilisent la méthode `rsync` , mais Adobe recommande d’utiliser la variable `magento-cloud` Interface en ligne de commande pour déplacer des fichiers entre l’environnement local et distant. Et Adobe recommande d’utiliser la variable `rsync` lors du déplacement de fichiers d’une source distante vers un autre emplacement distant.
+[Les fichiers statiques](https://experienceleague.adobe.com/docs/commerce-operations/operational-playbook/glossary.html) sont stockés dans `mounts`. Il existe deux méthodes pour migrer des fichiers d’un emplacement de montage source, tel que votre environnement local, vers un emplacement de montage de destination. Les deux méthodes utilisent l’utilitaire `rsync`, mais Adobe recommande d’utiliser l’interface de ligne de commande `magento-cloud` pour déplacer des fichiers entre l’environnement local et distant. Adobe recommande également d’utiliser la méthode `rsync` lors du déplacement de fichiers d’une source distante vers un autre emplacement distant.
 
 ### Migration de fichiers à l’aide de l’interface en ligne de commande
 
-Vous pouvez utiliser la variable `mount:upload` et `mount:download` Commandes d’interface de ligne de commande pour migrer des fichiers entre l’environnement local et distant. Les deux commandes utilisent la méthode `rsync` , mais les commandes de l’interface de ligne de commande fournissent des options et des invites adaptées à Adobe Commerce dans l’environnement d’infrastructure cloud. Par exemple, si vous utilisez la commande simple sans option, l’interface de ligne de commande vous invite à sélectionner le montage ou le montage à télécharger ou à télécharger.
+Vous pouvez utiliser les commandes d’interface de ligne de commande `mount:upload` et `mount:download` pour migrer des fichiers entre l’environnement local et distant. Les deux commandes utilisent l’utilitaire `rsync`, mais les commandes de l’interface de ligne de commande fournissent des options et des invites adaptées à Adobe Commerce dans l’environnement d’infrastructure cloud. Par exemple, si vous utilisez la commande simple sans option, l’interface de ligne de commande vous invite à sélectionner le montage ou le montage à télécharger ou à télécharger.
 
 ```bash
 magento-cloud mount:download
@@ -168,7 +168,7 @@ Downloading files from the remote mount pub/media to pub/media
 Are you sure you want to continue? [Y/n] Y
 ```
 
-**Pour charger des fichiers à partir d’un fichier local `pub/media/` dossier vers le dossier distant `pub/media/` dossier de l’environnement actuel**:
+**Pour charger des fichiers d’un dossier `pub/media/` local vers le dossier `pub/media/` distant pour l’environnement actuel** :
 
 ```bash
 magento-cloud mount:upload --source /path/to/project/pub/media/ --mount pub/media/
@@ -189,11 +189,11 @@ Are you sure you want to continue? [Y/n] Y
   total size is 154.57K  speedup is 18.23
 ```
 
-Utilisez la variable `--help` pour l’ `mount:upload` et `mount:download` pour afficher d’autres options. Par exemple, il existe une `--delete` pour supprimer les fichiers superflus lors de la migration.
+Utilisez l’option `--help` pour les commandes `mount:upload` et `mount:download` afin d’afficher d’autres options. Par exemple, il existe une option `--delete` pour supprimer les fichiers superflus pendant la migration.
 
 ### Migration des fichiers à l’aide de rsync
 
-Vous pouvez également utiliser la variable `rsync` pour migrer des fichiers.
+Vous pouvez également utiliser l’utilitaire `rsync` pour migrer des fichiers.
 
 ```bash
 rsync -azvP <source> <destination>
@@ -206,25 +206,25 @@ Cette commande utilise les options suivantes :
 - `v`-verbose
 - `P`-progression partielle
 
-Voir [rsync](https://linux.die.net/man/1/rsync) aide.
+Voir l’aide [rsync](https://linux.die.net/man/1/rsync) .
 
 >[!NOTE]
 >
->Pour transférer directement des médias d’environnements distants à distants, vous devez activer le transfert de l’agent SSH, voir [Conseils sur GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/using-ssh-agent-forwarding).
+>Pour transférer directement des médias d’environnements distants à distants, vous devez activer le transfert de l’agent SSH, voir [Guide GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/using-ssh-agent-forwarding).
 
-**Pour migrer directement des fichiers statiques d’environnements distants vers distants (approche rapide)**:
+**Pour migrer des fichiers statiques d’environnements distants vers distants directement (approche rapide)** :
 
-1. Utilisez SSH pour vous connecter à l’environnement source. N’utilisez pas la variable `magento-cloud` Interface de ligne de commande. En utilisant la variable `-A` est importante, car elle permet le transfert de la connexion de l’agent d’authentification.
+1. Utilisez SSH pour vous connecter à l’environnement source. N’utilisez pas l’interface de ligne de commande `magento-cloud`. L’utilisation de l’option `-A` est importante, car elle permet le transfert de la connexion de l’agent d’authentification.
 
    >[!TIP]
    >
-   >Pour rechercher la variable **Accès SSH** dans votre [!DNL Cloud Console], sélectionnez l’environnement et cliquez sur **Accès au site**.
+   >Pour trouver le lien **Accès SSH** dans votre [!DNL Cloud Console], sélectionnez l’environnement et cliquez sur **Accéder au site**.
 
    ```bash
    ssh -A <environment_ssh_link@ssh.region.magento.cloud>
    ```
 
-1. Utilisez la variable `rsync` pour copier la commande `pub/media` de votre environnement source vers un autre environnement distant.
+1. Utilisez la commande `rsync` pour copier le répertoire `pub/media` de votre environnement source vers un autre environnement distant.
 
    ```bash
    rsync -azvP pub/media/ <destination_environment_ssh_link@ssh.region.magento.cloud>:pub/media/
@@ -240,27 +240,27 @@ Voir [rsync](https://linux.die.net/man/1/rsync) aide.
 
 >[!BEGINSHADEBOX]
 
-**Condition préalable requise :** Un vidage de base de données (voir l’étape 3) doit inclure les déclencheurs de base de données. Pour les jeter, vérifiez que vous disposez de la variable [Privilège TRIGGER](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_trigger).
+**Condition préalable requise :** Un vidage de base de données (voir Étape 3) doit inclure des déclencheurs de base de données. Pour les jeter, vérifiez que vous disposez du privilège [TRIGGER](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_trigger).
 
 >[!IMPORTANT]
 >
 >La base de données de l’environnement d’intégration est strictement destinée aux tests de développement et peut inclure des données que vous ne souhaitez pas migrer vers les environnements d’évaluation et de production.
 
-Pour les déploiements d’intégration continue, Adobe **ne recommande pas** migration des données de l’intégration vers l’évaluation et la production. Vous pouvez transmettre des données de test ou remplacer des données importantes. Toutes les configurations essentielles sont transmises à l’aide de la variable [fichier de configuration](../store/store-settings.md) et `setup:upgrade` pendant la création et le déploiement.
+Pour les déploiements d’intégration continue, l’Adobe **ne recommande pas** de migrer les données de l’intégration vers l’évaluation et la production. Vous pouvez transmettre des données de test ou remplacer des données importantes. Toutes les configurations essentielles sont transmises à l’aide de la commande [fichier de configuration](../store/store-settings.md) et `setup:upgrade` lors de la création et du déploiement.
 
 >[!ENDSHADEBOX]
 
-Adobe **recommande** migration des données de la production vers l’évaluation afin de tester entièrement votre site et de le stocker dans un environnement de quasi-production avec tous les services et paramètres.
+Adobe **recommande** de migrer les données de la production vers l’évaluation afin de tester entièrement votre site et de le stocker dans un environnement de quasi-production avec tous les services et paramètres.
 
 >[!NOTE]
 >
->Pour transférer directement des médias d’environnements distants à distants, vous devez activer le transfert de l’agent SSH, voir [Conseils sur GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/using-ssh-agent-forwarding).
+>Pour transférer directement des médias d’environnements distants vers distants, vous devez activer le transfert de l’agent SSH, voir [Guide GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/using-ssh-agent-forwarding).
 
 ### Sauvegarde de la base
 
-Il est recommandé de créer une sauvegarde de la base de données. La procédure suivante utilise les conseils de [Sauvegarde de la base](../storage/database-dump.md).
+Il est recommandé de créer une sauvegarde de la base de données. La procédure suivante utilise les conseils de [Sauvegarde de la base de données](../storage/database-dump.md).
 
-**Pour vider la base**:
+**Pour vider la base de données** :
 
 1. [Utilisez SSH pour vous connecter à l’environnement distant](../development/secure-connections.md#use-an-ssh-command) qui contient la base de données à copier.
 
@@ -270,9 +270,9 @@ Il est recommandé de créer une sauvegarde de la base de données. La procédur
    php -r 'print_r(json_decode(base64_decode($_ENV["MAGENTO_CLOUD_RELATIONSHIPS"]))->database);'
    ```
 
-   Pour les environnements d’évaluation et de production Pro, le nom de la base de données figure dans la variable `MAGENTO_CLOUD_RELATIONSHIPS` (généralement identique au nom et au nom d’utilisateur de l’application).
+   Pour Pro Staging et Production, le nom de la base de données se trouve dans la variable `MAGENTO_CLOUD_RELATIONSHIPS` (généralement identique au nom et au nom d’utilisateur de l’application).
 
-1. Créez une sauvegarde de la base. Pour choisir un répertoire cible pour le vidage DB, utilisez la méthode `--dump-directory` .
+1. Créez une sauvegarde de la base. Pour choisir un répertoire cible pour le vidage DB, utilisez l’option `--dump-directory`.
 
    Pour les environnements de démarrage et les environnements d’intégration Pro, utilisez `main` comme nom de la base de données :
 
@@ -281,8 +281,8 @@ Il est recommandé de créer une sauvegarde de la base de données. La procédur
    ```
 
    Options de vidage :
-   - `--dump-directory=<dir>`: choisissez un répertoire cible pour le vidage de la base de données.
-   - `--remove-definers`—Supprimer les instructions DEFINER du vidage de base de données
+   - `--dump-directory=<dir>` : choisissez un répertoire cible pour le vidage de la base de données.
+   - `--remove-definers` : suppression des instructions DEFINER du vidage de base de données
 
 1. Bien que la méthode CEE-Outils soit préférée, une autre méthode consiste à créer un fichier de vidage de base de données à l’aide de MySQL natif au format GZIP.
 
@@ -296,15 +296,15 @@ Il est recommandé de créer une sauvegarde de la base de données. La procédur
    mysqldump -h <database-host> --user=<database-username> --password=<password> --single-transaction --triggers --ignore-table=<database-name>.tfa_user_config --ignore-table=<database-name>.tfa_country_codes <database-name> | gzip - > /tmp/database.sql.gz
    ```
 
-1. Type `logout` pour arrêter la connexion SSH.
+1. Saisissez `logout` pour arrêter la connexion SSH.
 
 ### Déposer et recréer la base de données
 
 Lors de l&#39;import de données, vous devez déposer et créer une base de données.
 
-**Déposer et recréer la base de données**:
+**Pour déposer et recréer la base de données** :
 
-1. Créer une [tunnel SSH](../development/secure-connections.md#ssh-tunneling) à l’environnement distant.
+1. Créez un [tunnel SSH](../development/secure-connections.md#ssh-tunneling) vers l’environnement distant.
 
 1. Connexion au service de base de données.
 
@@ -312,7 +312,7 @@ Lors de l&#39;import de données, vous devez déposer et créer une base de donn
    mysql --host=127.0.0.1 --user='<database-username>' --pass='<user-password>' --database='<name>' --port='<port>'
    ```
 
-1. À l’emplacement `MariaDB [main]>` , déposez la base de données.
+1. A l&#39;invite `MariaDB [main]>`, déposez la base de données.
 
    Pour l’intégration de Starter et Pro :
 

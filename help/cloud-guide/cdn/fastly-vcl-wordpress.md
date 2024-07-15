@@ -12,9 +12,9 @@ ht-degree: 0%
 
 # Rétablir les requêtes vers le serveur principal CMS
 
-Déplacer les requêtes entrantes d’un magasin Adobe Commerce vers un site WordPress distinct à l’aide du module Fastly Edge _Autre intégration CMS/backend_ avec un dictionnaire Edge. Vous pouvez suivre un processus similaire pour dédiriger les requêtes vers d’autres serveurs principaux de CMS.
+Déplacez les requêtes entrantes d’un magasin Adobe Commerce vers un site WordPress distinct à l’aide du module Edge Fastly _Autre intégration CMS/back-end_ avec un dictionnaire Edge. Vous pouvez suivre un processus similaire pour dédiriger les requêtes vers d’autres serveurs principaux de CMS.
 
-Utilisez des modules Edge Fastly pour créer et charger du code VCL personnalisé à partir de l’administrateur au lieu d’écrire manuellement le code VCL et de le charger à l’aide de l’API Fastly.
+Utilisez des modules Edge rapides pour créer et charger du code VCL personnalisé à partir de l’administrateur au lieu d’écrire manuellement le code VCL et de le charger à l’aide de l’API Fastly.
 
 >[!NOTE]
 >
@@ -24,15 +24,15 @@ Utilisez des modules Edge Fastly pour créer et charger du code VCL personnalis�
 
 {{$include /help/_includes/vcl-snippet-prerequisites.md}}
 
-**Pour réacheminer des requêtes d’Adobe Commerce vers WordPress**:
+**Pour faire dévier des requêtes d’Adobe Commerce vers WordPress** :
 
-1. Activez les modules Edge Fastly dans l’environnement d’évaluation ou de production.
+1. Activez les modules Edge rapides dans l’environnement d’évaluation ou de production.
 
    - Connectez-vous à l’administrateur.
 
-   - Accédez à **Magasins** > Paramètres > **Configuration** > **Avancé** > **Système** > **Cache de page complète** > **Configuration rapide** > **Configuration avancée**.
+   - Accédez à **Magasins** > Paramètres > **Configuration** > **Avancé** > **Système** > **Cache de page complet** > **Configuration rapide** > **Configuration avancée**.
 
-   - Définissez la valeur de **Modules Edge Fastly** to **Oui**.
+   - Définissez la valeur de **Fastly Edge Modules** sur **Yes**.
 
    - Enregistrez la configuration.
 
@@ -44,8 +44,8 @@ Utilisez des modules Edge Fastly pour créer et charger du code VCL personnalis�
 
    - Ajoutez le serveur principal WordPress à la configuration de service Fastly et joignez la condition de demande pour les réécritures d’URL.
 
-   - Configurez la variable _Autre intégration CMS/backend_ Module Edge pour gérer les réécritures d’URL d’Adobe Commerce vers le serveur principal WordPress.
+   - Configurez le module Edge _Autre intégration CMS/serveur principal_ pour gérer les réécritures d’URL d’Adobe Commerce vers le serveur principal WordPress.
 
-     Pour obtenir des instructions détaillées, voir [Modules Edge rapides - Autres intégrations CMS/backend](https://github.com/fastly/fastly-magento2/blob/master/Documentation/Guides/Edge-Modules/EDGE-MODULE-OTHER-CMS-INTEGRATION.md) dans le _Module CDN rapide pour Magento 2_ la documentation.
+     Pour obtenir des instructions détaillées, reportez-vous à la section [Modules Edge Fastly - Autres intégrations CMS/backend](https://github.com/fastly/fastly-magento2/blob/master/Documentation/Guides/Edge-Modules/EDGE-MODULE-OTHER-CMS-INTEGRATION.md) dans la documentation _Module CDN Fastly pour Magento 2_ .
 
 1. Après avoir mis à jour la configuration du service Fastly, testez votre boutique Adobe Commerce pour vous assurer que les requêtes d’URL spécifiées pour WordPress sont correctement redirigées.

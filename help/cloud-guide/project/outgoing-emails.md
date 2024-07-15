@@ -11,31 +11,31 @@ ht-degree: 0%
 
 # Configuration des emails sortants
 
-Vous pouvez activer et désactiver les emails sortants pour chaque environnement à partir du [!DNL Cloud Console] ou à partir de la ligne de commande. Activez les e-mails sortants pour les environnements d’intégration et d’évaluation afin d’envoyer des e-mails d’authentification à deux facteurs ou de réinitialisation de mot de passe pour les utilisateurs de projet Cloud.
+Vous pouvez activer et désactiver les emails sortants pour chaque environnement à partir de [!DNL Cloud Console] ou de la ligne de commande. Activez les e-mails sortants pour les environnements d’intégration et d’évaluation afin d’envoyer des e-mails d’authentification à deux facteurs ou de réinitialisation de mot de passe pour les utilisateurs de projet Cloud.
 
-Par défaut, les emails sortants sont activés dans les environnements de production et d’évaluation. Cependant, [!UICONTROL Enable outgoing emails] peut apparaître désactivée dans les paramètres de l’environnement jusqu’à ce que vous définissiez la variable `enable_smtp` par l’intermédiaire de la propriété [ligne de commande](#enable-emails-in-the-cli) ou [Cloud Console](outgoing-emails.md#enable-emails-in-the-cloud-console).
+Par défaut, les emails sortants sont activés dans les environnements de production et d’évaluation. Cependant, [!UICONTROL Enable outgoing emails] peut apparaître désactivé dans les paramètres de l’environnement jusqu’à ce que vous définissiez la propriété `enable_smtp` via la [ligne de commande](#enable-emails-in-the-cli) ou la [console cloud](outgoing-emails.md#enable-emails-in-the-cloud-console).
 
-Mise à jour de la [!UICONTROL enable_smtp] valeur de propriété par [ligne de commande](#enable-emails-in-the-cli) modifie également la variable [!UICONTROL Enable outgoing emails] valeur de cet environnement sur Cloud Console.
+La mise à jour de la valeur de propriété [!UICONTROL enable_smtp] par [ligne de commande](#enable-emails-in-the-cli) modifie également la valeur de paramètre [!UICONTROL Enable outgoing emails] pour cet environnement sur la console cloud.
 
 {{redeploy-warning}}
 
 ## Activation des emails dans la console Cloud
 
-Utilisez la variable **[!UICONTROL Outgoing emails]** bascule dans le _Configuration de l’environnement_ pour activer ou désactiver la prise en charge des emails.
+Utilisez le bouton d’activation/désactivation **[!UICONTROL Outgoing emails]** de la vue _Configurer l’environnement_ pour activer ou désactiver la prise en charge des courriers électroniques.
 
-Si les emails sortants doivent être désactivés ou réactivés dans les environnements de production ou d’évaluation, vous pouvez envoyer une [ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide).
+Si les emails sortants doivent être désactivés ou réactivés dans les environnements de production ou d’évaluation, vous pouvez envoyer un [ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide).
 
 >[!TIP]
 >
->L’état des courriers électroniques sortants peut ne pas être reflété pour les environnements Pro dans Cloud Console. Utilisez plutôt la variable [ligne de commande](#enable-emails-in-the-cli) pour activer et tester les emails sortants.
+>L’état des courriers électroniques sortants peut ne pas être reflété pour les environnements Pro dans Cloud Console. Utilisez plutôt la [ligne de commande](#enable-emails-in-the-cli) pour activer et tester les emails sortants.
 
-**Pour gérer la prise en charge des courriers électroniques à partir du[!DNL Cloud Console]**:
+**Pour gérer la prise en charge des emails à partir de[!DNL Cloud Console]** :
 
-1. Connectez-vous au [[!DNL Cloud Console]](https://console.adobecommerce.com).
-1. Sélectionnez un projet dans le _Tous les projets_ liste.
+1. Connectez-vous à [[!DNL Cloud Console]](https://console.adobecommerce.com).
+1. Sélectionnez un projet dans la liste _Tous les projets_.
 1. Dans le tableau de bord du projet, cliquez sur l’icône de configuration en haut à droite.
 1. Cliquez sur **[!UICONTROL Environments]** et sélectionnez un environnement spécifique dans la liste.
-1. Pour activer ou désactiver les emails sortants, basculez _Activer les emails sortants_ **Activé** ou **Off**.
+1. Pour activer ou désactiver les emails sortants, activez _Activer les emails sortants_ **On** ou **Off**.
 
    ![Activer la configuration des emails sortants](../../assets/outgoing-emails.png)
 
@@ -43,9 +43,9 @@ Une fois le paramètre modifié, l’environnement est créé et déployé avec 
 
 ## Activation des emails dans l’interface de ligne de commande
 
-Vous pouvez modifier la configuration de l’email pour un environnement actif à l’aide de l’option `magento-cloud` CLI `environment:info` pour définir la variable `enable_smtp` . Activer les mises à jour SMTP `MAGENTO_CLOUD_SMTP_HOST` Variable d’environnement avec l’adresse IP de l’hôte SMTP pour l’envoi du courrier.
+Vous pouvez modifier la configuration des emails pour un environnement actif à l’aide de la commande `magento-cloud` CLI `environment:info` pour définir la propriété `enable_smtp`. L’activation du protocole SMTP met à jour la variable d’environnement `MAGENTO_CLOUD_SMTP_HOST` avec l’adresse IP de l’hôte SMTP pour l’envoi du courrier électronique.
 
-**Gestion de la prise en charge des emails à partir de la ligne de commande**:
+**Pour gérer la prise en charge des emails à partir de la ligne de commande** :
 
 1. Sur votre poste de travail local, modifiez le répertoire de votre projet.
 
@@ -55,7 +55,7 @@ Vous pouvez modifier la configuration de l’email pour un environnement actif �
    magento-cloud environment:info -e <environment-id> | grep enable_smtp
    ```
 
-1. Modifiez la configuration de la prise en charge des courriers électroniques en définissant la variable `enable_smtp` Variable d’environnement vers `true` ou `false`.
+1. Modifiez la configuration de la prise en charge des emails en définissant la variable d&#39;environnement `enable_smtp` sur `true` ou `false`.
 
    ```bash
    magento-cloud environment:info --refresh -e <environment-id> enable_smtp true

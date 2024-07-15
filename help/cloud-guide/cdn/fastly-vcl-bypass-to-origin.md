@@ -24,13 +24,13 @@ Vous pouvez configurer l’extrait de code pour contourner la mise en cache rapi
 
 {{$include /help/_includes/vcl-snippet-prerequisites.md}}
 
-**Pour contourner le cache rapide en fonction de l’adresse IP ou de l’URL**:
+**Pour contourner le cache rapide en fonction de l’adresse IP ou de l’URL** :
 
 {{admin-login-step}}
 
 1. Cliquez sur **Magasins** > Paramètres > **Configuration** > **Avancé** > **Système**.
 
-1. Développer **Cache de page complète** > **Configuration rapide** > **Fragments de code VCL personnalisés**.
+1. Développez **Cache de page complète** > **Configuration rapide** > **Fragments de code VCL personnalisés**.
 
 1. Cliquez sur **Créer un fragment de code personnalisé**.
 
@@ -42,7 +42,7 @@ Vous pouvez configurer l’extrait de code pour contourner la mise en cache rapi
 
    - **Priorité** — `5`
 
-   - **VCL** fragment de contenu —
+   - **VCL** contenu de fragment de code —
 
      L’exemple suivant contourne Fastly une adresse IP spécifique :
 
@@ -58,13 +58,13 @@ Vous pouvez configurer l’extrait de code pour contourner la mise en cache rapi
      if (req.url ~ "/media/feeds/GoogleShoppingHiVisNew.xml") {  return (pass);}
      ```
 
-     Pour établir une correspondance d’URL exacte, utilisez la variable `==` plutôt que l’opérateur `~` de l’opérateur. Voir [Référence VCL très rapide] pour plus d’informations.
+     Pour une correspondance d’URL exacte, utilisez l’opérateur `==` au lieu de l’opérateur `~`. Pour plus d’informations, voir la [référence VCL rapide] .
 
 1. Cliquez sur **Créer**.
 
    ![Créer un fragment de code VCL Contournement rapide](/help/assets/cdn/fastly-create-bypass-snippet.png)
 
-1. Une fois la page rechargée, cliquez sur **Chargement rapide de VCL** dans le *Configuration rapide* .
+1. Après le rechargement de la page, cliquez sur **Télécharger VCL vers Fastly** dans la section *Configuration Fastly* .
 
 1. Une fois le transfert terminé, actualisez le cache en fonction de la notification dans la partie supérieure de la page.
 

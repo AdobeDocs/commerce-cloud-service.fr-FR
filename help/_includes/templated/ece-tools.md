@@ -8,14 +8,14 @@ ht-degree: 0%
 # ece-tools
 
 <!-- The template to render with above values -->
-**Version**: 2002.1.18
+**Version** : 2002.1.18
 
-Cette référence contient 34 commandes disponibles via le `ece-tools` outil de ligne de commande.
-La liste initiale est générée automatiquement à l’aide de la fonction `ece-tools list` sur Adobe Commerce sur l’infrastructure cloud.
+Cette référence contient 34 commandes disponibles via l’outil de ligne de commande `ece-tools`.
+La liste initiale est générée automatiquement à l’aide de la commande `ece-tools list` sur Adobe Commerce sur l’infrastructure cloud.
 
 >[!NOTE]
 >
->Cette référence est générée à partir du code base de l’application. Pour modifier le contenu, vous pouvez mettre à jour le code source de l’implémentation de la commande correspondante dans le [codebase](https://github.com/magento/magento-cloud-cli) et envoyer vos modifications pour révision. Une autre méthode consiste à _Donnez-nous vos commentaires_ (trouvez le lien en haut à droite). Pour obtenir des instructions sur les contributions, voir [Contributions au code](https://developer.adobe.com/commerce/contributor/guides/code-contributions/).
+>Cette référence est générée à partir du code base de l’application. Pour modifier le contenu, vous pouvez mettre à jour le code source pour l’implémentation de commande correspondante dans le référentiel [codebase](https://github.com/magento/magento-cloud-cli) et envoyer vos modifications pour révision. Une autre méthode consiste à _Laisser un commentaire_ (trouvez le lien en haut à droite). Pour obtenir des instructions sur les contributions, voir [Contributions au code](https://developer.adobe.com/commerce/contributor/guides/code-contributions/).
 
 ## `_complete`
 
@@ -33,14 +33,14 @@ Le type de conteneur (&quot;bash&quot;, &quot;fish&quot;, &quot;zsh&quot;)
 
 ### `--input`, `-i`
 
-Un tableau de jetons d’entrée (par exemple, &quot;C.C._WORDS&quot; ou &quot;argv&quot;)
+Tableau de jetons d’entrée (COMP_WORDS ou argv, par exemple)
 
 - Valeur par défaut : `[]`
 - Requiert une valeur
 
 ### `--current`, `-c`
 
-Index de la table &quot;input&quot; dans laquelle se trouve le curseur (par exemple, Throne_CWORD)
+Index du tableau &quot;input&quot; dans lequel se trouve le curseur (par exemple, COMP_CWORD)
 
 - Requiert une valeur
 
@@ -243,7 +243,7 @@ ece-tools db-dump [-d|--remove-definers] [-a|--dump-directory DUMP-DIRECTORY] [-
 
 ### `databases`
 
-Bases de données pour la sauvegarde. Valeurs disponibles : [principales ventes de devis]. Si la valeur de l’argument n’est pas spécifiée, les sauvegardes de la base de données sont créées à l’aide des informations d’identification stockées dans la variable `MAGENTO_CLOUD_RELATIONSHIP` variable d’environnement ou et `stage.deploy.DATABASE_CONFIGURATION` du fichier de configuration .magento.env.yaml.
+Bases de données pour la sauvegarde. Valeurs disponibles : [ ventes de devis principales]. Si la valeur de l’argument n’est pas spécifiée, les sauvegardes de la base de données sont créées à l’aide des informations d’identification stockées dans la variable d’environnement `MAGENTO_CLOUD_RELATIONSHIP` ou/et de la propriété `stage.deploy.DATABASE_CONFIGURATION` du fichier de configuration .magento.env.yaml.
 
 - Valeur par défaut : `[]`
 
@@ -955,7 +955,7 @@ Ne posez aucune question interactive
 
 ## `cloud:config:create`
 
-Crée une `.magento.env.yaml` avec la configuration de variable de version, de déploiement et de post-déploiement spécifiée. Remplace toutes les `.magento,.env.yaml` fichier .
+Crée un fichier `.magento.env.yaml` avec la configuration de variable de version, de déploiement et de post-déploiement spécifiée. Permet de remplacer tout fichier `.magento,.env.yaml` existant.
 
 ```bash
 ece-tools cloud:config:create <configuration>
@@ -1019,7 +1019,7 @@ Ne posez aucune question interactive
 
 ## `cloud:config:update`
 
-Met à jour le `.magento.env.yaml` avec la configuration spécifiée. Crée `.magento.env.yaml` s’il n’existe pas.
+Met à jour le fichier `.magento.env.yaml` existant avec la configuration spécifiée. Crée un fichier `.magento.env.yaml` s’il n’existe pas.
 
 ```bash
 ece-tools cloud:config:update <configuration>
@@ -1083,7 +1083,7 @@ Ne posez aucune question interactive
 
 ## `cloud:config:validate`
 
-Validations `.magento.env.yaml` fichier de configuration
+Valide le fichier de configuration `.magento.env.yaml`
 
 ```bash
 ece-tools cloud:config:validate

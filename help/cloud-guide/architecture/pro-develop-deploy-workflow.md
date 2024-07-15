@@ -12,45 +12,45 @@ ht-degree: 0%
 
 # Workflow du projet Pro
 
-Le projet Pro comprend un seul référentiel Git avec une valeur globale. `master` branche et trois environnements principaux :
+Le projet Pro comprend un seul référentiel Git avec une branche globale `master` et trois environnements principaux :
 
-1. **Production** environnement de lancement et de maintenance du site actif
-1. **Évaluation** environnement de test avec tous les services
-1. **Intégration** environnement de développement et de test
+1. Environnement **Production** pour lancer et gérer le site actif
+1. Environnement **d’évaluation** pour le test avec tous les services
+1. Environnement **d’intégration** pour le développement et le test
 
-![Liste des environnements Pro](../../assets/pro-environments.png)
+![Liste d’environnements Pro](../../assets/pro-environments.png)
 
 Ces environnements sont `read-only`, acceptant les modifications de code déployées à partir des branches transférées à partir de votre espace de travail local. Voir [Architecture Pro](pro-architecture.md) pour une présentation complète des environnements Pro. Voir [[!DNL Cloud Console]](../project/overview.md#cloud-console) pour un aperçu de la liste des environnements Pro dans la vue du projet.
 
-Le graphique suivant illustre le workflow de développement et de déploiement de Pro, qui utilise une approche simple d’embranchement git. You [development](#development-workflow) code à l’aide d’une branche active basée sur `integration` environnement, _pousser_ et _extraction_ Le code change pour et depuis votre branche distante active. Vous déployez du code vérifié par _fusion_ la branche distante vers la branche de base, qui active une [création et déploiement](#deployment-workflow) processus pour cet environnement.
+Le graphique suivant illustre le workflow de développement et de déploiement de Pro, qui utilise une approche simple d’embranchement git. Vous [ développez](#development-workflow) du code à l’aide d’une branche active basée sur l’environnement `integration`, _en poussant_ et _en extrayant_ du code change vers et depuis votre branche distante active. Vous déployez le code vérifié en _fusionnant_ la branche distante vers la branche de base, ce qui active un processus automatisé [de création et de déploiement](#deployment-workflow) pour cet environnement.
 
 ![Vue de haut niveau du workflow de développement d’architecture Pro](../../assets/pro-dev-workflow.png)
 
 ## Workflow de développement
 
-L’environnement d’intégration fournit une base unique. `integration` branche contenant votre Adobe Commerce sur le code d’infrastructure cloud. Vous pouvez créer une branche d’environnement active supplémentaire. Cela permet de déployer jusqu’à deux branches actives dans les conteneurs Platform as a service (PaaS). Le nombre d’environnements inactifs n’est pas limité.
+L’environnement d’intégration fournit une branche unique de base `integration` contenant votre Adobe Commerce sur le code d’infrastructure cloud. Vous pouvez créer une branche d’environnement active supplémentaire. Cela permet de déployer jusqu’à deux branches actives dans les conteneurs Platform as a service (PaaS). Le nombre d’environnements inactifs n’est pas limité.
 
 {{enhanced-integration-envs}}
 
-Les environnements de projet prennent en charge un processus d’intégration flexible et continu. Commencez par cloner la variable `integration` branche à votre dossier de projet local. Créez une branche ou plusieurs branches, développez de nouvelles fonctionnalités, configurez des modifications, ajoutez des extensions et déployez des mises à jour :
+Les environnements de projet prennent en charge un processus d’intégration flexible et continu. Commencez par cloner la branche `integration` dans votre dossier de projet local. Créez une branche ou plusieurs branches, développez de nouvelles fonctionnalités, configurez des modifications, ajoutez des extensions et déployez des mises à jour :
 
-- **Récupérer** change depuis `integration`
+- **Récupérer** modifications de `integration`
 
-- **Branche** de `integration`
+- **Branch** de `integration`
 
-- **Développer** code sur un poste de travail local, y compris [!DNL Composer] mises à jour
+- **Développez** du code sur un poste de travail local, y compris des mises à jour [!DNL Composer]
 
-- **Push** modifications du code à distance et validation
+- Le code **Push** est remplacé par distant et valide
 
-- **Fusion** to `integration` et test
+- **Fusionner** vers `integration` et tester
 
-Avec une branche de code développée et les fichiers de configuration correspondants, vos modifications de code sont prêtes à être fusionnées dans la variable `integration` branche pour des tests plus complets. La variable `integration` L’environnement est également idéal pour :
+Avec une branche de code développée et les fichiers de configuration correspondants, vos modifications de code sont prêtes à être fusionnées dans la branche `integration` pour des tests plus complets. L’environnement `integration` est également idéal pour :
 
-- **Intégration de services tiers**: tous les services ne sont pas disponibles dans l’environnement PaaS.
+- **Intégration de services tiers** : tous les services ne sont pas disponibles dans l’environnement PaaS.
 
-- **Génération des fichiers de gestion de configuration**—Certains paramètres de configuration sont _Lecture seule_ dans un environnement déployé.
+- **Génération de fichiers de gestion de configuration** : certains paramètres de configuration sont _Lecture seule_ dans un environnement déployé.
 
-- **Configuration de votre boutique**: vous devez configurer entièrement tous les paramètres de magasin à l’aide de l’environnement d’intégration. Vous pouvez trouver la variable **Store Admin URL** sur le _integration_ vue d’environnement dans _[!DNL Cloud Console]_.
+- **Configuration de votre magasin** : vous devez configurer entièrement tous les paramètres du magasin à l’aide de l’environnement d’intégration. Vous pouvez trouver l’ **URL d’administration de magasin** sur la vue d’environnement _intégration_ dans _[!DNL Cloud Console]_.
 
 ## Workflow de déploiement
 
@@ -72,7 +72,7 @@ Création d’actions de script :
 
 Déployer des actions de script :
 
-- Placez le site dans l’environnement cible dans un _Maintenance_ mode
+- Placez le site dans l’environnement cible en mode _Maintenance_
 
 - Déployer du contenu statique s’il n’est pas terminé pendant la génération
 
@@ -84,11 +84,11 @@ Après le processus de création et de déploiement, votre magasin revient en li
 
 ### Fusion vers l’intégration
 
-Combinez toutes les modifications de code vérifiées en fusionnant votre branche de développement active dans la base `integration` branche. Vous pouvez tester toutes vos modifications sur la page `integration` avant de promouvoir des modifications dans l’environnement d’évaluation.
+Combinez toutes les modifications de code vérifiées en fusionnant votre branche de développement active dans la branche de base `integration`. Vous pouvez tester toutes vos modifications sur la branche `integration` avant de les promouvoir dans l’environnement d’évaluation.
 
 ### Fusionner vers l’évaluation
 
-L’évaluation est un environnement de pré-production qui fournit tous les services et paramètres aussi proches que possible de l’environnement de production. Envoyez toujours vos modifications de code à partir de la fonction `integration` à l’environnement `staging` afin que vous puissiez effectuer des tests approfondis avec tous les services. La première fois que vous utilisez l’environnement intermédiaire, vous devez configurer des services, tels que [Réseau de diffusion de contenu Fastly](../cdn/fastly.md) et [New Relic](../monitor/new-relic-service.md). Configurez les passerelles de paiement, l’expédition, les notifications et d’autres services essentiels avec un environnement de test ou des informations d’identification de test.
+L’évaluation est un environnement de pré-production qui fournit tous les services et paramètres aussi proches que possible de l’environnement de production. Envoyez toujours vos modifications de code de l’environnement `integration` vers l’environnement `staging` afin que vous puissiez effectuer des tests approfondis avec tous les services. La première fois que vous utilisez l’environnement d’évaluation, vous devez configurer des services, tels que [Fastly CDN](../cdn/fastly.md) et [New Relic](../monitor/new-relic-service.md). Configurez les passerelles de paiement, l’expédition, les notifications et d’autres services essentiels avec un environnement de test ou des informations d’identification de test.
 
 Il est préférable de tester minutieusement chaque service, de vérifier vos outils de test de performances et d’effectuer des tests UAT en tant qu’administrateur et client, jusqu’à ce que vous estimiez que votre boutique est prête pour l’environnement de production. Voir [Déployer votre boutique](../deploy/staging-production.md).
 
@@ -101,6 +101,6 @@ Après des tests approfondis dans l’environnement d’évaluation, fusionnez-l
 
 ### Fusionner vers le Principal global
 
-Toujours envoyer une copie du code de production à la version globale `master` en cas de besoin émergent de déboguer l’environnement de production sans interrompre les services.
+Envoyez toujours une copie du code de production au `master` global en cas de besoin émergent pour déboguer l’environnement de production sans interrompre les services.
 
-Do **not** créer une branche à partir de Global `master`. Utilisez la variable `integration` branche pour créer des branches actives pour le développement et les correctifs.
+Ne **pas** créez une branche à partir de Global `master`. Utilisez la branche `integration` pour créer de nouvelles branches actives pour le développement et les correctifs.

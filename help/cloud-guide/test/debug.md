@@ -11,19 +11,19 @@ ht-degree: 0%
 
 # Configuration de Xdebug
 
-[!DNL Xdebug] est une extension pour déboguer votre code PHP. Bien que vous puissiez utiliser un IDE de votre choix, le code suivant explique comment configurer [!DNL Xdebug] et [!DNL PhpStorm] pour déboguer dans votre environnement local.
+[!DNL Xdebug] est une extension pour le débogage de votre code PHP. Bien que vous puissiez utiliser un IDE de votre choix, le code suivant explique comment configurer [!DNL Xdebug] et [!DNL PhpStorm] pour le débogage dans votre environnement local.
 
 >[!NOTE]
 >
->Vous pouvez configurer [!DNL Xdebug] s’exécuter dans l’environnement Cloud Docker pour le débogage local sans modifier la configuration de projet d’infrastructure cloud d’Adobe Commerce. Voir [Configuration de Xdebug pour Docker](https://developer.adobe.com/commerce/cloud-tools/docker/test/configure-xdebug/).
+>Vous pouvez configurer [!DNL Xdebug] pour qu’il s’exécute dans l’environnement Cloud Docker pour le débogage local sans modifier votre configuration de projet d’infrastructure cloud Adobe Commerce. Voir [Configuration de Xdebug pour Docker](https://developer.adobe.com/commerce/cloud-tools/docker/test/configure-xdebug/).
 
-Pour activer [!DNL Xdebug], vous devez configurer un fichier dans votre référentiel Git, configurer votre IDE et configurer le transfert de port. Vous pouvez configurer certains paramètres dans le `magento.app.yaml` fichier . Après modification, envoyez les modifications Git à l’ensemble des environnements de démarrage et d’intégration Pro afin d’activer [!DNL Xdebug]. [!DNL Xdebug] est déjà disponible dans les environnements d’évaluation et de production Pro.
+Pour activer [!DNL Xdebug], vous devez configurer un fichier dans votre référentiel Git, configurer votre IDE et configurer le transfert de port. Vous pouvez configurer certains paramètres dans le fichier `magento.app.yaml`. Après modification, envoyez les modifications Git à tous les environnements de démarrage et d’intégration Pro pour activer [!DNL Xdebug]. [!DNL Xdebug] est déjà disponible dans les environnements d’évaluation et de production Pro.
 
 Une fois la configuration effectuée, vous pouvez déboguer des commandes d’interface de ligne de commande, des requêtes Web et du code. N’oubliez pas que tous les environnements d’infrastructure de cloud sont en lecture seule. Cloner le code vers votre environnement de développement local pour effectuer le débogage. Pour les environnements d’évaluation et de production Pro, voir [instructions supplémentaires](#debug-for-pro-staging-and-production) pour [!DNL Xdebug].
 
 ## Conditions
 
-Pour exécuter et utiliser [!DNL Xdebug], vous avez besoin de l’URL SSH pour l’environnement. Vous pouvez localiser les informations via la variable [[!DNL Cloud Console]](../project/overview.md) ou votre [!DNL Cloud Onboarding UI].
+Pour exécuter et utiliser [!DNL Xdebug], vous avez besoin de l’URL SSH pour l’environnement. Vous pouvez localiser les informations via [[!DNL Cloud Console]](../project/overview.md) ou votre [!DNL Cloud Onboarding UI].
 
 ## Configuration de Xdebug
 
@@ -40,15 +40,15 @@ Pour ajouter [!DNL Xdebug], Adobe recommande de travailler dans [une branche de 
 
 ### Activation de Xdebug dans votre environnement
 
-Vous pouvez activer [!DNL Xdebug] directement à tous les environnements Starter et les environnements d’intégration Pro. Cette étape de configuration n’est pas requise pour les environnements de production et d’évaluation Pro. Voir [Débogage pour l’évaluation et la production Pro](#debug-for-pro-staging-and-production).
+Vous pouvez activer [!DNL Xdebug] directement dans tous les environnements Starter et les environnements d’intégration Pro. Cette étape de configuration n’est pas requise pour les environnements de production et d’évaluation Pro. Voir [Débogage pour l’évaluation et la production Pro](#debug-for-pro-staging-and-production).
 
-Pour activer [!DNL Xdebug] pour votre projet, ajoutez `xdebug` à la fonction `runtime:extensions` de la `.magento.app.yaml` fichier .
+Pour activer [!DNL Xdebug] pour votre projet, ajoutez `xdebug` à la section `runtime:extensions` du fichier `.magento.app.yaml`.
 
-**Pour activer Xdebug**:
+**Pour activer Xdebug** :
 
-1. Dans votre terminal local, ouvrez la `.magento.app.yaml` dans un éditeur de texte.
+1. Dans votre terminal local, ouvrez le fichier `.magento.app.yaml` dans un éditeur de texte.
 
-1. Dans le `runtime` sous `extensions`, ajoutez `xdebug`. Par exemple :
+1. Dans la section `runtime`, sous `extensions`, ajoutez `xdebug`. Par exemple :
 
    ```yaml
    runtime:
@@ -60,7 +60,7 @@ Pour activer [!DNL Xdebug] pour votre projet, ajoutez `xdebug` à la fonction `r
            - xdebug
    ```
 
-1. Enregistrez vos modifications dans le `.magento.app.yaml` et quittez l’éditeur de texte.
+1. Enregistrez vos modifications dans le fichier `.magento.app.yaml` et quittez l’éditeur de texte.
 
 1. Ajoutez, validez et poussez les modifications pour redéployer l’environnement.
 
@@ -76,54 +76,54 @@ Pour activer [!DNL Xdebug] pour votre projet, ajoutez `xdebug` à la fonction `r
    git push origin <environment-ID>
    ```
 
-Lorsqu’ils sont déployés dans des environnements de démarrage et des environnements d’intégration Pro, [!DNL Xdebug] est désormais disponible. Continuez à configurer votre IDE. Pour PhpStorm, voir [Configuration de PhpStorm](#configure-phpstorm).
+Lors du déploiement dans les environnements Starter et les environnements d’intégration Pro, [!DNL Xdebug] est désormais disponible. Continuez à configurer votre IDE. Pour PhpStorm, voir [Configuration de PhpStorm](#configure-phpstorm).
 
 ### Configuration de PhpStorm
 
-La variable [PhpStorm](https://www.jetbrains.com/phpstorm/) IDE doit être configuré pour fonctionner correctement avec [!DNL Xdebug].
+L&#39;IDE [PhpStorm](https://www.jetbrains.com/phpstorm/) doit être configuré pour fonctionner correctement avec [!DNL Xdebug].
 
-**Pour configurer PhpStorm de sorte qu’il fonctionne avec Xdebug**:
+**Pour configurer PhpStorm de sorte qu’il fonctionne avec Xdebug** :
 
-1. Dans votre projet PhpStorm, ouvrez le **Paramètres** du panneau.
+1. Dans votre projet PhpStorm, ouvrez le panneau **Paramètres**.
 
-   - _macOS_—Select **PhpStorm** > **Préférences**.
-   - _Windows/Linux_—Select **Fichier** > **Paramètres**.
+   - _macOS_ : sélectionnez **PhpStorm** > **Préférences**.
+   - _Windows/Linux_ : Sélectionnez **Fichier** > **Paramètres**.
 
-1. Dans le _Paramètres_ , développez et localisez le panneau **Langues et structures** > **PHP** > **Serveurs** .
+1. Dans le panneau _Settings_, développez et localisez la section **Languages &amp; Frameworks** > **PHP** > **Servers** .
 
-1. Cliquez sur le bouton **+** pour ajouter une configuration de serveur. Le nom du projet est en gris dans la partie supérieure.
+1. Cliquez sur **+** pour ajouter une configuration de serveur. Le nom du projet est en gris dans la partie supérieure.
 
-1. [Facultatif] Configurez les paramètres suivants pour la nouvelle configuration du serveur. Voir [Aucun serveur de débogage configuré](https://www.jetbrains.com/help/phpstorm/troubleshooting-php-debugging.html#no-debug-server-is-configured) dans le _PHPStorm_ la documentation.
+1. [Facultatif] Configurez les paramètres suivants pour la nouvelle configuration de serveur. Voir [Aucun serveur de débogage configuré](https://www.jetbrains.com/help/phpstorm/troubleshooting-php-debugging.html#no-debug-server-is-configured) dans la documentation _PHPStorm_.
 
-   - **Nom**: saisissez le même nom que le nom d’hôte. Cette valeur doit correspondre à la valeur de la variable `PHP_IDE_CONFIG` dans [Commandes de l’interface de ligne de commande de débogage](#debug-cli-commands) pour utiliser l’interface de ligne de commande pour le débogage.
-   - **Hôte**: saisissez le nom d’hôte.
-   - **Port**—Enter `443`.
-   - **Debugger**—Select `Xdebug`.
+   - **Nom** : saisissez le même nom que le nom d’hôte. Cette valeur doit correspondre à la valeur de la variable `PHP_IDE_CONFIG` dans les [commandes de l’interface de ligne de commande de débogage](#debug-cli-commands) pour utiliser l’interface de ligne de commande pour le débogage.
+   - **Hôte** : saisissez le nom d’hôte.
+   - **Port**—Entrez `443`.
+   - **Debugger**—Sélectionnez `Xdebug`.
 
-1. Sélectionner **Utilisation des mappages de chemins**. Dans le _Fichier/Répertoire_ , à la racine du projet pour la `serverName` s’affiche.
+1. Sélectionnez **Utiliser les mappages de chemin d’accès**. Dans le volet _File/Directory_, la racine du projet pour `serverName` s’affiche.
 
-1. Dans le **Chemin absolu sur le serveur** , cliquez sur le bouton **Modifier** et ajoutez un paramètre basé sur l’environnement.
+1. Dans la colonne **Chemin absolu sur le serveur**, cliquez sur l&#39;icône **Modifier** et ajoutez un paramètre basé sur l&#39;environnement.
 
    - Pour tous les environnements Starter et les environnements d’intégration Pro, le chemin d’accès distant est `/app`.
    - Pour les environnements d’évaluation et de production Pro :
 
       - Production : `/app/<project_code>/`
-      - Évaluation :  `/app/<project_code>_stg/`
+      - Évaluation : `/app/<project_code>_stg/`
 
-1. Modifiez la variable [!DNL Xdebug] au port 9000 dans la variable **Langues et structures** > **PHP** > **Déboguer** > **Xdebug** > **Debug Port** du panneau.
+1. Remplacez le port [!DNL Xdebug] par 9000 dans le panneau **Languages &amp; Frameworks** > **PHP** > **Debug** > **Xdebug** > **Debug Port**.
 
-1. Cliquez sur **Appliquer**.
+1. Cliquez sur **Apply**.
 
 ### Configuration du transfert de port
 
-Faites correspondre la variable `XDEBUG` connexion du serveur à votre système local. Pour effectuer n’importe quel type de débogage, vous devez transférer le port 9000 de votre Adobe Commerce sur le serveur d’infrastructure cloud vers votre ordinateur local. Consultez l’une des sections suivantes :
+Mappez la connexion `XDEBUG` du serveur à votre système local. Pour effectuer n’importe quel type de débogage, vous devez transférer le port 9000 de votre Adobe Commerce sur le serveur d’infrastructure cloud vers votre ordinateur local. Consultez l’une des sections suivantes :
 
 - [Transfert de port sous Mac ou UNIX](#port-forwarding-on-mac-or-unix)
 - [Transfert de port sous Windows](#port-forwarding-on-windows)
 
 #### Transfert de port sur Mac ou UNIX®
 
-**Pour configurer le transfert de port dans un environnement Mac ou UNIX®**:
+**Pour configurer le transfert de port dans un Mac ou dans un environnement UNIX®** :
 
 1. Ouvrez un terminal.
 
@@ -133,11 +133,11 @@ Faites correspondre la variable `XDEBUG` connexion du serveur à votre système 
    ssh -R 9000:localhost:9000 <ssh url>
    ```
 
-   Utilisez la variable `-v` (verbose) de sorte que chaque fois qu’un socket est connecté au port qui est transféré, il s’affiche dans le terminal.
+   Utilisez l’option `-v` (verbose) de sorte que chaque fois qu’un socket est connecté au port transféré, il s’affiche dans le terminal.
 
    Si une erreur &quot;impossible de se connecter&quot; ou &quot;impossible d’écouter le port à distance&quot; s’affiche, une autre session SSH active peut persister sur le serveur qui occupe le port 9000. Si cette connexion n&#39;est pas utilisée, vous pouvez l&#39;arrêter.
 
-**Pour résoudre les problèmes de connexion**:
+**Pour résoudre les problèmes de connexion** :
 
 1. Utilisez SSH pour vous connecter à l’environnement d’intégration, d’évaluation ou de production distant.
 
@@ -172,44 +172,44 @@ Faites correspondre la variable `XDEBUG` connexion du serveur à votre système 
 
 #### Transfert de port sous Windows
 
-Pour configurer le transfert de port (tunnel SSH) sous Windows, vous devez configurer votre application de terminal Windows. Cet exemple passe en revue la création d’un tunnel SSH à l’aide de [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). Vous pouvez utiliser d’autres applications telles que Cygwin. Pour plus d’informations sur les autres applications, consultez la documentation du fournisseur fournie avec ces applications.
+Pour configurer le transfert de port (tunnel SSH) sous Windows, vous devez configurer votre application de terminal Windows. Cet exemple passe par la création d’un tunnel SSH à l’aide de [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). Vous pouvez utiliser d’autres applications telles que Cygwin. Pour plus d’informations sur les autres applications, consultez la documentation du fournisseur fournie avec ces applications.
 
-**Pour configurer un tunnel SSH sous Windows à l’aide de Putty**:
+**Pour configurer un tunnel SSH sous Windows à l’aide de Putty** :
 
-1. Si vous ne l’avez pas déjà fait, téléchargez [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
+1. Si vous ne l&#39;avez pas déjà fait, téléchargez [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 
 1. Démarrez Putty.
 
-1. Dans le volet Catégorie , cliquez sur **Session**.
+1. Dans le volet Catégorie, cliquez sur **Session**.
 
 1. Renseignez les informations suivantes :
 
-   - **Nom d’hôte (ou adresse IP)** champ : saisissez la valeur [URL SSH](../development/secure-connections.md#connect-to-a-remote-environment) pour votre serveur Cloud
-   - **Port** champ : Entrée `22`
+   - **Nom d’hôte (ou adresse IP)** : Entrez l’ [URL SSH](../development/secure-connections.md#connect-to-a-remote-environment) pour votre serveur cloud
+   - Champ **Port** : Entrée `22`
 
-   ![Configuration de Putty](../../assets/xdebug/putty-session.png)
+   ![Configurer Putty](../../assets/xdebug/putty-session.png)
 
-1. Dans le _Catégorie_ volet, cliquez sur **Connexion** > **SSH** > **Tunnels**.
+1. Dans le volet _Category_, cliquez sur **Connection** > **SSH** > **Tunnels**.
 
 1. Renseignez les informations suivantes :
 
-   - **Port source** champ : Entrée `9000`
-   - **Destination** champ : Entrée `127.0.0.1:9000`
-   - Cliquez sur **Distant**
+   - Champ **Port Source** : Entrée `9000`
+   - Champ **Destination** : Entrez `127.0.0.1:9000`
+   - Cliquez sur **Remote**
 
 1. Cliquez sur **Ajouter**.
 
    ![Création d’un tunnel SSH dans Putty](../../assets/xdebug/putty-tunnels.png)
 
-1. Dans le _Catégorie_ volet, cliquez sur **Session**.
+1. Dans le volet _Category_, cliquez sur **Session**.
 
-1. Dans le **Sessions enregistrées** saisissez un nom pour ce tunnel SSH.
+1. Dans le champ **Sessions enregistrées** , saisissez un nom pour ce tunnel SSH.
 
 1. Cliquez sur **Enregistrer**.
 
-   ![Enregistrement de votre tunnel SSH](../../assets/xdebug/putty-session-save.png)
+   ![Enregistrer votre tunnel SSH](../../assets/xdebug/putty-session-save.png)
 
-1. Pour tester le tunnel SSH, cliquez sur **Chargement**, puis cliquez sur **Ouvrir**.
+1. Pour tester le tunnel SSH, cliquez sur **Load**, puis sur **Open**.
 
    Si une erreur &quot;impossible de se connecter&quot; s’affiche, vérifiez les éléments suivants :
 
@@ -218,15 +218,15 @@ Pour configurer le transfert de port (tunnel SSH) sous Windows, vous devez confi
 
 ## Accès SSH aux environnements Xdebug
 
-Pour lancer le débogage, effectuer la configuration, etc., vous avez besoin des commandes SSH pour accéder aux environnements. Vous pouvez obtenir ces informations à l’aide de la variable [[!DNL Cloud Console]](../development/secure-connections.md#use-an-ssh-command) et la feuille de calcul de votre projet.
+Pour lancer le débogage, effectuer la configuration, etc., vous avez besoin des commandes SSH pour accéder aux environnements. Vous pouvez obtenir ces informations par le biais de [[!DNL Cloud Console]](../development/secure-connections.md#use-an-ssh-command) et de la feuille de calcul de votre projet.
 
-Pour les environnements de démarrage et les environnements d’intégration Pro, vous pouvez utiliser les éléments suivants : `magento-cloud` Commande d’interface de ligne de commande pour SSH dans ces environnements :
+Pour les environnements Starter et les environnements d’intégration Pro, vous pouvez utiliser la commande d’interface de ligne de commande `magento-cloud` suivante pour SSH dans ces environnements :
 
 ```bash
 magento-cloud environment:ssh --pipe -e <environment-ID>
 ```
 
-Pour utiliser [!DNL Xdebug], SSH à l’environnement comme suit :
+Pour utiliser [!DNL Xdebug], SSH vers l’environnement comme suit :
 
 ```bash
 ssh -R <xdebug listen port>:<host>:<xdebug listen port> <SSH-URL>
@@ -242,22 +242,22 @@ ssh -R 9000:localhost:9000 pwga8A0bhuk7o-mybranch@ssh.us.magentosite.cloud
 
 >[!NOTE]
 >
->Dans les environnements d’évaluation et de production Pro, [!DNL Xdebug] est toujours disponible, car ces environnements disposent d’une configuration spéciale pour [!DNL Xdebug]. Toutes les requêtes web normales sont acheminées vers un processus PHP dédié qui n’a pas de [!DNL Xdebug]. Par conséquent, ces requêtes sont traitées normalement et ne sont pas soumises à une dégradation des performances lorsque [!DNL Xdebug] est chargé. Lorsqu’une requête web est envoyée, qui contient la variable [!DNL Xdebug] clé, elle est acheminée vers un processus PHP distinct qui possède [!DNL Xdebug] chargé.
+>Dans les environnements d’évaluation et de production Pro, [!DNL Xdebug] est toujours disponible, car ces environnements ont une configuration spéciale pour [!DNL Xdebug]. Toutes les requêtes web normales sont acheminées vers un processus PHP dédié qui n’a pas [!DNL Xdebug]. Par conséquent, ces requêtes sont traitées normalement et ne sont pas soumises à la dégradation des performances lorsque [!DNL Xdebug] est chargé. Lorsqu’une requête web est envoyée avec la clé [!DNL Xdebug], elle est acheminée vers un processus PHP distinct dont [!DNL Xdebug] est chargé.
 
-Pour utiliser [!DNL Xdebug] plus précisément, dans l’environnement d’évaluation et de production Pro, vous créez un tunnel SSH distinct et une session web à laquelle vous avez accès. Cette utilisation diffère de l’accès type, en ce qu’elle ne vous permet d’accéder qu’à vous et non à tous les utilisateurs.
+Pour utiliser [!DNL Xdebug] spécifiquement sur l’environnement d’évaluation et de production Pro-plan, vous créez un tunnel SSH distinct et une session web à laquelle vous avez accès. Cette utilisation diffère de l’accès type, en ce qu’elle ne vous permet d’accéder qu’à vous et non à tous les utilisateurs.
 
 Vous avez besoin des éléments suivants :
 
-- Commandes SSH pour accéder aux environnements. Vous pouvez obtenir ces informations à l’aide de la variable [[!DNL Cloud Console]](../project/overview.md) ou votre [!DNL Cloud Onboarding UI].
-- La variable `xdebug_key` valeur définie lors de la configuration des environnements d’évaluation et Pro.
+- Commandes SSH pour accéder aux environnements. Vous pouvez obtenir ces informations via [[!DNL Cloud Console]](../project/overview.md) ou votre [!DNL Cloud Onboarding UI].
+- La valeur `xdebug_key` définie lors de la configuration des environnements d’évaluation et Pro.
 
-  La variable `xdebug_key` peut être trouvé en utilisant SSH pour se connecter au noeud principal et s’exécuter :
+  L’ `xdebug_key` est accessible en utilisant SSH pour se connecter au noeud principal et s’exécuter :
 
   ```bash
   cat /etc/platform/*/nginx.conf | grep xdebug.sock | head -n1
   ```
 
-**Pour configurer un tunnel SSH vers un environnement d’évaluation ou de production**:
+**Pour configurer un tunnel SSH vers un environnement d’évaluation ou de production** :
 
 1. Ouvrez un terminal.
 
@@ -273,15 +273,15 @@ Vous avez besoin des éléments suivants :
    ssh -R /run/platform/USERNAME/xdebug.sock:localhost:9000 -N USERNAME@CLUSTER.ent.magento.cloud
    ```
 
-**Pour commencer le débogage à l’aide de l’URL de l’environnement**:
+**Pour commencer le débogage à l’aide de l’URL d’environnement** :
 
-1. Activez le débogage à distance. Rendez-vous sur le site dans le navigateur et ajoutez le code suivant à l’URL où `KEY` est la valeur de `xdebug_key`.
+1. Activez le débogage à distance. Rendez-vous sur le site dans le navigateur et ajoutez ce qui suit à l’URL où `KEY` est la valeur de `xdebug_key`.
 
    ```http
    ?XDEBUG_SESSION_START=KEY
    ```
 
-   Cette étape définit le cookie qui envoie les requêtes du navigateur pour déclencher [!DNL Xdebug].
+   Cette étape définit le cookie qui envoie les demandes du navigateur pour déclencher [!DNL Xdebug].
 
 1. Effectuez votre débogage avec [!DNL Xdebug].
 
@@ -293,7 +293,7 @@ Vous avez besoin des éléments suivants :
 
    >[!NOTE]
    >
-   >La variable `XDEBUG_SESSION_START` transmis par `POST` Les requêtes ne sont pas prises en charge.
+   >Les demandes `XDEBUG_SESSION_START` transmises par `POST` ne sont pas prises en charge.
 
 ## Commandes de l’interface de ligne de commande de débogage
 
@@ -324,7 +324,7 @@ Vous pouvez ajouter des options d’exécution, par exemple :
    php -d xdebug.profiler_enable=On -d xdebug.max_nesting_level=9999 bin/magento cache:clean
    ```
 
-   Dans les environnements d’évaluation et de production, vous devez spécifier le chemin d’accès au [!DNL Xdebug] fichier de configuration PHP lors du débogage des commandes de l’interface de ligne de commande, par exemple :
+   Dans les environnements d’évaluation et de production Pro, vous devez spécifier le chemin d’accès au fichier de configuration PHP [!DNL Xdebug] lors du débogage des commandes de l’interface de ligne de commande, par exemple :
 
    ```bash
    php -c /etc/platform/USERNAME/php.xdebug.ini bin/magento cache:clean
@@ -334,41 +334,41 @@ Vous pouvez ajouter des options d’exécution, par exemple :
 
 Les étapes suivantes vous aident à déboguer les requêtes web.
 
-1. Sur le _Extension_ , cliquez sur **Déboguer** pour l’activer.
+1. Dans le menu _Extension_, cliquez sur **Débogage** pour activer.
 
-1. Cliquez avec le bouton droit de la souris, sélectionnez le menu Options, puis définissez la touche IDE sur **PHPSTORM**.
+1. Cliquez avec le bouton droit de la souris, sélectionnez le menu Options, puis définissez la clé IDE sur **PHPSTORM**.
 
-1. Installez le [!DNL Xdebug] sur le navigateur. Configurez-le et activez-le.
+1. Installez le client [!DNL Xdebug] sur le navigateur. Configurez-le et activez-le.
 
 ### Exemple : configuration de Chrome
 
-Cette section explique comment utiliser [!DNL Xdebug] dans Chrome à l’aide de la fonction [!DNL Xdebug] Extension d’assistance. Pour plus d’informations sur [!DNL Xdebug] pour les autres navigateurs, consultez la documentation du navigateur.
+Cette section explique comment utiliser [!DNL Xdebug] dans Chrome à l’aide de l’extension [!DNL Xdebug] Helper. Pour plus d’informations sur les outils [!DNL Xdebug] d’autres navigateurs, consultez la documentation du navigateur.
 
-**Pour utiliser Xdebug Helper avec Chrome**:
+**Pour utiliser l’assistant Xdebug avec Chrome** :
 
-1. Créez un [tunnel SSH](#ssh-access-to-xdebug-environments) sur le serveur Cloud.
+1. Créez un [tunnel SSH](#ssh-access-to-xdebug-environments) vers le serveur cloud.
 
-1. Installez le [Extension Xdebug Helper](https://chromewebstore.google.com/detail/eadndfjplgieldjbigjakmdgkmoaaaoc) à partir de la boutique Chrome.
+1. Installez l’ [extension d’assistance Xdebug](https://chromewebstore.google.com/detail/eadndfjplgieldjbigjakmdgkmoaaaoc) à partir du magasin Chrome.
 
-1. Activez l’extension dans Chrome, comme illustré dans la figure suivante.
+1. Activez l’extension dans Chrome comme illustré dans la figure suivante.
 
-   ![Activation de l’extension Xdebug dans Chrome](../../assets/xdebug/enable-chrome-ext.png)
+   ![Activez l’extension Xdebug dans Chrome](../../assets/xdebug/enable-chrome-ext.png)
 
-1. Dans Chrome, cliquez avec le bouton droit de la souris sur l’icône d’assistance verte dans la barre d’outils de Chrome.
+1. Dans Chrome, cliquez avec le bouton droit de la souris sur l’icône d’assistance verte de la barre d’outils Chrome.
 
 1. Dans le menu contextuel, cliquez sur **Options**.
 
-1. Dans la _Clé IDE_ liste, cliquez sur **PhpStorm**.
+1. Dans la liste _Clé IDE_, cliquez sur **PhpStorm**.
 
 1. Cliquez sur **Enregistrer**.
 
-   ![Options de l’assistant Xdebug](../../assets/xdebug/helper-options.png)
+   ![Options d’assistance Xdebug](../../assets/xdebug/helper-options.png)
 
 1. Ouvrez votre projet PhpStorm.
 
-1. Dans la barre de navigation supérieure, cliquez sur le **Commencer à écouter** Icône
+1. Dans la barre de navigation supérieure, cliquez sur l’icône **Démarrer l’écoute** .
 
-   Si la barre de navigation ne s’affiche pas, cliquez sur **Affichage** > **Barre de navigation**.
+   Si la barre de navigation ne s’affiche pas, cliquez sur **Afficher** > **Barre de navigation**.
 
 1. Dans le volet de navigation de PhpStorm, double-cliquez sur le fichier PHP à tester.
 
@@ -380,17 +380,17 @@ La méthode que vous choisissez dépend de vous. Vous disposez des options suiva
 
 - Extraction de code à partir de Git et exécution `composer install`
 
-  Cette méthode fonctionne sauf si `composer.json` référence des modules dans des référentiels privés auxquels vous n’avez pas accès. Cette méthode permet d’obtenir le code base Adobe Commerce entier.
+  Cette méthode fonctionne à moins que `composer.json` ne référence des modules dans des référentiels privés auxquels vous n’avez pas accès. Cette méthode permet d’obtenir le code base Adobe Commerce entier.
 
-- Copiez le `vendor`, `app`, `pub`, `lib`, et `setup` répertoires
+- Copiez les répertoires `vendor`, `app`, `pub`, `lib` et `setup`
 
   Avec cette méthode, vous disposez de tout le code que vous pouvez tester. Selon le nombre de ressources statiques dont vous disposez, le transfert avec un volume de fichiers important peut être long.
 
-- Copiez le `vendor` directory only
+- Copiez le répertoire `vendor` uniquement
 
-  La plupart du code se trouve dans la variable `vendor` , cette méthode est susceptible de générer des tests pertinents, même si elle ne teste pas l’ensemble du code base.
+  Étant donné que la plupart du code se trouve dans le répertoire `vendor`, cette méthode est susceptible d’entraîner de bons tests, même si elle ne teste pas l’ensemble du code base.
 
-**Pour compresser les fichiers et les copier sur votre ordinateur local**:
+**Pour compresser des fichiers et les copier sur votre ordinateur local** :
 
 1. Utilisez SSH pour vous connecter à l’environnement distant.
 
@@ -400,7 +400,7 @@ La méthode que vous choisissez dépend de vous. Vous disposez des options suiva
    tar -czf /tmp/<file-name>.tgz <directory list>
    ```
 
-   Par exemple, pour compresser la variable `vendor` répertoire uniquement :
+   Par exemple, pour compresser uniquement le répertoire `vendor` :
 
    ```bash
    tar -czf /tmp/vendor.tgz vendor

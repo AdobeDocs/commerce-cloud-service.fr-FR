@@ -1,6 +1,6 @@
 ---
-title: Architecture cloud pour Commerce
-description: Découvrez le contraste des architectures de projet Starter et Pro pour l’infrastructure Commerce on Cloud.
+title: Architecture du cloud pour Commerce
+description: Découvrez le contraste des architectures de projet Starter et Pro pour Commerce sur l’infrastructure cloud.
 feature: Cloud, Iaas, Paas
 topic: Architecture
 recommendations: noDisplay
@@ -12,7 +12,7 @@ ht-degree: 0%
 
 ---
 
-# Architecture cloud pour Commerce
+# Architecture du cloud pour Commerce
 
 Adobe Commerce sur l’infrastructure cloud comporte un forfait Starter et Pro. Chaque plan dispose d’une architecture unique pour piloter votre processus de développement et de déploiement Adobe Commerce. Le plan de démarrage et l’architecture du plan Pro déploient des bases de données, des serveurs web et des serveurs de mise en cache dans plusieurs environnements pour des tests de bout en bout tout en prenant en charge l’intégration continue.
 
@@ -20,39 +20,39 @@ Adobe Commerce sur l’infrastructure cloud comporte un forfait Starter et Pro. 
 
 |          | Starter | Pro |
 | -------- | --------------------| ------------------ |
-| Fonctionnalités principales | <ul><li>[Toutes les fonctionnalités d’Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-operations/release/features.html)</li><li>Outil d’intégration PayPal</li><li>[Rapports Commerce](https://business.adobe.com/products/magento/business-intelligence.html?_ga=2.85288604.442698376.1665067470-1322106587.1655147209)</li></ul> | <ul><li>[Toutes les fonctionnalités d’Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-operations/release/features.html)</li><li>Outil d’intégration PayPal</li><li>[Rapports Commerce](https://business.adobe.com/products/magento/business-intelligence.html?_ga=2.85288604.442698376.1665067470-1322106587.1655147209)</li><li>[Module B2B](https://business.adobe.com/products/magento/b2b-ecommerce.html?_ga=2.105948422.442698376.1665067470-1322106587.1655147209)</li></ul> |
-| Infrastructure et déploiement | <ul><li>Outils d’intégration continue dans le cloud avec un nombre illimité d’utilisateurs</li><li>Réseau de diffusion de contenu rapide (CDN), optimisation d’image (IO), et ajout de sécurité avec de généreuses bande passante. Le service Web Application Firewall (WAF) est disponible uniquement dans les environnements de production.</li><li>[New Relic](../monitor/new-relic-service.md) APM (Performance Monitoring) sur 3 branches : `master` et 2 de votre choix<br>Environnements de production, d’évaluation et de développement Platform as a service (PaaS) (4 environnements actifs au total) optimisés pour Adobe Commerce</li><li>Filtrage sortant (pare-feu sortant)</li></ul> | <ul><li>Outils d’intégration continue dans le cloud avec un nombre illimité d’utilisateurs</li><li>Réseau de diffusion de contenu rapide (CDN), optimisation d’image (IO), et ajout de sécurité avec de généreuses bande passante. Le service Web Application Firewall (WAF) est disponible uniquement dans les environnements de production.</li><li>[New Relic](../monitor/new-relic-service.md) Infrastructure en production + APM (Performance Monitoring) en évaluation et en production. La variable [Stratégie d’alertes gérées](../monitor/investigate-performance.md#monitor-performance-with-managed-alerts) pour la stratégie Adobe Commerce, mettez en oeuvre les bonnes pratiques de surveillance afin de vous avertir de manière proactive des problèmes d’application et d’infrastructure affectant les performances du site.</li><li>Plateforme en tant que service (PaaS) [Développement de l’intégration](pro-architecture.md#integration-environment) Environnements (2 environnements actifs au total) optimisés pour Adobe Commerce</li><li>Infrastructure as a service (IaaS) : infrastructure virtuelle dédiée aux environnements d’évaluation et de production</li></ul> |
+| Fonctionnalités principales | <ul><li>[Toutes les fonctionnalités Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-operations/release/features.html)</li><li>Outil d’intégration PayPal</li><li>[Création de rapports Commerce](https://business.adobe.com/products/magento/business-intelligence.html?_ga=2.85288604.442698376.1665067470-1322106587.1655147209)</li></ul> | <ul><li>[Toutes les fonctionnalités Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-operations/release/features.html)</li><li>Outil d’intégration PayPal</li><li>[Création de rapports Commerce](https://business.adobe.com/products/magento/business-intelligence.html?_ga=2.85288604.442698376.1665067470-1322106587.1655147209)</li><li>[Module B2B](https://business.adobe.com/products/magento/b2b-ecommerce.html?_ga=2.105948422.442698376.1665067470-1322106587.1655147209)</li></ul> |
+| Infrastructure et déploiement | <ul><li>Outils d’intégration continue dans le cloud avec un nombre illimité d’utilisateurs</li><li>Réseau de diffusion de contenu rapide (CDN), optimisation d’image (IO), et ajout de sécurité avec de généreuses bande passante. Le service Web Application Firewall (WAF) est disponible uniquement dans les environnements de production.</li><li>[New Relic](../monitor/new-relic-service.md) APM (Suivi des performances) sur 3 branches : `master` et 2 de votre choix <br>Plateforme en tant que service (PaaS) ; production, évaluation et environnements de développement (4 environnements actifs au total) optimisés pour Adobe Commerce</li><li>Filtrage sortant (pare-feu sortant)</li></ul> | <ul><li>Outils d’intégration continue dans le cloud avec un nombre illimité d’utilisateurs</li><li>Réseau de diffusion de contenu rapide (CDN), optimisation d’image (IO), et ajout de sécurité avec de généreuses bande passante. Le service Web Application Firewall (WAF) est disponible uniquement dans les environnements de production.</li><li>[New Relic](../monitor/new-relic-service.md) Infrastructure en production + APM (Performance Monitoring) en évaluation et en production. La [stratégie d’alertes gérées](../monitor/investigate-performance.md#monitor-performance-with-managed-alerts) pour Adobe Commerce met en oeuvre des bonnes pratiques de surveillance afin de vous avertir de manière proactive des problèmes d’application et d’infrastructure affectant les performances du site.</li><li>Environnements [Développement d’intégration](pro-architecture.md#integration-environment) basés sur Platform as a service (2 environnements actifs au total) optimisés pour Adobe Commerce</li><li>Infrastructure as a service (IaaS) : infrastructure virtuelle dédiée aux environnements d’évaluation et de production</li></ul> |
 | Infrastructure à haute disponibilité | | [Architecture en haute disponibilité](pro-architecture.md#redundant-hardware) avec une configuration à trois serveurs dans l’infrastructure sous-jacente en tant que service (IaaS) pour offrir une fiabilité et une disponibilité de niveau entreprise |
 | Matériel dédié | | Matériel isolé et dédié dans l’infrastructure sous-jacente en tant que service (IaaS) pour offrir des niveaux de fiabilité et de disponibilité encore plus élevés |
 | Prise en charge de la messagerie 24h/24, 7j/7 | Surveillance 24h/24, 7j/7 et prise en charge des courriers électroniques pour l’application principale et l’infrastructure cloud | Surveillance 24h/24, 7j/7 et prise en charge des courriers électroniques pour l’application principale et l’infrastructure cloud |
 | Un conseiller technique client dédié | | Gestion de compte technique dédiée pour la période de lancement initiale, en commençant par votre abonnement jusqu’au lancement initial du site. |
 | Modules complémentaires\* | <ul><li>[Module B2B](https://business.adobe.com/products/magento/b2b-ecommerce.html)</li></ul> |
 
-\* _Disponible pour des frais supplémentaires_
+\* _Disponible pour un frais supplémentaire_
 
 ## Projets de démarrage
 
-La variable [Architecture du plan de démarrage](starter-architecture.md) comporte quatre environnements :
+L’ [ architecture du plan de démarrage](starter-architecture.md) comporte quatre environnements :
 
-- **Intégration**: l’environnement d’intégration fournit deux environnements testables. Chaque environnement comprend une branche Git active, une base de données, un serveur web, une mise en cache, certains services, des variables d’environnement et des configurations.
+- **Intégration** : l’environnement d’intégration fournit deux environnements testables. Chaque environnement comprend une branche Git active, une base de données, un serveur web, une mise en cache, certains services, des variables d’environnement et des configurations.
 
-- **Évaluation**: lorsque le code et les extensions réussissent vos tests, vous pouvez fusionner votre `integration` se branche à l’environnement d’évaluation, qui devient votre environnement de test de pré-production. Il comprend la variable `staging` branche active, base de données, serveur web, mise en cache, services tiers, variables d’environnement, configurations et services, tels que Fastly et New Relic.
+- **Évaluation** : lorsque le code et les extensions transmettent vos tests, vous pouvez fusionner votre branche `integration` dans l’environnement d’évaluation, qui devient votre environnement de test de pré-production. Il comprend la branche active `staging`, la base de données, le serveur web, la mise en cache, les services tiers, les variables d’environnement, les configurations et les services, tels que Fastly et New Relic.
 
-- **Production**: lorsque le code est prêt et testé, tout le code est fusionné en `master` pour le déploiement sur le site en direct de production. Cet environnement inclut votre `master` branche, base de données, serveur web, mise en cache, services tiers, variables d’environnement et configurations.
+- **Production** : lorsque le code est prêt et testé, tout le code est fusionné en `master` pour le déploiement sur le site de production en direct. Cet environnement comprend votre branche `master` active, votre base de données, votre serveur web, la mise en cache, les services tiers, les variables d’environnement et les configurations.
 
-- **Inactif**: vous disposez d’un nombre illimité de branches inactives.
+- **Inactif** : vous disposez d’un nombre illimité de branches inactives.
 
 ## Projets Pro
 
-La variable [Architecture Pro Formule](pro-architecture.md) a une dimension globale `master` avec trois environnements :
+L’ [architecture Pro Plan](pro-architecture.md) comporte un `master` global avec trois environnements :
 
-- **Intégration**: l’environnement d’intégration fournit un environnement testable qui comprend une base de données, un serveur web, une mise en cache, certains services, des variables d’environnement et des configurations. Vous pouvez développer, déployer et tester votre code avant de le fusionner dans l’environnement d’évaluation.
+- **Intégration** : l’environnement d’intégration fournit un environnement testable qui inclut une base de données, un serveur web, une mise en cache, certains services, des variables d’environnement et des configurations. Vous pouvez développer, déployer et tester votre code avant de le fusionner dans l’environnement d’évaluation.
 
-   - _Inactif_: vous pouvez avoir un nombre illimité de branches inactives en fonction de la variable `integration` mais une seule branche active (sans inclure `integration` ).
+   - _Inactif_ : vous pouvez avoir un nombre illimité de branches inactives basées sur l’environnement `integration`, mais une seule branche active (à l’exception de `integration` ).
 
-- **Évaluation**: l’environnement d’évaluation est destiné aux tests de pré-production et comprend une base de données, un serveur web, une mise en cache, des services tiers, des variables d’environnement, des configurations et des services, tels que Fastly.
+- **Évaluation** : l’environnement d’évaluation est destiné aux tests de pré-production et comprend une base de données, un serveur web, une mise en cache, des services tiers, des variables d’environnement, des configurations et des services, tels que Fastly.
 
-- **Production**: l’environnement de production comprend une architecture à trois noeuds haute disponibilité pour vos données, services, mise en cache et stockage. La production est votre environnement de magasin public actif avec des variables d’environnement, des configurations et des services tiers.
+- **Production** : l’environnement de production comprend une architecture à trois noeuds haute disponibilité pour vos données, services, mise en cache et stockage. La production est votre environnement de magasin public actif avec des variables d’environnement, des configurations et des services tiers.
 
 ## Logiciels et services pris en charge
 
@@ -76,9 +76,9 @@ Vous pouvez configurer les services suivants :
 
 >[!NOTE]
 >
->Voir [Configuration requise](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/system-requirements.html) dans le _Guide d’installation_ pour les versions recommandées.
+>Pour connaître les versions recommandées, voir [Configuration requise](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/system-requirements.html) dans le _guide d’installation_.
 
-Le module CDN Fastly est utilisé pour le CDN et la mise en cache des services dans les environnements d’évaluation et de production. Voir [Configuration des services Fastly](../cdn/fastly.md).
+Le module CDN Fastly est utilisé pour le CDN et la mise en cache des services dans les environnements d’évaluation et de production. Voir [ Configuration de services rapides ](../cdn/fastly.md).
 
 Pour plus d’informations sur la configuration des versions de logiciels à utiliser dans votre mise en oeuvre, voir Adobe Commerce sur les fichiers de configuration de l’infrastructure cloud suivants :
 

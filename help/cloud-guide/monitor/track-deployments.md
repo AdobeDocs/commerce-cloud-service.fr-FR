@@ -14,24 +14,24 @@ ht-degree: 0%
 
 # Suivi des déploiements
 
-Vous pouvez activer New Relic _Suivi des modifications_ pour surveiller les événements de déploiement sur votre projet d’infrastructure cloud Commerce on Cloud.
+Vous pouvez activer la fonction _Suivi des modifications_ de New Relic pour surveiller les événements de déploiement sur votre projet d’infrastructure cloud Commerce.
 
-La collecte de données Déploiements permet d’analyser l’impact des modifications de déploiement sur les performances globales, telles que le processeur, la mémoire, le temps de réponse, etc. Voir [Suivi des modifications à l’aide de NerdGraph](https://docs.newrelic.com/docs/change-tracking/change-tracking-graphql/) dans le _Documentation New Relic_.
+La collecte de données Déploiements permet d’analyser l’impact des modifications de déploiement sur les performances globales, telles que le processeur, la mémoire, le temps de réponse, etc. Voir [Suivi des modifications à l’aide de NerdGraph](https://docs.newrelic.com/docs/change-tracking/change-tracking-graphql/) dans la _documentation de New Relic_.
 
 >[!PREREQUISITES]
 >
->- `NR_API_URL`: point d’entrée de l’API New Relic, dans ce cas, URL de l’API NerdGraph `https://api.newrelic.com/graphql`
->- `NR_API_KEY`: créez une clé utilisateur, voir [Clés d’API New Relic](https://docs.newrelic.com/docs/apis/intro-apis/new-relic-api-keys) dans le _New Relic_ la documentation.
->- `NR_APP_GUID`: une entité qui signale des données à New Relic possède un identifiant unique (GUID). Par exemple, pour activer sur un environnement d’évaluation, ajustez l’environnement d’évaluation. `NR_APP_GUID` de la variable cloud avec _GUID d’entité intermédiaire_ de New Relic. Voir [En savoir plus sur les entités New Relic](https://docs.newrelic.com/docs/new-relic-solutions/new-relic-one/core-concepts/what-entity-new-relic/) et [Tutoriel NerdGraph : Affichage des données d’entité](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-entities-api-tutorial/) dans le _New Relic_ la documentation.
+>- `NR_API_URL` : point d’entrée de l’API New Relic, dans ce cas, URL de l’API NerdGraph `https://api.newrelic.com/graphql`
+>- `NR_API_KEY` : Créez une clé utilisateur, voir [New Relic API Keys](https://docs.newrelic.com/docs/apis/intro-apis/new-relic-api-keys) dans la documentation _New Relic_.
+>- `NR_APP_GUID` : une entité qui signale des données à New Relic possède un identifiant unique (GUID). Par exemple, pour activer dans un environnement d’évaluation, ajustez la variable cloud de l’environnement d’évaluation `NR_APP_GUID` avec le _GUID de l’entité d’évaluation_ de New Relic. Consultez le [ tutoriel ](https://docs.newrelic.com/docs/new-relic-solutions/new-relic-one/core-concepts/what-entity-new-relic/) et [ NerdGraph sur les entités New Relic : Afficher les données d’entité ](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-entities-api-tutorial/) dans la documentation _New Relic_.
 
 ## Activation du suivi des déploiements
 
-Suivi des événements de déploiement de projet Commerce dans New Relic en créant une _script_ intégration.
+Effectuez le suivi des événements de déploiement de projet Commerce dans New Relic en créant une intégration _script_.
 
-**Pour activer le suivi des déploiements**:
+**Pour activer le suivi des déploiements** :
 
 1. Sur votre poste de travail local, modifiez le répertoire de votre projet.
-1. Créez un `action-integration.js` fichier . Copiez le code suivant et collez-le dans le `action-integration.js` et enregistrez :
+1. Créez un fichier `action-integration.js`. Copiez le code suivant et collez-le dans le fichier `action-integration.js` et enregistrez :
 
    ```javascript
    function trackDeployments() {
@@ -91,7 +91,7 @@ Suivi des événements de déploiement de projet Commerce dans New Relic en cré
    trackDeployments();
    ```
 
-1. Créez un _script_ l’intégration à l’aide de `magento-cloud` Commande d’interface de ligne de commande et référence `action-integration.js` fichier .
+1. Créez une intégration _script_ à l’aide de la commande d’interface de ligne de commande `magento-cloud` et référencez le fichier `action-integration.js`.
 
    ```bash
    magento-cloud integration:add --type script --events='environment.restore, environment.push, environment.branch, environment.activate, environment.synchronize, environment.initialize, environment.merge, environment.redeploy, environment.variable.create, environment.variable.delete, environment.variable.update' --file ./action-integration.js --project=<YOUR_PROJECT_ID> --environments=<YOUR_ENVIRONMENT_ID>
@@ -220,10 +220,10 @@ Suivi des événements de déploiement de projet Commerce dans New Relic en cré
    {"data":{"changeTrackingCreateDeployment":{"deploymentId":"some-deployment-id","entityGuid":"SomeGUIDhere"}}}
    ```
 
-1. Connectez-vous à [Compte New Relic](https://login.newrelic.com/login).
+1. Connectez-vous à votre [compte New Relic](https://login.newrelic.com/login).
 
-1. Dans le menu de navigation de l’Explorateur, cliquez sur **[!UICONTROL APM & Services]**. Sélectionner votre environnement [!UICONTROL Name] et [!UICONTROL Account].
+1. Dans le menu de navigation de l&#39;Explorateur, cliquez sur **[!UICONTROL APM & Services]**. Sélectionnez votre environnement [!UICONTROL Name] et [!UICONTROL Account].
 
-1. Sous _Événements_, cliquez sur **[!UICONTROL Change tracking]**.
+1. Sous _Events_, cliquez sur **[!UICONTROL Change tracking]**.
 
    ![Déploiements](../../assets/new-relic/deployments.png)

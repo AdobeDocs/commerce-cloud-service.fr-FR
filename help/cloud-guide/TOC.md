@@ -33,7 +33,7 @@ ht-degree: 7%
    + [Modules cloud](release-notes/cloud-packages.md)
    + [Modifications incompatibles avec l’arrière](release-notes/backward-incompatible-changes.md)
    + [Archive des notes de mise à jour](release-notes/cloud-release-archive.md)
-+ Projet Cloud {#project}
++ Projet cloud {#project}
    + [Présentation du projet](project/overview.md)
    + [Structure du projet](project/file-structure.md)
    + [Accès utilisateur](project/user-access.md)
@@ -111,14 +111,14 @@ ht-degree: 7%
    + Environnement {#env}
       + [Configuration du déploiement de l’environnement](environment/configure-env-yaml.md)
       + [Niveaux et options de variable](environment/variable-levels.md)
-      + Remplacement des variables {#stage}
+      + Remplacer les variables {#stage}
          + [Variables d’environnement](environment/variables-intro.md)
          + [ADMIN](environment/variables-admin.md)
          + [Variables cloud](environment/variables-cloud.md)
          + [Global](environment/variables-global.md)
          + [Build](environment/variables-build.md)
          + [Déployer](environment/variables-deploy.md)
-         + [Post-déploiement](environment/variables-post-deploy.md)
+         + [Déploiement Post](environment/variables-post-deploy.md)
       + Configurer les notifications {#log}
          + [Notifications](environment/set-up-notifications.md)
          + [Gestionnaires de journaux](environment/log-handlers.md)
@@ -150,7 +150,7 @@ ht-degree: 7%
       + [LISTE BLOQUÉE IP](cdn/fastly-vcl-blocking.md)
       + [Contournement rapide du cache](cdn/fastly-vcl-bypass-to-origin.md)
    + [Dépannage rapide](cdn/fastly-troubleshooting.md)
-+ Paramètres de magasin {#configure-store}
++ Paramètres du magasin {#configure-store}
    + [Vue d’ensemble](store/overview.md)
    + [Bonnes pratiques](store/best-practices.md)
    + [Thème personnalisé](store/custom-theme.md)
@@ -169,7 +169,7 @@ ht-degree: 7%
    + Service New Relic {#new-relic}
       + [Présentation de New Relic](monitor/new-relic-service.md)
       + [Gestion des comptes et des utilisateurs](monitor/account-management.md)
-      + Explorer les performances {#investigate}
+      + Examiner les performances {#investigate}
          + [Stratégies, alertes et workflows](monitor/investigate-performance.md)
          + [Ingestion des données](monitor/ingest-data.md)
          + [Suivi des déploiements](monitor/track-deployments.md)

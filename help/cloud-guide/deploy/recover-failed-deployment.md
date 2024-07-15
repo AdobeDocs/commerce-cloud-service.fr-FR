@@ -21,9 +21,9 @@ Vous pouvez récupérer d’un déploiement en échec de l’une des manières s
 
 ## Nettoyer, supprimer et redéployer
 
-Pour nettoyer le déploiement précédent, identifiez le composant qui a été ajouté ou mis à jour, puis supprimez-le. Tout d’abord, connectez-vous à l’environnement distant et effacez manuellement le contenu de la variable `var` répertoire . Supprimez ensuite le composant du `composer.json` et redéployez l’environnement.
+Pour nettoyer le déploiement précédent, identifiez le composant qui a été ajouté ou mis à jour, puis supprimez-le. Tout d’abord, connectez-vous à l’environnement distant et effacez manuellement le contenu du répertoire `var`. Supprimez ensuite le composant du fichier `composer.json` et redéployez l’environnement.
 
-**Pour nettoyer la variable `var` répertoires**:
+**Pour nettoyer les `var` répertoires** :
 
 1. Sur votre poste de travail local, modifiez le répertoire de votre projet.
 
@@ -33,7 +33,7 @@ Pour nettoyer le déploiement précédent, identifiez le composant qui a été a
    magento-cloud ssh
    ```
 
-1. Effacez la variable `var` répertoires.
+1. Effacez les répertoires `var`.
 
    ```shell
    rm -rf var/*
@@ -41,7 +41,7 @@ Pour nettoyer le déploiement précédent, identifiez le composant qui a été a
 
 1. Déconnectez-vous.
 
-**Pour supprimer le composant**:
+**Pour supprimer le composant** :
 
 1. Sur votre poste de travail local, modifiez le répertoire de votre projet.
 
@@ -51,7 +51,7 @@ Pour nettoyer le déploiement précédent, identifiez le composant qui a été a
    composer clear-cache
    ```
 
-1. Supprimez le composant du `composer.json` fichier .
+1. Supprimez le composant du fichier `composer.json`.
 
    ```bash
    composer remove <component-name>:<version>
@@ -81,6 +81,6 @@ Pour nettoyer le déploiement précédent, identifiez le composant qui a été a
 
 {{redeploy-warning}}
 
-En savoir plus sur la restauration d’un environnement sans sauvegarde dans [Restaurer un environnement](../development/restore-environment.md).
+Pour en savoir plus sur la restauration d’un environnement sans sauvegarde, voir [Restaurer un environnement](../development/restore-environment.md).
 
 {{stuck-deployment-tip}}

@@ -12,39 +12,39 @@ ht-degree: 0%
 
 # Architecture de démarrage
 
-Votre architecture Adobe Commerce on Cloud Infrastructure Starter prend en charge jusqu’à **four** , y compris un `master` qui contient le code de projet initial, l’environnement d’évaluation et jusqu’à deux environnements d’intégration.
+Votre architecture Adobe Commerce on cloud infrastructure Starter prend en charge jusqu’à **quatre** environnements, y compris un environnement `master` qui contient le code de projet initial, l’environnement d’évaluation et jusqu’à deux environnements d’intégration.
 
 Tous les environnements se trouvent dans des conteneurs PaaS (Platform as a service). Ces conteneurs sont déployés dans des conteneurs soumis à des restrictions importantes sur une grille de serveurs. Ces environnements sont en lecture seule et acceptent les modifications de code déployées à partir des branches transférées à partir de votre espace de travail local. Chaque environnement fournit une base de données et un serveur web.
 
-Vous pouvez utiliser n’importe quelle méthodologie de développement et d’embranchement de votre choix. Lorsque vous obtenez un accès initial à votre projet, créez une `staging` de l’environnement `master` environnement. Créez ensuite le `integration` environnement par embranchement depuis `staging`.
+Vous pouvez utiliser n’importe quelle méthodologie de développement et d’embranchement de votre choix. Lorsque vous obtenez un accès initial à votre projet, créez un environnement `staging` à partir de l’environnement `master`. Créez ensuite l’environnement `integration` en créant un embranchement à partir de `staging`.
 
 ## Architecture de l’environnement de démarrage
 
 Le diagramme suivant montre les relations hiérarchiques des environnements de démarrage.
 
-![Vue de haut niveau du projet Starter](../../assets/starter/architecture.png)
+![Affichage de haut niveau du projet Starter](../../assets/starter/architecture.png)
 
 ## Environnement de production
 
-L’environnement de production fournit le code source permettant de déployer Adobe Commerce sur l’infrastructure cloud qui exécute vos vitrines à site unique et multisite destinées au public. L’environnement de production utilise le code de la fonction `master` branche pour configurer et activer le serveur web, la base de données, les services configurés et le code de votre application.
+L’environnement de production fournit le code source permettant de déployer Adobe Commerce sur l’infrastructure cloud qui exécute vos vitrines à site unique et multisite destinées au public. L’environnement de production utilise le code de la branche `master` pour configurer et activer le serveur web, la base de données, les services configurés et le code de votre application.
 
-Parce que la variable `production` est en lecture seule, utilisez la méthode `integration` pour apporter des modifications au code, effectuez un déploiement sur l’ensemble de l’architecture à partir de l’environnement `integration` to `staging`, puis enfin au `production` environnement. Voir [Déployer votre boutique](../deploy/staging-production.md) et [Lancement du site](../launch/overview.md).
+Comme l’environnement `production` est en lecture seule, utilisez l’environnement `integration` pour apporter des modifications au code, déployez l’ensemble de l’architecture de `integration` à `staging`, et enfin vers l’environnement `production`. Voir [Déployer votre boutique](../deploy/staging-production.md) et [Lancement de site](../launch/overview.md).
 
-Adobe recommande d’effectuer des tests complets dans votre `staging` avant d’appuyer sur la balise `master` qui se déploie sur la branche `production` environnement.
+Adobe recommande d’effectuer des tests complets dans votre branche `staging` avant de passer à la branche `master`, qui se déploie sur l’environnement `production`.
 
 ## Environnement d’évaluation
 
-Adobe recommande de créer une branche appelée `staging` de `master`. La variable `staging` branche déploie le code sur l’environnement d’évaluation afin de fournir un environnement de pré-production pour tester le code, les modules et les extensions, les passerelles de paiement, l’expédition, les données de produit, etc. Cet environnement fournit la configuration de tous les services pour qu’ils correspondent à l’environnement de production, y compris Fastly, New Relic APM et search.
+Adobe recommande de créer une branche appelée `staging` à partir de `master`. La branche `staging` déploie le code dans l’environnement d’évaluation afin de fournir un environnement de pré-production pour tester le code, les modules et les extensions, les passerelles de paiement, l’expédition, les données de produit, etc. Cet environnement fournit la configuration de tous les services pour qu’ils correspondent à l’environnement de production, y compris Fastly, New Relic APM et search.
 
 Les sections supplémentaires de ce guide fournissent des instructions pour les déploiements de code final et le test des interactions au niveau de la production dans un environnement d’évaluation sécurisé. Pour optimiser les performances et les tests de fonctionnalités, répliquez votre base de données dans l’environnement d’évaluation.
 
 >[!WARNING]
 >
->Adobe recommande de tester chaque interaction client et commerciale dans l’environnement d’évaluation avant son déploiement dans l’environnement de production. Voir [Déployer votre boutique](../deploy/staging-production.md) et [Test du déploiement](../test/staging-and-production.md).
+>Adobe recommande de tester chaque interaction client et commerciale dans l’environnement d’évaluation avant son déploiement dans l’environnement de production. Voir [Déployer votre boutique](../deploy/staging-production.md) et [Déploiement de tests](../test/staging-and-production.md).
 
 ## Environnement d’intégration
 
-Les développeurs utilisent la variable `integration` environnement à développer, déployer et tester :
+Les développeurs utilisent l’environnement `integration` pour développer, déployer et tester :
 
 - Code de l’application Adobe Commerce
 
@@ -70,7 +70,7 @@ Pour de meilleures performances dans l’environnement d’intégration, suivez 
 
 - Désactivez les tâches cron et exécutez-les manuellement si nécessaire.
 
-Vous pouvez avoir jusqu’à **two** Environnements d’intégration actifs. Vous créez un environnement d’intégration en créant une branche à partir de `staging` branche. Lorsque vous créez un environnement d’intégration, le nom de l’environnement correspond au nom de la branche. Un environnement d’intégration comprend un serveur web et une base de données. Il n’inclut pas tous les services, par exemple, un réseau de diffusion de contenu Fastly et New Relic ne sont pas disponibles.
+Vous pouvez avoir jusqu’à **deux** environnements d’intégration actifs. Vous créez un environnement d’intégration en créant une branche à partir de la branche `staging`. Lorsque vous créez un environnement d’intégration, le nom de l’environnement correspond au nom de la branche. Un environnement d’intégration comprend un serveur web et une base de données. Il n’inclut pas tous les services, par exemple, un réseau de diffusion de contenu Fastly et New Relic ne sont pas disponibles.
 
 Vous pouvez avoir un nombre illimité de branches inactives pour le stockage du code. Pour accéder, afficher et tester une branche inactive, vous devez l’activer.
 
@@ -78,7 +78,7 @@ Vous pouvez avoir un nombre illimité de branches inactives pour le stockage du 
 
 ## Pile de la technologie de production et d’évaluation
 
-Les environnements de production et d’évaluation incluent les technologies suivantes. Vous pouvez modifier et configurer ces technologies via le [`.magento.app.yaml`](../application/configure-app-yaml.md) fichier .
+Les environnements de production et d’évaluation incluent les technologies suivantes. Vous pouvez modifier et configurer ces technologies par le biais du fichier [`.magento.app.yaml`](../application/configure-app-yaml.md).
 
 - Fastly pour la mise en cache HTTP et CDN
 - Serveur web Nginx parlant à PHP-FPM, une instance avec plusieurs programmes de travail
@@ -117,7 +117,7 @@ Adobe Commerce sur l&#39;infrastructure cloud utilise le système d&#39;exploita
 
 - [OpenSearch](../services/opensearch.md)
 
-Dans les environnements d’évaluation et de production, vous utilisez Fastly pour le réseau de diffusion de contenu et la mise en cache. La dernière version de l’extension CDN Fastly s’installe pendant la mise en service initiale de votre projet. Vous pouvez mettre à niveau l’extension pour obtenir les derniers correctifs et améliorations. Voir [Module CDN rapide pour Magento 2](https://github.com/fastly/fastly-magento2). Vous avez également accès à [New Relic](../monitor/account-management.md) pour la surveillance des performances.
+Dans les environnements d’évaluation et de production, vous utilisez Fastly pour le réseau de diffusion de contenu et la mise en cache. La dernière version de l’extension CDN Fastly s’installe pendant la mise en service initiale de votre projet. Vous pouvez mettre à niveau l’extension pour obtenir les derniers correctifs et améliorations. Voir [Module CDN Fastly pour Magento 2](https://github.com/fastly/fastly-magento2). Vous avez également accès à [New Relic](../monitor/account-management.md) pour la surveillance des performances.
 
 Utilisez les fichiers suivants pour configurer les versions de logiciels que vous souhaitez utiliser dans votre mise en oeuvre.
 
@@ -129,7 +129,7 @@ Utilisez les fichiers suivants pour configurer les versions de logiciels que vou
 
 ### Sauvegarde et reprise après sinistre
 
-Vous pouvez créer une sauvegarde de votre base de données et de votre système de fichiers à l’aide de la méthode [!DNL Cloud Console] ou l’interface de ligne de commande. Voir [Gestion des sauvegardes](../storage/snapshots.md).
+Vous pouvez créer une sauvegarde de votre base de données et de votre système de fichiers à l’aide de [!DNL Cloud Console] ou de l’interface de ligne de commande. Voir [Gestion des sauvegardes](../storage/snapshots.md).
 
 ## Préparation au développement
 
@@ -137,9 +137,9 @@ Le workflow suivant résume le processus de branche de votre code, de développe
 
 1. Configuration de votre environnement local
 
-1. Cloner le `master` branche vers votre environnement local
+1. Cloner la branche `master` vers votre environnement local
 
-1. Créez un `staging` branche depuis `master`
+1. Créez une branche `staging` à partir de `master`
 
 1. Créer des branches pour le développement à partir de `staging`
 

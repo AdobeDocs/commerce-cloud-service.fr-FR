@@ -12,19 +12,19 @@ ht-degree: 0%
 
 # Mettre à jour le package CEE-Outils
 
-Une mise à jour du `ece-tools` Le module met également à jour l’autre [Cloud Tools Suite pour les modules Commerce](../release-notes/cloud-tools-suite.md), qui sont des dépendances pour `ece-tools`. Par conséquent, vous devez utiliser une version d’Adobe Commerce sur l’infrastructure cloud qui prend en charge la variable `ece-tools` module.
+Une mise à jour du package `ece-tools` met également à jour les autres [modules Cloud Tools Suite for Commerce](../release-notes/cloud-tools-suite.md), qui sont des dépendances pour `ece-tools`. Par conséquent, vous devez utiliser une version d’Adobe Commerce sur l’infrastructure cloud qui prend en charge le package `ece-tools`.
 
 {{ece-tools-package}}
 
-**Conditions préalables**:
+**Conditions préalables** :
 
-- Avant la mise à jour `ece-tools`, consultez la section [Notes de mise à jour de Cloud Tools Suite for Commerce](../release-notes/cloud-tools-suite.md).
-- Si vous effectuez une mise à jour à partir de `ece-tools` 2002.0.22 ou version antérieure à 2002.1.0, voir [Modifications incompatibles en amont](../release-notes/backward-incompatible-changes.md) et apportez toutes les modifications requises à votre projet d’infrastructure cloud Adobe Commerce.
-- Réviser [Mises à niveau et correctifs](../development/commerce-version.md#upgrade-from-older-versions) pour déterminer les versions d’outils CEE compatibles avec votre projet d’infrastructure cloud Adobe Commerce.
+- Avant de mettre à jour `ece-tools`, passez en revue les [notes de mise à jour de Cloud Tools Suite for Commerce](../release-notes/cloud-tools-suite.md).
+- Si vous effectuez une mise à jour de `ece-tools` 2002.0.22 ou version antérieure vers 2002.1.0, passez en revue les [modifications incompatibles sortantes](../release-notes/backward-incompatible-changes.md) et apportez les modifications requises à votre projet d’infrastructure cloud Adobe Commerce.
+- Passez en revue les [mises à niveau et correctifs](../development/commerce-version.md#upgrade-from-older-versions) pour déterminer les versions CEE-Outils compatibles avec votre projet d’infrastructure cloud Adobe Commerce.
 
 {{upgrade-tip}}
 
-**Pour mettre à jour la variable `ece-tools` package**:
+**Pour mettre à jour le package `ece-tools`** :
 
 1. Sur votre poste de travail local, effectuez une mise à jour à l’aide du compositeur d’expérience.
 
@@ -34,7 +34,7 @@ Une mise à jour du `ece-tools` Le module met également à jour l’autre [Clou
 
    >[!NOTE]
    >
-   >Si vous ne pouvez pas mettre à jour au-delà de `ece-tools` version 2002.0.8, voir [Mettre à niveau le projet pour utiliser le package CEE-Outils](install-package.md).
+   >Si vous ne pouvez pas mettre à jour au-delà de `ece-tools` version 2002.0.8, voir [ Projet de mise à niveau pour utiliser le package CEE-Outils](install-package.md).
 
 1. Ajout, validation et modification du code push.
 

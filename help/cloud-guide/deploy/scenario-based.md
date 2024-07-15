@@ -15,15 +15,15 @@ ht-degree: 0%
 Avec `ece-tools` 2002.1.0 et versions ultérieures, vous pouvez utiliser la fonctionnalité de déploiement basée sur un scénario pour personnaliser le comportement de déploiement par défaut.
 Cette fonctionnalité utilise **scénarios** et **étapes** dans la configuration :
 
-- **Configuration du scénario**- Chaque point d’extension de déploiement est une *scenario*, qui est un fichier de configuration XML qui décrit la séquence et les paramètres de configuration pour terminer les tâches de déploiement. Vous configurez les scénarios dans le `hooks` de la `.magento.app.yaml` fichier .
+- **Configuration du scénario** - Chaque crochet de déploiement est un *scénario*, qui est un fichier de configuration XML qui décrit la séquence et les paramètres de configuration pour terminer les tâches de déploiement. Vous configurez les scénarios dans la section `hooks` du fichier `.magento.app.yaml`.
 
-- **Configuration des étapes**-Chaque scénario utilise une séquence de *étapes* qui décrit par programmation les opérations requises pour terminer les tâches de déploiement. Vous configurez les étapes dans un fichier de configuration de scénario XML.
+- **Configuration des étapes** : chaque scénario utilise une séquence de *étapes* qui décrit par programmation les opérations requises pour terminer les tâches de déploiement. Vous configurez les étapes dans un fichier de configuration de scénario XML.
 
-Adobe Commerce sur l’infrastructure cloud fournit un ensemble de [scénarios par défaut](https://github.com/magento/ece-tools/tree/2002.1/scenario) et [étapes par défaut](https://github.com/magento/ece-tools/tree/2002.1/src/Step) dans le `ece-tools` module. Vous pouvez personnaliser le comportement du déploiement en créant des fichiers de configuration XML personnalisés pour remplacer ou personnaliser la configuration par défaut. Vous pouvez également utiliser des scénarios et des étapes pour exécuter du code à partir de modules personnalisés.
+Adobe Commerce sur l’infrastructure cloud fournit un ensemble de [scénarios par défaut](https://github.com/magento/ece-tools/tree/2002.1/scenario) et [étapes par défaut](https://github.com/magento/ece-tools/tree/2002.1/src/Step) dans le package `ece-tools`. Vous pouvez personnaliser le comportement du déploiement en créant des fichiers de configuration XML personnalisés pour remplacer ou personnaliser la configuration par défaut. Vous pouvez également utiliser des scénarios et des étapes pour exécuter du code à partir de modules personnalisés.
 
 ## Ajout de scénarios à l’aide de hooks de création et de déploiement
 
-Vous ajoutez les scénarios de création et de déploiement d’Adobe Commerce au `hooks` de la `.magento.app.yaml` fichier . Chaque point d’extension spécifie les scénarios à exécuter lors de chaque phase. L’exemple suivant illustre la configuration du scénario par défaut.
+Vous ajoutez les scénarios de création et de déploiement d’Adobe Commerce à la section `hooks` du fichier `.magento.app.yaml`. Chaque point d’extension spécifie les scénarios à exécuter lors de chaque phase. L’exemple suivant illustre la configuration du scénario par défaut.
 
 > `magento.app.yaml` hooks
 
@@ -41,11 +41,11 @@ hooks:
 
 >[!NOTE]
 >
->Avec la publication de `ece-tools` 2002.1.x, une nouvelle [configuration des hooks](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/configure/app/properties/hooks-property.html) format. Le format hérité de `ece-tools` Les versions 2002.0.x sont toujours prises en charge. Cependant, vous devez effectuer une mise à jour vers le nouveau format pour utiliser la fonctionnalité de déploiement basée sur un scénario.
+>Avec la version de `ece-tools` 2002.1.x, il existe un nouveau format [hooks configuration](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/configure/app/properties/hooks-property.html). Le format hérité des versions `ece-tools` 2002.0.x est toujours pris en charge. Cependant, vous devez effectuer une mise à jour vers le nouveau format pour utiliser la fonctionnalité de déploiement basée sur un scénario.
 
 ## Étapes du scénario de révision
 
-Dans la configuration du crochet, chaque scénario est un fichier XML qui contient les étapes d’exécution des tâches de création, de déploiement ou de post-déploiement. Par exemple, la variable `scenario/transfer` comprend trois étapes : `compress-static-content`, `clear-init-directory`, et `backup-data`
+Dans la configuration du crochet, chaque scénario est un fichier XML qui contient les étapes d’exécution des tâches de création, de déploiement ou de post-déploiement. Par exemple, le fichier `scenario/transfer` comprend trois étapes : `compress-static-content`, `clear-init-directory` et `backup-data`
 
 > `scenario/transfer.xml`
 
@@ -90,9 +90,9 @@ Lors du déploiement, les scénarios personnalisés fusionnent avec le scénario
 
 ### Suppression des étapes par défaut
 
-Vous supprimez des étapes des scénarios par défaut à l’aide de la fonction `skip` .
+Vous supprimez les étapes des scénarios par défaut à l’aide du paramètre `skip` .
 
-Par exemple, pour ignorer la variable `enable-maintenance-mode` et `set-production-mode` dans le scénario de déploiement par défaut, créez un fichier de configuration qui comprend la configuration suivante.
+Par exemple, pour ignorer les étapes `enable-maintenance-mode` et `set-production-mode` dans le scénario de déploiement par défaut, créez un fichier de configuration qui comprend la configuration suivante.
 
 > `vendor/vendor-name/module-name/deploy-custom-mode-config.xml`
 
@@ -104,9 +104,9 @@ Par exemple, pour ignorer la variable `enable-maintenance-mode` et `set-producti
 </scenario>
 ```
 
-Pour utiliser le fichier de configuration personnalisé, mettez à jour la valeur par défaut `.magento.app.yaml` fichier .
+Pour utiliser le fichier de configuration personnalisé, mettez à jour le fichier `.magento.app.yaml` par défaut.
 
-> `.magento.app.yaml` avec le scénario de déploiement personnalisé
+> `.magento.app.yaml` avec scénario de déploiement personnalisé
 
 ```yaml
 hooks:
@@ -124,13 +124,13 @@ hooks:
 
 Les scénarios personnalisés peuvent remplacer les étapes par défaut pour fournir une implémentation personnalisée. Pour ce faire, utilisez le nom de l’étape par défaut comme nom de l’étape personnalisée.
 
-Par exemple, dans la variable [scénario de déploiement par défaut] la valeur `enable-maintenance-mode` l’étape exécute la valeur par défaut [Script PHP EnableMaintenanceMode].
+Par exemple, dans le [scénario de déploiement par défaut], l’étape `enable-maintenance-mode` exécute le [ script PHP EnableMaintenanceMode par défaut].
 
 ```xml
 <step name="enable-maintenance-mode" type="Magento\MagentoCloud\Step\EnableMaintenanceMode" priority="300"/>
 ```
 
-Pour remplacer cette étape, créez un fichier de configuration de scénario personnalisé afin d’exécuter un autre script lorsque la variable `enable-maintenance-mode` s’exécute.
+Pour remplacer cette étape, créez un fichier de configuration de scénario personnalisé afin d’exécuter un script différent lors de l’exécution de l’étape `enable-maintenance-mode`.
 
 ```xml
 <?xml version="1.0"?>
@@ -142,7 +142,7 @@ Pour remplacer cette étape, créez un fichier de configuration de scénario per
 
 ### Modification de la priorité des étapes
 
-Les scénarios personnalisés peuvent modifier la priorité des étapes par défaut. L’étape suivante modifie la priorité de la variable `enable-maintenance-mode` à partir de `300` to `10` afin que l’étape s’exécute plus tôt dans le scénario de déploiement.
+Les scénarios personnalisés peuvent modifier la priorité des étapes par défaut. L’étape suivante change la priorité de l’étape `enable-maintenance-mode` de `300` à `10` afin que l’étape s’exécute plus tôt dans le scénario de déploiement.
 
 ```xml
 <?xml version="1.0"?>
@@ -152,16 +152,16 @@ Les scénarios personnalisés peuvent modifier la priorité des étapes par déf
 </scenario>
 ```
 
-Dans cet exemple, la variable `enable-maintenance-mode` L’étape se déplace au début du scénario, car elle a une priorité inférieure à toutes les autres étapes du scénario de déploiement par défaut.
+Dans cet exemple, l’étape `enable-maintenance-mode` se déplace au début du scénario, car elle a une priorité inférieure à toutes les autres étapes du scénario de déploiement par défaut.
 
 ### Exemple : extension du scénario de déploiement
 
-L’exemple suivant personnalise la variable [scénario de déploiement par défaut] avec les modifications suivantes :
+L’exemple suivant personnalise le [scénario de déploiement par défaut] avec les modifications suivantes :
 
-- Remplace la variable `remove-deploy-failed-flag` étape avec une étape personnalisée
-- Ignore la variable `clean-redis-cache` sous-formulaire à l’étape de pré-déploiement
-- Ignore la variable `unlock-cron-jobs` step
-- Ignore la variable `validate-config` étape de désactivation des validateurs critiques
+- Remplace l’étape `remove-deploy-failed-flag` par une étape personnalisée.
+- Ignore le sous-projet `clean-redis-cache` lors de l’étape de pré-déploiement
+- Ignore l’étape `unlock-cron-jobs`
+- Ignore l’étape `validate-config` pour désactiver les validateurs critiques
 - Ajoute une nouvelle étape de prédéploiement.
 
 > `vendor/vendor-name/module-name/deploy-extended.xml`
@@ -203,7 +203,7 @@ L’exemple suivant personnalise la variable [scénario de déploiement par déf
 </scenario>
 ```
 
-Pour utiliser ce script dans votre projet, ajoutez la configuration suivante au `.magento.app.yaml` pour votre projet d’infrastructure cloud Adobe Commerce :
+Pour utiliser ce script dans votre projet, ajoutez la configuration suivante au fichier `.magento.app.yaml` de votre projet d’infrastructure cloud Adobe Commerce :
 
 ```yaml
 hooks:
@@ -219,23 +219,23 @@ hooks:
 
 >[!TIP]
 >
->Vous pouvez consulter la section [scénarios par défaut](https://github.com/magento/ece-tools/tree/2002.1/scenario) et [configuration d’étape par défaut](https://github.com/magento/ece-tools/tree/2002.1/src/Step) dans le `ece-tools` Référentiel GitHub permettant de déterminer les scénarios et les étapes à personnaliser pour les tâches de création, de déploiement et de post-déploiement de votre projet.
+>Vous pouvez passer en revue les [scénarios par défaut](https://github.com/magento/ece-tools/tree/2002.1/scenario) et la [ configuration d’étape par défaut](https://github.com/magento/ece-tools/tree/2002.1/src/Step) dans le référentiel GitHub `ece-tools` afin de déterminer les scénarios et les étapes à personnaliser pour les tâches de création, de déploiement et de post-déploiement de votre projet.
 
-## Ajout d’un module personnalisé à étendre `ece-tools`
+## Ajouter un module personnalisé pour étendre `ece-tools`
 
-La variable `ece-tools` Le module fournit des interfaces API par défaut conformes aux normes de version sémantique. Toutes les interfaces API sont marquées avec **@api** annotation. Vous pouvez remplacer l’implémentation de l’API par défaut par la vôtre en créant un module personnalisé et en modifiant le code par défaut selon vos besoins.
+Le package `ece-tools` fournit des interfaces API par défaut qui respectent les normes de version sémantique. Toutes les interfaces API sont marquées d’une annotation **@api**. Vous pouvez remplacer l’implémentation de l’API par défaut par la vôtre en créant un module personnalisé et en modifiant le code par défaut selon vos besoins.
 
-Pour utiliser le module personnalisé avec Adobe Commerce sur l’infrastructure cloud, vous devez enregistrer votre module dans la liste des extensions pour le `ece-tools` module. Le processus d’enregistrement est similaire au processus que vous utilisez pour enregistrer les modules dans Adobe Commerce.
+Pour utiliser le module personnalisé avec Adobe Commerce sur l’infrastructure cloud, vous devez enregistrer votre module dans la liste des extensions pour le module `ece-tools`. Le processus d’enregistrement est similaire au processus que vous utilisez pour enregistrer les modules dans Adobe Commerce.
 
-**Pour enregistrer un module dans la variable `ece-tools` package**:
+**Pour enregistrer un module avec le `ece-tools` package** :
 
-1. Créez ou étendez la variable `registration.php` dans la racine de votre module.
+1. Créez ou étendez le fichier `registration.php` à la racine de votre module.
 
    ```php?start_inline=1
    \Magento\MagentoCloud\ExtensionRegistrar::register('module-name', __DIR__);
    ```
 
-1. Mettez à jour le `autoload` pour que votre fichier de configuration de module inclue la section `registration.php` fichier pour charger automatiquement les fichiers du module dans `composer.json`.
+1. Mettez à jour la section `autoload` de votre fichier de configuration de module afin d’inclure le fichier `registration.php` pour charger automatiquement les fichiers de module dans `composer.json`.
 
    ```json
    {
@@ -253,7 +253,7 @@ Pour utiliser le module personnalisé avec Adobe Commerce sur l’infrastructure
    }
    ```
 
-1. Ajoutez la variable `config/services.xml` dans votre module. Cette configuration est fusionnée sur `config/services.xml` de `ece-tools` module.
+1. Ajoutez le fichier `config/services.xml` à votre module. Cette configuration est fusionnée sur `config/services.xml` à partir du package `ece-tools`.
 
    ```xml
    <?xml version="1.0" encoding="UTF-8" ?>
@@ -271,7 +271,7 @@ Pour utiliser le module personnalisé avec Adobe Commerce sur l’infrastructure
    </container>
    ```
 
-Pour en savoir plus sur l’injection de dépendance, voir [Injection de dépendance Symfony](https://symfony.com/doc/current/components/dependency_injection.html).
+Pour en savoir plus sur l’injection de dépendance, voir [Symfony Dependency Injection](https://symfony.com/doc/current/components/dependency_injection.html).
 
 <!-- link definitions -->
 

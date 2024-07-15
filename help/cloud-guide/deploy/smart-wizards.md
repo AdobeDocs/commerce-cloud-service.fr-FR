@@ -22,11 +22,11 @@ Chacune des commandes de l’assistant dynamique fournit une réponse de vérifi
 
 | Commande | Description |
 | ------- | ------------|
-| `wizard:ideal-state` | Vérifiez que SCD est sur la page _build_ l’étape `SKIP_HTML_MINIFICATION` est `true`et le crochet post_deploy configuré dans l’environnement cloud. Non à utiliser dans l’environnement de développement local. |
-| `wizard:master-slave` | Vérifiez que la variable `REDIS_USE_SLAVE_CONNECTION` et la variable `MYSQL_USE_SLAVE_CONNECTION` est `true`. |
-| `wizard:scd-on-demand` | Vérifiez que la variable `SCD_ON_DEMAND` la variable d’environnement globale est `true`. |
-| `wizard:scd-on-build` | Vérifiez que la variable `SCD_ON_DEMAND` la variable d’environnement globale est `false` et la variable `SKIP_SCD` la variable d’environnement est `false` pour le _build_ scène. Vérifie que la variable `config.php` contient des informations sur les magasins, les groupes de magasins et les sites web. |
-| `wizard:scd-on-deploy` | Vérifiez que la variable `SCD_ON_DEMAND` la variable d’environnement globale est `false` et la variable `SKIP_SCD` la variable d’environnement est `false` pour le _deploy_ scène. Vérifie que la variable `config.php` Le fichier fait office _NOT_ contiennent la liste des magasins, des groupes de magasins et des sites web contenant des informations connexes. |
+| `wizard:ideal-state` | Vérifiez que SCD se trouve sur l’étape _build_, que la variable `SKIP_HTML_MINIFICATION` est `true` et que le crochet post_deploy est configuré dans l’environnement cloud. Non à utiliser dans l’environnement de développement local. |
+| `wizard:master-slave` | Vérifiez que la variable `REDIS_USE_SLAVE_CONNECTION` et la variable `MYSQL_USE_SLAVE_CONNECTION` sont `true`. |
+| `wizard:scd-on-demand` | Vérifiez que la variable d&#39;environnement global `SCD_ON_DEMAND` est `true`. |
+| `wizard:scd-on-build` | Vérifiez que la variable d&#39;environnement global `SCD_ON_DEMAND` est `false` et que la variable d&#39;environnement `SKIP_SCD` est `false` pour l&#39;étape _build_. Vérifie que le fichier `config.php` contient des informations sur les magasins, les groupes de magasins et les sites web. |
+| `wizard:scd-on-deploy` | Vérifiez que la variable d&#39;environnement global `SCD_ON_DEMAND` est `false` et que la variable d&#39;environnement `SKIP_SCD` est `false` pour l&#39;étape _deploy_. Vérifie que le fichier `config.php` ne contient _NOT_ la liste des magasins, des groupes de magasins et des sites Web contenant des informations connexes. |
 
 Par exemple, vous pouvez vérifier que votre configuration active correctement la fonctionnalité SCD à la demande :
 
@@ -48,7 +48,7 @@ SCD on-demand is disabled
 
 ## Vérification d’une configuration idéale
 
-La variable _idéal_ la configuration de votre projet Cloud permet de minimiser les temps d’arrêt du déploiement en réchauffant le cache et en générant du contenu statique lorsque l’utilisateur le demande. Cet assistant s’exécute automatiquement pendant le processus de déploiement. Si votre Cloud n’est pas configuré pour cela _état idéal_, vous recevez ensuite un message similaire à ce qui suit :
+La configuration _idéale_ pour votre projet Cloud permet de minimiser le temps d’arrêt du déploiement en réchauffant le cache et en générant du contenu statique lorsque l’utilisateur le demande. Cet assistant s’exécute automatiquement pendant le processus de déploiement. Si votre Cloud n’est pas configuré pour cet _état idéal_, vous recevez un message similaire à ce qui suit :
 
 ```terminal
 - SCD on build is not configured
@@ -60,7 +60,7 @@ Ideal state is not configured
 
 En fonction de la sortie, vous devez apporter les corrections suivantes à votre configuration :
 
-1. Activez la variable de minimisation Ignorer le HTML .
+1. Activez la variable de minimisation Ignorer l’HTML .
 
    > .magento.env.yaml
 

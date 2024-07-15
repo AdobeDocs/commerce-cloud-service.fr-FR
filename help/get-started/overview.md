@@ -14,11 +14,11 @@ ht-degree: 0%
 
 Bienvenue dans Adobe Commerce !
 
-La section Prise en main vous guide tout au long des procédures d’initialisation de votre compte Adobe Commerce et d’accès au [!DNL Cloud Console]. La variable _Étape suivante_ Le lien situé au bas de chaque rubrique ouvre le concept et la procédure suivants. Chaque rubrique s’appuie sur les rubriques précédentes avec de nouvelles tâches et de nouveaux liens d’apprentissage.
+La section Prise en main vous guide tout au long des procédures d’initialisation de votre compte Adobe Commerce et d’accès à [!DNL Cloud Console]. Le lien _Étape suivante_ situé au bas de chaque rubrique ouvre le concept et la procédure suivants. Chaque rubrique s’appuie sur les rubriques précédentes avec de nouvelles tâches et de nouveaux liens d’apprentissage.
 
-Ce guide suppose que vous avez des connaissances opérationnelles et une compréhension de la [!DNL Commerce] application. Vous pouvez vous reporter aux derniers guides de l’utilisateur de Commerce Developer et Commerce :
+Ce guide suppose que vous avez des connaissances opérationnelles et une compréhension de l’application [!DNL Commerce]. Vous pouvez consulter les derniers guides de l’utilisateur et du développeur Commerce et Commerce :
 
-- [Documentation destinée aux développeurs Adobe Commerce](https://developer.adobe.com/commerce/docs/) (site Adobe Developer) : développez, personnalisez, intégrez, étendez et utilisez des fonctionnalités avancées.
+- [Documentation du développeur Adobe Commerce](https://developer.adobe.com/commerce/docs/) (site Adobe Developer) : développez, personnalisez, intégrez, étendez et utilisez des fonctionnalités avancées.
 
 - [Documentation Adobe Commerce](https://experienceleague.adobe.com/docs/commerce.html) (Adobe Experience League) : planifiez, implémentez, exploitez, mettez à niveau et gérez vos projets Commerce.
 
@@ -26,4 +26,4 @@ Ce guide suppose que vous avez des connaissances opérationnelles et une compré
 >
 >Préparez-vous à l’appel de bienvenue pour initialiser votre projet Adobe Commerce sur l’infrastructure cloud.
 >
->**Étape suivante**: [Configuration de Commerce sur Cloud](new-project.md)
+>**Étape suivante** : [Configuration de Commerce sur le cloud](new-project.md)

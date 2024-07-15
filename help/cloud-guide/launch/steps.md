@@ -21,7 +21,7 @@ Contactez l’assistance d’Adobe Commerce et mettez à jour les tickets de lan
 
 ## Basculer le DNS vers le nouveau site
 
-La valeur Modification de la durée de vie est importante pour vérifier votre domaine modifié. Lorsque vous modifiez les enregistrements A et CNAME, la mise à jour prend le temps configuré TTL pour se mettre à jour correctement. Pour plus d’informations sur les paramètres DNS, voir [Paramétrages DNS](checklist.md#update-dns-configuration-with-production-settings).
+La valeur Modification de la durée de vie est importante pour vérifier votre domaine modifié. Lorsque vous modifiez les enregistrements A et CNAME, la mise à jour prend le temps configuré TTL pour se mettre à jour correctement. Pour plus d’informations sur les paramètres DNS, voir [Configurations DNS](checklist.md#update-dns-configuration-with-production-settings).
 
 ### Pour accéder au nouveau site :
 
@@ -35,9 +35,9 @@ La valeur Modification de la durée de vie est importante pour vérifier votre d
 
 ## Test de la boutique en ligne
 
-Effectuez quelques tests UAT dans votre live store pour confirmer que tout se charge et que les actions sont correctement exécutées. Pour obtenir la liste des tests, voir [Test du déploiement](../test/staging-and-production.md#complete-uat-testing).
+Effectuez quelques tests UAT dans votre live store pour confirmer que tout se charge et que les actions sont correctement exécutées. Pour obtenir la liste des tests, voir [Déploiement de test](../test/staging-and-production.md#complete-uat-testing).
 
-## Après le lancement
+## Post-Launch
 
 Adobe vérifie et surveille le site pour s’assurer que tous les services et accès sont en vert. Nous restons à portée de main si nécessaire pour vérifier que tous les journaux, services, mises en cache et fonctions du système fonctionnent selon vos besoins et ceux de vos clients.
 

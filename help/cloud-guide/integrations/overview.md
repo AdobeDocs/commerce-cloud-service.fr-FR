@@ -22,7 +22,7 @@ Les intégrations sont utiles pour utiliser des services externes (tels que l’
 
 >[!TAB CLI]
 
-**Ajout d’une intégration à l’aide de l’interface de ligne de commande de Cloud**:
+**Pour ajouter une intégration à l’aide de l’interface de ligne de commande de Cloud** :
 
 La commande suivante lance des invites interactives pour sélectionner le type et les options de la nouvelle intégration.
 
@@ -30,7 +30,7 @@ La commande suivante lance des invites interactives pour sélectionner le type e
 magento-cloud integration:add
 ```
 
-**Pour répertorier les intégrations configurées pour votre projet**:
+**Pour répertorier les intégrations configurées pour votre projet** :
 
 ```bash
 magento-cloud integration:list
@@ -52,11 +52,11 @@ Exemple de réponse :
 
 >[!TAB Console]
 
-**Pour ajouter une intégration à l’aide de la méthode[!DNL Cloud Console]**:
+**Pour ajouter une intégration à l’aide de[!DNL Cloud Console]** :
 
 1. Dans _Paramètres du projet_, cliquez sur **[!UICONTROL Integrations]**.
 
-1. Cliquez sur un type d’intégration ou cliquez sur **[!UICONTROL Add integration]**.
+1. Cliquez sur un type d&#39;intégration ou sur **[!UICONTROL Add integration]**.
 
 1. Suivez les étapes de sélection et de configuration du type d’intégration.
 
@@ -64,26 +64,26 @@ Exemple de réponse :
 
 >[!ENDTABS]
 
-## Webhooks de commerce
+## Webhooks Commerce
 
-Vous pouvez configurer les webhooks Commerce dans votre projet Cloud à l’aide de l’option [ENABLE_WEBHOOKS variable globale](../environment/variables-global.md#enable_webhooks). Les webhooks Commerce envoient des requêtes à un serveur externe en réponse aux événements générés par Commerce. La variable [_Guide de webhooks_](https://developer.adobe.com/commerce/extensibility/webhooks) décrit cette fonctionnalité en détail.
+Vous pouvez configurer des webhooks Commerce dans votre projet Cloud avec la variable globale [ENABLE_WEBHOOKS](../environment/variables-global.md#enable_webhooks). Les webhooks Commerce envoient des requêtes à un serveur externe en réponse aux événements générés par Commerce. Le [_Guide des webhooks_](https://developer.adobe.com/commerce/extensibility/webhooks) décrit cette fonctionnalité en détail.
 
 ## Webhooks génériques
 
-Vous pouvez capturer et générer des rapports sur les événements d’infrastructure et de référentiel de Cloud à l’aide d’une intégration de webhook personnalisée à `POST` Messages JSON à un _webhook_ URL.
+Vous pouvez capturer et générer des rapports sur les événements d’infrastructure et de référentiel Cloud à l’aide d’une intégration webhook personnalisée à des messages JSON `POST` sur une URL _webhook_.
 
-**Pour ajouter une URL webhook, utilisez la syntaxe suivante :**:
+**Pour ajouter une URL webhook, utilisez la syntaxe suivante** :
 
 ```bash
 magento-cloud integration:add --type=webhook --url=https://hook-url.example.com
 ```
 
-- `type`: indiquez la variable `webhook` type d’intégration.
-- `url`: indiquez l’URL webhook pouvant recevoir les messages JSON.
+- `type` : spécifiez le type d’intégration `webhook`.
+- `url` : indiquez l’URL webhook pouvant recevoir les messages JSON.
 
 L’exemple de réponse affiche une série d’invites qui offrent une opportunité de personnaliser l’intégration. L’utilisation de la réponse (vide) par défaut envoie des messages sur tous les événements dans tous les environnements d’un projet.
 
-Vous pouvez personnaliser l’intégration pour créer des rapports spécifiques. [events](#events-to-report), par exemple en poussant le code vers une branche. Par exemple, vous pouvez spécifier la variable `environment.push` pour envoyer un message lorsqu’un utilisateur envoie du code à une branche :
+Vous pouvez personnaliser l’intégration pour créer des rapports sur des [événements](#events-to-report) spécifiques, comme envoyer du code vers une branche. Par exemple, vous pouvez spécifier l’événement `environment.push` pour envoyer un message lorsqu’un utilisateur envoie du code à une branche :
 
 ```terminal
 Events to report (--events)
@@ -93,7 +93,7 @@ Enter comma-separated values (or leave this blank)
 >
 ```
 
-Vous pouvez choisir de créer des rapports sur les événements d’une `pending`, `in_progress`, ou `complete` state :
+Vous pouvez choisir de signaler les événements à l’état `pending`, `in_progress` ou `complete` :
 
 ```terminal
 States to report (--states)
@@ -103,7 +103,7 @@ Enter comma-separated values (or leave this blank)
 >
 ```
 
-Et vous pouvez _include_ ou _exclude_ messages pour des environnements spécifiques :
+Et vous pouvez _inclure_ ou _exclure_ messages pour des environnements spécifiques :
 
 ```terminal
 Included environments (--environments)
@@ -137,7 +137,7 @@ Created integration integration-ID (type: webhook)
 
 ### Mettre à jour l’intégration existante
 
-Vous pouvez mettre à jour une intégration existante. Par exemple, modifiez les états à partir de `complete` to `pending` à l’aide des éléments suivants :
+Vous pouvez mettre à jour une intégration existante. Par exemple, remplacez les états `complete` par `pending` en utilisant les éléments suivants :
 
 ```bash
 magento-cloud integration:update --states=pending <int-id>
@@ -171,14 +171,14 @@ Integration integration-ID (webhook) updated
 | `environment.branch` | Une branche a été créée à l’aide de la console de gestion. |
 | `environment.deactivate` | Une branche a été désactivée. Le code est toujours là mais l&#39;environnement a été détruit |
 | `environment.delete` | Une branche a été supprimée. |
-| `environment.initialize` | La variable `master` branche du projet initialisée avec une première validation |
+| `environment.initialize` | La branche `master` du projet initialisée avec une première validation |
 | `environment.merge` | Une branche active a été fusionnée à l’aide de la console de gestion ou de l’API. |
 | `environment.push` | Un utilisateur a envoyé le code vers une branche. |
 | `environment.restore` | Un utilisateur a restauré un instantané |
 | `environment.route.create` | Un itinéraire a été créé à l’aide de la console de gestion. |
 | `environment.route.delete` | Un itinéraire a été supprimé à l’aide de la console de gestion. |
 | `environment.route.update` | Un itinéraire a été modifié à l’aide de la console de gestion. |
-| `environment.subscription.update` | La variable `master` L’environnement a été redimensionné car l’abonnement a changé, mais il n’y a aucune modification du contenu. |
+| `environment.subscription.update` | L’environnement `master` a été redimensionné car l’abonnement a changé, mais il n’y a aucune modification du contenu. |
 | `environment.synchronize` | Des données ou du code ont été copiés dans un environnement parent. |
 | `environment.update.http_access` | Les règles d’accès HTTP pour un environnement ont été modifiées. |
 | `environment.update.restrict_robots` | La fonction block-all-robots a été activée ou désactivée. |

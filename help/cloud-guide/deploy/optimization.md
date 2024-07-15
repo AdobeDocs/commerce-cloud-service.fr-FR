@@ -12,11 +12,11 @@ ht-degree: 0%
 
 # Optimisation du déploiement
 
-Les performances du site peuvent en pâtir pendant le processus de déploiement. La durée du déploiement d’un site en mode de maintenance dépend de nombreux facteurs, tels que la configuration de l’environnement et la quantité de contenu qu’il contient. La première bonne pratique pour optimiser le déploiement en mode cloud consiste à [mettre à niveau pour utiliser `ece-tools`](../dev-tools/install-package.md) pour bénéficier des fonctionnalités du package, telles que les commandes permettant de créer une sauvegarde de la base de données et de vérifier la configuration de l’environnement.
+Les performances du site peuvent en pâtir pendant le processus de déploiement. La durée du déploiement d’un site en mode de maintenance dépend de nombreux facteurs, tels que la configuration de l’environnement et la quantité de contenu qu’il contient. La première bonne pratique pour optimiser le déploiement en cloud est de [mettre à niveau pour utiliser `ece-tools`](../dev-tools/install-package.md) afin de bénéficier des fonctionnalités du module, telles que des commandes pour créer une sauvegarde de la base de données et vérifier la configuration de l’environnement.
 
 Les rubriques suivantes peuvent vous aider à mieux comprendre comment optimiser le processus de déploiement :
 
-- [Processus de déploiement dans le cloud](process.md)
+- [Processus de déploiement en cloud](process.md)
 Le processus de déploiement en cloud comporte trois phases. Vous pouvez tirer parti des forces et des faiblesses de chaque phase.
 
 - [Déploiement sans interruption](reduce-downtime.md)
@@ -25,8 +25,8 @@ Découvrez ce qui se passe pendant le déploiement et comment réduire le temps 
 - [Déploiement de contenu statique](static-content.md)
 La meilleure façon d’optimiser votre déploiement en cloud consiste à contrôler comment et à quel moment générer du contenu statique.
 
-- [Assistant dynamique](smart-wizards.md)
-La variable `ece-tools` Le module fournit les commandes de l’assistant dynamique pour évaluer rapidement la configuration de votre projet.
+- [Smart Wizards](smart-wizards.md)
+Le package `ece-tools` fournit les commandes de l’assistant dynamique pour évaluer rapidement la configuration de votre projet.
 
 - [Suivi des déploiements avec New Relic](../monitor/track-deployments.md)
 Utilisez le service New Relic pour surveiller les événements de déploiement et analyser l’impact du déploiement sur les performances globales.

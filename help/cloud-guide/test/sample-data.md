@@ -13,7 +13,7 @@ ht-degree: 0%
 
 Si vous avez besoin de données d’exemple lors du développement de votre magasin, vous pouvez installer des données d’exemple. Ces données simulent un magasin Adobe Commerce actif avec des clients, des produits et d’autres données. Ces exemples de données fonctionnent mieux avec une nouvelle installation de modèle d’infrastructure cloud Adobe Commerce.
 
-Il est recommandé d’installer des exemples de données dans les environnements de développement et d’intégration. Si vous utilisez des données d’exemple dans l’évaluation ou la production, vous devez [remove](#reset-or-uninstall-sample-data) les informations et les produits avant leur mise en ligne.
+Il est recommandé d’installer des exemples de données dans les environnements de développement et d’intégration. Si vous utilisez des données d’exemple dans l’évaluation ou la production, vous devez [supprimer](#reset-or-uninstall-sample-data) les informations et les produits avant de passer en ligne.
 
 ## Installer des exemples de données
 
@@ -41,7 +41,7 @@ Pour installer des exemples de données :
 
 1. Attendez que le projet soit déployé.
 
-1. Vérifiez que l’installation a réussi en accédant à la page de storefront de l’environnement d’intégration. Vous pouvez localiser le lien de l’URL vers le storefront à l’aide du [!DNL Cloud Console].
+1. Vérifiez que l’installation a réussi en accédant à la page de storefront de l’environnement d’intégration. Vous pouvez localiser le lien URL vers le storefront via [!DNL Cloud Console].
 
 1. Prenez un instantané de votre environnement :
 
@@ -55,5 +55,5 @@ Vous pouvez commencer à tester votre développement à l’aide de données en 
 
 Vous pouvez réinitialiser ou supprimer des données d’exemple selon la même procédure que celle utilisée pour installer les données d’exemple :
 
-- Supprimer les exemples de données : `./bin/magento sampledata:remove`
-- Réinitialiser les données d’exemple : `./bin/magento sampledata:reset`
+- Supprimer des exemples de données : `./bin/magento sampledata:remove`
+- Réinitialiser les exemples de données : `./bin/magento sampledata:reset`

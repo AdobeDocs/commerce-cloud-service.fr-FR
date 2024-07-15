@@ -12,29 +12,29 @@ ht-degree: 0%
 
 # Sauvegarde de la base
 
-Vous pouvez créer une copie de votre base de données à l’aide de la fonction `ece-tools db-dump` sans capturer toutes les données d’environnement des services et des montages. Par défaut, cette commande crée des sauvegardes dans la variable `/app/var/dump-main` pour toutes les connexions à la base de données spécifiées dans la configuration de l’environnement. L’opération de vidage DB bascule l’application vers le mode de maintenance, arrête les processus de file d’attente des consommateurs et désactive les tâches cron avant que la vidage ne commence.
+Vous pouvez créer une copie de votre base de données à l’aide de la commande `ece-tools db-dump` sans capturer toutes les données d’environnement des services et des montages. Par défaut, cette commande crée des sauvegardes dans le répertoire `/app/var/dump-main` pour toutes les connexions de base de données spécifiées dans la configuration de l’environnement. L’opération de vidage DB bascule l’application vers le mode de maintenance, arrête les processus de file d’attente des consommateurs et désactive les tâches cron avant que la vidage ne commence.
 
 Tenez compte des instructions suivantes pour le vidage DB :
 
 - Pour les environnements de production, Adobe recommande d’effectuer des opérations de vidage de la base de données aux heures creuses afin de minimiser les interruptions de service qui se produisent lorsque le site est en mode de maintenance.
-- Si une erreur se produit lors de l’opération de vidage, la commande supprime le fichier de vidage pour économiser l’espace disque. Consultez les journaux pour plus d’informations (`var/log/cloud.log`).
-- Pour les environnements Pro Production, cette commande est vidée uniquement à partir de _one_ des trois noeuds à haute disponibilité, de sorte que les données de production écrites sur un autre noeud pendant le vidage peuvent ne pas être copiées. La commande génère un `var/dbdump.lock` pour empêcher l’exécution de la commande sur plusieurs noeuds.
+- Si une erreur se produit lors de l’opération de vidage, la commande supprime le fichier de vidage pour économiser l’espace disque. Consultez les journaux pour plus de détails (`var/log/cloud.log`).
+- Pour les environnements de production, cette commande est vidée uniquement de _un_ des trois noeuds haute disponibilité. Par conséquent, les données de production écrites sur un autre noeud pendant le vidage peuvent ne pas être copiées. La commande génère un fichier `var/dbdump.lock` pour empêcher l’exécution de la commande sur plusieurs noeuds.
 - Pour une sauvegarde de tous les services d’environnement, Adobe recommande de créer une [sauvegarde](snapshots.md).
 
-Vous pouvez choisir de sauvegarder plusieurs bases de données en ajoutant les noms de la base à la commande . L&#39;exemple suivant permet de sauvegarder deux bases de données : `main` et `sales`:
+Vous pouvez choisir de sauvegarder plusieurs bases de données en ajoutant les noms de la base à la commande . L’exemple suivant sauvegarde deux bases de données : `main` et `sales` :
 
 ```bash
 php vendor/bin/ece-tools db-dump main sales
 ```
 
-Utilisez la variable `php vendor/bin/ece-tools db-dump --help` pour plus d’options :
+Utilisez la commande `php vendor/bin/ece-tools db-dump --help` pour plus d’options :
 
-- `--dump-directory=<dir>`: choisissez un répertoire cible pour le vidage de la base de données.
-- `--remove-definers`—Supprimer les instructions DEFINER du vidage de base de données
+- `--dump-directory=<dir>` : choisissez un répertoire cible pour le vidage de la base de données.
+- `--remove-definers` : suppression des instructions DEFINER du vidage de base de données
 
-**Pour créer un vidage de base de données dans l’environnement d’évaluation ou de production**:
+**Pour créer un vidage de base de données dans l’environnement d’évaluation ou de production** :
 
-1. [Utilisez SSH pour vous connecter ou créer un tunnel pour vous connecter à l’environnement distant](../development/secure-connections.md) qui contient la base de données à copier.
+1. [Utilisez SSH pour vous connecter ou créer un tunnel pour vous connecter à l’environnement distant ](../development/secure-connections.md) qui contient la base de données à copier.
 
 1. Listez les relations de l&#39;environnement et notez les informations de connexion à la base de données.
 
@@ -48,7 +48,7 @@ Utilisez la variable `php vendor/bin/ece-tools db-dump --help` pour plus d’opt
    php -r 'print_r(json_decode(base64_decode($_ENV["MAGENTO_CLOUD_RELATIONSHIPS"]))->database);'
    ```
 
-1. Créez une sauvegarde de la base. Pour choisir un répertoire cible pour le vidage DB, utilisez la méthode `--dump-directory` .
+1. Créez une sauvegarde de la base. Pour choisir un répertoire cible pour le vidage DB, utilisez l’option `--dump-directory`.
 
    ```bash
    php vendor/bin/ece-tools db-dump -- main
@@ -71,8 +71,8 @@ Utilisez la variable `php vendor/bin/ece-tools db-dump --help` pour plus d’opt
    [2020-01-28 16:38:11] NOTICE: Maintenance mode is disabled.
    ```
 
-1. La variable `db-dump` crée une commande `dump-<timestamp>.sql.gz` fichier d’archive dans le répertoire du projet distant.
+1. La commande `db-dump` crée un fichier d’archive `dump-<timestamp>.sql.gz` dans le répertoire du projet distant.
 
 >[!TIP]
 >
->Si vous souhaitez transmettre ces données à un environnement spécifique, voir [Migration des données et des fichiers statiques](../deploy/staging-production.md#migrate-static-files).
+>Si vous souhaitez transmettre ces données à un environnement spécifique, reportez-vous à la section [Migration de données et de fichiers statiques](../deploy/staging-production.md#migrate-static-files).

@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Gestion de l’espace disque
 
-Vous trouverez la capacité de stockage totale de votre projet Cloud dans votre Adobe Commerce sur le contrat d’infrastructure cloud et sur votre [page de compte](https://accounts.magento.cloud/user). Chaque carte de projet de votre compte indique le nombre de _environnements_, la variable _stockage_ capacité en Go et nombre _utilisateurs_. Vous pouvez également utiliser la commande Cloud suivante :
+Vous trouverez la capacité de stockage totale de votre projet Cloud dans votre Adobe Commerce sur le contrat d’infrastructure cloud et sur votre [page de compte](https://accounts.magento.cloud/user). Chaque carte de projet de votre compte indique le nombre d&#39;_environnements_, la capacité de _stockage_ en Go et le nombre d&#39;_utilisateurs_. Vous pouvez également utiliser la commande Cloud suivante :
 
 ```bash
 magento-cloud subscription:info | grep storage
@@ -30,7 +30,7 @@ Exemple de notification :
 
 >[!BEGINSHADEBOX]
 
-_&quot;Notre surveillance a détecté que le stockage des fichiers sur votre grappe (projet-id-environment) est presque complet. L’utilisation du disque atteint actuellement des niveaux d’utilisation critiques avec moins d’1 GiB restant. Le volume de stockage partagé est actuellement mis à niveau de 60 GiB à 70 GiB pour que vos services restent opérationnels. Jetez un oeil à l’utilisation des fichiers de production et d’évaluation pour voir si vous pouvez libérer de l’espace.&quot;_
+_&quot;Notre surveillance a détecté que le stockage des fichiers sur votre grappe (projet-id-environment) est presque complet. L’utilisation du disque atteint actuellement des niveaux d’utilisation critiques avec moins d’1 GiB restant. Le volume de stockage partagé est actuellement mis à niveau de 60 GiB à 70 GiB pour que vos services restent opérationnels. Jetez un coup d’oeil à l’utilisation des fichiers de production et d’évaluation pour voir si vous pouvez libérer de l’espace.&quot;_
 
 >[!ENDSHADEBOX]
 
@@ -40,9 +40,9 @@ _&quot;Notre surveillance a détecté que le stockage des fichiers sur votre gra
 
 ## Vérification de l’environnement d’intégration
 
-Vous pouvez vérifier l’utilisation de l’espace disque pour votre environnement d’intégration à l’aide de la variable `magento-cloud` Interface de ligne de commande.
+Vous pouvez vérifier l’utilisation de l’espace disque pour votre environnement d’intégration à l’aide de l’interface de ligne de commande `magento-cloud`.
 
-**Pour vérifier l’utilisation approximative de l’espace disque**:
+**Pour vérifier l’utilisation approximative de l’espace disque** :
 
 ```bash
 magento-cloud db:size
@@ -60,9 +60,9 @@ Checking database service mysql...
 +----------------+-----------------+--------+
 ```
 
-Toutes les montures partagent un disque. Vous pouvez vérifier l’utilisation de l’espace disque pour les montages à l’aide du `magento-cloud` Interface de ligne de commande.
+Toutes les montures partagent un disque. Vous pouvez vérifier l’utilisation de l’espace disque pour les montages à l’aide de l’interface de ligne de commande `magento-cloud`.
 
-**Pour vérifier l’utilisation approximative de l’espace disque pour les montages**:
+**Pour vérifier l’utilisation approximative de l’espace disque pour les montages** :
 
 ```bash
 magento-cloud mount:size
@@ -85,15 +85,15 @@ Checking disk usage for all mounts on <project>-<environment>-mymagento@ssh.us.m
 
 ## Vérifier les clusters dédiés
 
-Pour les environnements d’évaluation et de production Pro, vous pouvez vérifier l’utilisation de l’espace disque dans chaque environnement à l’aide de la variable `disk free` , qui indique l’espace disque utilisé par le système de fichiers. Vous devez utiliser SSH pour vous connecter à un environnement distant.
+Pour les environnements d’évaluation et de production Pro, vous pouvez vérifier l’utilisation de l’espace disque dans chaque environnement à l’aide de la commande `disk free`, qui indique la quantité d’espace disque utilisée par le système de fichiers. Vous devez utiliser SSH pour vous connecter à un environnement distant.
 
 ```bash
 df -h
 ```
 
-La variable `-h` affiche le rapport dans un format lisible par l’utilisateur (Ko, Mo ou Go).
+L’option `-h` affiche le rapport dans un format lisible par l’utilisateur (Ko, Mo ou Go).
 
-Dans l’exemple de réponse suivant, la variable `/mnt/shared` le montage affiche l’espace disque pour le média et `/data/mysql/` le montage affiche l’espace disque de la base de données :
+Dans l’exemple de réponse suivant, le montage `/mnt/shared` affiche l’espace disque pour le média et le montage `/data/mysql/` l’espace disque pour la base de données :
 
 ```terminal
 Filesystem                                    Size  Used Avail Use% Mounted on
@@ -128,21 +128,21 @@ Filesystem                                    Size  Used Avail Use% Mounted on
 
 ## Allouer de l’espace disque
 
-Deux [fichiers de configuration](../environment/overview.md) contrôler l’allocation de l’espace disque dans les environnements cloud : `.magento.app.yaml` et le fichier `.magento/services.yaml` fichier . Chaque fichier contient le `disk` qui définit la valeur de taille du disque en Mo pour la configuration correspondante. Vous pouvez uniquement modifier l’allocation de l’espace disque sur les environnements Pro Integration et Starter.
+Deux [fichiers de configuration](../environment/overview.md) contrôlent l’allocation de l’espace disque dans les environnements cloud : le fichier `.magento.app.yaml` et le fichier `.magento/services.yaml`. Chaque fichier contient la propriété `disk`, qui définit la valeur de taille du disque en Mo pour la configuration correspondante. Vous pouvez uniquement modifier l’allocation de l’espace disque sur les environnements Pro Integration et Starter.
 
 >[!IMPORTANT]
 >
->Pour les environnements de production et intermédiaires, vous devez [Envoi d’un ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) pour modifier l’allocation de l’espace disque. Une augmentation de la taille des environnements de production et d’évaluation peut uniquement survenir à certains intervalles. Par conséquent, selon l’utilisation actuelle de l’espace disque, la prise en charge peut recommander une augmentation de l’allocation de l’espace disque d’au moins 10 Go. Une fois allouée, l’augmentation de stockage pour l’évaluation et la production Pro ne peut pas être annulée. Le stockage ne peut pas être réalloué ni redistribué entre les ressources. Pour ajouter plus d’espace de stockage de fichiers, réduisez l’espace disque alloué à MySQL.
+>Pour les environnements de production et d’évaluation, vous devez [envoyer un ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) pour modifier l’allocation de l’espace disque. Une augmentation de la taille des environnements de production et d’évaluation peut uniquement survenir à certains intervalles. Par conséquent, selon l’utilisation actuelle de l’espace disque, la prise en charge peut recommander une augmentation de l’allocation de l’espace disque d’au moins 10 Go. Une fois allouée, l’augmentation de stockage pour l’évaluation et la production Pro ne peut pas être annulée. Le stockage ne peut pas être réalloué ni redistribué entre les ressources. Pour ajouter plus d’espace de stockage de fichiers, réduisez l’espace disque alloué à MySQL.
 
 ### Espace disque de l’application
 
-La variable `.magento.app.yaml` contrôle le fichier [espace disque persistant](../application/properties.md#disk) disponible pour l’application.
+Le fichier `.magento.app.yaml` contrôle l’ [ espace disque persistant](../application/properties.md#disk) disponible pour l’application.
 
-**Pour augmenter l’espace disque de votre application**:
+**Pour augmenter l&#39;espace disque de votre application** :
 
-1. Dans votre environnement de développement local, ouvrez le `.magento.app.yaml` fichier de configuration.
+1. Dans votre environnement de développement local, ouvrez le fichier de configuration `.magento.app.yaml`.
 
-1. Définissez une nouvelle valeur pour la variable `disk` (en Mo).
+1. Définissez une nouvelle valeur pour la propriété `disk` (en Mo).
 
    ```yaml
    disk: <value-mb>
@@ -160,13 +160,13 @@ La variable `.magento.app.yaml` contrôle le fichier [espace disque persistant](
 
 ### Espace disque du service
 
-La variable `.magento/services.yaml` contrôle l’espace disque disponible pour chaque service, tel que MySQL et Redis.
+Le fichier `.magento/services.yaml` contrôle l’espace disque disponible pour chaque service, tel que MySQL et Redis.
 
-**Pour augmenter l’espace disque d’un service**:
+**Pour augmenter l&#39;espace disque d&#39;un service** :
 
-1. Dans votre environnement de développement local, ouvrez le `.magento/services.yaml` fichier de configuration.
+1. Dans votre environnement de développement local, ouvrez le fichier de configuration `.magento/services.yaml`.
 
-1. Ajoutez ou recherchez un service dans le fichier . Voir [en savoir plus sur la configuration des services](../services/services-yaml.md).
+1. Ajoutez ou recherchez un service dans le fichier . Voir [plus sur la configuration des services](../services/services-yaml.md).
 
 1. Définissez une nouvelle valeur pour la propriété de disque (en Mo).
 
@@ -188,11 +188,11 @@ La variable `.magento/services.yaml` contrôle l’espace disque disponible pour
 
 ## Surveillance de l’espace disque
 
-Dans les environnements Pro Production, vous pouvez surveiller l’espace disque et d’autres indicateurs de performances à l’aide de la stratégie d’alerte Gestion des alertes pour Adobe Commerce pour New Relic. Pour plus d’informations, voir [Surveillance des performances à l’aide des alertes gérées](../monitor/investigate-performance.md#monitor-performance-with-managed-alerts). Pour plus d’informations, voir [Bonnes pratiques pour résoudre les problèmes de performances de la base de données](https://experienceleague.adobe.com/docs/commerce-operations/implementation-playbook/best-practices/maintenance/resolve-database-performance-issues.html).
+Dans les environnements Pro Production, vous pouvez surveiller l’espace disque et d’autres indicateurs de performances à l’aide de la stratégie d’alerte Gestion des alertes pour Adobe Commerce pour New Relic. Pour plus d’informations, reportez-vous à la section [Surveillance des performances avec les alertes gérées](../monitor/investigate-performance.md#monitor-performance-with-managed-alerts). Pour plus d’informations, voir [Bonnes pratiques pour résoudre les problèmes de performances de la base de données](https://experienceleague.adobe.com/docs/commerce-operations/implementation-playbook/best-practices/maintenance/resolve-database-performance-issues.html).
 
 ## Aucun espace à gauche
 
-Le cache de génération peut s’agrandir au fil du temps. Si vous recevez un avertissement indiquant que la variable `No space left on device`, essayez d’effacer le cache de génération et de redéployer :
+Le cache de génération peut s’agrandir au fil du temps. Si vous recevez un avertissement indiquant que états `No space left on device`, essayez d’effacer le cache de génération et de redéployer :
 
 ```bash
 magento-cloud project:clear-build-cache

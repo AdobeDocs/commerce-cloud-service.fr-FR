@@ -1,6 +1,6 @@
 ---
-title: Mettre à niveau le projet pour utiliser les outils de la CEE
-description: Découvrez comment mettre à niveau votre projet Adobe Commerce sur l'infrastructure cloud pour utiliser le package ECE-Tools et tirer parti des derniers correctifs et fonctionnalités.
+title: Mettre à niveau le projet à l’aide des outils CEE-ONU
+description: Découvrez comment mettre à niveau votre projet Adobe Commerce sur l’infrastructure cloud pour utiliser le package CEE-Outils et tirer parti des correctifs et fonctionnalités les plus récents.
 feature: Cloud, Install
 exl-id: 820cca84-2817-4881-829f-ebb78400d8c7
 source-git-commit: bcdb59f0d2a17e55e8b0479ee69fac06c710638f
@@ -10,26 +10,26 @@ ht-degree: 0%
 
 ---
 
-# Mise à niveau du projet pour utiliser le package ECE-Tools
+# Mettre à niveau le projet pour utiliser le package CEE-Outils
 
-Adobe de l’obsolescence de `magento/magento-cloud-configuration` et `magento/ece-patches` packages en faveur de la `ece-tools` , qui simplifie de nombreux processus cloud. Si vous utilisez un ancien projet d’infrastructure cloud Adobe Commerce qui : _non_ contiennent les éléments suivants : `ece-tools` package, puis vous devez effectuer une opération manuelle unique _mettre à niveau_ à votre projet.
+Adobe a abandonné les packages `magento/magento-cloud-configuration` et `magento/ece-patches` au profit du package `ece-tools`, ce qui simplifie de nombreux processus cloud. Si vous utilisez un projet d’infrastructure de cloud Adobe Commerce plus ancien qui ne contient _pas_ le package `ece-tools`, vous devez exécuter un processus manuel de _mise à niveau_ unique sur votre projet.
 
 >[!WARNING]
 >
->Si votre projet contient le `ece-tools` , vous pouvez ignorer la mise à niveau suivante. Pour vérifier, récupérez le [!DNL Commerce] version utilisant `php vendor/bin/ece-tools -V` dans votre répertoire racine de projet local.
+>Si votre projet contient le package `ece-tools`, vous pouvez ignorer la mise à niveau suivante. Pour vérifier, récupérez la version [!DNL Commerce] à l’aide de la commande `php vendor/bin/ece-tools -V` dans le répertoire racine de votre projet local.
 
-Ce processus de mise à niveau du projet nécessite la mise à jour du `magento/magento-cloud-metapackage` contrainte de version dans `composer.json` dans le répertoire racine. Cette contrainte permet de mettre à jour Adobe Commerce sur les métapaquets d’infrastructure cloud (y compris la suppression des packages obsolètes) sans mettre à niveau votre version actuelle d’Adobe Commerce.
+Ce processus de mise à niveau de projet nécessite que vous mettiez à jour la contrainte de version `magento/magento-cloud-metapackage` dans le fichier `composer.json` situé dans le répertoire racine. Cette contrainte active les mises à jour d’Adobe Commerce sur les modules d’infrastructure cloud (notamment la suppression des modules obsolètes) sans mettre à niveau votre version Adobe Commerce actuelle.
 
 {{upgrade-tip}}
 
-## Supprimer les packages obsolètes
+## Suppression de modules obsolètes
 
-Avant d’effectuer une mise à niveau pour utiliser `ece-tools` package, vérifiez le `composer.lock` fichier pour les packages obsolètes suivants :
+Avant d&#39;effectuer une mise à niveau pour utiliser le package `ece-tools`, vérifiez que le fichier `composer.lock` contient les packages obsolètes suivants :
 
 - `magento/magento-cloud-configuration`
 - `magento/ece-patches`
 
-## Mettre à jour le métapaquet
+## Mettre à jour le métappackage
 
 Chaque version d’Adobe Commerce nécessite une contrainte différente basée sur les éléments suivants :
 
@@ -37,14 +37,14 @@ Chaque version d’Adobe Commerce nécessite une contrainte différente basée s
 >=current_version <next_version
 ```
 
-- Pour `current_version`, spécifiez la version d’Adobe Commerce à installer.
+- Pour `current_version`, spécifiez la version Adobe Commerce à installer.
 - Pour `next_version`, spécifiez la version de correctif suivante après la valeur spécifiée dans `current_version`.
 
-Pour installer Adobe Commerce : `2.3.5-p2`, set `current_version` vers `2.3.5` et le `next_version` vers `2.3.6`. La contrainte `">=2.3.5 <2.3.6"` installe le dernier package disponible pour 2.3.5.
+Si vous souhaitez installer Adobe Commerce `2.3.5-p2`, définissez `current_version` sur `2.3.5` et `next_version` sur `2.3.6`. La contrainte `">=2.3.5 <2.3.6"` installe le dernier package disponible pour 2.3.5.
 
-Vous pouvez toujours trouver la dernière contrainte de métapaquet dans le [`magento-cloud` modèle](https://github.com/magento/magento-cloud/blob/master/composer.json).
+Vous pouvez toujours trouver la dernière contrainte de mise en forme de métappackage dans le modèle [`magento-cloud`](https://github.com/magento/magento-cloud/blob/master/composer.json).
 
-L’exemple suivant place une contrainte pour le métapaquet Adobe Commerce sur l’infrastructure cloud sur toute version supérieure ou égale à la version actuelle 2.4.7 et inférieure à la version suivante 2.4.8 :
+L’exemple suivant place une contrainte pour Adobe Commerce sur le métappackage d’infrastructure cloud à toute version supérieure ou égale à la version actuelle 2.4.7 et inférieure à la version suivante 2.4.8 :
 
 ```json
 "require": {
@@ -54,23 +54,23 @@ L’exemple suivant place une contrainte pour le métapaquet Adobe Commerce sur 
 
 ## Mettre à niveau le projet
 
-Pour mettre à niveau votre projet afin d’utiliser le `ece-tools` , vous devez mettre à jour le métapaquet et le `.magento.app.yaml` connecte les propriétés et effectue une mise à jour du compositeur ;
+Pour mettre à niveau votre projet afin d’utiliser le package `ece-tools`, vous devez mettre à jour le métapackage et les propriétés des hooks `.magento.app.yaml` et effectuer une mise à jour du compositeur.
 
-**Pour mettre à niveau le projet afin d’utiliser les outils électroniques**:
+**Pour mettre à niveau un projet afin d’utiliser les outils de l’environnement de travail citoyen** :
 
-1. Mettre à jour `magento/magento-cloud-metapackage` contrainte de version dans `composer.json` fichier .
+1. Mettez à jour la contrainte de version `magento/magento-cloud-metapackage` dans le fichier `composer.json`.
 
    ```bash
    composer require "magento/magento-cloud-metapackage":">=2.4.7 <2.4.8" --no-update
    ```
 
-1. Mettez à jour le métapaquet .
+1. Mettez à jour le métapaquet.
 
    ```bash
    composer update magento/magento-cloud-metapackage
    ```
 
-1. Modifier les commandes de hook dans `magento.app.yaml` fichier .
+1. Modifiez les commandes de crochet dans le fichier `magento.app.yaml`.
 
    ```yaml
    hooks:
@@ -87,7 +87,7 @@ Pour mettre à niveau votre projet afin d’utiliser le `ece-tools` , vous devez
            php ./vendor/bin/ece-tools run scenario/post-deploy.xml
    ```
 
-1. Recherchez et supprimez [packages obsolètes](#remove-deprecated-packages). Les packages obsolètes peuvent empêcher une mise à niveau réussie.
+1. Recherchez et supprimez les [packages obsolètes](#remove-deprecated-packages). Les packages obsolètes peuvent empêcher une mise à niveau réussie.
 
    ```bash
    composer remove magento/magento-cloud-configuration
@@ -97,13 +97,13 @@ Pour mettre à niveau votre projet afin d’utiliser le `ece-tools` , vous devez
    composer remove magento/ece-patches
    ```
 
-1. Il peut être nécessaire de mettre à jour le `ece-tools` package.
+1. Il peut être nécessaire de mettre à jour le package `ece-tools`.
 
    ```bash
    composer update magento/ece-tools
    ```
 
-1. Ajouter et valider les modifications de code. Dans cet exemple, les fichiers suivants ont été mis à jour :
+1. Ajoutez et validez les modifications du code. Dans cet exemple, les fichiers suivants ont été mis à jour :
 
    ```terminal
    .magento.app.yaml
@@ -111,7 +111,7 @@ Pour mettre à niveau votre projet afin d’utiliser le `ece-tools` , vous devez
    composer.lock
    ```
 
-1. Envoyez vos modifications de code au serveur distant et fusionnez cette branche avec le `integration` branche.
+1. Poussez vos modifications de code sur le serveur distant et fusionnez cette branche avec la branche `integration`.
 
    ```bash
    git push origin <branch-name>

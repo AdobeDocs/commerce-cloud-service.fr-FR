@@ -10,21 +10,21 @@ ht-degree: 0%
 
 ---
 
-# Configuration [!DNL RabbitMQ] service
+# Configuration du service [!DNL RabbitMQ]
 
-La variable [Message Queue Framework (MQF)](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/message-queues/message-queue-framework.html) est un système d’Adobe Commerce qui permet à un [module](https://glossary.magento.com/module) pour publier des messages dans les files d’attente. Il définit également les consommateurs qui reçoivent les messages de manière asynchrone.
+[Message Queue Framework (MQF)](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/message-queues/message-queue-framework.html) est un système d’Adobe Commerce qui permet à un [module](https://glossary.magento.com/module) de publier des messages dans les files d’attente. Il définit également les consommateurs qui reçoivent les messages de manière asynchrone.
 
-Le MQF utilise [RabbitMQ](https://www.rabbitmq.com/) en tant que courtier de messagerie, qui fournit une plateforme évolutive pour l’envoi et la réception de messages. Il comprend également un mécanisme de stockage des messages non diffusés. [!DNL RabbitMQ] est basé sur la spécification AMQP 0.9.1 du protocole Advanced Message Queuing Protocol (AMQP).
+Le MQF utilise [RabbitMQ](https://www.rabbitmq.com/) comme courtier de messagerie, qui fournit une plateforme évolutive pour l’envoi et la réception de messages. Il comprend également un mécanisme de stockage des messages non diffusés. [!DNL RabbitMQ] est basé sur la spécification AMQP (Advanced Message Queuing Protocol) 0.9.1.
 
 >[!WARNING]
 >
->Si vous préférez utiliser un service AMQP existant, comme [!DNL RabbitMQ], au lieu de vous fier à Adobe Commerce sur l’infrastructure cloud pour la créer, utilisez la variable [`QUEUE_CONFIGURATION`](../environment/variables-deploy.md#queue_configuration) pour la connecter à votre site.
+>Si vous préférez utiliser un service basé sur AMQP existant, comme [!DNL RabbitMQ], au lieu de vous fier à Adobe Commerce sur l’infrastructure cloud pour le créer pour vous, utilisez la variable d’environnement [`QUEUE_CONFIGURATION`](../environment/variables-deploy.md#queue_configuration) pour la connecter à votre site.
 
 {{service-instruction}}
 
-**Pour activer RabbitMQ**:
+**Pour activer RabbitMQ** :
 
-1. Ajoutez le nom, le type et la valeur de disque requis (en Mo) au `.magento/services.yaml` avec la version de RabbitMQ installée.
+1. Ajoutez le nom, le type et la valeur de disque requis (en Mo) au fichier `.magento/services.yaml` avec la version RabbitMQ installée.
 
    ```yaml
    rabbitmq:
@@ -32,7 +32,7 @@ Le MQF utilise [RabbitMQ](https://www.rabbitmq.com/) en tant que courtier de mes
        disk: 1024
    ```
 
-1. Configurez les relations dans le `.magento.app.yaml` fichier .
+1. Configurez les relations dans le fichier `.magento.app.yaml`.
 
    ```yaml
    relationships:
@@ -53,7 +53,7 @@ Le MQF utilise [RabbitMQ](https://www.rabbitmq.com/) en tant que courtier de mes
    git push origin <branch-name>
    ```
 
-1. [Vérification des relations de service](services-yaml.md#service-relationships).
+1. [Vérifiez les relations de service](services-yaml.md#service-relationships).
 
 {{service-change-tip}}
 
@@ -67,7 +67,7 @@ Le MQF utilise [RabbitMQ](https://www.rabbitmq.com/) en tant que courtier de mes
 
 ### Connexion à votre environnement de développement local
 
-1. Connectez-vous au `magento-cloud` Interface en ligne de commande et projet :
+1. Connectez-vous à l’interface de ligne de commande et au projet `magento-cloud` :
 
    ```bash
    magento-cloud login
@@ -85,7 +85,7 @@ Le MQF utilise [RabbitMQ](https://www.rabbitmq.com/) en tant que courtier de mes
    magento-cloud ssh
    ```
 
-1. Récupérez les informations de connexion et les informations de connexion de RabbitMQ à partir de la [$MAGENTO_CLOUD_RELATIONSHIPS](../application/properties.md#relationships) variable :
+1. Récupérez les informations de connexion et les informations d’identification de connexion RabbitMQ à partir de la variable [$MAGENTO_CLOUD_RELATIONSHIPS](../application/properties.md#relationships) :
 
    ```bash
    echo $MAGENTO_CLOUD_RELATIONSHIPS | base64 -d | json_pp
@@ -114,23 +114,23 @@ Le MQF utilise [RabbitMQ](https://www.rabbitmq.com/) en tant que courtier de mes
    }
    ```
 
-1. Activez le transfert de port local vers RabbitMQ (si votre projet se trouve dans une autre région telle que les États-Unis-3, l’UE-5 ou la région AP-3, remplacez ``us-3``/``eu-5``/``ap-3`` pour ``us``)
+1. Activez le transfert de port local vers RabbitMQ (si votre projet se trouve dans une autre région, par exemple, US-3, EU-5 ou AP-3, remplacez ``us-3``/``eu-5``/``ap-3`` par ``us``).
 
    ```bash
    ssh -L <port-number>:rabbitmq.internal:<port-number> <project-ID>-<branch-ID>@ssh.us.magentosite.cloud
    ```
 
-   Exemple d’accès à l’interface web de gestion RabbitMQ à l’adresse `http://localhost:15672` est :
+   Voici un exemple d’accès à l’interface web de gestion RabbitMQ à l’adresse `http://localhost:15672` :
 
    ```bash
    ssh -L 15672:rabbitmq.internal:15672 <project-ID>-<branch-ID>@ssh.us.magentosite.cloud
    ```
 
-1. Pendant que la session est ouverte, vous pouvez démarrer un client RabbitMQ de votre choix à partir de votre poste de travail local, configuré pour vous connecter au `localhost:<portnumber>` à l’aide du numéro de port, du nom d’utilisateur et du mot de passe de la variable MAGENTO_CLOUD_RELATIONSHIPS.
+1. Pendant que la session est ouverte, vous pouvez démarrer un client RabbitMQ de votre choix à partir de votre poste de travail local, configuré pour vous connecter à `localhost:<portnumber>` à l’aide du numéro de port, du nom d’utilisateur et des informations de mot de passe de la variable MAGENTO_CLOUD_RELATIONSHIPS.
 
 ### Connexion à partir de l’application
 
-Pour vous connecter à RabbitMQ exécuté dans une application, installez un client, tel que [amqp-utils](https://github.com/dougbarth/amqp-utils), comme dépendance de projet dans votre `.magento.app.yaml` fichier .
+Pour vous connecter à RabbitMQ s’exécutant dans une application, installez un client, tel que [amqp-utils](https://github.com/dougbarth/amqp-utils), en tant que dépendance de projet dans votre fichier `.magento.app.yaml`.
 
 Par exemple,
 
@@ -140,8 +140,8 @@ dependencies:
         amqp-utils: "0.5.1"
 ```
 
-Lorsque vous vous connectez à votre conteneur PHP, vous saisissez les `amqp-` pour gérer vos files d’attente.
+Lorsque vous vous connectez à votre conteneur PHP, vous saisissez toute commande `amqp-` disponible pour gérer vos files d’attente.
 
 ### Connexion à partir de votre application PHP
 
-Pour vous connecter à RabbitMQ à l’aide de votre application PHP, ajoutez un protocole PHP. [bibliothèque](https://glossary.magento.com/library) à votre arborescence source.
+Pour vous connecter à RabbitMQ à l’aide de votre application PHP, ajoutez une [bibliothèque](https://glossary.magento.com/library) PHP à votre arborescence source.

@@ -12,29 +12,29 @@ ht-degree: 0%
 
 # Configuration du service Redis
 
-[Redis](https://redis.io) est une solution de cache d’arrière-plan facultative qui remplace Zend_Cache_Backend_File de Zend Framework, que Adobe Commerce utilise par défaut.
+[Redis](https://redis.io) est une solution de cache d’arrière-plan facultative qui remplace Zend_Cache_Backend_File du Zend Framework, que Adobe Commerce utilise par défaut.
 
 Voir [Configuration de Redis](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/cache/redis/config-redis.html) dans le _Guide de configuration_.
 
 {{service-instruction}}
 
-**Pour activer Redis**:
+**Pour activer Redis** :
 
-1. Ajoutez le nom et le type requis au `.magento/services.yaml` fichier .
+1. Ajoutez le nom et le type requis au fichier `.magento/services.yaml`.
 
    ```yaml
    myredis:
        type: redis:<version>
    ```
 
-   Pour fournir votre propre configuration Redis, ajoutez une `core_config` clé dans votre `.magento/services.yaml` fichier :
+   Pour fournir votre propre configuration Redis, ajoutez une clé `core_config` dans votre fichier `.magento/services.yaml` :
 
    ```yaml
    cache:
        type: redis:<version>
    ```
 
-1. Configurez les relations dans le `.magento.app.yaml` fichier .
+1. Configurez les relations dans le fichier `.magento.app.yaml`.
 
    ```yaml
    runtime:
@@ -51,13 +51,13 @@ Voir [Configuration de Redis](https://experienceleague.adobe.com/docs/commerce-o
    git add .magento/services.yaml .magento.app.yaml && git commit -m "Enable redis service" && git push origin <branch-name>
    ```
 
-1. [Vérification des relations de service](services-yaml.md#service-relationships).
+1. [Vérifiez les relations de service](services-yaml.md#service-relationships).
 
 {{service-change-tip}}
 
 ## Utilisation de l’interface de ligne de commande Redis
 
-En supposant que votre relation Redis soit nommée `redis`, vous pouvez y accéder à l’aide de la fonction `redis-cli` outil.
+En supposant que votre relation Redis soit nommée `redis`, vous pouvez y accéder à l’aide de l’outil `redis-cli`.
 
 1. Utilisez SSH pour vous connecter à l’environnement d’intégration avec Redis installé et configuré.
 
@@ -84,7 +84,7 @@ gcc_version:8.3.0
 
 ### Redis sur l’évaluation et la production Pro
 
-Pour installer la version de Redis sur un environnement d’évaluation ou de production, utilisez le `redis-server` command :
+Pour installer la version Redis sur un environnement d&#39;évaluation ou de production, utilisez la commande `redis-server` :
 
 ```bash
 redis-server -v
@@ -129,9 +129,9 @@ Exemple de réponse :
 
 Pour obtenir de l’aide sur la résolution des problèmes liés aux Redis, reportez-vous aux articles suivants du support Adobe Commerce :
 
-- [Redis issue : délai de connexion de l’administrateur ou passage en caisse](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/miscellaneous/redis-issue-delay-magento-admin-login-or-checkout.html)
-- [Mise en oeuvre étendue du cache Redis dans Adobe Commerce 2.3.5+](https://experienceleague.adobe.com/docs/commerce-operations/implementation-playbook/best-practices/planning/redis-service-configuration.html)
-- [MDVA-30102 : le cache de Redis devient plein](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/support-tools/patches/v1-0-6/mdva-30102-magento-patch-redis-cache-getting-full.html)
-- [Alertes gérées sur Adobe Commerce : alerte d’avertissement de mémoire réduite](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/support-tools/managed-alerts/managed-alerts-on-magento-commerce-redis-memory-warning-alert.html)
-- [Alertes gérées sur Adobe Commerce : permet de réduire l’alerte critique de mémoire](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/support-tools/managed-alerts/managed-alerts-on-magento-commerce-redis-memory-critical-alert.html)
+- [Redis issue delay Admin login ou checkout](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/miscellaneous/redis-issue-delay-magento-admin-login-or-checkout.html)
+- [Mise en oeuvre du cache Redis étendu Adobe Commerce 2.3.5+](https://experienceleague.adobe.com/docs/commerce-operations/implementation-playbook/best-practices/planning/redis-service-configuration.html)
+- [MDVA-30102 : le cache des révisions devient plein](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/support-tools/patches/v1-0-6/mdva-30102-magento-patch-redis-cache-getting-full.html)
+- [Alertes gérées sur Adobe Commerce : alerte d’avertissement de mémoire de révision](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/support-tools/managed-alerts/managed-alerts-on-magento-commerce-redis-memory-warning-alert.html)
+- [ Alertes gérées sur Adobe Commerce : redit l’alerte critique de mémoire ](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/support-tools/managed-alerts/managed-alerts-on-magento-commerce-redis-memory-critical-alert.html)
 - [Résolution des problèmes de Redis](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/miscellaneous/redis-troubleshooter.html)

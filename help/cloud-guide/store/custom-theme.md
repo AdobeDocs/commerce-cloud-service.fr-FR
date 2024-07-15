@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Thème personnalisé
 
-Vous pouvez installer un ou plusieurs thèmes à utiliser pour l’un ou l’ensemble de vos magasins et sites dans votre projet. Les thèmes incluent plusieurs fichiers statiques, notamment des images, des polices, des fichiers CSS, JavaScript, PHP, etc., pour concevoir entièrement vos magasins. Vous pouvez ajouter le thème en extrayant son code dans le système de fichiers ou à l’aide du compositeur.
+Vous pouvez installer un ou plusieurs thèmes à utiliser pour l’un ou l’ensemble de vos magasins et sites dans votre projet. Les thèmes comprennent plusieurs fichiers statiques, notamment des images, des polices, des fichiers CSS, JavaScript, PHP, etc., pour concevoir entièrement vos magasins. Vous pouvez ajouter le thème en extrayant son code dans le système de fichiers ou à l’aide du compositeur.
 
 ## Installer manuellement un thème
 
@@ -34,9 +34,9 @@ Pour installer manuellement un thème, vous devez disposer du code du thème dan
           └── js
 ```
 
-**Pour installer manuellement un thème**:
+**Pour installer un thème manuellement** :
 
-1. Copiez le code du thème sous `<Project root dir>/app/design/frontend` pour un thème de vitrine ou `<Project root dir>/app/design/adminhtml` pour un thème d’administrateur. Vérifiez que le répertoire supérieur est `<VendorName>`; dans le cas contraire, le thème ne s’installe pas correctement.
+1. Copiez le code du thème sous `<Project root dir>/app/design/frontend` pour un thème de vitrine ou `<Project root dir>/app/design/adminhtml` pour un thème d’administrateur. Vérifiez que le répertoire de niveau supérieur est `<VendorName>` ; dans le cas contraire, le thème ne s’installe pas correctement.
 
    ```bash
    cp -r ExampleTheme <project-root>/app/design/frontend
@@ -107,4 +107,4 @@ Pour installer un thème à l’aide du compositeur :
 
 ## Thèmes multiples
 
-Lorsque vous utilisez plusieurs thèmes, tels que différents thèmes par langue, passez en revue la `SCD_MATRIX` Variable d’environnement pour personnaliser le déploiement des thèmes. Voir [build](../environment/variables-build.md#scd_matrix) ou [deploy](../environment/variables-deploy.md#scd_matrix) étapes dans la [configuration de l&#39;environnement](../environment/configure-env-yaml.md).
+Lors de l’utilisation de plusieurs thèmes, tels que différents thèmes par langue, passez en revue la variable d’environnement `SCD_MATRIX` pour personnaliser le déploiement des thèmes. Voir les étapes [build](../environment/variables-build.md#scd_matrix) ou [deploy](../environment/variables-deploy.md#scd_matrix) dans la [configuration d&#39;environnement](../environment/configure-env-yaml.md).

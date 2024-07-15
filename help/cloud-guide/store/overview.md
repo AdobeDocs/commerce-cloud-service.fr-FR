@@ -14,7 +14,7 @@ ht-degree: 0%
 
 Il existe de nombreuses façons de personnaliser votre magasin, comme l’ajout d’un thème personnalisé, l’installation d’une extension ou l’application d’une configuration spécifique dans les environnements d’infrastructure cloud. Vous pouvez configurer les paramètres de services spécifiques directement dans les environnements d’évaluation et de production. Vous pouvez configurer plusieurs sites Web et magasins. La configuration Boutique vous permet de configurer ces options dans votre poste de travail local et de déployer des paramètres spécifiques dans tous les environnements.
 
-Pour accéder à votre vitrine, utilisez le `magento-cloud url` et répondez aux invites. Vous pouvez également trouver l’URL dans la variable [!DNL Cloud Console] under **Accès au site**.
+Pour accéder à votre vitrine, utilisez la commande `magento-cloud url` et répondez aux invites. Vous pouvez également trouver l’URL dans le [!DNL Cloud Console] sous **Site d’accès**.
 
 ## Configuration des options de magasin
 
@@ -28,7 +28,7 @@ Les options de magasin sont les suivantes :
 
 ## Configuration des services et des intégrations
 
-Il existe des [fichiers de configuration](../environment/overview.md) qui gèrent certains comportements de déploiement dans des environnements distants. Vous pouvez passer en revue ces rubriques séparément :
+Il existe des [fichiers de configuration](../environment/overview.md) spécifiques qui gèrent certains comportements de déploiement dans des environnements distants. Vous pouvez passer en revue ces rubriques séparément :
 
 * [Déploiement des applications](../application/configure-app-yaml.md)
 * [Création et déploiement d’actions d’environnement](../environment/configure-env-yaml.md)
@@ -37,4 +37,4 @@ Il existe des [fichiers de configuration](../environment/overview.md) qui gèren
 
 ## Gestion des configurations
 
-Après avoir configuré les options, services et intégrations du magasin, utilisez la gestion des configurations pour déployer ces configurations dans tous les environnements de manière cohérente et avec un temps d’arrêt minimal. Voir [Gestion des configurations](store-settings.md).
+Après avoir configuré les options, services et intégrations du magasin, utilisez la gestion des configurations pour déployer ces configurations dans tous les environnements de manière cohérente et avec un temps d’arrêt minimal. Voir [Configuration Management](store-settings.md).

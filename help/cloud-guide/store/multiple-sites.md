@@ -36,7 +36,7 @@ https://store.com/second/
 
 >[!TIP]
 >
->Pour ajouter une vue de magasin à l’URL de base du site, il n’est pas nécessaire de créer plusieurs répertoires. Voir [Ajouter le code de magasin à l’URL de base](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/multi-sites/ms-admin.html) dans le _Guide de configuration_.
+>Pour ajouter une vue de magasin à l’URL de base du site, il n’est pas nécessaire de créer plusieurs répertoires. Voir [Ajout du code de magasin à l’URL de base](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/multi-sites/ms-admin.html) dans le _Guide de configuration_.
 
 ## Ajout de domaines
 
@@ -46,30 +46,30 @@ Le processus d’ajout d’un domaine dépend du type de compte Cloud :
 
 - Pour l’évaluation et la production Pro
 
-  Ajoutez le nouveau domaine à Fastly, voir [Gestion des domaines](../cdn/fastly-custom-cache-configuration.md#manage-domains)ou ouvrez un ticket d’assistance pour demander de l’aide. En outre, vous devez [Envoi d’un ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) pour demander l’ajout de nouveaux domaines à une grappe.
+  Ajoutez le nouveau domaine à Fastly, consultez la section [Gérer les domaines](../cdn/fastly-custom-cache-configuration.md#manage-domains) ou ouvrez un ticket d’assistance pour demander de l’aide. En outre, vous devez [envoyer un ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) pour demander l’ajout de nouveaux domaines à une grappe.
 
 - Pour la production de démarrage uniquement
 
-  Ajoutez le nouveau domaine à Fastly, voir [Gestion des domaines](../cdn/fastly-custom-cache-configuration.md#manage-domains), ou [Envoi d’un ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) pour demander de l’aide. En outre, vous devez ajouter le nouveau domaine au **Domaines** dans le [!DNL Cloud Console]: `https://<zone>.magento.cloud/projects/<project-ID>/edit`
+  Ajoutez le nouveau domaine à Fastly, voir [Gérer les domaines](../cdn/fastly-custom-cache-configuration.md#manage-domains) ou [Soumettre un ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) pour demander de l’aide. En outre, vous devez ajouter le nouveau domaine à l’onglet **Domains** dans [!DNL Cloud Console] : `https://<zone>.magento.cloud/projects/<project-ID>/edit`
 
 ## Configuration de l’installation locale
 
-Pour configurer votre installation locale afin d’utiliser plusieurs magasins, voir [Plusieurs sites web ou magasins][config-multiweb] dans le _Guide de configuration_.
+Pour configurer votre installation locale de manière à utiliser plusieurs magasins, reportez-vous à la section [Plusieurs sites Web ou magasins][config-multiweb] du _Guide de configuration_.
 
 Après avoir créé et testé l’installation locale pour utiliser plusieurs magasins, vous devez préparer votre environnement d’intégration :
 
-1. **Configuration des itinéraires ou des emplacements**: spécifiez la manière dont les URL entrantes sont gérées par Adobe Commerce.
+1. **Configurer des itinéraires ou des emplacements** : spécifiez la manière dont les URL entrantes sont gérées par Adobe Commerce.
 
    - [Itinéraires de domaines distincts](#configure-routes-for-separate-domains)
    - [Emplacements des domaines partagés](#configure-locations-for-shared-domains)
 
-1. **Configuration des sites web, des magasins et des vues de magasin**: configuration à l’aide de l’interface utilisateur d’administration d’Adobe Commerce
-1. **Modification des variables**: spécifiez les valeurs de la variable `MAGE_RUN_TYPE` et `MAGE_RUN_CODE` dans la variable `magento-vars.php` fichier
-1. **Déploiement et test des environnements**: déployez et testez le `integration` branche
+1. **Configuration de sites web, de magasins et de vues de magasin** : configuration à l’aide de l’interface utilisateur d’administration d’Adobe Commerce
+1. **Modifier les variables**—spécifiez les valeurs des variables `MAGE_RUN_TYPE` et `MAGE_RUN_CODE` dans le fichier `magento-vars.php`
+1. **Déployer et tester les environnements** : déployez et testez la branche `integration`
 
 >[!TIP]
 >
->Vous pouvez utiliser un environnement local pour configurer plusieurs sites web ou magasins. Consultez les instructions de Cloud Docker pour [Configuration de plusieurs sites web ou magasins](https://developer.adobe.com/commerce/cloud-tools/docker/configure/multiple-sites/).
+>Vous pouvez utiliser un environnement local pour configurer plusieurs sites web ou magasins. Consultez les instructions de Cloud Docker pour [configurer plusieurs sites Web ou magasins](https://developer.adobe.com/commerce/cloud-tools/docker/configure/multiple-sites/).
 
 ### Mises à jour de configuration des environnements Pro
 
@@ -77,13 +77,13 @@ Après avoir créé et testé l’installation locale pour utiliser plusieurs ma
 
 ### Configuration d’itinéraires pour des domaines distincts
 
-Les itinéraires définissent le traitement des URL entrantes. Plusieurs magasins avec des domaines uniques nécessitent de définir chaque domaine dans la variable `routes.yaml` fichier . La configuration des itinéraires dépend de la manière dont votre site doit fonctionner.
+Les itinéraires définissent le traitement des URL entrantes. Plusieurs magasins avec des domaines uniques nécessitent de définir chaque domaine dans le fichier `routes.yaml`. La configuration des itinéraires dépend de la manière dont votre site doit fonctionner.
 
-**Pour configurer des itinéraires dans un environnement d’intégration**:
+**Pour configurer des itinéraires dans un environnement d’intégration** :
 
-1. Sur votre poste de travail local, ouvrez le `.magento/routes.yaml` dans un éditeur de texte.
+1. Sur votre poste de travail local, ouvrez le fichier `.magento/routes.yaml` dans un éditeur de texte.
 
-1. Définissez le domaine et les sous-domaines. La variable `mymagento` la valeur en amont est la même valeur que la propriété name dans la propriété `.magento.app.yaml` fichier .
+1. Définissez le domaine et les sous-domaines. La valeur `mymagento` en amont est la même valeur que la propriété name dans le fichier `.magento.app.yaml`.
 
    ```yaml
    "http://{default}/":
@@ -95,17 +95,17 @@ Les itinéraires définissent le traitement des URL entrantes. Plusieurs magasin
        upstream: "mymagento:http"
    ```
 
-1. Enregistrez vos modifications dans le `routes.yaml` fichier .
+1. Enregistrez vos modifications dans le fichier `routes.yaml`.
 
-1. Passez à [Configuration des sites web, des magasins et des vues de magasin](#set-up-websites-stores-and-store-views).
+1. Passez à la [configuration des sites web, des magasins et des vues de magasin](#set-up-websites-stores-and-store-views).
 
 ### Configuration des emplacements pour les domaines partagés
 
-Lorsque la configuration des itinéraires définit le mode de traitement des URL, la variable `web` dans la propriété `.magento.app.yaml` définit la manière dont votre application est exposée sur le web. Web _emplacements_ permettent une plus grande granularité pour les requêtes entrantes. Par exemple, si votre domaine est `store.com`, vous pouvez utiliser `/first` (site par défaut) et `/second` pour les demandes envoyées à deux magasins différents qui partagent un domaine.
+Lorsque la configuration des itinéraires définit le mode de traitement des URL, la propriété `web` du fichier `.magento.app.yaml` définit la manière dont votre application est exposée au web. Les _emplacements_ web offrent une plus grande granularité pour les requêtes entrantes. Par exemple, si votre domaine est `store.com`, vous pouvez utiliser `/first` (site par défaut) et `/second` pour les demandes envoyées à deux magasins différents qui partagent un domaine.
 
-**Pour configurer un nouvel emplacement web**:
+**Pour configurer un nouvel emplacement web** :
 
-1. Créez un alias pour la racine (`/`). Dans cet exemple, l’alias est `&app` à la ligne 3.
+1. Créez un alias pour la racine (`/`). Dans cet exemple, l&#39;alias est `&app` sur la ligne 3.
 
    ```yaml
    web:
@@ -119,9 +119,9 @@ Lorsque la configuration des itinéraires définit le mode de traitement des URL
                ...
    ```
 
-1. Création d’une passerelle pour le site web (`/website`) et référencez la racine à l’aide de l’alias de l’étape précédente.
+1. Créez un pass-through pour le site web (`/website`) et référencez la racine à l’aide de l’alias de l’étape précédente.
 
-   L’alias permet `website` pour accéder aux valeurs de l’emplacement racine. Dans cet exemple, le site web `passthru` est à la ligne 21.
+   L’alias permet à `website` d’accéder aux valeurs de l’emplacement racine. Dans cet exemple, le site web `passthru` se trouve sur la ligne 21.
 
    ```yaml
    web:
@@ -148,9 +148,9 @@ Lorsque la configuration des itinéraires définit le mode de traitement des URL
              ...
    ```
 
-**Pour configurer un emplacement avec un autre répertoire**:
+**Pour configurer un emplacement avec un autre répertoire** :
 
-1. Créez un alias pour la racine (`/`) et pour le paramètre statique (`/static`).
+1. Créez un alias pour la racine (`/`) et pour les emplacements statiques (`/static`).
 
    ```yaml
    web:
@@ -166,9 +166,9 @@ Lorsque la configuration des itinéraires définit le mode de traitement des URL
                root: "pub/static"
    ```
 
-1. Créez un sous-répertoire pour le site web sous le `pub` directory: `pub/<website>`
+1. Créez un sous-répertoire pour le site web sous le répertoire `pub` : `pub/<website>`
 
-1. Copiez le `pub/index.php` dans le fichier `pub/<website>` et mettre à jour le répertoire `bootstrap` path (`/../../app/bootstrap.php`).
+1. Copiez le fichier `pub/index.php` dans le répertoire `pub/<website>` et mettez à jour le chemin `bootstrap` (`/../../app/bootstrap.php`).
 
    ```
    try {
@@ -176,7 +176,7 @@ Lorsque la configuration des itinéraires définit le mode de traitement des URL
    } catch (\Exception $e) { 
    ```
 
-1. Création d’une transmission pour la variable `index.php` fichier .
+1. Créez un pass-through pour le fichier `index.php`.
 
    ```yaml
    web:
@@ -208,24 +208,24 @@ Lorsque la configuration des itinéraires définit le mode de traitement des URL
 
 1. Validez et envoyez les fichiers modifiés.
 
-   - `pub/<website>/index.php` (Si ce fichier se trouve dans la variable `.gitignore`, la notification push peut nécessiter l’option force .)
+   - `pub/<website>/index.php` (Si ce fichier se trouve dans `.gitignore`, la notification push peut nécessiter l’option force.)
    - `.magento.app.yaml`
 
 ### Configuration des sites web, des magasins et des vues de magasin
 
-Dans le _Interface utilisateur d’administration_, configurez votre Adobe Commerce **Sites web**, **Magasins**, et **Vues du magasin**. Voir [Configuration de plusieurs sites web, magasins et vues de magasin dans l’administrateur](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/multi-sites/ms-admin.html) dans le _Guide de configuration_.
+Dans l’ _interface utilisateur d’administration_, configurez vos **sites web** Adobe Commerce, **magasins** et **vues de magasin**. Voir [ Configuration de plusieurs sites web, magasins et vues de magasin dans l’Admin](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/multi-sites/ms-admin.html) du _Guide de configuration_.
 
-Il est important d’utiliser le même nom et le même code pour vos sites web, magasins et magasins des vues de votre administrateur lors de la configuration de votre installation locale. Vous avez besoin de ces valeurs lorsque vous mettez à jour la variable `magento-vars.php` fichier .
+Il est important d’utiliser le même nom et le même code pour vos sites web, magasins et magasins des vues de votre administrateur lors de la configuration de votre installation locale. Vous avez besoin de ces valeurs lorsque vous mettez à jour le fichier `magento-vars.php`.
 
 ### Modification des variables
 
-Au lieu de configurer un hôte virtuel NGINX, transmettez la variable `MAGE_RUN_CODE` et `MAGE_RUN_TYPE` en utilisant la variable `magento-vars.php` dans le répertoire racine du projet.
+Au lieu de configurer un hôte virtuel NGINX, transmettez les variables `MAGE_RUN_CODE` et `MAGE_RUN_TYPE` à l’aide du fichier `magento-vars.php` dans le répertoire racine de votre projet.
 
-**Pour transmettre des variables à l’aide de la variable `magento-vars.php` fichier**:
+**Pour transmettre des variables à l’aide du fichier `magento-vars.php`** :
 
-1. Ouvrez le `magento-vars.php` dans un éditeur de texte.
+1. Ouvrez le fichier `magento-vars.php` dans un éditeur de texte.
 
-   La variable [default `magento-vars.php` fichier](https://github.com/magento/magento-cloud/blob/master/magento-vars.php) doit ressembler à ce qui suit :
+   Le [fichier `magento-vars.php` par défaut](https://github.com/magento/magento-cloud/blob/master/magento-vars.php) doit ressembler à ce qui suit :
 
    ```php
    <?php
@@ -244,7 +244,7 @@ Au lieu de configurer un hôte virtuel NGINX, transmettez la variable `MAGE_RUN_
    }
    ```
 
-1. Déplacer le commentaire `if` block afin qu’elle soit _after_ la valeur `function` et ne commente plus.
+1. Déplacez le bloc `if` commenté afin qu&#39;il soit _après_ le bloc `function` et qu&#39;il ne soit plus commenté.
 
    ```php
    <?php
@@ -265,12 +265,12 @@ Au lieu de configurer un hôte virtuel NGINX, transmettez la variable `MAGE_RUN_
    }
    ```
 
-1. Remplacez les valeurs suivantes dans la variable `if (isHttpHost("example.com"))` block:
-   - `example.com`: avec l’URL de base de votre _site web_
-   - `default`: avec le CODE unique pour votre _site web_ ou _vue de magasin_
-   - `store`—avec l’une des valeurs suivantes :
-      - `website`—load la variable _site web_ sur le storefront
-      - `store`—load a _vue de magasin_ sur le storefront
+1. Remplacez les valeurs suivantes dans le bloc `if (isHttpHost("example.com"))` :
+   - `example.com` avec l’URL de base de votre _site web_
+   - `default` : avec le CODE unique pour votre _site web_ ou _vue de magasin_
+   - `store` avec l’une des valeurs suivantes :
+      - `website` : chargez le _site web_ sur le storefront.
+      - `store` : chargez une _vue de magasin_ sur le storefront
 
    Pour plusieurs sites utilisant des domaines uniques :
 
@@ -293,7 +293,7 @@ Au lieu de configurer un hôte virtuel NGINX, transmettez la variable `MAGE_RUN_
    }
    ```
 
-   Pour plusieurs sites avec le même domaine, vous devez vérifier la variable _hôte_ et la variable _URI_:
+   Pour plusieurs sites avec le même domaine, vous devez vérifier l’_hôte_ et l’_URI_ :
 
    ```php
    <?php
@@ -319,7 +319,7 @@ Au lieu de configurer un hôte virtuel NGINX, transmettez la variable `MAGE_RUN_
    }
    ```
 
-1. Enregistrez vos modifications dans le `magento-vars.php` fichier .
+1. Enregistrez vos modifications dans le fichier `magento-vars.php`.
 
 ### Déploiement et test sur le serveur d’intégration
 
@@ -335,19 +335,19 @@ Envoyez vos modifications à votre Adobe Commerce dans l’environnement d’int
 
 1. Après le déploiement, ouvrez l’URL de votre magasin dans un navigateur web.
 
-   Avec un domaine unique, utilisez le format suivant : `http://<magento-run-code>.<site-URL>`
+   Avec un domaine unique, utilisez le format : `http://<magento-run-code>.<site-URL>`
 
    Par exemple, `http://french.master-name-projectID.us.magentosite.cloud/`
 
-   Avec un domaine partagé, utilisez le format suivant : `http://<site-URL>/<magento-run-code>`
+   Avec un domaine partagé, utilisez le format : `http://<site-URL>/<magento-run-code>`
 
    Par exemple, `http://master-name-projectID.us.magentosite.cloud/french/`
 
-1. Testez minutieusement votre site et fusionnez le code dans la variable `integration` branche pour un déploiement ultérieur.
+1. Testez minutieusement votre site et fusionnez le code dans la branche `integration` pour un déploiement ultérieur.
 
 ## Déploiement vers l’évaluation et la production
 
-Suivez le processus de déploiement pour [déploiement vers l’évaluation et la production](../deploy/staging-production.md). Pour les environnements Starter et Pro, vous utilisez le [!DNL Cloud Console] pour envoyer du code à l’ensemble des environnements.
+Suivez le processus de déploiement de [déploiement vers l’évaluation et la production](../deploy/staging-production.md). Pour les environnements Starter et Pro, vous utilisez le [!DNL Cloud Console] pour envoyer du code à l’ensemble des environnements.
 
 Adobe recommande de réaliser des tests complets dans l’environnement d’évaluation avant de passer à l’environnement de production. Apportez des modifications au code dans l’environnement d’intégration et commencez le processus à déployer à nouveau dans tous les environnements.
 

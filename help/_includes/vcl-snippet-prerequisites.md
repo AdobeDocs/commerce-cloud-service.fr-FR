@@ -9,7 +9,7 @@ ht-degree: 0%
 
 <!-- Prerequisites section inserted in tutorials for customizing the Fastly service configuration with custom VCL snippets. -->
 
-- Votre environnement doit être configuré pour utiliser le CDN Fastly. Voir [Configuration des services Fastly](/help/cloud-guide/cdn/fastly-configuration.md).
+- Votre environnement doit être configuré pour utiliser le CDN Fastly. Voir [ Configuration de services rapides ](/help/cloud-guide/cdn/fastly-configuration.md).
 
 - Vérifiez que vous exécutez la dernière version du module CDN Fastly pour Magento 2. Voir [Mise à niveau du module Fastly](/help/cloud-guide/cdn/fastly-configuration.md#upgrade-fastly-module).
 

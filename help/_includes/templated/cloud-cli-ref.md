@@ -8,14 +8,14 @@ ht-degree: 0%
 # magento-cloud (Adobe Commerce sur l’infrastructure cloud)
 
 <!-- The template to render with above values -->
-**Version**: 1.46.1
+**Version** : 1.46.1
 
-Cette référence contient 119 commandes disponibles via le `magento-cloud` outil de ligne de commande.
-La liste initiale est générée automatiquement à l’aide de la fonction `magento-cloud list` sur Adobe Commerce sur l’infrastructure cloud.
+Cette référence contient 119 commandes disponibles via l’outil de ligne de commande `magento-cloud`.
+La liste initiale est générée automatiquement à l’aide de la commande `magento-cloud list` sur Adobe Commerce sur l’infrastructure cloud.
 
 >[!NOTE]
 >
->Cette référence est générée à partir du code base de l’application. Pour modifier le contenu, vous pouvez mettre à jour le code source de l’implémentation de la commande correspondante dans le [codebase](https://github.com/magento/magento-cloud-cli) et envoyer vos modifications pour révision. Une autre méthode consiste à _Donnez-nous vos commentaires_ (trouvez le lien en haut à droite). Pour obtenir des instructions sur les contributions, voir [Contributions au code](https://developer.adobe.com/commerce/contributor/guides/code-contributions/).
+>Cette référence est générée à partir du code base de l’application. Pour modifier le contenu, vous pouvez mettre à jour le code source pour l’implémentation de commande correspondante dans le référentiel [codebase](https://github.com/magento/magento-cloud-cli) et envoyer vos modifications pour révision. Une autre méthode consiste à _Laisser un commentaire_ (trouvez le lien en haut à droite). Pour obtenir des instructions sur les contributions, voir [Contributions au code](https://developer.adobe.com/commerce/contributor/guides/code-contributions/).
 
 ## `clear-cache`
 
@@ -1000,7 +1000,7 @@ Nom de l’application distante
 
 ### `--identity-file`, `-i`
 
-[Option obsolète, qui n’est plus utilisée]
+[ Option obsolète, n&#39;est plus utilisée ]
 
 - Requiert une valeur
 
@@ -7136,7 +7136,7 @@ Ne posez aucune question interactive ; acceptez les valeurs par défaut. Équiva
 
 ## `operation:list`
 
-BÊTA Liste des opérations d’exécution sur un environnement
+Opérations d’exécution Liste Beta sur un environnement
 
 ```bash
 magento-cloud ops [--full] [-p|--project PROJECT] [-e|--environment ENVIRONMENT] [-A|--app APP] [--worker WORKER] [--format FORMAT] [-c|--columns COLUMNS] [--no-header]
@@ -7232,7 +7232,7 @@ Ne posez aucune question interactive ; acceptez les valeurs par défaut. Équiva
 
 ## `operation:run`
 
-BETA Exécution d’une opération sur l’environnement
+BETA Exécuter une opération sur l’environnement
 
 ```bash
 magento-cloud operation:run [-p|--project PROJECT] [-e|--environment ENVIRONMENT] [-A|--app APP] [--worker WORKER] [-W|--no-wait] [--wait] [--] [<operation>]
@@ -8032,13 +8032,13 @@ Identifiant de l’environnement. Utilisez &quot;.&quot; pour sélectionner l’
 
 ### `--app`, `-A`
 
-[Option obsolète, qui n’est plus utilisée]
+[ Option obsolète, n&#39;est plus utilisée ]
 
 - Requiert une valeur
 
 ### `--identity-file`, `-i`
 
-[Option obsolète, qui n’est plus utilisée]
+[ Option obsolète, n&#39;est plus utilisée ]
 
 - Requiert une valeur
 
@@ -9417,7 +9417,7 @@ Forcer l’actualisation du certificat
 
 ### `--new-key`
 
-[Obsolète] Utilisez plutôt —new
+[Obsolète] Utilisez —new à la place
 
 - Valeur par défaut : `false`
 - N’accepte pas de valeur
@@ -10330,7 +10330,7 @@ Attente de la fin de l’opération (par défaut)
 
 ### `--role`, `-r`
 
-[Obsolète : utilisez user:update pour modifier le ou les rôles d’un utilisateur]
+[Obsolète : utilisez user:update pour modifier le(s) rôle(s) d’un utilisateur]
 
 - Requiert une valeur
 
@@ -10811,7 +10811,7 @@ Identifiant de l’environnement. Utilisez &quot;.&quot; pour sélectionner l’
 
 ### `--pipe`
 
-[Option obsolète] Générer la valeur de variable uniquement
+[Option obsolète] Extrayez la valeur de variable uniquement
 
 - Valeur par défaut : `false`
 - N’accepte pas de valeur

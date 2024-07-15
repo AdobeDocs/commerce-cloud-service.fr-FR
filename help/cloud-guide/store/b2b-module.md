@@ -12,5 +12,5 @@ ht-degree: 0%
 
 # Activation du module B2B
 
-Si vos clients sont des entreprises, vous pouvez installer le module Adobe Commerce B2B afin d’étendre votre projet Adobe Commerce sur l’infrastructure cloud Pro pour l’adapter à un modèle business-to-business. Vous trouverez des informations sur l’installation et la configuration du module B2B pour Adobe Commerce sur l’infrastructure cloud, dans la section [Guide de l’utilisateur d’Adobe Commerce B2B](https://experienceleague.adobe.com/docs/commerce-admin/b2b/guide-overview.html).
+Si vos clients sont des entreprises, vous pouvez installer le module Adobe Commerce B2B afin d’étendre votre projet Adobe Commerce sur l’infrastructure cloud Pro pour l’adapter à un modèle business-to-business. Vous trouverez des informations sur l’installation et la configuration du module B2B pour Adobe Commerce sur l’infrastructure cloud dans le [Guide de l’utilisateur d’Adobe Commerce B2B](https://experienceleague.adobe.com/docs/commerce-admin/b2b/guide-overview.html).
 

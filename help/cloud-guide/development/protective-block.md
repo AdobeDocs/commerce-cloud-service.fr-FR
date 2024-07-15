@@ -28,9 +28,9 @@ Si une vulnérabilité critique est détectée dans votre application, elle reje
 
 Deux types de blocs sont exécutés :
 
-1. **Bloc complet**: pour les sites web de développement. Message d’erreur accompagnant `git push` fournit des informations détaillées sur la vulnérabilité.
+1. **Bloc complet** : pour les sites web de développement. Le message d’erreur accompagnant `git push` fournit des informations détaillées sur la vulnérabilité.
 
-1. **Bloc partiel**: pour les sites web de production, qui permettent au site de rester principalement en ligne. Selon la nature de la vulnérabilité, certaines parties d’une requête, telles qu’une chaîne de requête, des cookies ou tout en-tête supplémentaire, peuvent être supprimées des requêtes de GET. Toutes les autres demandes peuvent être bloquées entièrement, telles que la connexion, l’envoi de formulaire ou l’extraction de produit.
+1. **Bloc partiel** : pour les sites web de production, ce qui permet au site de rester principalement en ligne. Selon la nature de la vulnérabilité, certaines parties d’une requête, telles qu’une chaîne de requête, des cookies ou tout en-tête supplémentaire, peuvent être supprimées des requêtes de GET. Toutes les autres demandes peuvent être bloquées entièrement, telles que la connexion, l’envoi de formulaire ou l’extraction de produit.
 
 Le déblocage est automatisé lors de la résolution du risque de sécurité. Le bloc est supprimé peu de temps après l&#39;application d&#39;une mise à niveau de sécurité qui supprime la vulnérabilité.
 
@@ -38,7 +38,7 @@ Le déblocage est automatisé lors de la résolution du risque de sécurité. Le
 
 Le bloc de protection est là pour vous protéger contre les vulnérabilités connues dans le logiciel que vous déployez Adobe Commerce sur l’infrastructure cloud.
 
-Vous pouvez toutefois vous exclure du bloc de protection en ajoutant ce qui suit à la variable [`.magento.app.yaml`](../application/configure-app-yaml.md):
+Cependant, vous pouvez vous exclure du bloc de protection en ajoutant le code suivant à [`.magento.app.yaml`](../application/configure-app-yaml.md) :
 
 ```yaml
    preflight:

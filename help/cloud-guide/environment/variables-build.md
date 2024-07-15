@@ -14,7 +14,7 @@ ht-degree: 0%
 
 # Créer des variables
 
-Les éléments suivants _build_ contrôlent les actions lors de la phase de création et peuvent hériter et remplacer des valeurs de la fonction [Variables globales](variables-global.md). Insérez ces variables dans le `build` étape de la `.magento.env.yaml` fichier :
+Les variables _build_ suivantes contrôlent les actions pendant la phase de génération et peuvent hériter et remplacer des valeurs des [variables globales](variables-global.md). Insérez ces variables à l’étape `build` du fichier `.magento.env.yaml` :
 
 ```yaml
 stage:
@@ -37,7 +37,7 @@ Les variables suivantes ont été supprimées dans la version v2.2 :
 - **Par défaut**—`1`
 - **Version**—Adobe Commerce 2.1.4 et versions ultérieures
 
-Définissez le niveau d’imbrication de répertoires pour enregistrer les fichiers de rapport d’erreur afin d’éviter de remplir le répertoire de rapports avec des dizaines de milliers de fichiers, ce qui peut rendre difficile la gestion et la révision des données. Ce paramètre est défini par défaut sur `1`. En règle générale, il n’est pas nécessaire de modifier la valeur par défaut, sauf si vous rencontrez des problèmes pour gérer les fichiers de rapport d’erreur dans la variable `<magento_root>/var/report/` répertoire .
+Définissez le niveau d’imbrication de répertoires pour enregistrer les fichiers de rapport d’erreur afin d’éviter de remplir le répertoire de rapports avec des dizaines de milliers de fichiers, ce qui peut rendre difficile la gestion et la révision des données. Ce paramètre est défini par défaut sur `1`. En règle générale, vous n’avez pas besoin de modifier la valeur par défaut, sauf si vous rencontrez des problèmes pour gérer les fichiers de rapport d’erreur dans le répertoire `<magento_root>/var/report/`.
 
 ```yaml
 stage:
@@ -76,7 +76,7 @@ Voir [Appliquer les correctifs](../development/apply-patches.md).
 - **Par défaut**—`6`
 - **Version**—Adobe Commerce 2.1.4 et versions ultérieures
 
-Spécifie [gzip](https://www.gnu.org/software/gzip) niveau de compression (`0` to `9`) à utiliser lors de la compression de contenu statique ; `0` désactive la compression.
+Spécifie le niveau de compression [gzip](https://www.gnu.org/software/gzip) (`0` à `9`) à utiliser lors de la compression du contenu statique ; `0` désactive la compression.
 
 ```yaml
 stage:
@@ -102,9 +102,9 @@ stage:
 - **Par défaut**—`false`
 - **Version**—Adobe Commerce 2.4.2 et versions ultérieures
 
-Définissez sur . `true` pour empêcher la génération de contenu statique pour les thèmes parents pendant la phase de création.
+Définissez cette variable sur `true` pour empêcher la génération de contenu statique pour les thèmes parents pendant la phase de création.
 
-Définir `SCD_NO_PARENT: false` pendant la phase de création, de sorte que la génération du contenu statique pour les thèmes parents n’ait aucune incidence sur le déploiement du site ou ne provoque pas de temps d’arrêt inutile du site. Voir [Déploiement de contenu statique](../deploy/static-content.md).
+Définissez `SCD_NO_PARENT: false` pendant la phase de génération de sorte que la génération du contenu statique pour les thèmes parents n’affecte pas le déploiement du site ou n’entraîne pas de temps d’arrêt inutile du site. Voir [Déploiement de contenu statique](../deploy/static-content.md).
 
 ```yaml
 stage:
@@ -117,9 +117,9 @@ stage:
 - **Par défaut**—_Non défini_
 - **Version**—Adobe Commerce 2.1.4 et versions ultérieures
 
-Vous pouvez configurer plusieurs paramètres régionaux par thème. Cette personnalisation permet d’accélérer le processus de création en réduisant le nombre de fichiers de thème inutiles. Par exemple, vous pouvez créer la variable _magento/backend_ en anglais et un thème personnalisé dans d’autres langues.
+Vous pouvez configurer plusieurs paramètres régionaux par thème. Cette personnalisation permet d’accélérer le processus de création en réduisant le nombre de fichiers de thème inutiles. Par exemple, vous pouvez créer le thème _magento/backend_ en anglais et un thème personnalisé dans d’autres langues.
 
-L’exemple suivant crée la variable `Magento/backend` thème avec trois paramètres régionaux :
+L’exemple suivant crée le thème `Magento/backend` avec trois paramètres régionaux :
 
 ```yaml
 stage:
@@ -155,7 +155,7 @@ stage:
           - af_ZA
 ```
 
-Vous pouvez également choisir de _not_ déployer un thème :
+Vous pouvez également choisir de _ne pas_ déployer un thème :
 
 ```yaml
 stage:
@@ -186,13 +186,13 @@ stage:
 - **Par défaut**—`quick`
 - **Version**—Adobe Commerce 2.2.0 et versions ultérieures
 
-Personnalisez le [stratégie de déploiement](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/cli/static-view/static-view-file-strategy.html) pour le contenu statique. Voir [Déploiement de fichiers d’affichage statique](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/cli/static-view/static-view-file-deployment.html).
+Personnalisez la [stratégie de déploiement](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/cli/static-view/static-view-file-strategy.html) pour le contenu statique. Voir [Déploiement de fichiers d’affichage statique](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/cli/static-view/static-view-file-deployment.html).
 
-Utiliser ces options _only_ si vous avez plusieurs paramètres régionaux :
+Utilisez ces options _only_ si vous avez plusieurs paramètres régionaux :
 
-- `standard`: déploie tous les fichiers d’affichage statique pour tous les modules.
-- `quick`—(_default_) réduit le temps de déploiement.
-- `compact`: conserve l’espace disque sur le serveur. Dans Adobe Commerce version 2.2.4 et antérieure, ce paramètre remplace la valeur de `scd_threads` avec la valeur de `1`.
+- `standard` : déploie tous les fichiers d’affichage statique pour tous les modules.
+- `quick`—(_default_) minimise le temps de déploiement.
+- `compact` : conserve l’espace disque sur le serveur. Dans Adobe Commerce version 2.2.4 et antérieure, ce paramètre remplace la valeur de `scd_threads` par une valeur de `1`.
 
 ```yaml
 stage:
@@ -202,7 +202,7 @@ stage:
 
 ## `SCD_THREADS`
 
-- **Par défaut**—Automatique
+- **Default**—Automatique
 - **Version**—Adobe Commerce 2.1.4 et versions ultérieures
 
 Définit le nombre de threads pour le déploiement de contenu statique. La valeur par défaut est définie en fonction du nombre de threads du processeur détecté et ne dépasse pas une valeur de 4. L’augmentation du nombre de threads accélère le déploiement de contenu statique ; la réduction du nombre de threads la ralentit. Vous pouvez définir la valeur de thread, par exemple :
@@ -213,7 +213,7 @@ stage:
     SCD_THREADS: 2
 ```
 
-Pour réduire davantage le temps de déploiement, utilisez [Gestion des configurations](../store/store-settings.md) avec la propriété `scd-dump` pour déplacer le déploiement statique dans la phase de génération.
+Pour réduire davantage le temps de déploiement, utilisez [Configuration Management](../store/store-settings.md) avec la commande `scd-dump` pour passer au déploiement statique dans la phase de création.
 
 ## `SCD_USE_BALER`
 
@@ -222,7 +222,7 @@ Pour réduire davantage le temps de déploiement, utilisez [Gestion des configur
 
 [Baler](https://github.com/magento/baler) analyse le code JavaScript généré et crée un lot JavaScript optimisé. Le déploiement du lot optimisé sur votre site peut réduire le nombre de requêtes réseau lors du chargement de votre site et améliorer les temps de chargement des pages.
 
-Définissez sur . `true` pour exécuter Baler après l’exécution du déploiement de contenu statique.
+Définissez cette variable sur `true` pour exécuter Baler après l’exécution du déploiement de contenu statique.
 
 ```yaml
 stage:
@@ -239,9 +239,9 @@ stage:
 - **Par défaut**— _Non défini_
 - **Version**—Adobe Commerce 2.1.4 et versions ultérieures
 
-Définissez sur . `true` pour ignorer `composer dump-autoload` lors d’une installation de Cloud Docker. Cette variable ne s’applique qu’aux conteneurs Cloud Docker avec des systèmes de fichiers modifiables. Dans ce cas, ignorer la commande empêche les erreurs d’autres commandes qui tentent d’accéder au code du `generated` répertoire .
+Définissez cette variable sur `true` pour ignorer la commande `composer dump-autoload` lors de l’installation de Cloud Docker. Cette variable ne s’applique qu’aux conteneurs Cloud Docker avec des systèmes de fichiers modifiables. Dans ce cas, ignorer la commande empêche les erreurs d’autres commandes d’accéder au code du répertoire `generated` supprimé.
 
-Lorsque Adobe Commerce s’exécute `composer dump-autoload`, il crée des fichiers de chargement automatique avec des liens vers les classes générées dans le `generated` , ce qui n’est pas un problème dans les environnements de production avec les systèmes de fichiers en lecture seule. Toutefois, pour les installations de Cloud Docker avec des systèmes de fichiers modifiables (créés uniquement à des fins de test et de développement à l’aide de `./vendor/bin/ece-docker build:compose --with-test`), vous pouvez exécuter la variable `bin/magento -n setup:upgrade` sans la commande `--keep-generated` , qui supprime la variable `generated` répertoire . Si le répertoire est supprimé, la variable `composer dump-autoload` échoue, car le chargement automatique contient des liens vers des fichiers du répertoire supprimé.
+Lorsqu’Adobe Commerce exécute `composer dump-autoload`, il crée des fichiers de chargement automatique avec des liens vers des classes générées dans le dossier `generated`, ce qui n’est pas un problème dans les environnements de production avec des systèmes de fichiers en lecture seule. Toutefois, pour les installations de Cloud Docker avec des systèmes de fichiers modifiables (créés uniquement à des fins de test et de développement à l’aide de `./vendor/bin/ece-docker build:compose --with-test`), vous pouvez exécuter la commande `bin/magento -n setup:upgrade` sans l’option `--keep-generated`, ce qui supprime le répertoire `generated`. Si le répertoire est supprimé, la commande `composer dump-autoload` échoue, car le chargement automatique contient des liens vers des fichiers du répertoire supprimé.
 
 ```yaml
 stage:
@@ -254,11 +254,11 @@ stage:
 - **Par défaut**— _Non défini_
 - **Version**—Adobe Commerce 2.1.4 et versions ultérieures
 
-Définissez sur . `true` pour ignorer le déploiement du contenu statique pendant la phase de création.
+Définissez cette variable sur `true` pour ignorer le déploiement de contenu statique pendant la phase de création.
 
-Si vous déployez déjà du contenu statique pendant la phase de création avec [Gestion des configurations](../store/store-settings.md), vous pouvez ignorer le déploiement de contenu statique pour un test de création rapide.
+Si vous déployez déjà du contenu statique pendant la phase de création avec [Configuration Management](../store/store-settings.md), vous pouvez ignorer le déploiement de contenu statique pour un test de création rapide.
 
-Lors de la phase de création, définissez `SKIP_SCD: false` de sorte que la création de contenu statique se produise pendant la phase de création, lorsque le processus n’a aucune incidence sur le déploiement du site ou provoque des temps d’arrêt inutiles du site. Voir [Déploiement de contenu statique](../deploy/static-content.md).
+Lors de la phase de création, définissez `SKIP_SCD: false` de sorte que la génération de contenu statique se produise pendant la phase de création, lorsque le processus n’a aucune incidence sur le déploiement du site ou provoque des temps d’arrêt inutiles du site. Voir [Déploiement de contenu statique](../deploy/static-content.md).
 
 ```yaml
 stage:
@@ -271,11 +271,11 @@ stage:
 - **Par défaut**—_Non défini_
 - **Version**—Adobe Commerce 2.1.4 et versions ultérieures
 
-Activez ou désactivez la variable [Symfony](https://symfony.com/doc/current/console/verbosity.html) niveau de détail du débogage pour `bin/magento` Commandes d’interface de ligne de commande exécutées lors de la phase de déploiement
+Activez ou désactivez le niveau de détail de débogage [Symfony](https://symfony.com/doc/current/console/verbosity.html) pour les commandes d’interface de ligne de commande `bin/magento` exécutées pendant la phase de déploiement.
 
 >[!NOTE]
 >
->Pour utiliser VERBOSE_COMMANDS afin de contrôler les détails dans la sortie de commande pour les performances et l’échec `bin/magento` Commandes d’interface de ligne de commande, vous devez définir [MIN_LOGGING_LEVEL](variables-global.md#minlogginglevel) `debug`.
+>Pour utiliser VERBOSE_COMMANDS afin de contrôler les détails de la sortie de commande pour les commandes CLI `bin/magento` réussies et échouées, vous devez définir [MIN_LOGGING_LEVEL](variables-global.md#minlogginglevel) `debug`.
 
 Sélectionnez le niveau de détail fourni dans les logs :
 

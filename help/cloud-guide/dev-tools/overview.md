@@ -13,10 +13,10 @@ ht-degree: 0%
 
 # Présentation des outils de développement
 
-Adobe fournit une suite d’outils Cloud pour le commerce, qui comprend des modules conçus pour déployer et gérer des installations et des mises à niveau Adobe Commerce sur la plateforme Cloud.
+Adobe fournit une suite d’outils Cloud pour Commerce, qui comprend des modules conçus pour déployer et gérer des installations et des mises à niveau Adobe Commerce sur la plateforme Cloud.
 
-- [Interface de ligne de commande du cloud](cloud-cli-overview.md): gérez les projets et environnements cloud, effectuez des routines et exécutez des tâches d’automatisation avec `magento-cloud` Interface de ligne de commande.
-- [Cloud Docker pour Commerce](cloud-docker.md): déployez Adobe Commerce dans un environnement Docker pour effectuer des tâches de développement, de test et d’automatisation en local.
-- [Correctifs du cloud](../development/apply-patches.md): appliquez des correctifs pour intégrer les versions de Commerce aux environnements cloud et fournissez rapidement des correctifs critiques.
-- [Package de outils CEE](package-overview.md): gérez les configurations, créez et déployez l’application Adobe Commerce sur les environnements cloud distants.
-- [Intégrations](../integrations/overview.md): intégrez des outils de développement courants, tels que des notifications, des webhooks et des services basés sur Git.
+- [Interface en ligne de commande de Cloud](cloud-cli-overview.md) : gérez les projets et environnements cloud, effectuez des routines et exécutez des tâches d’automatisation avec l’interface de ligne de commande `magento-cloud`.
+- [Cloud Docker pour Commerce](cloud-docker.md) : déployez Adobe Commerce dans un environnement Docker pour des tâches de développement, de test et d’automatisation en local.
+- [ Correctifs de cloud ](../development/apply-patches.md) : appliquez des correctifs pour intégrer des versions Commerce aux environnements cloud et fournir rapidement des correctifs critiques.
+- [ Package CEE-Outils](package-overview.md) : gérez les configurations, créez et déployez l’application Adobe Commerce sur les environnements cloud distants.
+- [Intégrations](../integrations/overview.md) : intégrez des outils de développement courants, tels que des notifications, des webhooks et des services basés sur Git.

@@ -14,25 +14,25 @@ ht-degree: 0%
 
 # Variables spécifiques au cloud
 
-Les variables d’environnement spécifiques à Adobe Commerce sur l’infrastructure cloud utilisent la variable `MAGENTO_CLOUD_*` préfixe :
+Les variables d’environnement spécifiques à Adobe Commerce sur l’infrastructure cloud utilisent le préfixe `MAGENTO_CLOUD_*` :
 
 | Variable | Description |
 | -------- | --------------- |
 | `MAGENTO_CLOUD_APP_DIR` | Chemin d’accès absolu au répertoire de l’application. |
-| `MAGENTO_CLOUD_APPLICATION` | Objet JSON codé en base 64 qui décrit l’application. Il est mappé sur le `.magento.app.yaml` contenu du fichier et comporte des sous-clés. |
-| `MAGENTO_CLOUD_APPLICATION_NAME` | Nom de l’application configuré dans la variable `.magento.app.yaml` fichier . |
+| `MAGENTO_CLOUD_APPLICATION` | Objet JSON codé en base 64 qui décrit l’application. Il correspond au contenu du fichier `.magento.app.yaml` et contient des sous-clés. |
+| `MAGENTO_CLOUD_APPLICATION_NAME` | Nom de l’application configurée dans le fichier `.magento.app.yaml`. |
 | `MAGENTO_CLOUD_DOCUMENT_ROOT` | Le chemin d’accès absolu à la racine du document web, le cas échéant. |
 | `MAGENTO_CLOUD_ENVIRONMENT` | Nom de la branche d’environnement. |
 | `MAGENTO_CLOUD_PROJECT` | Identifiant de projet. |
-| `MAGENTO_CLOUD_RELATIONSHIPS` | Objet JSON codé en base64 qui représente la définition de point de terminaison de clé (nom de relation) et de valeur (tableaux de paires de relation). Chaque définition de point de terminaison de relation est une forme décomposée d’une URL. Il dispose d’un `scheme`, un `host`, un `port`, et _facultatif_ a `username`, `password`, `path`, ainsi que quelques informations supplémentaires dans `query`. |
-| `MAGENTO_CLOUD_ROUTES` | Décrire les itinéraires définis dans l’environnement `.magento/routes.yaml` fichier . |
+| `MAGENTO_CLOUD_RELATIONSHIPS` | Objet JSON codé en base64 qui représente la définition de point de terminaison de clé (nom de relation) et de valeur (tableaux de paires de relation). Chaque définition de point de terminaison de relation est une forme décomposée d’une URL. Il possède un `scheme`, un `host`, un `port` et _éventuellement_ un `username`, un `password`, un `path`, ainsi que certaines informations supplémentaires dans `query`. |
+| `MAGENTO_CLOUD_ROUTES` | Décrivez les itinéraires définis dans le fichier d&#39;environnement `.magento/routes.yaml`. |
 | `MAGENTO_CLOUD_TREE_ID` | ID d’arborescence de l’application, qui correspond au SHA de l’arborescence dans Git. |
 | `MAGENTO_CLOUD_VARIABLES` | Objet JSON codé en base64 avec des paires clé-valeur, telles que `"key":"value"`. |
 | `MAGENTO_CLOUD_LOCKS_DIR` | Fournit le chemin d’accès au point de montage du fournisseur de verrouillage sur l’infrastructure cloud. Le fournisseur de verrouillage empêche le lancement de tâches cron en double et de groupes cron. |
 
 >[!WARNING]
 >
->Pour ajouter des variables d’environnement à [remplacer les paramètres de configuration](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/paths/override-config-settings.html) en utilisant la variable [[!DNL Cloud Console]](../project/overview.md), vous devez ajouter en préfixe le nom de la variable `env:` comme dans l’exemple suivant :
+>Pour ajouter des variables d&#39;environnement à [ remplacez les paramètres de configuration ](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/paths/override-config-settings.html) à l&#39;aide de [[!DNL Cloud Console]](../project/overview.md), vous devez ajouter `env:` en préfixe au nom de la variable, comme dans l&#39;exemple suivant :
 >
 >![Exemple de variable d’environnement](../../assets/set-env-variable-ui.png)
 
@@ -53,13 +53,13 @@ Comme les valeurs peuvent changer au fil du temps, il est préférable d’exami
 
 ## Affichage des variables d’environnement
 
-Vous pouvez utiliser la variable `env:config:show` à partir de [la valeur `ece-tools` package](../dev-tools/package-overview.md) pour afficher une liste de variables pour l’environnement actuel.
+Vous pouvez utiliser la commande `env:config:show` du [ package `ece-tools` ](../dev-tools/package-overview.md) pour afficher une liste de variables pour l’environnement actuel.
 
 ```bash
 php ./vendor/bin/ece-tools env:config:show variables
 ```
 
-Exemple de sortie pour le `variables` option :
+Exemple de sortie pour l’option `variables` :
 
 ```terminal
 Magento Cloud Environment Variables:

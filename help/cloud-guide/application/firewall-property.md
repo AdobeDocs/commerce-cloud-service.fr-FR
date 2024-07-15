@@ -16,21 +16,21 @@ ht-degree: 0%
 >
 >Projets de démarrage uniquement
 
-Pour les projets de démarrage, la variable `firewall` ajoute une propriété _sortant_ pare-feu vers l’application. Ce pare-feu n’a aucun effet sur les requêtes entrantes. Il définit ce qui `tcp` les requêtes sortantes peuvent _leave_ un site Adobe Commerce. Cela s’appelle le filtrage par sortie. Le pare-feu sortant filtre ce qui peut sortir (quitter ou échapper votre site). La limitation de ce qui peut échapper ajoute un puissant outil de sécurité à votre serveur.
+Pour les projets de démarrage, la propriété `firewall` ajoute un pare-feu _sortant_ à l’application. Ce pare-feu n’a aucun effet sur les requêtes entrantes. Il définit les `tcp` requêtes sortantes qui peuvent _laisser_ un site Adobe Commerce. Cela s’appelle le filtrage par sortie. Le pare-feu sortant filtre ce qui peut sortir (quitter ou échapper votre site). La limitation de ce qui peut échapper ajoute un puissant outil de sécurité à votre serveur.
 
 ## Stratégies de restriction par défaut
 
-Le pare-feu fournit deux stratégies par défaut pour contrôler le trafic sortant : `allow` et `deny`. La variable `allow` policy _allows_ tout le trafic sortant par défaut. Et le `deny` policy _démenti_ tout le trafic sortant par défaut. Mais lorsque vous ajoutez une règle, la stratégie par défaut est remplacée et le pare-feu bloque. **all** trafic sortant non autorisé par la règle.
+Le pare-feu fournit deux stratégies par défaut pour contrôler le trafic sortant : `allow` et `deny`. La stratégie `allow` _permet_ tout le trafic sortant par défaut. Et la stratégie `deny` _refuse_ tout le trafic sortant par défaut. Mais lorsque vous ajoutez une règle, la stratégie par défaut est remplacée et le pare-feu bloque le trafic sortant **all** non autorisé par la règle.
 
 Pour les plans de démarrage, la stratégie par défaut est définie sur `allow`. Ce paramètre garantit que tout le trafic sortant actuel reste débloqué jusqu’à ce que vous ajoutiez vos règles de filtrage de sortie. La stratégie par défaut peut être définie sur `deny` sur demande.
 
-**Pour vérifier votre stratégie par défaut**:
+**Pour vérifier votre stratégie par défaut** :
 
 ```bash
 magento-cloud p:curl --project PROJECT_ID /settings | grep -i outbound
 ```
 
-Sauf si vous avez demandé `deny` pour votre stratégie, la commande doit afficher votre jeu de stratégies sur `allow`:
+À moins que vous n’ayez demandé `deny` pour votre stratégie, la commande doit afficher votre jeu de stratégies sur `allow` :
 
 ```terminal
 "outbound_restrictions_default_policy": "allow"
@@ -38,11 +38,11 @@ Sauf si vous avez demandé `deny` pour votre stratégie, la commande doit affich
 
 >[!NOTE]
 >
->**Principaux points à retenir**: lorsque vous ajoutez une règle sortante, vous bloquez tout le trafic sortant, à l’exception des domaines, adresses IP ou ports que vous ajoutez à la règle. Il est donc important de définir et de tester une liste sortante complète avant de l’ajouter à votre site de production.
+>**Suppression de clés** : lorsque vous ajoutez une règle sortante, vous bloquez tout le trafic sortant, à l’exception des domaines, adresses IP ou ports que vous ajoutez à la règle. Il est donc important de définir et de tester une liste sortante complète avant de l’ajouter à votre site de production.
 
 ## Options de pare-feu
 
-L’exemple de configuration suivant dans la variable `.magento.app.yaml` affiche toutes les `firewall` options que vous pouvez utiliser pour ajouter des règles pour votre filtrage de sortie.
+L’exemple de configuration suivant dans le fichier `.magento.app.yaml` affiche toutes les options `firewall` que vous pouvez utiliser pour ajouter des règles pour votre filtrage de sortie.
 
 ```yaml
 firewall:
@@ -137,51 +137,51 @@ Les configurations de pare-feu sortantes sont composées de règles. Vous pouvez
 
 **Chaque règle :**
 
-- Doit commencer par un trait d’union (`-`). L’ajout d’un commentaire sur la même ligne permet de documenter et de séparer visuellement une règle de la suivante.
-- Vous devez définir au moins l’une des options suivantes : `domains`, `ips`, ou `ports`.
-- Doit utiliser la variable `tcp` protocole . Puisqu’il s’agit du protocole par défaut pour toutes les règles, vous pouvez l’omettre de la règle.
+- Doit commencer par un tiret (`-`). L’ajout d’un commentaire sur la même ligne permet de documenter et de séparer visuellement une règle de la suivante.
+- Doit définir au moins une des options suivantes : `domains`, `ips` ou `ports`.
+- Doit utiliser le protocole `tcp`. Puisqu’il s’agit du protocole par défaut pour toutes les règles, vous pouvez l’omettre de la règle.
 - Peut définir `domains` ou `ips`, mais pas les deux dans la même règle.
-- Peut inclure `yaml` commentaires (`#`) et des sauts de ligne pour organiser les domaines, les adresses IP et les ports autorisés.
+- Peut inclure `yaml` commentaires (`#`) et sauts de ligne pour organiser les domaines, adresses IP et ports autorisés.
 
 Chaque règle utilise les propriétés suivantes :
 
 ### `domains`
 
-La variable `domains` permet d’obtenir une liste de noms de domaine entièrement qualifiés (FQDN).
+L’option `domains` permet une liste de noms de domaine entièrement qualifiés (FQDN).
 
-Si une règle définit `domains` mais pas `ports`, le pare-feu autorise les requêtes de domaine sur n’importe quel port.
+Si une règle définit `domains`, mais pas `ports`, le pare-feu autorise les requêtes de domaine sur n’importe quel port.
 
 ### `ips`
 
-La variable `ips` permet une liste d’adresses IP dans la notation CIDR. Vous pouvez spécifier des adresses IP uniques ou des plages d’adresses IP.
+L’option `ips` permet une liste d’adresses IP dans la notation CIDR. Vous pouvez spécifier des adresses IP uniques ou des plages d’adresses IP.
 
-Pour spécifier une seule adresse IP, ajoutez le `/32` Préfixe CIDR à la fin de votre adresse IP :
+Pour spécifier une seule adresse IP, ajoutez le préfixe CIDR `/32` à la fin de votre adresse IP :
 
 ```terminal
 172.217.11.174/32  # google.com
 ```
 
-Pour indiquer une plage d’adresses IP, utilisez la variable [Plage IP à CIDR](https://ipaddressguide.com/cidr) calculatrice.
+Pour spécifier une plage d’adresses IP, utilisez le calculateur [Plage IP vers CIDR](https://ipaddressguide.com/cidr).
 
-Si une règle définit `ips` mais pas `ports`, le pare-feu autorise les requêtes IP sur n’importe quel port.
+Si une règle définit `ips`, mais pas `ports`, le pare-feu autorise les requêtes IP sur n’importe quel port.
 
 ### `ports`
 
-La variable `ports` permet d’obtenir une liste des ports compris entre 1 et 65535. Pour la plupart des règles de l’exemple, les ports `80` et `443` autorisez les requêtes HTTP et HTTPS. Toutefois, pour New Relic, les règles ne permettent d’accéder qu’aux domaines et adresses IP sur le port. `443`, comme recommandé dans la documentation New Relic sur [Trafic réseau](https://docs.newrelic.com/docs/new-relic-solutions/get-started/networks/#agents).
+L’option `ports` permet une liste de ports compris entre 1 et 65535. Pour la plupart des règles de l’exemple, les ports `80` et `443` autorisent les requêtes HTTP et HTTPS. Toutefois, pour New Relic, les règles n’autorisent que l’accès aux domaines et adresses IP sur le port `443`, comme recommandé dans la documentation New Relic sur le [trafic réseau](https://docs.newrelic.com/docs/new-relic-solutions/get-started/networks/#agents).
 
 Si une règle définit uniquement `ports`, le pare-feu permet d’accéder à tous les domaines et adresses IP pour les ports définis.
 
 >[!NOTE]
 >
->Port `25`, le port SMTP pour envoyer l’email est toujours bloqué, sans exception.
+>Le port `25`, le port SMTP pour envoyer des emails, est toujours bloqué, sans exception.
 
 ### `protocol`
 
-Comme mentionné, TCP est le protocole par défaut et seul le protocole autorisé pour les règles. UDP et ses ports ne sont pas autorisés. Pour cette raison, vous pouvez omettre la variable `protocol` de toutes les règles. Si vous souhaitez l’inclure de toute façon, vous devez définir la valeur sur `tcp`, comme illustré dans la première règle de l’exemple.
+Comme mentionné, TCP est le protocole par défaut et seul le protocole autorisé pour les règles. UDP et ses ports ne sont pas autorisés. Pour cette raison, vous pouvez omettre l’option `protocol` de toutes les règles. Si vous souhaitez l’inclure de toute façon, vous devez définir la valeur sur `tcp`, comme illustré dans la première règle de l’exemple.
 
 ## Recherche des noms de domaine à autoriser
 
-Pour vous aider à identifier les domaines à inclure dans vos règles de filtrage par sortie, utilisez la commande suivante pour analyser les `dns.log` et afficher une liste de toutes les requêtes DNS enregistrées par votre site :
+Pour vous aider à identifier les domaines à inclure dans vos règles de filtrage de sortie, utilisez la commande suivante pour analyser le fichier `dns.log` de votre serveur et afficher une liste de toutes les requêtes DNS enregistrées par votre site :
 
 ```shell
 awk '($5 ~/query/)' /var/log/dns.log | awk '{print $6}' | sort | uniq -c | sort -rn
@@ -211,17 +211,17 @@ Après avoir collecté et configuré les règles d’accès pour les domaines et
 
 Pour tester vos règles de filtrage de sortie :
 
-1. Créez un script shell de `curl` pour accéder aux domaines et adresses IP de vos règles. Incluez des commandes qui testent l’accès aux domaines et adresses IP qui doivent être bloqués.
+1. Créez un script shell de commandes `curl` pour accéder aux domaines et adresses IP de vos règles. Incluez des commandes qui testent l’accès aux domaines et adresses IP qui doivent être bloqués.
 
-1. Configurez une `post_deploy` branche `.magento.app.yaml` pour exécuter le script.
+1. Configurez un crochet `post_deploy` dans votre fichier `.magento.app.yaml` pour exécuter le script.
 
-1. Push `firewall` configuration et votre script de test `integration` branche.
+1. Poussez votre configuration `firewall` et votre script de test vers votre branche `integration`.
 
-1. Examinez la variable `post_deploy` de votre `curl` des commandes.
+1. Examinez la sortie `post_deploy` de vos commandes `curl`.
 
-1. Affiner votre `firewall` règles, mettez à jour vos `curl` script, validation, push et répétition.
+1. Affinez vos règles `firewall`, mettez à jour votre script `curl`, validez, push et répétez.
 
-### `curl` exemple de script
+### Exemple de script `curl`
 
 ```shell
 # curl-tests-for-egress-filtering.sh
@@ -257,7 +257,7 @@ curl -v twitter.com
 ...
 ```
 
-### `post_deploy` example
+### Exemple `post_deploy`
 
 ```yaml
 hooks:

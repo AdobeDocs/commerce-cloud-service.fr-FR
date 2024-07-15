@@ -11,7 +11,7 @@ ht-degree: 0%
 
 # Liste de contrôle de lancement
 
-Avant de procéder au déploiement dans l’environnement de production, téléchargez la [Liste de contrôle de lancement](../../assets/adobe-commerce-cloud-prelaunch-checklist.pdf)et utilisez-le avec ces instructions pour confirmer que vous avez terminé tous les tests et configurations requis. Consultez un aperçu du processus de déploiement complet de Starter et Pro à l’adresse [Déployer votre boutique](../deploy/staging-production.md).
+Avant de procéder au déploiement dans l’environnement de production, téléchargez la [liste de contrôle de Launch](../../assets/adobe-commerce-cloud-prelaunch-checklist.pdf) et utilisez-la avec ces instructions pour confirmer que vous avez terminé tous les tests et la configuration requis. Consultez un aperçu du processus de déploiement complet pour Starter et Pro à l’adresse [Déployer votre boutique](../deploy/staging-production.md).
 
 ## Test complet en production
 
@@ -21,7 +21,7 @@ Voir [Test du déploiement](../test/staging-and-production.md) pour tester tous 
 
 Adobe fournit un certificat SSL/TLS à chiffrer pour chaque environnement. Ce certificat est requis pour qu’il puisse servir du trafic sécurisé via HTTPS.
 
-Pour utiliser ce certificat, vous devez mettre à jour votre configuration DNS afin que l’Adobe puisse terminer la validation du domaine et appliquer le certificat à votre environnement. Chaque environnement dispose d’un certificat unique qui couvre les domaines d’Adobe Commerce sur les sites d’infrastructure cloud déployés dans cet environnement. Nous vous recommandons d’effectuer et de mettre à jour la configuration pendant la [Processus de configuration rapide](../cdn/fastly-configuration.md).
+Pour utiliser ce certificat, vous devez mettre à jour votre configuration DNS afin que l’Adobe puisse terminer la validation du domaine et appliquer le certificat à votre environnement. Chaque environnement dispose d’un certificat unique qui couvre les domaines d’Adobe Commerce sur les sites d’infrastructure cloud déployés dans cet environnement. Nous vous recommandons d’effectuer et de mettre à jour la configuration pendant le [processus de configuration rapide](../cdn/fastly-configuration.md).
 
 ## Mise à jour de la configuration DNS avec les paramètres de production
 
@@ -33,7 +33,7 @@ Lorsque vous êtes prêt à lancer votre site, vous devez mettre à jour la conf
 
 - Mise à jour de la configuration de l’environnement de production avec tous les domaines requis
 
-  En règle générale, vous collaborez avec votre conseiller technique client pour ajouter tous les domaines et sous-domaines de niveau supérieur requis pour vos magasins. Pour ajouter ou modifier les domaines de votre environnement de production, [Envoi d’un ticket d’assistance Adobe Commerce](https://support.magento.com/hc/en-us/articles/360019088251). Attendez la confirmation que la configuration de votre projet a été mise à jour.
+  En règle générale, vous collaborez avec votre conseiller technique client pour ajouter tous les domaines et sous-domaines de niveau supérieur requis pour vos magasins. Pour ajouter ou modifier les domaines de votre environnement de production, [Envoyez un ticket d’assistance Adobe Commerce](https://support.magento.com/hc/en-us/articles/360019088251). Attendez la confirmation que la configuration de votre projet a été mise à jour.
 
   Sur les projets de démarrage, vous devez ajouter les domaines à votre projet. Voir [Gestion des domaines](../cdn/fastly-custom-cache-configuration.md#manage-domains).
 
@@ -54,14 +54,14 @@ Lorsque vous êtes prêt à lancer votre site, vous devez mettre à jour la conf
      Nous recommandons une valeur TTL nettement inférieure lors du changement d’enregistrement DNS. Cette valeur indique au DNS combien de temps mettre en cache l’enregistrement DNS. Une fois raccourci, le DNS est actualisé plus rapidement. Par exemple, vous pouvez modifier la valeur TTL de trois jours à 10 minutes lorsque vous mettez votre site à jour. Notez que le raccourcissement de la valeur TTL ajoute de la charge à l’infrastructure DNS. Restaurez la valeur précédente plus élevée après le lancement du site.
 
 
-1. Ajoutez des enregistrements CNAME pour pointer les sous-domaines de votre environnement de production vers le service Fastly. `prod.magentocloud.map.fastly.net`, par exemple :
+1. Ajoutez des enregistrements CNAME pour pointer les sous-domaines de votre environnement de production vers le service Fastly `prod.magentocloud.map.fastly.net`, par exemple :
 
    | Domaine ou sous-domaine | CNAME |
    | ----------------------- | -------------------------------- |
    | `www.<domain-name>.com` | prod.magentocloud.map.fastly.net |
    | `mystore.<domain-name>.com` | prod.magentocloud.map.fastly.net |
 
-1. Si nécessaire, ajoutez des enregistrements A pour mapper le domaine apex (`<domain-name>.com`) aux adresses IP les plus rapides suivantes :
+1. Si nécessaire, ajoutez des enregistrements A pour mapper le domaine apex (`<domain-name>.com`) aux adresses IP Fastly suivantes :
 
    | Domaine d’application | ANAME |
    | --------------- | ----------------- |
@@ -72,10 +72,10 @@ Lorsque vous êtes prêt à lancer votre site, vous devez mettre à jour la conf
 
 >[!IMPORTANT]
 >
->Les instructions DNS de la section [RFC1034](https://www.rfc-editor.org/rfc/rfc1912) (**section 2.4**) indiquent que :
+>Les instructions DNS de [RFC1034](https://www.rfc-editor.org/rfc/rfc1912) (**section 2.4**) indiquent que :
 >_Un enregistrement CNAME n’est pas autorisé à coexister avec d’autres données. En d’autres termes, si suzy.podunk.xx est un alias pour sue.podunk.xx, vous ne pouvez pas non plus avoir d’enregistrement MX pour suzy.podunk.edu, ou un enregistrement A, ni même un enregistrement TXT._
 >
->Pour cette raison, les enregistrements DNS doivent être de type `CNAME` pour les sous-domaines et saisissez `A` pour les domaines apex (domaines racine). L’abandon de cette règle peut entraîner des interruptions de votre service de messagerie ou de la propagation DNS, car vous ne pouvez plus ajouter d’autres enregistrements, tels que MX ou NS. Certains fournisseurs DNS peuvent contourner ce problème en utilisant des personnalisations internes, mais le respect de la norme garantit stabilité et flexibilité (comme le changement du fournisseur DNS).
+>Pour cette raison, les enregistrements DNS doivent être de type `CNAME` pour les sous-domaines et de type `A` pour les domaines d’application (domaines racine). L’abandon de cette règle peut entraîner des interruptions de votre service de messagerie ou de la propagation DNS, car vous ne pouvez plus ajouter d’autres enregistrements, tels que MX ou NS. Certains fournisseurs DNS peuvent contourner ce problème en utilisant des personnalisations internes, mais le respect de la norme garantit stabilité et flexibilité (comme le changement du fournisseur DNS).
 
 1. Mettez à jour l’URL de base.
 
@@ -91,7 +91,7 @@ Lorsque vous êtes prêt à lancer votre site, vous devez mettre à jour la conf
      php bin/magento setup:store-config:set --base-url="https://www.<domain-name>.com/"
      ```
 
-   **REMARQUE**: vous pouvez également mettre à jour l’URL de base à partir de l’administrateur. Voir [URL de magasin](https://experienceleague.adobe.com/docs/commerce-admin/stores-sales/site-store/store-urls.html) dans le _Guide d’expérience des achats et des magasins Adobe Commerce_.
+   **REMARQUE** : vous pouvez également mettre à jour l’URL de base à partir de l’administrateur. Voir [Stocker les URL](https://experienceleague.adobe.com/docs/commerce-admin/stores-sales/site-store/store-urls.html) dans le _Guide des magasins Adobe Commerce et de l’expérience d’achat_.
 
 1. Patientez quelques minutes pour que le site soit mis à jour.
 
@@ -105,7 +105,7 @@ Les modifications et vérifications suivantes sont recommandées :
 
 - [Fin du test des emails sortants](../project/outgoing-emails.md)
 
-- [Configuration sécurisée pour les informations d’identification d’administrateur et l’URL d’administration de base](https://docs.magento.com/user-guide/stores/security-admin.html)
+- [ Configuration sécurisée pour les informations d’identification d’administrateur et URL d’administrateur de base](https://docs.magento.com/user-guide/stores/security-admin.html)
 
 - [Optimiser toutes les images pour le web](../cdn/fastly-image-optimization.md)
 
@@ -113,7 +113,7 @@ Les modifications et vérifications suivantes sont recommandées :
 
 ## Vérification de la mise en cache rapide
 
-- Vérifiez que la mise en cache rapide fonctionne correctement sur le site de production. Pour des tests et des contrôles détaillés, voir [Test rapide](../test/staging-and-production.md#check-fastly-caching).
+- Vérifiez que la mise en cache rapide fonctionne correctement sur le site de production. Pour des tests et des vérifications détaillés, voir [Test rapide](../test/staging-and-production.md#check-fastly-caching).
 
 - [Assurez-vous que la dernière version du module CDN Fastly pour Commerce est installée dans votre environnement de production.](../cdn/fastly-configuration.md#upgrade-the-fastly-module)
 
@@ -121,17 +121,17 @@ Les modifications et vérifications suivantes sont recommandées :
 
 ## Test de performance
 
-Nous vous recommandons de consulter la section [Outils de performance](https://github.com/magento/magento2/tree/2.4/setup/performance-toolkit) dans le cadre de votre processus de préparation avant le lancement.
+Nous vous recommandons de passer en revue les options [Performance Toolkit](https://github.com/magento/magento2/tree/2.4/setup/performance-toolkit) dans le cadre de votre processus de préparation avant le lancement.
 
 Vous pouvez également tester à l’aide des options tierces suivantes :
 
-- [Siège](https://www.joedog.org/siege-home/): logiciel de modélisation et de test du trafic pour pousser votre magasin jusqu’à la limite. Accédez à votre site avec un nombre configurable de clients simulés. Le siège prend en charge l’authentification de base, les cookies, les protocoles HTTP, HTTPS et FTP.
+- [Siège](https://www.joedog.org/siege-home/) : logiciel de modélisation et de test du trafic pour pousser votre magasin à la limite. Accédez à votre site avec un nombre configurable de clients simulés. Le siège prend en charge l’authentification de base, les cookies, les protocoles HTTP, HTTPS et FTP.
 
-- [Jeter](https://jmeter.apache.org/): excellent test de charge pour permettre d’évaluer les performances du trafic en pointe, comme pour les ventes Flash. Créez des tests personnalisés à exécuter sur votre site.
+- [Jmètre](https://jmeter.apache.org/) : excellent test de charge pour permettre d’évaluer les performances du trafic en pointe, comme pour les ventes Flash. Créez des tests personnalisés à exécuter sur votre site.
 
-- [New Relic](https://support.newrelic.com/s/) (fourni) : aide à localiser les processus et les zones du site, ce qui entraîne des performances ralenties avec le temps passé par action suivi, comme la transmission de données, de requêtes, de redis, etc.
+- [New Relic](https://support.newrelic.com/s/) (fourni) : aide à localiser les processus et les zones du site, ce qui entraîne des performances ralenties avec le temps passé par action suivi comme la transmission de données, de requêtes, de Redis, etc.
 
-- [WebPageTest](https://www.webpagetest.org/) et [Pingdom](https://www.pingdom.com/): l’analyse en temps réel des pages de votre site charge le temps avec différents emplacements d’origine. Le royaume peut coûter des frais. WebPageTest est un outil gratuit.
+- [WebPageTest](https://www.webpagetest.org/) et [Pingdom](https://www.pingdom.com/) : analyse en temps réel du temps de chargement des pages de votre site avec différents emplacements d’origine. Le royaume peut coûter des frais. WebPageTest est un outil gratuit.
 
 ## Configuration de la sécurité
 
@@ -139,7 +139,7 @@ Vous pouvez également tester à l’aide des options tierces suivantes :
 
 - [Configuration sécurisée pour l’utilisateur administrateur](https://docs.magento.com/user-guide/stores/security-admin.html)
 
-- [Configuration sécurisée de l’URL d’administration](https://docs.magento.com/user-guide/stores/store-urls-custom-admin.html)
+- [Configuration sécurisée pour l’URL d’administration](https://docs.magento.com/user-guide/stores/store-urls-custom-admin.html)
 
 - [Supprimer tous les utilisateurs qui ne se trouvent plus dans Adobe Commerce sur le projet d’infrastructure cloud](../project/user-access.md)
 
@@ -147,7 +147,7 @@ Vous pouvez également tester à l’aide des options tierces suivantes :
 
 ## Suivi des performances
 
-Vous pouvez utiliser les services New Relic pour la surveillance des performances dans les environnements Pro et Starter. Sur les comptes Pro, nous fournissons la stratégie d’alerte Géré pour Adobe Commerce afin de surveiller les performances des applications et de l’infrastructure à l’aide des agents API et d’infrastructure New Relic. Pour plus d’informations sur l’utilisation de ces services, voir [Surveillance des performances à l’aide des alertes gérées](../monitor/investigate-performance.md#monitor-performance-with-managed-alerts).
+Vous pouvez utiliser les services New Relic pour la surveillance des performances dans les environnements Pro et Starter. Sur les comptes Pro, nous fournissons la stratégie d’alerte Géré pour Adobe Commerce afin de surveiller les performances des applications et de l’infrastructure à l’aide des agents API et d’infrastructure New Relic. Pour plus d’informations sur l’utilisation de ces services, voir [Surveillance des performances avec les alertes gérées](../monitor/investigate-performance.md#monitor-performance-with-managed-alerts).
 
 ### Étape suivante
 

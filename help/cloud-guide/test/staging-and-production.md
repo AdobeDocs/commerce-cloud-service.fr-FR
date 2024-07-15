@@ -15,11 +15,11 @@ Après une migration réussie de votre code, fichiers et données vers l’envir
 
 ## Fichiers de log
 
-Si vous rencontrez des erreurs lors du déploiement ou d’autres problèmes lors du test, vérifiez les fichiers journaux. Les fichiers journaux se trouvent sous le `var/log` répertoire .
+Si vous rencontrez des erreurs lors du déploiement ou d’autres problèmes lors du test, vérifiez les fichiers journaux. Les fichiers journaux se trouvent sous le répertoire `var/log`.
 
-Le journal de déploiement se trouve dans `/var/log/platform/<prodject-ID>/deploy.log`. La valeur de `<project-ID>` dépend de l’ID de projet et de l’environnement (évaluation ou production). Par exemple, avec un ID de projet de `yw1unoukjcawe`, l’utilisateur intermédiaire est `yw1unoukjcawe_stg` et que l’utilisateur Production est `yw1unoukjcawe`.
+Le journal de déploiement se trouve dans `/var/log/platform/<prodject-ID>/deploy.log`. La valeur de `<project-ID>` dépend de l’ID de projet et de si l’environnement est intermédiaire ou de production. Par exemple, avec un ID de projet de `yw1unoukjcawe`, l’utilisateur d’évaluation est `yw1unoukjcawe_stg` et l’utilisateur de production est `yw1unoukjcawe`.
 
-Lors de l’accès aux journaux dans les environnements de production ou d’évaluation, utilisez SSH pour vous connecter à chacun des trois noeuds afin de localiser les journaux. Vous pouvez également utiliser [Gestion des journaux New Relic](../monitor/log-management.md) pour afficher et interroger les données de journal agrégées de tous les noeuds. Voir [Afficher les journaux](log-locations.md#application-logs).
+Lors de l’accès aux journaux dans les environnements de production ou d’évaluation, utilisez SSH pour vous connecter à chacun des trois noeuds afin de localiser les journaux. Vous pouvez également utiliser la [gestion des journaux New Relic](../monitor/log-management.md) pour afficher et interroger les données de journaux agrégées de tous les noeuds. Voir [Afficher les journaux](log-locations.md#application-logs).
 
 ## Vérifier la base de code
 
@@ -27,25 +27,25 @@ Vérifiez que votre base de code est correctement déployée dans les environnem
 
 ## Vérification des paramètres de configuration
 
-Vérifiez les paramètres de configuration dans le panneau Admin, y compris l’URL de base, l’URL d’administration de base, les paramètres multisite, etc. Si vous devez apporter d’autres modifications, effectuez les modifications dans votre branche Git locale et appuyez sur `master` branche dans Intégration, Évaluation et Production.
+Vérifiez les paramètres de configuration dans le panneau Admin, y compris l’URL de base, l’URL d’administration de base, les paramètres multisite, etc. Si vous devez apporter d’autres modifications, effectuez les modifications dans votre branche Git locale et passez à la branche `master` dans Intégration, Évaluation et Production.
 
 ## Vérification de la mise en cache rapide
 
-[Configuration rapide](../cdn/fastly-configuration.md) nécessite une attention particulière aux détails : utilisation de l’identifiant de service Fastly correct et des informations d’identification du jeton API Fastly, téléchargement du code VCL Fastly, mise à jour de la configuration DNS et application des certificats SSL/TLS à vos environnements. Après avoir effectué ces tâches de configuration, vous pouvez vérifier la mise en cache rapide dans les environnements d’évaluation et de production.
+[ La configuration rapide ](../cdn/fastly-configuration.md) nécessite une attention particulière aux détails : l’utilisation de l’identifiant de service Fastly correct et des informations d’identification du jeton API Fastly, le téléchargement du code VCL Fastly, la mise à jour de la configuration DNS et l’application des certificats SSL/TLS à vos environnements. Après avoir effectué ces tâches de configuration, vous pouvez vérifier la mise en cache rapide dans les environnements d’évaluation et de production.
 
-**Vérification de la configuration du service Fastly**:
+**Pour vérifier la configuration de service Fastly** :
 
-1. Connectez-vous à l’administrateur pour l’évaluation et la production à l’aide de l’URL avec `/admin`, ou la variable [URL d’administration mise à jour](../environment/variables-admin.md#admin-url).
+1. Connectez-vous à l’administrateur pour l’évaluation et la production à l’aide de l’URL avec `/admin` ou de l’ [ URL d’administration mise à jour](../environment/variables-admin.md#admin-url).
 
-1. Accédez à **Magasins** > **Paramètres** > **Configuration** > **Avancé** > **Système**. Faites défiler et cliquez **Cache de page complète**.
+1. Accédez à **Magasins** > **Paramètres** > **Configuration** > **Avancé** > **Système**. Faites défiler l’écran et cliquez sur **Full Page Cache**.
 
-1. Assurez-vous que la variable **Mise en cache des applications** est définie sur _Réseau de diffusion de contenu Fastly_ .
+1. Assurez-vous que la valeur **Application de mise en cache** est définie sur _Fastly CDN_ .
 
 1. Testez les informations d’identification Fastly.
 
-   - Cliquez sur **Configuration rapide**.
+   - Cliquez sur **Configuration Fastly**.
 
-   - Vérifiez que les valeurs de l’identifiant de service Fastly et des informations d’identification du jeton API Fastly. Voir [Obtention des informations d’identification rapides](/help/cloud-guide/cdn/fastly-configuration.md#get-fastly-credentials).
+   - Vérifiez que les valeurs de l’identifiant de service Fastly et des informations d’identification du jeton API Fastly. Voir [Obtenir des informations d’identification rapides](/help/cloud-guide/cdn/fastly-configuration.md#get-fastly-credentials).
 
    - Cliquez sur **Tester les informations d’identification**.
 
@@ -53,18 +53,18 @@ Vérifiez les paramètres de configuration dans le panneau Admin, y compris l’
    >
    >Assurez-vous d’avoir saisi l’ID de service et le jeton d’API corrects dans les environnements d’évaluation et de production. Les informations d’identification les plus rapides sont créées et mappées par environnement de service. Si vous saisissez des informations d’identification d’évaluation dans votre environnement de production, vous ne pouvez pas charger vos fragments de code VCL, la mise en cache ne fonctionne pas correctement et votre configuration de mise en cache pointe vers le serveur et les magasins incorrects.
 
-**Pour vérifier le comportement de mise en cache rapide**:
+**Pour vérifier rapidement le comportement de mise en cache** :
 
-1. Recherchez les en-têtes à l’aide de la fonction `dig` utilitaire de ligne de commande pour obtenir des informations sur la configuration du site.
+1. Recherchez des en-têtes utilisant l’utilitaire de ligne de commande `dig` pour obtenir des informations sur la configuration du site.
 
-   Vous pouvez utiliser n’importe quelle URL avec la variable `dig` . Les exemples suivants utilisent des URL Pro :
+   Vous pouvez utiliser n’importe quelle URL avec la commande `dig`. Les exemples suivants utilisent des URL Pro :
 
    - Évaluation : `dig https://mcstaging.<your-domain>.com`
    - Production : `dig https://mcprod.<your-domain>.com`
 
-   Pour les `dig` tests, voir [Test avant de modifier le DNS](https://docs.fastly.com/en/guides/working-with-domains).
+   Pour des tests `dig` supplémentaires, voir [Tests avant de modifier le DNS](https://docs.fastly.com/en/guides/working-with-domains).
 
-1. Utilisation `cURL` pour vérifier les informations de l’en-tête de la réponse.
+1. Utilisez `cURL` pour vérifier les informations de l’en-tête de la réponse.
 
    ```bash
    curl https://mcstaging.<your-domain>.com -H "host: mcstaging.<your-domain.com>" -k -vo /dev/null -H Fastly-Debug:1
@@ -72,7 +72,7 @@ Vérifiez les paramètres de configuration dans le panneau Admin, y compris l’
 
    Voir [Vérifier les en-têtes de réponse](../cdn/fastly-troubleshooting.md#check-cache-hit-and-miss-response-headers) pour plus d’informations sur la vérification des en-têtes.
 
-1. Après avoir été actif, utilisez `cURL` pour vérifier votre site actif.
+1. Une fois que vous êtes actif, utilisez `cURL` pour vérifier votre site actif.
 
    ```bash
    curl https://<your-domain> -k -vo /dev/null -H Fastly-Debug:1
@@ -127,7 +127,7 @@ Si vous rencontrez des problèmes, enregistrez les étapes de reproduction, les 
 </td>
 </tr>
 <tr>
-<td>Gestion des commandes</td>
+<td>Order Management</td>
 <td>
 <ul>
 <li>Création d’une commande pour un client</li>
@@ -198,20 +198,20 @@ Avant le lancement, il est préférable d’effectuer des tests de trafic et de 
 
 Avant de commencer le test, saisissez un ticket avec support pour informer les environnements que vous testez, les outils que vous utilisez et la période. Mettez à jour le ticket avec les résultats et les informations pour suivre les performances. Une fois le test terminé, ajoutez les résultats mis à jour et notez que le test du ticket est terminé avec une date et un horodatage.
 
-Consultez la section [Outils de performance](https://github.com/magento/magento2/tree/2.4/setup/performance-toolkit) dans le cadre de votre processus de préparation avant le lancement.
+Passez en revue les options [Performance Toolkit](https://github.com/magento/magento2/tree/2.4/setup/performance-toolkit) dans le cadre de votre processus de préparation avant le lancement.
 
 Pour de meilleurs résultats, utilisez les outils suivants :
 
-- [Test de performance de l’application](../environment/variables-post-deploy.md#ttfb_tested_pages): testez les performances de l’application en configurant la variable `TTFB_TESTED_PAGES` pour tester le temps de réponse du site.
-- [Siège](https://www.joedog.org/siege-home/): logiciel de modélisation et de test du trafic pour pousser votre magasin jusqu’à la limite. Accédez à votre site avec un nombre configurable de clients simulés. Le siège prend en charge l’authentification de base, les cookies, les protocoles HTTP, HTTPS et FTP.
-- [Jeter](https://jmeter.apache.org)—D’excellents tests de charge pour évaluer les performances du trafic en pointe, comme pour les ventes Flash. Créez des tests personnalisés à exécuter sur votre site.
-- [New Relic](../monitor/new-relic-service.md) (fourni) : aide à localiser les processus et les zones du site, ce qui entraîne des performances ralenties avec le temps passé par action suivi, comme la transmission de données, de requêtes, de redis, etc.
-- [WebPageTest](https://www.webpagetest.org) et [Pingdom](https://www.pingdom.com): l’analyse en temps réel des pages de votre site charge le temps avec différents emplacements d’origine. Le royaume peut avoir besoin d&#39;un tribut. WebPageTest est un outil gratuit.
+- [Test de performance de l’application](../environment/variables-post-deploy.md#ttfb_tested_pages) : testez les performances de l’application en configurant la variable d’environnement `TTFB_TESTED_PAGES` pour tester le temps de réponse du site.
+- [Siège](https://www.joedog.org/siege-home/) : logiciel de modélisation et de test du trafic pour pousser votre boutique jusqu’à la limite. Accédez à votre site avec un nombre configurable de clients simulés. Le siège prend en charge l’authentification de base, les cookies, les protocoles HTTP, HTTPS et FTP.
+- [Jmètre](https://jmeter.apache.org) : excellent test de charge pour permettre d’évaluer les performances du trafic en pointe, comme pour les ventes Flash. Créez des tests personnalisés à exécuter sur votre site.
+- [New Relic](../monitor/new-relic-service.md) (fourni) : aide à localiser les processus et les zones du site, ce qui entraîne des performances ralenties avec le temps passé par action suivi, comme la transmission de données, de requêtes, de Redis, etc.
+- [WebPageTest](https://www.webpagetest.org) et [Pingdom](https://www.pingdom.com) : analyse en temps réel du temps de chargement des pages de votre site avec différents emplacements d’origine. Le royaume peut avoir besoin d&#39;un tribut. WebPageTest est un outil gratuit.
 
 ## Tests fonctionnels
 
-Vous pouvez utiliser le MFTF (Magento Funcational Testing Framework) pour terminer les tests fonctionnels pour Adobe Commerce à partir de l’environnement Cloud Docker. Voir [Test d’application](https://developer.adobe.com/commerce/cloud-tools/docker/test/application-testing/) dans le _Guide de Cloud Docker pour Commerce_.
+Vous pouvez utiliser le MFTF (Magento Funcational Testing Framework) pour terminer les tests fonctionnels pour Adobe Commerce à partir de l’environnement Cloud Docker. Voir [Test d’application](https://developer.adobe.com/commerce/cloud-tools/docker/test/application-testing/) dans le _guide Cloud Docker for Commerce_.
 
 ## Configuration de l’outil d’analyse de sécurité
 
-Il existe un outil d’analyse de sécurité gratuit pour vos sites. Pour ajouter vos sites et exécuter l’outil, voir [Outil Analyse de sécurité](../launch/overview.md#set-up-the-security-scan-tool).
+Il existe un outil d’analyse de sécurité gratuit pour vos sites. Pour ajouter vos sites et exécuter l’outil, voir [Outil d’analyse de sécurité](../launch/overview.md#set-up-the-security-scan-tool).

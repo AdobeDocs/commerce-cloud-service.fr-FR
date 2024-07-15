@@ -37,7 +37,7 @@ PayPal prend en charge la connexion de PayPal Express Checkout pour les pays du 
 * Inde et Japon (les futures mises à jour de PayPal pourraient prendre en charge ces comptes)
 * Israël
 
-Pour le Brésil, vous devez disposer d’un compte professionnel PayPal existant pour vous connecter. Vous ne pouvez pas convertir un compte personnel PayPal existant pour le Brésil au cours de ce processus. Si vous avez besoin d’un compte, [créer un compte PayPal commercial ;](https://www.paypal.com/us/webapps/mpp/account-selection).
+Pour le Brésil, vous devez disposer d’un compte professionnel PayPal existant pour vous connecter. Vous ne pouvez pas convertir un compte personnel PayPal existant pour le Brésil au cours de ce processus. Si vous avez besoin d&#39;un compte, [créez un compte PayPal ](https://www.paypal.com/us/webapps/mpp/account-selection) commercial.
 
 ## Configuration du paiement express PayPal
 
@@ -53,23 +53,23 @@ Pour configurer le paiement express PayPal :
 
 1. Configurez les paramètres de paiement express pour vous authentifier et utiliser l’API PayPal :
 
-   * **Email associé à un compte marchand PayPal** (Facultatif) saisissez l’adresse électronique associée à votre compte marchand PayPal. Cet email est sensible à la casse.
-   * **Méthodes d’authentification API** comme signature d’API ou certificat d’API.
+   * **Email associé à un compte marchand PayPal** (facultatif) saisissez l’adresse électronique associée à votre compte marchand PayPal. Cet email est sensible à la casse.
+   * **Méthodes d’authentification API** en tant que signature d’API ou certificat API.
    * Nom d’utilisateur, mot de passe et signature de l’API capturés à partir de votre compte PayPal.
    * **Mode sandbox** sélectionnez Oui ou Non pour indiquer si les informations d’identification que vous avez saisies sont pour sandbox. Si vous avez saisi des informations d’identification de production, sélectionnez Non.
-   * **API utilise le proxy** sélectionnez Oui ou Non pour définir si le système utilise un serveur proxy pour établir une connexion entre Adobe Commerce et le système de paiement PayPal. Si Oui, saisissez l’hôte proxy et le port.
+   * **L’API utilise le proxy** sélectionnez Oui ou Non pour définir si le système utilise un serveur proxy pour établir une connexion entre Adobe Commerce et le système de paiement PayPal. Si Oui, saisissez l’hôte proxy et le port.
 
-1. Pour obtenir des informations détaillées et les étapes de configuration de votre compte, voir [Passage en caisse express PayPal](https://docs.magento.com/user-guide/payment/paypal-express-checkout.html) à partir de l’étape 2, remplissez les paramètres requis.
+1. Pour obtenir des informations détaillées et connaître les étapes de configuration de votre compte, reportez-vous à la section [Passage en caisse express PayPal](https://docs.magento.com/user-guide/payment/paypal-express-checkout.html) à partir de l’étape 2 : remplissez les paramètres requis.
 
 Une fois le compte configuré et authentifié, vous pouvez activer et désactiver les options de paiement PayPal sous Paramètres PayPal requis :
 
 * **Activer cette solution** affiche le mode de paiement PayPal aux clients par le biais du site web.
-* **Activation de l’expérience de passage en caisse contextuelle**
-* **Activer le crédit PayPal** permet aux clients de financer des crédits PayPal sans frais supplémentaires. PayPal paie la commande au préalable, en gérant tous les remboursements pour le crédit directement avec le client.
+* **Activer l’expérience de passage en caisse dans le contexte**
+* **Activer le crédit PayPal** permet aux clients de financer le crédit PayPal sans frais supplémentaires. PayPal paie la commande au préalable, en gérant tous les remboursements pour le crédit directement avec le client.
 
 ## Variables PayPal
 
-Lors de l’utilisation de l’outil d’intégration PayPal avec Adobe Commerce sur l’infrastructure cloud, ajoutez la variable suivante à la variable `variables:env` de la `magento.app.yaml` fichier .
+Lors de l’utilisation de l’outil d’intégration PayPal avec Adobe Commerce sur l’infrastructure cloud, ajoutez la variable suivante à la section `variables:env` du fichier `magento.app.yaml`.
 
 ```yaml
 # Environment variables

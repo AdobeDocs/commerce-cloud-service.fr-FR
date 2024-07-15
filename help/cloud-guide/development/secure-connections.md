@@ -20,8 +20,8 @@ Secure Shell (SSH) est un protocole commun utilisé pour se connecter en toute s
 
 Créez une paire de clés SSH sur chaque ordinateur et espace de travail qui nécessite l’accès au code source et aux environnements de votre projet. La clé SSH vous permet de vous connecter à GitHub pour gérer le code source et vous connecter aux serveurs cloud sans avoir à fournir constamment votre nom d’utilisateur et votre mot de passe. Voir [Connexion à GitHub avec SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh) pour plus d’informations sur la création d’une paire de clés SSH.
 
-- La variable _clé publique_ ne présente aucun risque pour l’accès à un site, SSH et sFTP.
-- La variable _clé privée_ reste privé sur le poste de travail.
+- La _clé publique_ peut être utilisée sans risque pour accéder à un site, SSH et sFTP.
+- La _clé privée_ reste privée sur le poste de travail.
 
 >[!CAUTION]
 >
@@ -55,31 +55,31 @@ Vous pouvez ajouter des clés SSH à votre compte à l’aide de l’une des mé
 
 >[!TIP]
 >
->Vous pouvez répertorier et supprimer des clés SSH à l’aide des commandes de l’interface de ligne de commande de Cloud. `ssh-key:list` et `ssh-key:delete`.
+>Vous pouvez répertorier et supprimer des clés SSH à l’aide des commandes de l’interface de ligne de commande de Cloud `ssh-key:list` et `ssh-key:delete`.
 
 >[!TAB Console]
 
-### Ajoutez votre clé SSH à l’aide de la fonction [!DNL Cloud Console]
+### Ajoutez votre clé SSH à l’aide de [!DNL Cloud Console].
 
-**Pour ajouter une clé SSH à un nouveau projet**:
+**Pour ajouter une clé SSH à un nouveau projet** :
 
-1. Connectez-vous au [[!DNL Cloud Console]](https://console.adobecommerce.com).
+1. Connectez-vous à [[!DNL Cloud Console]](https://console.adobecommerce.com).
 
 1. Cliquez sur **[!UICONTROL No SSH key]**. Cette icône est située à droite du champ de commande et est visible lorsque le projet ne contient pas de clé SSH.
 
-1. Copiez et collez le contenu de votre clé SSH publique dans le **Clé publique** champ .
+1. Copiez et collez le contenu de votre clé SSH publique dans le champ **Clé publique** .
 
 1. Suivez les autres invites.
 
-**Pour ajouter une clé SSH à votre profil cloud**:
+**Pour ajouter une clé SSH à votre profil cloud** :
 
-1. Connectez-vous au [[!DNL Cloud Console]](https://console.adobecommerce.com).
+1. Connectez-vous à [[!DNL Cloud Console]](https://console.adobecommerce.com).
 
 1. Dans le menu supérieur droit du compte, cliquez sur **Mon profil**.
 
-1. Dans le _Clés SSH_ afficher, cliquez sur **Ajouter une clé publique**.
+1. Dans la vue _Clés SSH_, cliquez sur **Ajouter une clé publique**.
 
-1. Dans le _Ajout d’une clé SSH_ formulaire, attribuez une **Titre**, puis collez la clé SSH publique dans le **Clé** champ .
+1. Dans le formulaire _Ajouter une clé SSH_, donnez à votre clé un **titre**, et collez la clé SSH publique dans le champ **Clé**.
 
 1. Cliquez sur **Enregistrer**.
 
@@ -87,11 +87,11 @@ Vous pouvez ajouter des clés SSH à votre compte à l’aide de l’une des mé
 
 ## Connexion à un environnement distant
 
-Vous pouvez vous connecter à un environnement distant à l’aide de la fonction `magento-cloud` Interface de ligne de commande ou commande SSH. La variable `magento-cloud` Les commandes d’interface de ligne de commande ne peuvent être utilisées que dans les environnements d’intégration Starter et Pro.
+Vous pouvez vous connecter à un environnement distant à l’aide de l’interface de ligne de commande `magento-cloud` ou d’une commande SSH. Les commandes d’interface de ligne de commande `magento-cloud` ne peuvent être utilisées que dans les environnements d’intégration Starter et Pro.
 
 ### Utilisation de l’interface de ligne de commande de Cloud
 
-**Pour vous connecter à un environnement d’intégration à distance**:
+**Pour vous connecter à un environnement d’intégration distante** :
 
 1. Sur votre poste de travail local, modifiez le répertoire de votre projet.
 
@@ -109,19 +109,19 @@ Vous pouvez vous connecter à un environnement distant à l’aide de la fonctio
 
 ### Utilisation d’une commande SSH
 
-La variable [!DNL Cloud Console] comprend une liste des commandes d&#39;accès Web et SSH pour chaque environnement.
+[!DNL Cloud Console] comprend une liste des commandes d&#39;accès Web et SSH pour chaque environnement.
 
-**Pour copier la commande SSH**:
+**Pour copier la commande SSH** :
 
-1. Connectez-vous au [[!DNL Cloud Console]](https://console.adobecommerce.com).
+1. Connectez-vous à [[!DNL Cloud Console]](https://console.adobecommerce.com).
 
-1. Sélectionnez un projet dans le _Tous les projets_ liste.
+1. Sélectionnez un projet dans la liste _Tous les projets_.
 
 1. Sélectionnez un environnement.
 
 1. Cliquez sur **[!UICONTROL SSH]**.
 
-1. Dans le _SSH_ cliquez sur le bouton Copier pour copier la commande SSH complète dans le Presse-papiers.
+1. Dans l’onglet _SSH_ , cliquez sur le bouton Copier pour copier la commande SSH complète dans le Presse-papiers.
 
 1. Ouvrez un terminal et collez la commande SSH pour créer une connexion.
 
@@ -139,30 +139,30 @@ La variable [!DNL Cloud Console] comprend une liste des commandes d&#39;accès W
 
 ## sFTP
 
-Adobe Commerce sur l’infrastructure cloud prend en charge l’accès à vos environnements à l’aide du protocole sFTP (sécurisé) avec authentification SSH. Utilisez un client qui prend en charge l’authentification par clé SSH pour sFTP et utilisez votre clé SSH publique. Votre clé SSH publique doit être ajoutée à l’environnement cible. Pour les environnements de démarrage et les environnements d’intégration Pro, vous pouvez : [l’ajouter au moyen de la fonction [!DNL Cloud Console]](#add-your-ssh-key-using-the-project-web-interface).
+Adobe Commerce sur l’infrastructure cloud prend en charge l’accès à vos environnements à l’aide du protocole sFTP (sécurisé) avec authentification SSH. Utilisez un client qui prend en charge l’authentification par clé SSH pour sFTP et utilisez votre clé SSH publique. Votre clé SSH publique doit être ajoutée à l’environnement cible. Pour les environnements de démarrage et les environnements d’intégration Pro, vous pouvez [l’ajouter via le  [!DNL Cloud Console]](#add-your-ssh-key-using-the-project-web-interface).
 
-Les connexions sFTP en lecture seule sont _not_ prise en charge ; l’accès sFTP est fourni avec _write_ autorisation par défaut.
+Les connexions sFTP en lecture seule ne sont _pas_ prises en charge ; l’accès sFTP est fourni par défaut avec l’autorisation _write_ .
 
-Lors de la configuration de sFTP, utilisez les informations de la commande d’environnement d’accès SSH : `<project-id>-<environment-id>--<app-name>@ssh<cloud-host>`
+Lors de la configuration de sFTP, utilisez les informations de la commande d&#39;environnement d&#39;accès SSH : `<project-id>-<environment-id>--<app-name>@ssh<cloud-host>`
 
-- **Nom d’utilisateur**: tout le contenu avant la fonction `@` dans votre destination d’accès SSH.
-- **Password**: vous n’avez pas besoin d’un mot de passe pour sFTP. L’accès sFTP utilise l’authentification par clé SSH.
-- **Hôte**: tout le contenu après l’événement `@` dans votre accès SSH.
-- **Port**: 22, qui est le port SSH par défaut.
-- **SSH** Clé privée : Si nécessaire, fournissez l’emplacement de votre clé privée au client sFTP. Par défaut, les clés privées sont stockées dans la variable `~/.ssh` répertoire .
+- **Nom d’utilisateur** : tout le contenu situé avant `@` dans votre destination d’accès SSH.
+- **Mot de passe** : vous n’avez pas besoin de mot de passe pour sFTP. L’accès sFTP utilise l’authentification par clé SSH.
+- **Hôte** : tout le contenu après `@` dans votre accès SSH.
+- **Port** : 22, qui est le port SSH par défaut.
+- **SSH** Clé privée : Si nécessaire, fournissez l’emplacement de votre clé privée au client sFTP. Par défaut, les clés privées sont stockées dans le répertoire `~/.ssh`.
 
 Selon le client, des options supplémentaires peuvent être requises pour effectuer l’authentification SSH pour sFTP. Consultez la documentation de votre client sélectionné.
 
-Pour **Environnements de démarrage et environnements d’intégration Pro**, vous pouvez également envisager [ajout d’une `mount`](../application/properties.md#mounts) pour accéder à un répertoire spécifique. Vous ajouteriez le montage à votre `.magento.app.yaml` fichier . Pour obtenir la liste des répertoires modifiables, voir [Structure du projet](../project/file-structure.md). Ce point de montage ne fonctionne que dans ces environnements.
+Pour les **environnements de lancement et les environnements d&#39;intégration Pro**, vous pouvez également envisager d&#39;ajouter [un `mount`](../application/properties.md#mounts) pour l&#39;accès à un répertoire spécifique. Ajoutez le montage à votre fichier `.magento.app.yaml`. Pour obtenir la liste des répertoires modifiables, voir [Structure du projet](../project/file-structure.md). Ce point de montage ne fonctionne que dans ces environnements.
 
-Pour **Environnements d’évaluation et de production Pro**, si vous n’avez pas accès SSH à l’environnement, vous devez [envoyer un ticket d’assistance Adobe Commerce ;](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) pour demander l’accès sFTP et un point de montage pour l’accès au dossier spécifique, par exemple : `pub/media`.
+Pour les **environnements d’évaluation et de production Pro**, si vous ne disposez pas d’un accès SSH à l’environnement, vous devez [ envoyer un ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) pour demander un accès sFTP et un point de montage pour l’accès au dossier spécifique, par exemple `pub/media`.
 
 >[!NOTE]
->Pour les environnements d’évaluation et de production, si la connexion sFTP est destinée à une _générique_ l’utilisateur qui **not** doivent être [ajouté au projet Cloud ;](../project/user-access.md), vous devez [envoyer un ticket d’assistance Adobe Commerce ;](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) avec leurs **public** clé jointe. **Ne fournissez jamais votre clé SSH privée.**
+>Pour Pro Staging and Production, si la connexion sFTP est destinée à un utilisateur _générique_ qui n’a **pas** besoin d’être [ajouté au projet Cloud](../project/user-access.md), vous devez [envoyer un ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) avec sa clé **publique** jointe. **Ne fournissez jamais votre clé SSH privée.**
 
 ## Tunneling SSH
 
-Vous pouvez utiliser l’effet tunnel SSH pour vous connecter à un service à partir de votre environnement de développement local comme si le service était local. Avant de procéder au tunneling, configurez vos [SSH](#add-an-ssh-public-key-to-your-account).
+Vous pouvez utiliser l’effet tunnel SSH pour vous connecter à un service à partir de votre environnement de développement local comme si le service était local. Avant de procéder au tunneling, configurez votre [SSH](#add-an-ssh-public-key-to-your-account).
 
 Utilisez une application de terminal pour vous connecter et lancer des commandes.
 
@@ -176,7 +176,7 @@ Vérifiez si des tunnels sont ouverts à l’aide de .
 magento-cloud tunnel:list
 ```
 
-Pour construire un tunnel, vous devez connaître le [nom de l’application](../application/properties.md#name). Vous pouvez vérifier le nom de l’application à l’aide de l’interface en ligne de commande :
+Pour créer un tunnel, vous devez connaître le [nom de l&#39;application](../application/properties.md#name). Vous pouvez vérifier le nom de l’application à l’aide de l’interface en ligne de commande :
 
 ```bash
 magento-cloud apps
@@ -188,7 +188,7 @@ magento-cloud apps
 magento-cloud tunnel:open -e <environment-ID> --app <app-name>
 ```
 
-Par exemple, pour ouvrir un tunnel vers le `sprint5` branche d’un projet avec une application nommée `mymagento`, saisissez
+Par exemple, pour ouvrir un tunnel vers la branche `sprint5` dans un projet avec une application nommée `mymagento`, saisissez
 
 ```bash
 magento-cloud tunnel:open -e sprint5 --app mymagento
@@ -206,7 +206,7 @@ View tunnel details with: magento-cloud tunnel:info
 Close tunnels with: magento-cloud tunnel:close
 ```
 
-**Pour afficher des informations sur votre tunnel**:
+**Pour afficher des informations sur votre tunnel** :
 
 ```bash
 magento-cloud tunnel:info -e <environment-ID>

@@ -23,25 +23,25 @@ Le proxy SMTP SendGrid n’est pas destiné à être utilisé comme serveur de m
 
 >[!TIP]
 >
->Vous trouverez les détails de SendGrid pour votre compte dans la section [Interface utilisateur de l’intégration](https://cloud.magento.com) et sélectionnez la variable **Détails du projet** > **Informations sur l’hébergement** .
+>Vous trouverez des détails SendGrid pour votre compte dans l’ [interface utilisateur d’intégration](https://cloud.magento.com) et sélectionnez l’onglet **Détails du projet** > **Informations sur l’hébergement** .
 
 ## Activation ou désactivation d’un email
 
 Vous pouvez activer ou désactiver les emails sortants pour chaque environnement à partir de Cloud Console ou de la ligne de commande.
 
-Par défaut, les emails sortants sont activés dans les environnements de production et d’évaluation. Cependant, [!UICONTROL Outgoing emails] peut apparaître désactivée dans les paramètres de l’environnement jusqu’à ce que vous définissiez la variable `enable_smtp` par l’intermédiaire de la propriété [ligne de commande](outgoing-emails.md#enable-emails-in-the-cli) ou [Cloud Console](outgoing-emails.md#enable-emails-in-the-cloud-console). Vous pouvez activer les courriers électroniques sortants pour les environnements d’intégration et d’évaluation afin d’envoyer des courriers électroniques d’authentification à deux facteurs ou de réinitialisation de mot de passe pour les utilisateurs de projet Cloud. Voir [Configuration d’emails à des fins de test](outgoing-emails.md).
+Par défaut, les emails sortants sont activés dans les environnements de production et d’évaluation. Cependant, [!UICONTROL Outgoing emails] peut apparaître désactivé dans les paramètres de l’environnement jusqu’à ce que vous définissiez la propriété `enable_smtp` via la [ligne de commande](outgoing-emails.md#enable-emails-in-the-cli) ou la [console cloud](outgoing-emails.md#enable-emails-in-the-cloud-console). Vous pouvez activer les courriers électroniques sortants pour les environnements d’intégration et d’évaluation afin d’envoyer des courriers électroniques d’authentification à deux facteurs ou de réinitialisation de mot de passe pour les utilisateurs de projet Cloud. Voir [Configuration des emails pour le test](outgoing-emails.md).
 
-Si les emails sortants doivent être désactivés ou réactivés dans les environnements de production ou d’évaluation, vous pouvez envoyer une [ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide).
+Si les emails sortants doivent être désactivés ou réactivés dans les environnements de production ou d’évaluation, vous pouvez envoyer un [ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide).
 
 >[!TIP]
 >
->Mise à jour de la [!UICONTROL enable_smtp] valeur de propriété par [ligne de commande](outgoing-emails.md#enable-emails-in-the-cli) modifie également la variable [!UICONTROL Enable outgoing emails] de cet environnement sur la [Cloud Console](outgoing-emails.md#enable-emails-in-the-cloud-console).
+>La mise à jour de la valeur de propriété [!UICONTROL enable_smtp] par [ligne de commande](outgoing-emails.md#enable-emails-in-the-cli) modifie également la valeur de paramètre [!UICONTROL Enable outgoing emails] pour cet environnement sur la [console cloud](outgoing-emails.md#enable-emails-in-the-cloud-console).
 
 ## Tableau de bord SendGrid
 
 Tous les projets Cloud sont gérés sous un compte central. Dès lors, seul l’assistance a accès au tableau de bord SendGrid. SendGrid ne fournit pas de fonctions de restriction de sous-compte.
 
-Pour consulter les logs d’activité pour connaître l’état de la diffusion ou une liste des adresses email bloquées, rejetées ou rebonds, [envoyer un ticket d’assistance Adobe Commerce ;](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide#submit-ticket). L’équipe d’assistance **cannot** récupérer les journaux d’activité de plus de 30 jours.
+Pour consulter les logs d’activité pour connaître l’état de la diffusion ou une liste des adresses email rejetées, bloquées ou rejetées, [envoyez un ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide#submit-ticket). L’équipe d’assistance **ne peut pas** récupérer les journaux d’activité de plus de 30 jours.
 
 Si possible, incluez les informations suivantes dans votre requête :
 
@@ -51,28 +51,28 @@ Si possible, incluez les informations suivantes dans votre requête :
 
 ## DomainKeys Identified Mail (DKIM)
 
-DKIM est une technologie d&#39;authentification d&#39;email qui permet aux fournisseurs d&#39;accès à Internet (FAI) d&#39;identifier les adresses d&#39;expéditeur légitimes et fausses, une technique couramment utilisée pour le phishing et les escroqueries par e-mail. DKIM s’appuie sur un propriétaire de domaine qui gère les enregistrements DNS. Lors de l&#39;utilisation de DKIM, le serveur expéditeur utilise une clé privée pour signer les messages. Le propriétaire du domaine ajoute également un enregistrement DKIM, qui est une modification `TXT` enregistrement, dans les enregistrements DNS du domaine de l’expéditeur. Ceci `TXT` L’enregistrement contient une clé publique que les serveurs de messagerie des destinataires utilisent pour vérifier la signature d’un message. La procédure de cryptographie à clé publique DKIM permet aux destinataires de vérifier l&#39;authenticité d&#39;un expéditeur. Voir [Explication des enregistrements DKIM](https://docs.sendgrid.com/ui/account-and-settings/dkim-records).
+DKIM est une technologie d&#39;authentification d&#39;email qui permet aux fournisseurs d&#39;accès à Internet (FAI) d&#39;identifier les adresses d&#39;expéditeur légitimes et fausses, une technique couramment utilisée pour le phishing et les escroqueries par e-mail. DKIM s’appuie sur un propriétaire de domaine qui gère les enregistrements DNS. Lors de l&#39;utilisation de DKIM, le serveur expéditeur utilise une clé privée pour signer les messages. En outre, le propriétaire du domaine ajoute un enregistrement DKIM, qui est un enregistrement `TXT` modifié, aux enregistrements DNS du domaine de l’expéditeur. Cet enregistrement `TXT` contient une clé publique que les serveurs de messagerie des destinataires utilisent pour vérifier la signature d’un message. La procédure de cryptographie à clé publique DKIM permet aux destinataires de vérifier l&#39;authenticité d&#39;un expéditeur. Voir [Explication des enregistrements DKIM](https://docs.sendgrid.com/ui/account-and-settings/dkim-records).
 
 >[!WARNING]
 >
->Les signatures DKIM SendGrid et la prise en charge de l’authentification de domaine ne sont disponibles que pour les projets Pro et non pour les projets de démarrage. Par conséquent, les emails transactionnels sortants sont susceptibles d’être marqués par des filtres de spam. L’utilisation de DKIM améliore le taux de diffusion en tant qu’expéditeur d’email authentifié. Pour améliorer le taux de diffusion des messages, vous pouvez effectuer une mise à niveau de Starter vers Pro ou utiliser votre propre serveur SMTP ou votre propre fournisseur de services de diffusion par email. Voir [Configuration des connexions par e-mail](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/communications/email-communications) dans le _Guide sur les systèmes d’administration_.
+>Les signatures DKIM SendGrid et la prise en charge de l’authentification de domaine ne sont disponibles que pour les projets Pro et non pour les projets de démarrage. Par conséquent, les emails transactionnels sortants sont susceptibles d’être marqués par des filtres de spam. L’utilisation de DKIM améliore le taux de diffusion en tant qu’expéditeur d’email authentifié. Pour améliorer le taux de diffusion des messages, vous pouvez effectuer une mise à niveau de Starter vers Pro ou utiliser votre propre serveur SMTP ou votre propre fournisseur de services de diffusion par email. Voir [Configuration des connexions de messagerie](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/communications/email-communications) dans le _guide des systèmes d’administration_.
 
 ### Authentification de l&#39;expéditeur et du domaine
 
-Pour que SendGrid envoie des emails transactionnels en votre nom depuis des environnements de production ou d’évaluation, vous devez configurer vos paramètres DNS pour inclure les trois entrées DNS du sous-domaine SendGrid. Chaque compte SendGrid se voit attribuer une variable `TXT` enregistrement utilisé pour authentifier les emails sortants.
+Pour que SendGrid envoie des emails transactionnels en votre nom depuis des environnements de production ou d’évaluation, vous devez configurer vos paramètres DNS pour inclure les trois entrées DNS du sous-domaine SendGrid. Chaque compte SendGrid se voit attribuer un enregistrement `TXT` unique utilisé pour authentifier les emails sortants.
 
-**Pour activer l’authentification de domaine**:
+**Pour activer l’authentification de domaine** :
 
-1. Envoyer un [ticket de support](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide#submit-ticket) pour demander l’activation de DKIM pour un domaine spécifique (**Environnements d’évaluation et de production professionnels uniquement**).
-1. Mettez à jour votre configuration DNS avec la fonction `TXT` et `CNAME` les enregistrements vous ont été fournis dans le ticket d’assistance.
+1. Envoyez un [ticket de support](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide#submit-ticket) pour demander l’activation de DKIM pour un domaine spécifique (**Environnements d’évaluation et de production Pro uniquement**).
+1. Mettez à jour votre configuration DNS avec les enregistrements `TXT` et `CNAME` fournis dans le ticket de support.
 
-**Exemple `TXT` enregistrement avec ID de compte**:
+**Exemple `TXT` d&#39;enregistrement avec ID de compte** :
 
 ```text
 v=spf1 include:u17504801.wl.sendgrid.net -all
 ```
 
-**Exemple `CNAME` records**:
+**Exemple `CNAME` enregistrements** :
 
 | Domaine | Points à | Type d’enregistrement |
 | ---------- | ---------- | ------------- |
@@ -84,7 +84,7 @@ v=spf1 include:u17504801.wl.sendgrid.net -all
 
 Vous pouvez choisir entre la sécurité automatisée et manuelle lors de la configuration d’un domaine authentifié. Si vous choisissez la sécurité automatisée, SendGrid gère automatiquement vos enregistrements DKIM et SPF. Lorsque vous ajoutez une nouvelle adresse IP d’envoi dédiée à votre compte, SendGrid met immédiatement à jour les paramètres DNS et la signature DKIM. Si vous désactivez la sécurité automatisée, vous êtes responsable de la mise à jour de votre signature DKIM chaque fois que vous changez de domaine d’envoi.
 
-**Exemple de sécurité automatisée activée**:
+**Exemple de sécurité automatisée activée** :
 
 ```text
 subdomain.mydomain.com. | CNAME | uxxxxxx.wl.sendgrid.net
@@ -92,7 +92,7 @@ s1._domainkey.mydomain.com. | CNAME | s1.domainkey.uxxxxxx.wl.sendgrid.net
 s2._domainkey.mydomain.com. | CNAME | s2.domainkey.uxxxxxx.wl.sendgrid.net
 ```
 
-**Exemple de sécurité automatisée désactivée**:
+**Exemple de sécurité automatisée désactivée** :
 
 ```text
 me12345.mydomain.com | MX | mx.sendgrid.net
@@ -100,7 +100,7 @@ me12345.mydomain.com | TXT | v=spf1 include:sendgrid.net ~all
 m1._mydomain.com | TXT | k=rsa; t=s; p=<public-key>
 ```
 
-Une fois l’authentification de domaine configurée, SendGrid gère automatiquement les enregistrements SPF (Security Policy Framework) et DKIM pour vous. After SendGrid fournit la variable `CNAME` enregistrements à ajouter à vos enregistrements DNS, vous pouvez ajouter des adresses IP dédiées et effectuer d’autres mises à jour de compte sans avoir à gérer vos enregistrements SPF manuellement. Voir [Sécurité automatisée et votre signature DKIM](https://docs.sendgrid.com/ui/account-and-settings/dkim-records#automated-security-and-your-dkim-signature).
+Une fois l’authentification de domaine configurée, SendGrid gère automatiquement les enregistrements SPF (Security Policy Framework) et DKIM pour vous. Une fois que SendGrid fournit les enregistrements `CNAME` à ajouter à vos enregistrements DNS, vous pouvez ajouter des adresses IP dédiées et effectuer d’autres mises à jour de compte sans avoir à gérer manuellement vos enregistrements SPF. Voir [Automated Security and Your DKIM Signature](https://docs.sendgrid.com/ui/account-and-settings/dkim-records#automated-security-and-your-dkim-signature).
 
 Pour tester votre configuration DNS :
 
@@ -114,9 +114,9 @@ dig CNAME s2._domainkey.domain_name
 
 Le seuil de courriel transactionnel fait référence au nombre de messages électroniques transactionnels que vous pouvez envoyer à partir des environnements Pro au cours d’une période spécifique, comme 12 000 emails par mois provenant d’environnements hors production. Le seuil est conçu pour empêcher l’envoi de spam et d’endommager potentiellement la réputation de votre email.
 
-Il n’existe aucune limite stricte au nombre d’emails pouvant être envoyés dans l’environnement de production, à condition que le score de réputation de l’expéditeur soit supérieur à 95 %. La réputation est affectée par le nombre d’emails rejetés ou rebonds et si les registres de spam basés sur DNS ont marqué votre domaine comme source potentielle de spam. Voir [Emails non envoyés lorsque les crédits SendGrid ont été dépassés sur Adobe Commerce](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/troubleshooting/miscellaneous/emails-not-being-sent-sendgrid-credits-exceeded) dans le _Base de connaissances pour la prise en charge de Commerce_.
+Il n’existe aucune limite stricte au nombre d’emails pouvant être envoyés dans l’environnement de production, à condition que le score de réputation de l’expéditeur soit supérieur à 95 %. La réputation est affectée par le nombre d’emails rejetés ou rebonds et si les registres de spam basés sur DNS ont marqué votre domaine comme source potentielle de spam. Voir [Emails non envoyés lorsque les crédits SendGrid ont été dépassés sur Adobe Commerce](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/troubleshooting/miscellaneous/emails-not-being-sent-sendgrid-credits-exceeded) dans la _base de connaissances de prise en charge de Commerce_.
 
-**Pour vérifier si le nombre maximal de crédits est dépassé**:
+**Pour vérifier si le nombre maximal de crédits est dépassé** :
 
 1. Sur votre poste de travail local, modifiez le répertoire de votre projet.
 
@@ -126,9 +126,9 @@ Il n’existe aucune limite stricte au nombre d’emails pouvant être envoyés 
    magento-cloud ssh
    ```
 
-1. Vérifiez les `/var/log/mail.log` pour `authentication failed : Maxium credits exceeded` entrées.
+1. Vérifiez les entrées `/var/log/mail.log` pour `authentication failed : Maxium credits exceeded`.
 
-   Si vous voyez des `authentication failed` les entrées du journal et la variable **Email sending réputation** est d’au moins 95, vous pouvez [Envoi d’un ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide#submit-ticket) pour demander une augmentation des crédits alloués.
+   Si vous voyez des entrées de journal `authentication failed` et que la **réputation d’envoi d’emails** est d’au moins 95, vous pouvez [envoyer un ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide#submit-ticket) pour demander une augmentation de l’allocation de crédit.
 
 ### Email sending réputation
 

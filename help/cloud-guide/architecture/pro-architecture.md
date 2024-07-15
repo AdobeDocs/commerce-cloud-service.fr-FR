@@ -15,16 +15,16 @@ ht-degree: 0%
 
 Votre architecture Adobe Commerce sur l’infrastructure cloud Pro prend en charge plusieurs environnements que vous pouvez utiliser pour développer, tester et lancer votre boutique.
 
-- **Principal**—Fournit un `master` branche déployée sur les conteneurs Platform as a service (PaaS).
-- **Intégration**: fournit une seule `integration` branche pour le développement, bien que vous puissiez créer une branche supplémentaire. Cela permet d’obtenir jusqu’à deux _active_ branches déployées sur les conteneurs Platform as a service (PaaS).
-- **Évaluation**: fournit une seule `staging` branche déployée vers les conteneurs de services d’infrastructure dédiés (IaaS).
-- **Production**: fournit une seule `production` branche déployée vers les conteneurs de services d’infrastructure dédiés (IaaS).
+- **Principal** : fournit une branche `master` déployée sur les conteneurs Platform as a service (PaaS).
+- **Intégration** : fournit une branche `integration` unique pour le développement, bien que vous puissiez créer une branche supplémentaire. Cela permet de déployer jusqu’à deux branches _actives_ sur des conteneurs Platform as a service (PaaS).
+- **Staging** : fournit une branche `staging` unique déployée sur des conteneurs Infrastructure as a service (IaaS) dédiés.
+- **Production** : fournit une branche `production` unique déployée sur des conteneurs d’infrastructure en tant que service (IaaS) dédiés.
 
 Le tableau suivant résume les différences entre les environnements :
 
 |                                        | INTÉGRATION | STAGING | PRODUCTION |
 | -------------------------------------- | ----------- | ----------------- | -------------------- |
-| Prise en charge de la gestion des paramètres dans le [!DNL Cloud Console] | Oui | Limitée | Limitée |
+| Prend en charge la gestion des paramètres dans le [!DNL Cloud Console] | Oui | Limitée | Limitée |
 | Prise en charge de plusieurs branches | Oui | Non (évaluation uniquement) | Non (production uniquement) |
 | Utilise les fichiers YAML pour la configuration | Oui | Non | Non |
 | S’exécute sur du matériel IaaS dédié | Non | Oui | Oui |
@@ -38,23 +38,23 @@ Le tableau suivant résume les différences entre les environnements :
 
 ## Architecture de l’environnement
 
-Votre projet est un référentiel Git unique avec trois branches d’environnement principales : `integration`, `staging`, et `production`. Le diagramme suivant illustre la relation hiérarchique des environnements Pro :
+Votre projet est un référentiel Git unique avec trois branches d’environnement principales : `integration`, `staging` et `production`. Le diagramme suivant illustre la relation hiérarchique des environnements Pro :
 
 ![Vue de haut niveau de l’architecture de l’environnement Pro](../../assets/pro-branch-architecture.png)
 
 ### Environnement de Principal
 
-Sur les projets Pro, la variable `master` branche fournit un environnement PaaS actif avec votre environnement de production. Envoyez toujours une copie du code de production à la variable `master` afin que vous puissiez déboguer l’environnement de production sans interrompre les services.
+Sur les projets Pro, la branche `master` fournit un environnement PaaS actif avec votre environnement de production. Envoyez toujours une copie du code de production à l’environnement `master` afin que vous puissiez déboguer l’environnement de production sans interrompre les services.
 
 **Avertissements :**
 
-- Do **not** créer une branche en fonction de la variable `master` branche. Utilisez l’environnement d’intégration pour créer des branches actives pour le développement.
+- Ne **pas** créez une branche basée sur la branche `master`. Utilisez l’environnement d’intégration pour créer des branches actives pour le développement.
 
-- N’utilisez pas la variable `master` environnement pour le développement, l’UAT ou les tests de performance
+- N’utilisez pas l’environnement `master` pour les tests de développement, d’UAT ou de performance.
 
 ### Environnement d’intégration
 
-L’environnement d’intégration s’exécute dans un conteneur Linux (LXC) sur une grille de serveurs appelée PaaS. Chaque environnement comprend un serveur web et une base de données pour tester votre site. Voir [Adresses IP régionales](../project/regional-ip-addresses.md) pour obtenir une liste des adresses IP AWS et Azure.
+L’environnement d’intégration s’exécute dans un conteneur Linux (LXC) sur une grille de serveurs appelée PaaS. Chaque environnement comprend un serveur web et une base de données pour tester votre site. Voir [Adresses IP régionales](../project/regional-ip-addresses.md) pour obtenir la liste des adresses IP AWS et Azure.
 
 **Cas d’utilisation recommandés :**
 
@@ -78,9 +78,9 @@ Pour de meilleures performances dans l’environnement d’intégration, suivez 
 
 - L’architecture de l’environnement d’intégration ne correspond pas à l’architecture intermédiaire et de production.
 
-- N’utilisez pas la variable `integration` environnement pour les tests de développement, de performance ou d’acceptation utilisateur (UAT)
+- N’utilisez pas l’environnement `integration` pour les tests de développement, de performance ou d’acceptation utilisateur (UAT).
 
-- N’utilisez pas la variable `integration` environnement de test B2B pour la fonctionnalité Adobe Commerce
+- N’utilisez pas l’environnement `integration` pour tester la fonctionnalité B2B pour Adobe Commerce
 
 - Vous ne pouvez pas restaurer la base de données dans l’environnement d’intégration à partir de la production ou de l’évaluation de la base de données.
 
@@ -92,7 +92,7 @@ L’environnement d’évaluation fournit un environnement de quasi-production p
 
 **Cas d’utilisation recommandés :**
 
-L’environnement correspond à l’architecture de production. Il est conçu pour l’UAT, l’évaluation du contenu et la révision finale avant d’envoyer les fonctionnalités à la `production` environnement. Par exemple, vous pouvez utiliser la variable `staging` pour effectuer les tâches suivantes :
+L’environnement correspond à l’architecture de production et est conçu pour l’UAT, l’évaluation du contenu et la révision finale avant de transférer des fonctionnalités vers l’environnement `production`. Par exemple, vous pouvez utiliser l’environnement `staging` pour effectuer les tâches suivantes :
 
 - Test de régression par rapport aux données de production
 
@@ -106,44 +106,44 @@ L’environnement correspond à l’architecture de production. Il est conçu po
 
 - Personnalisation de la configuration cron et test des tâches cron
 
-Voir [Workflow de déploiement](pro-develop-deploy-workflow.md#deployment-workflow) et [Test du déploiement](../test/staging-and-production.md).
+Voir [Workflow de déploiement](pro-develop-deploy-workflow.md#deployment-workflow) et [Déploiement de test](../test/staging-and-production.md).
 
 **Avertissements :**
 
 - Après le lancement du site de production, utilisez l’environnement d’évaluation principalement pour tester les correctifs de bogues critiques pour la production.
 
-- Vous ne pouvez pas créer une branche à partir de la fonction `staging` branche. À la place, vous poussez les modifications de code depuis la variable `integration` vers la branche `staging` branche.
+- Vous ne pouvez pas créer de branche à partir de la branche `staging`. À la place, vous poussez les modifications de code de la branche `integration` vers la branche `staging`.
 
 ### Environnement de production
 
-L’environnement de production exécute vos vitrines à site unique et multi-site destinées au public. Cet environnement s’exécute sur du matériel IaaS dédié, qui comprend des noeuds redondants haute disponibilité pour un accès continu et une protection contre le basculement pour vos clients. L’environnement de production comprend tous les services de l’environnement d’évaluation, plus le [Infrastructure New Relic (NRI)](../monitor/new-relic-service.md#new-relic-infrastructure) qui se connecte automatiquement aux données de l’application et aux analyses des performances afin de fournir une surveillance dynamique du serveur.
+L’environnement de production exécute vos vitrines à site unique et multi-site destinées au public. Cet environnement s’exécute sur du matériel IaaS dédié, qui comprend des noeuds redondants haute disponibilité pour un accès continu et une protection contre le basculement pour vos clients. L’environnement de production comprend tous les services de l’environnement d’évaluation, ainsi que le service [New Relic Infrastructure (NRI)](../monitor/new-relic-service.md#new-relic-infrastructure), qui se connecte automatiquement aux données de l’application et à l’analyse des performances pour fournir une surveillance dynamique du serveur.
 
 **Avertissement :**
 
-Vous ne pouvez pas créer une branche à partir de la fonction `production` branche. À la place, vous poussez les modifications de code depuis la variable `staging` vers la branche `production` branche.
+Vous ne pouvez pas créer de branche à partir de la branche `production`. À la place, vous poussez les modifications de code de la branche `staging` vers la branche `production`.
 
 ### Pile de technologie de production
 
 L&#39;environnement de production comporte trois machines virtuelles derrière un équilibreur de charge élastique géré par un HAProxy par VM. Chaque VM comprend les technologies suivantes :
 
-- **Réseau de diffusion de contenu Fastly**—Mise en cache HTTP et CDN
+- **Réseau de diffusion de contenu Fastly** : mise en cache HTTP et réseau de diffusion de contenu
 
-- **NGINX**—serveur web avec PHP-FPM, une instance avec plusieurs programmes de travail
+- **NGINX** : serveur web utilisant PHP-FPM, une instance avec plusieurs programmes de travail
 
-- **GlusterFS**—serveur de fichiers pour la gestion de tous les déploiements de fichiers statiques et la synchronisation avec quatre montages de répertoires :
+- **GlusterFS**—serveur de fichiers pour la gestion de tous les déploiements de fichiers statiques et la synchronisation avec quatre montures de répertoires :
 
    - `var`
    - `pub/media`
    - `pub/static`
    - `app/etc`
 
-- **Redis**: un serveur par VM avec un seul actif et les deux autres comme réplicas
+- **Redis** : un serveur par VM avec un seul actif et les deux autres comme réplicas
 
-- **Elasticsearch**: recherchez Adobe Commerce sur l’infrastructure cloud 2.2 à 2.4.3-p2.
+- **Elasticsearch** : recherchez Adobe Commerce sur l’infrastructure cloud 2.2 à 2.4.3-p2
 
-- **OpenSearch**: recherchez Adobe Commerce sur l’infrastructure cloud 2.3.7-p3, 2.4.3-p2, 2.4.4 et versions ultérieures.
+- **OpenSearch** : recherchez Adobe Commerce sur l’infrastructure cloud 2.3.7-p3, 2.4.3-p2, 2.4.4 et versions ultérieures.
 
-- **Galera**: grappe de base de données avec une base de données MariaDB MySQL par noeud avec un paramètre d’incrémentation automatique de trois pour les identifiants uniques de chaque base de données
+- **Galera** : grappe de base de données avec une base de données MariaDB MySQL par noeud avec un paramètre d’incrémentation automatique de trois pour les identifiants uniques dans chaque base de données
 
 La figure suivante présente les technologies utilisées dans l’environnement de production :
 
@@ -151,7 +151,7 @@ La figure suivante présente les technologies utilisées dans l’environnement 
 
 ## Matériel redondant
 
-Plutôt que de diriger une `master` Pour une configuration primaire secondaire, Adobe Commerce sur l’infrastructure cloud exécute une _architecture redondante_ où les trois instances acceptent les lectures et écritures. Cette architecture n’offre aucun temps d’arrêt lors de la mise à l’échelle et offre une intégrité transactionnelle garantie.
+Plutôt que d’exécuter une configuration traditionnelle active-passive `master` ou primaire-secondaire, Adobe Commerce sur l’infrastructure cloud exécute une _architecture redondante_ où les trois instances acceptent les lectures et écritures. Cette architecture n’offre aucun temps d’arrêt lors de la mise à l’échelle et offre une intégrité transactionnelle garantie.
 
 En raison du matériel unique et redondant, Adobe peut fournir trois serveurs de passerelle. La plupart des services externes vous permettent d’ajouter plusieurs adresses IP à une liste autorisée. Par conséquent, avoir plusieurs adresses IP fixes n’est pas un problème. Les trois passerelles correspondent aux trois serveurs de votre grappe d’environnements de production et conservent les adresses IP statiques. Elle est entièrement redondante et hautement disponible à tous les niveaux :
 
@@ -162,13 +162,13 @@ En raison du matériel unique et redondant, Adobe peut fournir trois serveurs de
 
 ## Sauvegarde et reprise après sinistre
 
-Adobe Commerce sur l’infrastructure cloud utilise une architecture haute disponibilité qui reproduit chaque projet Pro sur trois zones de disponibilité AWS ou Azure distinctes, chacune d’elles disposant d’un centre de données distinct. Outre cette redondance, les environnements d’évaluation et de production Pro reçoivent des sauvegardes en direct régulières, conçues pour être utilisées dans les cas où _échec catastrophique_.
+Adobe Commerce sur l’infrastructure cloud utilise une architecture haute disponibilité qui reproduit chaque projet Pro sur trois zones de disponibilité AWS ou Azure distinctes, chacune d’elles disposant d’un centre de données distinct. En plus de cette redondance, les environnements d’évaluation et de production Pro reçoivent des sauvegardes en direct régulières, conçues pour être utilisées en cas d’_échec catastrophique_.
 
-**Sauvegardes automatiques** Incluez des données persistantes provenant de tous les services en cours d’exécution, comme la base de données MySQL et les fichiers stockés sur les volumes montés. Les sauvegardes sont enregistrées dans un stockage en bloc chiffré (EBS) dans la même région que l’environnement de production. Les sauvegardes automatiques ne sont pas accessibles publiquement car elles sont stockées dans un système distinct.
+**Les sauvegardes automatiques** incluent des données persistantes de tous les services en cours d’exécution, telles que la base de données MySQL et les fichiers stockés sur les volumes montés. Les sauvegardes sont enregistrées dans un stockage en bloc chiffré (EBS) dans la même région que l’environnement de production. Les sauvegardes automatiques ne sont pas accessibles publiquement car elles sont stockées dans un système distinct.
 
 {{pro-backups}}
 
-Vous pouvez créer un **sauvegarde manuelle** de la base de données pour vos environnements d’évaluation et de production à l’aide des commandes de l’interface de ligne de commande. Voir [Sauvegarde de la base](../storage/database-dump.md). Pour `integration` , Adobe recommande de créer une sauvegarde comme première étape après avoir accédé à votre projet d’infrastructure cloud Adobe Commerce et avant d’appliquer toute modification majeure. Voir [Gestion des sauvegardes](../storage/snapshots.md).
+Vous pouvez créer une **sauvegarde manuelle** de la base de données pour vos environnements d’évaluation et de production à l’aide des commandes de l’interface de ligne de commande. Voir [Sauvegarde de la base de données](../storage/database-dump.md). Pour les environnements `integration`, Adobe recommande de créer une sauvegarde comme première étape après avoir accédé à votre projet d’infrastructure cloud Adobe Commerce et avant d’appliquer toute modification majeure. Voir [Gestion des sauvegardes](../storage/snapshots.md).
 
 ### Objectif du point de récupération
 
@@ -198,8 +198,8 @@ Le RTO dépend de la taille du stockage. Les gros volumes EBS nécessitent plus 
 
 ## Mise à l’échelle Pro
 
-Redimensionnement de la grappe Pro _compute_ les configurations varient en fonction du fournisseur cloud sélectionné (AWS, Azure), de la région et des dépendances de service. L’infrastructure cloud d’Adobe peut mettre à l’échelle des grappes Pro pour répondre aux attentes en matière de trafic et aux besoins en matière de service au fur et à mesure que les demandes changent.
+Les configurations de taille de grappe Pro et _compute_ varient en fonction du fournisseur de cloud sélectionné (AWS, Azure), de la région et des dépendances de service. L’infrastructure cloud d’Adobe peut mettre à l’échelle des grappes Pro pour répondre aux attentes en matière de trafic et aux besoins en matière de service au fur et à mesure que les demandes changent.
 
-L’architecture redondante permet à l’infrastructure cloud d’Adobe d’évoluer sans temps d’arrêt. Lors de la mise à l’échelle, chacune des trois instances alterne pour mettre à niveau la capacité sans affecter le fonctionnement du site. Par exemple, vous pouvez ajouter des serveurs web supplémentaires à une grappe existante si la construction se fait au niveau PHP plutôt qu’au niveau de la base de données. Cette variable fournit les _mise à l’échelle horizontale_ pour compléter la mise à l’échelle verticale fournie par des processeurs supplémentaires au niveau de la base de données. Voir [Architecture mise à l’échelle](scaled-architecture.md).
+L’architecture redondante permet à l’infrastructure cloud d’Adobe d’évoluer sans temps d’arrêt. Lors de la mise à l’échelle, chacune des trois instances alterne pour mettre à niveau la capacité sans affecter le fonctionnement du site. Par exemple, vous pouvez ajouter des serveurs web supplémentaires à une grappe existante si la construction se fait au niveau PHP plutôt qu’au niveau de la base de données. Cette opération fournit une _mise à l’échelle horizontale_ en complément de la mise à l’échelle verticale fournie par des processeurs supplémentaires au niveau de la base de données. Voir [Architecture mise à l’échelle](scaled-architecture.md).
 
-Si vous prévoyez une augmentation importante du trafic pour un événement ou une autre raison, vous pouvez demander une augmentation temporaire de la capacité. Voir [Comment demander une modification temporaire](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/how-to/how-to-request-temporary-magento-upsize.html) dans le _Centre d’aide Commerce_.
+Si vous prévoyez une augmentation importante du trafic pour un événement ou une autre raison, vous pouvez demander une augmentation temporaire de la capacité. Voir [Comment demander une mise à niveau temporaire](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/how-to/how-to-request-temporary-magento-upsize.html) dans le _Centre d’aide de Commerce_.

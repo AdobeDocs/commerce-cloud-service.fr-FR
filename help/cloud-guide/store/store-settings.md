@@ -3,7 +3,7 @@ title: Gestion de la configuration du magasin
 description: Découvrez comment gérer et synchroniser les paramètres de configuration du magasin dans tous les environnements Adobe Commerce sur l’infrastructure cloud.
 feature: Cloud, Configuration, SCD
 exl-id: f2dd876d-24ee-4d47-b9ac-44fcf77b61b5
-source-git-commit: 13e76d3e9829155995acbb72d947be3041579298
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '1439'
 ht-degree: 0%
@@ -162,7 +162,7 @@ Lorsque vous modifiez votre environnement par l’intermédiaire de l’administ
 
 Des copies des fichiers `app/etc/env.php` et `app/etc/config.php` d’origine ont été créées pendant le processus de déploiement et stockées dans le même dossier. L’exemple suivant montre les fichiers BAK (sauvegarde) et PHP (fichiers originaux) dans le même dossier `app/etc` :
 
-```terminal
+```
 ...
 config.php.bak
 di.xml
@@ -192,7 +192,7 @@ Les anciennes configurations utilisaient le fichier `app/etc/config.local.php`. 
 
    Exemple de réponse :
 
-   ```terminal
+   ```
    The list of backup files:
    app/etc/env.php
    app/etc/config.php

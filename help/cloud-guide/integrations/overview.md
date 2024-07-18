@@ -5,7 +5,7 @@ role: Developer
 feature: Cloud, Integration
 last-substantial-update: 2024-02-06T00:00:00Z
 exl-id: 2dddba73-5b88-4b5d-a0e1-2f1c1f52354c
-source-git-commit: abe9aa36b907be8bdfdf42e6f28f1e1eac68fecf
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '564'
 ht-degree: 0%
@@ -38,7 +38,7 @@ magento-cloud integration:list
 
 Exemple de réponse :
 
-```terminal
+```
 +----------+--------------+---------------------------------------------------------------------------+
 | ID       | Type         | Summary                                                                   |
 +----------+--------------+---------------------------------------------------------------------------+
@@ -85,7 +85,7 @@ L’exemple de réponse affiche une série d’invites qui offrent une opportuni
 
 Vous pouvez personnaliser l’intégration pour créer des rapports sur des [événements](#events-to-report) spécifiques, comme envoyer du code vers une branche. Par exemple, vous pouvez spécifier l’événement `environment.push` pour envoyer un message lorsqu’un utilisateur envoie du code à une branche :
 
-```terminal
+```
 Events to report (--events)
 A list of events to report, e.g. environment.push
 Default: *
@@ -95,7 +95,7 @@ Enter comma-separated values (or leave this blank)
 
 Vous pouvez choisir de signaler les événements à l’état `pending`, `in_progress` ou `complete` :
 
-```terminal
+```
 States to report (--states)
 A list of states to report, e.g. pending, in_progress, complete
 Default: complete
@@ -105,7 +105,7 @@ Enter comma-separated values (or leave this blank)
 
 Et vous pouvez _inclure_ ou _exclure_ messages pour des environnements spécifiques :
 
-```terminal
+```
 Included environments (--environments)
 The environment IDs to include
 Default: *
@@ -120,7 +120,7 @@ Enter comma-separated values (or leave this blank)
 
 Une fois l’intégration terminée, vous recevez un résumé des valeurs :
 
-```terminal
+```
 Created integration integration-ID (type: webhook)
 +-----------------------+------------------------------+
 | Property              | Value                        |
@@ -145,7 +145,7 @@ magento-cloud integration:update --states=pending <int-id>
 
 Exemple de réponse :
 
-```terminal
+```
 Integration integration-ID (webhook) updated
 +-----------------------+------------------------------+
 | Property              | Value                        |

@@ -3,7 +3,7 @@ title: Niveaux et options de variable
 description: Découvrez les différents niveaux de variable et options utilisés pour personnaliser votre Adobe Commerce dans l’environnement d’exécution de projet d’infrastructure cloud.
 feature: Cloud, Configuration, Security
 exl-id: 11aa0862-94c0-47fb-946a-0148f75cc24c
-source-git-commit: 13e76d3e9829155995acbb72d947be3041579298
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '446'
 ht-degree: 0%
@@ -93,7 +93,7 @@ Vous pouvez afficher une liste de variables existantes à l’aide de l’interf
 magento-cloud variables
 ```
 
-```terminal
+```
 Variables on the project Project-Name (<project-id>), environment <environment-name>:
 +----------------------------+-------------+-------------------------------------------+
 | Name                       | Level       | Value                                     |

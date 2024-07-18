@@ -3,7 +3,7 @@ title: Propriété du pare-feu
 description: Voir des exemples sur la configuration de la propriété de pare-feu dans le fichier de configuration de l’application Commerce.
 feature: Cloud, Configuration, Security
 exl-id: f169c008-c62a-41b7-a98d-cccd81c7291a
-source-git-commit: 74d88560db3b65294673a1e1827f9cea098d707a
+source-git-commit: a8ecebc87bfae5deaf0fc7ff3e7dd3b255fe3f24
 workflow-type: tm+mt
 source-wordcount: '844'
 ht-degree: 0%
@@ -32,7 +32,7 @@ magento-cloud p:curl --project PROJECT_ID /settings | grep -i outbound
 
 À moins que vous n’ayez demandé `deny` pour votre stratégie, la commande doit afficher votre jeu de stratégies sur `allow` :
 
-```terminal
+```json
 "outbound_restrictions_default_policy": "allow"
 ```
 
@@ -157,7 +157,7 @@ L’option `ips` permet une liste d’adresses IP dans la notation CIDR. Vous po
 
 Pour spécifier une seule adresse IP, ajoutez le préfixe CIDR `/32` à la fin de votre adresse IP :
 
-```terminal
+```
 172.217.11.174/32  # google.com
 ```
 
@@ -189,7 +189,7 @@ awk '($5 ~/query/)' /var/log/dns.log | awk '{print $6}' | sort | uniq -c | sort 
 
 Cette commande affiche également les demandes DNS qui ont été effectuées mais bloquées par vos règles de filtrage de sortie. La sortie n’affiche pas les domaines bloqués, mais uniquement les demandes effectuées. La sortie n’affiche pas les demandes effectuées à l’aide d’une adresse IP.
 
-```terminal
+```
 Example output:
 
 97 magento.com

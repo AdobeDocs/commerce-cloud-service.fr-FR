@@ -3,7 +3,7 @@ title: Service PrivateLink
 description: Découvrez comment utiliser le service PrivateLink pour établir une connexion sécurisée entre un cloud privé et une plateforme cloud Adobe Commerce dans la même région.
 feature: Cloud, Iaas, Security
 exl-id: b25548b8-312b-4a74-b242-f4e2ac6cf945
-source-git-commit: 5b52157c6c623bb4c765a2d545919df79d81f1da
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '1609'
 ht-degree: 0%
@@ -157,20 +157,20 @@ Vous pouvez utiliser l’application Telnet pour tester la connexion au service 
 
    Exemple :
 
-   ```terminal
+   ```
    $ curl -v telnet://vpce-007ffnb9qkcnjgult-yfhmywqh.vpce-svc-083cqvm2ta3rxqat5v.us-east-1.vpce.amazonaws.com:80 -vvv
    ```
 
    Exemple de réponse réussie :
 
-   ```terminal
+   ```
    * Rebuilt URL to: telnet://vpce-007ffnb9qkcnjgult-yfhmywqh.vpce-svc-083cqvm2ta3rxqat5v.us-east-1.vpce.amazonaws.com:80
    * Connected to vpce-0088d56482571241d-yfhmywqh.vpce-svc-083cqvm2ta3rxqat5v.us-east-1.vpce. amazonaws.com (191.210.82.246) port 80 (#0)
    ```
 
    Exemple de réponse en échec :
 
-   ```terminal
+   ```
    Failed to connect to vpce-007ffnb9qkcnjgult-yfhmywqh.vpce-svc-083cqvm2ta3rxqat5v.ap-southeast-1.vpce.amazonaws.com port 80: Connection timed out
    * Closing connection 0
    ```

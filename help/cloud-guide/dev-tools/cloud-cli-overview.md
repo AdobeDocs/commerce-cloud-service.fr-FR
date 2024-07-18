@@ -2,7 +2,7 @@
 title: Interface de ligne de commande du cloud
 description: Découvrez l’interface de ligne de commande de Magento-cloud et comment elle vous aide à gérer les environnements de développement locaux pour votre projet d’infrastructure cloud Adobe Commerce.
 exl-id: 70dddd62-0269-4af4-bd2a-1a4fbf11a131
-source-git-commit: 13e76d3e9829155995acbb72d947be3041579298
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '741'
 ht-degree: 0%
@@ -42,7 +42,7 @@ L’outil d’interface de ligne de commande `magento-cloud` permet aux dévelop
    magento-cloud
    ```
 
-   ```terminal
+   ```
    Welcome to Magento Cloud!
    Please log in using your Magento Cloud account.
    Your email address or username:
@@ -94,7 +94,7 @@ magento-cloud environment:redeploy
 
 Exemple de réponse :
 
-```terminal
+```
 Are you sure you want to redeploy the environment <environment-name>? [Y/n]
 ```
 
@@ -193,7 +193,7 @@ Si votre interface de ligne de commande `magento-cloud` est à jour, la réponse
 magento-cloud update
 ```
 
-```terminal
+```
 Checking for Magento Cloud CLI updates (current version: X.XX.X)
 No updates found
 ```

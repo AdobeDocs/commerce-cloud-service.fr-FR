@@ -3,7 +3,7 @@ title: Configuration de plusieurs sites web ou magasins
 description: Découvrez comment configurer plusieurs sites web ou magasins pour Adobe Commerce sur l’infrastructure cloud.
 feature: Cloud, Configuration, Routes, Site Navigation
 exl-id: 16e932ef-f083-44d7-977f-0c78899e151a
-source-git-commit: 85aa54af10e7ea44adde5403b69ff03d4a0c622f
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '1013'
 ht-degree: 0%
@@ -22,14 +22,14 @@ Le processus de configuration de plusieurs magasins varie selon que vous choisis
 
 Plusieurs magasins avec des domaines uniques :
 
-```terminal
+```
 https://first.store.com/
 https://second.store.com/
 ```
 
 Plusieurs magasins avec le même domaine :
 
-```terminal
+```
 https://store.com/first/
 https://store.com/second/
 ```

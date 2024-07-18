@@ -3,7 +3,7 @@ title: Mettre à niveau la version de Commerce
 description: Découvrez comment mettre à niveau la version d’Adobe Commerce dans le projet d’infrastructure cloud.
 feature: Cloud, Upgrade
 exl-id: 87821007-4979-4a20-940b-aa3c82c192d8
-source-git-commit: 99272d08a11f850a79e8e24857b7072d1946f374
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '1439'
 ht-degree: 0%
@@ -381,7 +381,7 @@ Adobe recommande vivement de mettre à niveau votre environnement de production 
 
 En cas d’échec de la mise à niveau, un message d’erreur s’affiche dans le navigateur pour vous indiquer que vous ne pouvez pas accéder à votre vitrine ou au panneau d’administration :
 
-```terminal
+```
 There has been an error processing your request
 Exception printing is disabled by default for security reasons.
   Error log record number: <error-number>

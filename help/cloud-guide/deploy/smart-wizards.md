@@ -3,7 +3,7 @@ title: Assistant dynamique
 description: Découvrez comment utiliser des assistants intelligents pour évaluer si votre projet d’infrastructure cloud d’Adobe Commerce suit les bonnes pratiques de déploiement.
 feature: Cloud, Build, Deploy, SCD
 exl-id: eb79431c-8835-4ae4-b453-9c4932c5d5ac
-source-git-commit: 225fba1acfd8b3ce4d7ce989c7851e7b0b218680
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '322'
 ht-degree: 0%
@@ -36,13 +36,13 @@ Par exemple, vous pouvez vérifier que votre configuration active correctement l
 
 Une configuration réussie renvoie :
 
-```terminal
+```
 SCD on-demand is enabled
 ```
 
 Une configuration en échec renvoie :
 
-```terminal
+```
 SCD on-demand is disabled
 ```
 
@@ -50,7 +50,7 @@ SCD on-demand is disabled
 
 La configuration _idéale_ pour votre projet Cloud permet de minimiser le temps d’arrêt du déploiement en réchauffant le cache et en générant du contenu statique lorsque l’utilisateur le demande. Cet assistant s’exécute automatiquement pendant le processus de déploiement. Si votre Cloud n’est pas configuré pour cet _état idéal_, vous recevez un message similaire à ce qui suit :
 
-```terminal
+```
 - SCD on build is not configured
 - Post-deploy hook is not configured
 - Skip HTML minification is disabled
@@ -81,6 +81,6 @@ En fonction de la sortie, vous devez apporter les corrections suivantes à votre
 
 1. Envoyez vos modifications de code et relancez le test. Lorsque votre configuration est _idéal_, vous recevez le message suivant.
 
-   ```terminal
+   ```
    Ideal state is configured
    ```

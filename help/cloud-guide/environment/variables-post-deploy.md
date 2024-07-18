@@ -1,18 +1,18 @@
 ---
-title: Variables de déploiement Post
+title: Variables de post-déploiement
 description: Consultez la liste des variables d’environnement qui contrôlent les actions dans Adobe Commerce lors de la phase de post-déploiement de l’infrastructure cloud.
 feature: Cloud, Configuration, Cache
 recommendations: noDisplay, catalog
 role: Developer
 exl-id: e460335f-cd2b-4c98-b1ff-32504599b33d
-source-git-commit: 8b02757591c4e8f607e936de4eda74d76953d9b7
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '511'
 ht-degree: 0%
 
 ---
 
-# Variables de déploiement Post
+# Variables de post-déploiement
 
 Les variables _post-deploy_ suivantes contrôlent les actions lors de la phase de post-déploiement et peuvent hériter et remplacer des valeurs des [variables globales](variables-global.md). Insérez ces variables à l’étape `post-deploy` du fichier `.magento.env.yaml` :
 
@@ -45,7 +45,7 @@ stage:
 
 Une fois que vous avez spécifié les pages à tester et validé les modifications, le test _Temps jusqu’au premier octet_ s’exécute pendant la phase de post-déploiement et publie les résultats pour chaque chemin d’accès au journal cloud :
 
-```terminal
+```
 [2019-06-20 20:42:22] INFO: TTFB test result: 0.313s {"url":"https://staging-tkyicst-xkmwgjkwmwfuk.us-4.magentosite.cloud/customer/account/create","status":200}
 [2019-06-20 20:42:22] INFO: TTFB test result: 0.408s {"url":"https://staging-tkyicst-xkmwgjkwmwfuk.us-4.magentosite.cloud/checkout/cart","status":200}
 ```
@@ -93,7 +93,7 @@ Personnalisez la liste des pages utilisées pour précharger le cache à l’ét
 
 - **plusieurs pages** : utilisez le format suivant pour mettre en cache plusieurs pages en fonction d’un modèle d’expression régulière spécifique :
 
-  ```terminal
+  ```
   <entity_type>:<pattern|url|product_sku>:<store_id|store_code>
   ```
 

@@ -3,7 +3,7 @@ title: Propriété Cron
 description: Voir des exemples de configuration de la propriété `crons` dans le fichier de configuration de l’application  [!DNL Commerce] .
 feature: Cloud, Configuration
 exl-id: 67d592c1-2933-4cdf-b4f6-d73cd44b9f59
-source-git-commit: 1c0e05c3d8461bea473bcf6ec35162d65ef2774f
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '1069'
 ht-degree: 0%
@@ -60,7 +60,7 @@ Bien que vous puissiez utiliser `crontab` pour passer en revue la configuration 
 
 L’exemple suivant montre la sortie `crontab` pour un environnement qui ne possède que la configuration par défaut `crons` :
 
-```terminal
+```
 username@hostname:~$ crontab -l
 # Crontab is managed by the system, attempts to edit it directly will fail.
 SHELL=/etc/platform/6fck2obu3244c/cron-run

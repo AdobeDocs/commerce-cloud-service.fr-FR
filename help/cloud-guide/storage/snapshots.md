@@ -3,7 +3,7 @@ title: Gestion des sauvegardes
 description: Découvrez comment créer et restaurer manuellement une sauvegarde pour votre projet d’infrastructure cloud Adobe Commerce.
 feature: Cloud, Paas, Snapshots, Storage
 exl-id: 1cb00db7-2375-4761-9c07-1e20a74859e0
-source-git-commit: 4c3f3f2775e8327476233520e52b589f7264786f
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '711'
 ht-degree: 0%
@@ -51,7 +51,7 @@ Vous pouvez créer une sauvegarde manuelle de n’importe quel environnement Sta
 
    Exemple de réponse :
 
-   ```terminal
+   ```
    Creating a snapshot of develop-branch
    Waiting for the activity ID (User created a backup of develop-branch):
    
@@ -70,7 +70,7 @@ Vous pouvez créer une sauvegarde manuelle de n’importe quel environnement Sta
 
    La liste renvoie des informations sur l’état de l’instantané :
 
-   ```terminal
+   ```
    Snapshots on the project (project-id), environment develop-branch (type: development):
    +---------------------------+----------------------+------------+
    | Created                   | Snapshot ID          | Restorable |
@@ -116,7 +116,7 @@ Les délais de restauration varient en fonction de la taille de votre base de do
 
    La liste renvoie des informations sur les instantanés disponibles :
 
-   ```terminal
+   ```
    Snapshots on the project (project-id), environment develop-branch (type: development):
    +---------------------------+----------------------+------------+
    | Created                   | Snapshot ID          | Restorable |

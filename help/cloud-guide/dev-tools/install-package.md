@@ -3,7 +3,7 @@ title: Mettre à niveau le projet à l’aide des outils CEE-ONU
 description: Découvrez comment mettre à niveau votre projet Adobe Commerce sur l’infrastructure cloud pour utiliser le package CEE-Outils et tirer parti des correctifs et fonctionnalités les plus récents.
 feature: Cloud, Install
 exl-id: 820cca84-2817-4881-829f-ebb78400d8c7
-source-git-commit: bcdb59f0d2a17e55e8b0479ee69fac06c710638f
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '365'
 ht-degree: 0%
@@ -33,7 +33,7 @@ Avant d&#39;effectuer une mise à niveau pour utiliser le package `ece-tools`, v
 
 Chaque version d’Adobe Commerce nécessite une contrainte différente basée sur les éléments suivants :
 
-```terminal
+```
 >=current_version <next_version
 ```
 
@@ -105,7 +105,7 @@ Pour mettre à niveau votre projet afin d’utiliser le package `ece-tools`, vou
 
 1. Ajoutez et validez les modifications du code. Dans cet exemple, les fichiers suivants ont été mis à jour :
 
-   ```terminal
+   ```
    .magento.app.yaml
    composer.json
    composer.lock

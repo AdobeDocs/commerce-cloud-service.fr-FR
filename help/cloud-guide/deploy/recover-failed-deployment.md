@@ -3,7 +3,7 @@ title: Récupération de l’échec du composant
 description: Découvrez comment récupérer si un composant ne se déploie pas correctement dans Adobe Commerce sur l’infrastructure cloud.
 feature: Cloud, Deploy
 exl-id: 4855be0c-6883-4ab1-a364-316d10e97250
-source-git-commit: b44d97f82ef09288807c648010202422c9ac04eb
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '220'
 ht-degree: 0%
@@ -59,7 +59,7 @@ Pour nettoyer le déploiement précédent, identifiez le composant qui a été a
 
    Si le message suivant s’affiche, vous n’avez rien à faire de plus :
 
-   ```terminal
+   ```
    Package "<name>:<version>" listed for update is not installed. Ignoring.
    ```
 

@@ -3,7 +3,7 @@ title: Configuration des services
 description: Découvrez comment configurer les services utilisés par Adobe Commerce sur l’infrastructure cloud.
 feature: Cloud, Configuration, Services
 exl-id: 48091c10-c53f-4aad-afbe-b4516653bda1
-source-git-commit: 4d790bff2ba5d02ef10de5c36a2f0d140e31a407
+source-git-commit: c39332d352f6dcb6f92c312a6ef1b74319d37aa3
 workflow-type: tm+mt
 source-wordcount: '1007'
 ht-degree: 0%
@@ -129,7 +129,7 @@ Vous pouvez récupérer les données de configuration pour toutes les relations 
 
    >Exemple de réponse abrégé
 
-   ```terminal
+   ```yaml
    redis:
        -
    ...

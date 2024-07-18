@@ -4,7 +4,7 @@ description: Découvrez comment gérer les branches d’environnement pour Adobe
 role: Developer
 feature: Cloud, Install
 exl-id: a871c7e2-4506-4a05-8fc2-fc5ef2afe609
-source-git-commit: 13e76d3e9829155995acbb72d947be3041579298
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '676'
 ht-degree: 0%
@@ -164,14 +164,14 @@ Lorsque vous supprimez un environnement, celui-ci est défini sur _inactive_. Le
 
 1. Répondez aux invites pour supprimer l’environnement local et l’environnement distant correspondant.
 
-   ```terminal
+   ```
    The environment <environment-ID> is currently active: deleting it will delete all associated data.
    Are you sure you want to delete the environment <environment-ID>? [Y/n]
    ```
 
    La suppression de l’environnement le place dans un état _inactif_.
 
-   ```terminal
+   ```
    Delete the remote Git branch too? [Y/n]
    ```
 
@@ -179,7 +179,7 @@ Lorsque vous supprimez un environnement, celui-ci est défini sur _inactive_. Le
 
 1. Attendez que l’environnement soit supprimé.
 
-   ```terminal
+   ```
    Deleting environment <environment-ID>
    Waiting for the activity...
      Deleting environment <project-id>-<environment-ID>-xxxxxx

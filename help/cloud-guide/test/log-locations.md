@@ -3,7 +3,7 @@ title: Affichage et gestion des journaux
 description: Découvrez les types de fichiers journaux disponibles dans l’infrastructure cloud et où les trouver.
 last-substantial-update: 2023-05-23T00:00:00Z
 exl-id: d7f63dab-23bf-4b95-b58c-3ef9b46979d4
-source-git-commit: 86af69eed16e8fe464de93bd0f33cfbfd4ed8f49
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '1056'
 ht-degree: 0%
@@ -44,7 +44,7 @@ magento-cloud ssh -p <project-ID> -e <environment-ID> --all
 
 Exemple de réponse :
 
-```terminal
+```
 1.ent-project-environment-id@ssh.region.magento.cloud
 2.ent-project-environment-id@ssh.region.magento.cloud
 3.ent-project-environment-id@ssh.region.magento.cloud
@@ -84,7 +84,7 @@ Après avoir apporté des modifications à votre environnement, vous pouvez pass
 
 Vérifiez les horodatages sur les entrées du journal, vérifiez et localisez les journaux pour un déploiement spécifique. Voici un exemple condensé de sortie de journal que vous pouvez utiliser pour le dépannage :
 
-```terminal
+```
 Re-deploying environment project-integration-ID
   Executing post deploy hook for service `mymagento`
     [2019-01-03 19:44:11] NOTICE: Starting post-deploy.
@@ -129,7 +129,7 @@ magento-cloud log -e <environment-ID> deploy
 
 Exemple de réponse :
 
-```terminal
+```
 Reading log file projectID-branchname-ID--mymagento@ssh.zone.magento.cloud:/var/log/'deploy.log'
 
 [2023-04-24 18:58:03.080678] Launching command 'b'php ./vendor/bin/ece-tools run scenario/deploy.xml\n''.
@@ -153,7 +153,7 @@ magento-cloud ssh -e <environment-ID> "./vendor/bin/ece-tools error:show"
 
 Exemple de réponse :
 
-```terminal
+```
 errorCode: 1001
 stage: build
 step: validate-config
@@ -187,7 +187,7 @@ Comme pour les journaux de déploiement, les journaux d’application sont uniqu
 | Fichier journal | Intégration de Starter et Pro | Description |
 | ------------------- | --------------------------- | ------------------------------------------------- |
 | **Déployer le journal** | `/var/log/deploy.log` | Activité à partir du [crochet de déploiement](../application/hooks-property.md). |
-| **Journal de déploiement Post** | `/var/log/post_deploy.log` | Activité à partir du [crochet post-déploiement](../application/hooks-property.md). |
+| **Journal de post-déploiement** | `/var/log/post_deploy.log` | Activité à partir du [crochet post-déploiement](../application/hooks-property.md). |
 | **Journal Cron** | `/var/log/cron.log` | Sortie des tâches cron. |
 | **Journal d’accès Nginx** | `/var/log/access.log` | Au démarrage de Nginx, erreurs HTTP pour les répertoires manquants et les types de fichiers exclus. |
 | **Journal d’erreur Nginx** | `/var/log/error.log` | Messages de démarrage utiles pour le débogage des erreurs de configuration associées à Nginx. |
@@ -199,7 +199,7 @@ Pour les environnements d’évaluation et de production Pro, les journaux Dépl
 | Fichier journal | Pro Staging | Pro Production |
 | ------------------- | --------------------------------------------------- | ----------------------------------------------- |
 | **Déployer le journal** | Premier noeud uniquement :<br>`/var/log/platform/<project-ID>_stg/deploy.log` | Premier noeud uniquement :<br>`/var/log/platform/<project-ID>/deploy.log` |
-| **Journal de déploiement Post** | Premier noeud uniquement :<br>`/var/log/platform/<project-ID>_stg/post_deploy.log` | Premier noeud uniquement :<br>`/var/log/platform/<project-ID>/post_deploy.log` |
+| **Journal de post-déploiement** | Premier noeud uniquement :<br>`/var/log/platform/<project-ID>_stg/post_deploy.log` | Premier noeud uniquement :<br>`/var/log/platform/<project-ID>/post_deploy.log` |
 | **Journal Cron** | Premier noeud uniquement :<br>`/var/log/platform/<project-ID>_stg/cron.log` | Premier noeud uniquement :<br>`/var/log/platform/<project-ID>/cron.log` |
 | **Journal d’accès Nginx** | `/var/log/platform/<project-ID>_stg/access.log` | `/var/log/platform/<project-ID>/access.log` |
 | **Journal d’erreur Nginx** | `/var/log/platform/<project-ID>_stg/error.log` | `/var/log/platform/<project-ID>/error.log` |
@@ -210,7 +210,7 @@ Pour les environnements d’évaluation et de production Pro, les journaux Dépl
 
 Les journaux d’application sont compressés et archivés une fois par jour et conservés pendant un an. Les journaux compressés sont nommés à l’aide d’un identifiant unique qui correspond au `Number of Days Ago + 1`. Par exemple, dans les environnements de production Pro, un journal d’accès PHP de 21 jours dans le passé est stocké et nommé comme suit :
 
-```terminal
+```
 /var/log/platform/<project-ID>/php.access.log.22.gz
 ```
 

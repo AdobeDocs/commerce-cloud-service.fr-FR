@@ -3,9 +3,9 @@ title: Déploiement vers l’évaluation et la production
 description: Découvrez comment déployer votre Adobe Commerce sur le code d’infrastructure cloud dans les environnements d’évaluation et de production pour effectuer d’autres tests.
 feature: Cloud, Console, Deploy, SCD, Storage
 exl-id: 4b82289f-ee04-4b14-a0ed-7a8a19fc6a6a
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: ae7eb6a0c3de773377c8e1efb5ce2e92c06506bd
 workflow-type: tm+mt
-source-wordcount: '1289'
+source-wordcount: '1310'
 ht-degree: 0%
 
 ---
@@ -340,6 +340,8 @@ Lors de l&#39;import de données, vous devez déposer et créer une base de donn
    create database main;
    ```
 
+1. Importez la base.
+
    Importation pour production :
 
    ```shell
@@ -351,3 +353,5 @@ Lors de l&#39;import de données, vous devez déposer et créer une base de donn
    ```shell
    zcat <cluster-ID_stg>.sql.gz | sed -e 's/DEFINER[ ]*=[ ]*[^*]*\*/\*/' | mysql -h 127.0.0.1 -p -u <database-username> <database-name>;
    ```
+
+   Ces commandes décompressent le fichier de vidage de la base de données, suppriment les instructions `DEFINER` et importent la base de données à l’aide des informations d’identification spécifiées.

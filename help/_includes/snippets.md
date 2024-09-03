@@ -1,7 +1,7 @@
 ---
-source-git-commit: b08443d937dfc18120daa0d6a1277b9c7bca67aa
+source-git-commit: 762ce3cb6268401b0f5fae5b2280a870aa9c83a5
 workflow-type: tm+mt
-source-wordcount: '829'
+source-wordcount: '857'
 ht-degree: 0%
 
 ---
@@ -47,7 +47,7 @@ Définissez l’option `_merge` sur l’une des options suivantes :
 >
 >Indiquez les modifications de service nécessaires, incluez vos fichiers `.magento.app.yaml` et `services.yaml` mis à jour et indiquez la version PHP dans le ticket. Pour les modifications en libre-service apportées à la version PHP, aux extensions ou aux paramètres d’environnement, voir [Paramètres PHP](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/configure/app/php-settings.html) dans la _configuration de l’application_.
 >
->Pour les modifications apportées à un environnement de production _live_ (**Pro uniquement**), vous devez fournir un préavis d’au moins 48 heures afin de permettre à l’équipe d’infrastructure Cloud de disposer de suffisamment de temps pour mobiliser des ressources et réaliser une mise à niveau sécurisée.
+>Pour les modifications apportées à un environnement de production _live_ (**Pro uniquement**), vous devez fournir un préavis d’au moins 48 heures afin de permettre à l’équipe d’infrastructure Cloud de disposer de suffisamment de temps pour mobiliser des ressources et réaliser une mise à niveau sécurisée. La période de notification ne comprend pas les week-ends. Par exemple, si vous souhaitez que vos mises à niveau de service soient effectuées un lundi, vous devez envoyer la demande d’ici le mercredi précédent.
 
 ## Sauvegardes Pro {#pro-backups}
 

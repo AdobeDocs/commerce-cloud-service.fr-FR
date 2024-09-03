@@ -4,9 +4,9 @@ description: Découvrez comment préparer un conseiller technique client Adobe p
 recommendations: noDisplay, catalog
 role: Admin
 exl-id: cfb354b0-c255-4b6e-94aa-c5a6bf7230d6
-source-git-commit: 89c57a486545d6165e0407f913f4fa4cf6c95abe
+source-git-commit: 374cbe4a119b43ab446905fd6b9e51840094ce61
 workflow-type: tm+mt
-source-wordcount: '728'
+source-wordcount: '756'
 ht-degree: 0%
 
 ---
@@ -31,6 +31,8 @@ Exemples pour les domaines de production et d’évaluation :
 - `mcstaging.your-store.com`
 
 Pour plus d’informations sur les domaines multiples ou uniques, voir [Configuration de plusieurs sites Web ou magasins](../cloud-guide/store/multiple-sites.md) dans le guide _Commerce on Cloud Infrastructure_ .
+
+Voir [ comptes rapides et domaines attribués ](https://experienceleague.adobe.com/en/docs/commerce-cloud-service/user-guide/cdn/fastly#multiple-fastly-accounts-and-assigned-domains) si vous disposez d’un compte Fastly existant qui lie les mêmes apex et sous-domaines utilisés sur votre site Adobe Commerce.
 
 ## Domaine de l’email transactionnel
 

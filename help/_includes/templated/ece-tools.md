@@ -1,5 +1,5 @@
 ---
-source-git-commit: 6d8c082d78259f8f7adb0fb7f11ff4fcdb234124
+source-git-commit: a58ad3254cb00a8fcafd11f1541f55ea86ad18eb
 workflow-type: tm+mt
 source-wordcount: '4030'
 ht-degree: 0%
@@ -8,7 +8,7 @@ ht-degree: 0%
 # ece-tools
 
 <!-- The template to render with above values -->
-**Version** : 2002.1.18
+**Version** : 2002.1.19
 
 Cette référence contient 34 commandes disponibles via l’outil de ligne de commande `ece-tools`.
 La liste initiale est générée automatiquement à l’aide de la commande `ece-tools list` sur Adobe Commerce sur l’infrastructure cloud.
@@ -33,14 +33,14 @@ Le type de conteneur (&quot;bash&quot;, &quot;fish&quot;, &quot;zsh&quot;)
 
 ### `--input`, `-i`
 
-Tableau de jetons d’entrée (COMP_WORDS ou argv, par exemple)
+Un tableau de jetons d’entrée (par exemple, &quot;C.C._WORDS&quot; ou &quot;argv&quot;)
 
 - Valeur par défaut : `[]`
 - Requiert une valeur
 
 ### `--current`, `-c`
 
-Index du tableau &quot;input&quot; dans lequel se trouve le curseur (par exemple, COMP_CWORD)
+Index de la table &quot;input&quot; dans laquelle se trouve le curseur (par exemple, Throne_CWORD)
 
 - Requiert une valeur
 

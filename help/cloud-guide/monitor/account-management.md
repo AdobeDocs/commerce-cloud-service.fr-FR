@@ -4,9 +4,9 @@ description: Découvrez comment accéder à votre compte New Relic et gérer l�
 feature: Cloud, Observability
 role: Admin
 exl-id: ee639e2e-4074-4384-8f68-152bc3bac93b
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: 1fc488d7e13952ad70d4c864327899f38ea48af1
 workflow-type: tm+mt
-source-wordcount: '833'
+source-wordcount: '660'
 ht-degree: 0%
 
 ---
@@ -17,20 +17,9 @@ Lorsqu’Adobe fournit votre projet d’infrastructure cloud, le propriétaire d
 
 ## Gestion de l’accès des utilisateurs
 
-Une seule personne peut être affectée à un compte New Relic au rôle Propriétaire. Si vous devez modifier le propriétaire du compte, attribuez le rôle d’administrateur au propriétaire actuel, puis le rôle de propriétaire à un autre utilisateur. Voir [Mise à jour du propriétaire du compte](https://docs.newrelic.com/docs/accounts/original-accounts-billing/original-users-roles/users-roles-original-user-model/) dans la _documentation New Relic_ pour obtenir des instructions.
-
-Instructions pour gérer l’accès à New Relic :
-
-- Les propriétaires de projet et les administrateurs peuvent ajouter et supprimer des utilisateurs du compte New Relic.
-- Ne créez pas plus de cinq utilisateurs **ayant un accès complet**.
-- Accordez uniquement un accès complet aux utilisateurs qui ont strictement besoin d’un accès à l’ensemble des fonctionnalités.
-- Il n&#39;existe pas de conseils spécifiques sur les utilisateurs **Restricted** gratuits.
-
->[!TIP]
+>[!NOTE]
 >
->Avant d’affecter le rôle Propriétaire à un utilisateur, vérifiez que l’utilisateur existe sur le compte New Relic pour Adobe Commerce sur l’infrastructure cloud. Si vous devez ajouter l’utilisateur à ce compte et qu’un propriétaire ou un administrateur de compte existant ne peut pas vous aider, tout utilisateur ayant accès au [compte propriétaire de partenariat d’Adobe](https://account.newrelic.com/accounts/1311131/users) pour New Relic peut ajouter des utilisateurs pour le compte du client.
-
-Ajoutez au moins un utilisateur **Admin** à votre compte New Relic qui peut gérer tous les accès, intégrations et utilisation des outils.
+>Accordez uniquement un accès complet aux utilisateurs qui ont strictement besoin d’un accès à l’ensemble des fonctionnalités.
 
 **Pour accéder à la gestion des utilisateurs dans New Relic** :
 

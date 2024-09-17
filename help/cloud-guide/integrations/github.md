@@ -4,9 +4,9 @@ description: Découvrez comment intégrer votre projet d’infrastructure cloud 
 feature: Cloud, Integration
 last-substantial-update: 2023-05-25T00:00:00Z
 exl-id: 5305452f-4c8d-438c-ac78-e2e1ec2f8cd9
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: b162faadf114423a7da23ecf94c96eccbcaeb72b
 workflow-type: tm+mt
-source-wordcount: '924'
+source-wordcount: '949'
 ht-degree: 0%
 
 ---
@@ -108,7 +108,7 @@ Vous pouvez choisir de parcourir les invites d’interface de ligne de commande 
 
 | Option | Obligatoire ? | Description |
 | ----------------------- | --------- | --------------------------------- |
-| `--base-url` | Oui | URL de base de l’installation du serveur, qui peut être `https://github.com/` ou personnalisée. Omettez cette option si votre référentiel est hébergé avec Github public. |
+| `--base-url` | Oui | URL de base de l’installation du serveur, qui peut être `https://github.com/` ou personnalisée. Omettez cette option si votre référentiel est hébergé avec Github public ou si votre référentiel n’est pas hébergé sur des serveurs privés. Omettez cette option si l’URL de votre référentiel est similaire à `https://github.com/{account}/{repository-name}`. Cela peut entraîner des erreurs telles que `Unable to connect to GitHub: repository not found`. |
 | `--token` | Oui | Jeton d’accès personnel généré pour GitHub |
 | `--repository` | Oui | Nom du référentiel : `owner-or-organisation/repository` |
 | `--build-pull-requests` | Facultatif | Indique à Adobe Commerce sur l’infrastructure cloud de déployer après la fusion d’une requête de tirage (`true` par défaut). |

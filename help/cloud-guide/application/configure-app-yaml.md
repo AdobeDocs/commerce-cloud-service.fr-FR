@@ -3,9 +3,9 @@ title: Configuration du déploiement des applications
 description: Découvrez comment configurer les propriétés dans le fichier de configuration de l’application qui contrôle la manière dont l’application  [!DNL Commerce] est créée et déployée dans l’environnement cloud.
 feature: Cloud, Configuration, Build, Deploy
 exl-id: 900da20d-98d2-4c9f-97ec-578aee775b55
-source-git-commit: eace5d84fa0915489bf562ccf79fde04f6b9d083
+source-git-commit: c9339137d957840a9ae33ed45950c613eea93660
 workflow-type: tm+mt
-source-wordcount: '142'
+source-wordcount: '184'
 ht-degree: 0%
 
 ---
@@ -22,3 +22,7 @@ Utilisez le fichier `.magento.app.yaml` pour définir les valeurs de configurati
 - [Propriété Variables](variables-property.md) : vérifiez les variables d’environnement requises pour la version de l’application [!DNL Commerce].
 - [Paramètres PHP](php-settings.md) : configurez les options PHP du runtime.
 - [Définir le cache pour les fichiers statiques](set-cache.md) : définissez la durée de vie du cache pour vos fichiers multimédia et statiques.
+
+>[!NOTE]
+>
+>Le fichier `.magento.app.yaml` est géré localement ou dans le référentiel git. La configuration est lue uniquement à des fins de déploiement et de création et est supprimée une fois le déploiement terminé. Vous ne le trouverez donc pas sur le serveur.

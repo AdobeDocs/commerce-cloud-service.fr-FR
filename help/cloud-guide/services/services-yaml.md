@@ -3,16 +3,21 @@ title: Configuration des services
 description: Découvrez comment configurer les services utilisés par Adobe Commerce sur l’infrastructure cloud.
 feature: Cloud, Configuration, Services
 exl-id: 48091c10-c53f-4aad-afbe-b4516653bda1
-source-git-commit: c39332d352f6dcb6f92c312a6ef1b74319d37aa3
+source-git-commit: 0262fca6e94d9815e8af0fb0c026e36fecc1f939
 workflow-type: tm+mt
-source-wordcount: '1007'
+source-wordcount: '1046'
 ht-degree: 0%
 
 ---
 
 # Configuration des services
 
-Le fichier `services.yaml` définit les services pris en charge et utilisés par Adobe Commerce sur l’infrastructure cloud, tels que MySQL, Redis et Elasticsearch ou OpenSearch. Vous n’avez pas besoin de vous abonner à des prestataires externes. Ce fichier se trouve dans le répertoire `.magento` de votre projet.
+Le fichier `services.yaml` définit les services pris en charge et utilisés par Adobe Commerce sur l’infrastructure cloud, tels que MySQL, Redis et Elasticsearch ou OpenSearch. Vous n’avez pas besoin de vous abonner à des prestataires externes.
+
+>[!NOTE]
+>
+>Le fichier `.magento/services.yaml` est géré localement dans le répertoire `.magento` de votre projet. La configuration est accessible pendant le processus de génération pour définir les versions de service requises dans l’environnement d’intégration uniquement. Elle est supprimée une fois le déploiement terminé. Vous ne les trouverez donc pas sur le serveur.
+
 
 Le script de déploiement utilise les fichiers de configuration du répertoire `.magento` pour configurer l’environnement avec les services configurés. Un service devient disponible pour votre application s’il est inclus dans la propriété [`relationships`](../application/properties.md#relationships) du fichier `.magento.app.yaml`. Le fichier `services.yaml` contient les valeurs _type_ et _disk_ . Le type de service définit le service _name_ et _version_.
 

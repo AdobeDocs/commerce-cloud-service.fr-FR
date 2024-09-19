@@ -3,9 +3,9 @@ title: Propriétés
 description: Utilisez la liste de propriétés comme référence lors de la configuration de l’application  [!DNL Commerce] pour la création et le déploiement sur l’infrastructure cloud.
 feature: Cloud, Configuration, Build, Deploy, Roles/Permissions, Storage
 exl-id: 58a86136-a9f9-4519-af27-2f8fa4018038
-source-git-commit: 99272d08a11f850a79e8e24857b7072d1946f374
+source-git-commit: 1d671d7d2b9ef8742f50b23aa56020d82c701fa4
 workflow-type: tm+mt
-source-wordcount: '797'
+source-wordcount: '816'
 ht-degree: 0%
 
 ---
@@ -141,6 +141,8 @@ La taille de disque recommandée minimale est de 256 Mo. Si l’erreur `UserErro
 >[!NOTE]
 >
 >Pour les environnements d’évaluation et de production Pro, vous devez [envoyer un ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) pour mettre à jour la configuration `mounts` et `disk` de votre application. Lorsque vous envoyez le ticket, indiquez les modifications de configuration requises et incluez une version mise à jour de votre fichier `.magento.app.yaml`.
+>
+>Il n’est pas possible d’augmenter temporairement l’espace de stockage sur disque dans l’environnement d’évaluation ou de production ; ce processus n’est pas réversible.
 
 ## `relationships`
 

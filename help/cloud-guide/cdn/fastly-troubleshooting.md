@@ -3,7 +3,7 @@ title: Dépannage rapide
 description: Découvrez comment résoudre les problèmes et gérer les services et le module CDN Fastly pour Adobe Commerce.
 feature: Cloud, Configuration, Cache, Services
 exl-id: e4c47035-cbad-4838-8d44-fa5eaaac42d1
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: e066e9c7e1a6010c9d316f66f1632e28a0c40652
 workflow-type: tm+mt
 source-wordcount: '1834'
 ht-degree: 0%
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 Utilisez les informations suivantes pour résoudre et gérer le module CDN Fastly pour Magento 2 dans vos environnements de projet d’infrastructure cloud Adobe Commerce. Vous pouvez, par exemple, examiner les valeurs de l’en-tête de réponse et le comportement de mise en cache pour résoudre les problèmes de service et de performances rapides.
 
-Dans les environnements de production et d’évaluation Pro, vous pouvez utiliser les [journaux New Relic](../monitor/log-management.md) pour afficher et analyser rapidement les données du journal CDN et WAF afin de résoudre les erreurs et les problèmes de performances.
+Dans les environnements de production et d’évaluation Pro, vous pouvez utiliser les [journaux New Relic](../monitor/log-management.md) pour afficher et analyser rapidement les données du réseau de diffusion de contenu et du journal WAF afin de résoudre les erreurs et les problèmes de performances.
 
 >[!NOTE]
 >
@@ -119,7 +119,7 @@ Lorsqu’une erreur 503 se produit, la fonction renvoie rapidement la raison sur
 
 Si le domaine et les sous-domaines apex de votre projet d’infrastructure cloud Adobe Commerce sont déjà associés à un compte Fastly existant avec un ID de service affecté, vous ne pouvez pas le lancer tant que vous n’avez pas mis à jour votre configuration Fastly :
 
-- Mettez à jour la configuration apex et sous-domaine sur le compte Fastly existant. Voir [Plusieurs comptes Fastly et domaines attribués](fastly.md#domain).
+- Mettez à jour la configuration apex et sous-domaine sur le compte Fastly existant. Voir [Plusieurs comptes Fastly et domaines attribués](fastly.md#multiple-fastly-accounts-and-assigned-domains).
 
 - [ Activez et configurez Fastly ](fastly-configuration.md#enable-fastly-caching) et effectuez la [configuration DNS](../launch/checklist.md#update-dns-configuration-with-production-settings)
 

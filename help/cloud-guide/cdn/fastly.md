@@ -3,9 +3,9 @@ title: Présentation des services rapides
 description: Découvrez comment les services Fastly inclus dans Adobe Commerce sur l’infrastructure cloud vous aident à optimiser et sécuriser les opérations de diffusion de contenu pour vos sites Adobe Commerce.
 feature: Cloud, Configuration, Iaas, Paas, Cache, Security, Services
 exl-id: dc4500bf-f037-47f0-b7ec-5cd1291f73a1
-source-git-commit: 13e76d3e9829155995acbb72d947be3041579298
+source-git-commit: dc331df378074af8a8776a33784b73082a39cf10
 workflow-type: tm+mt
-source-wordcount: '1392'
+source-wordcount: '1426'
 ht-degree: 0%
 
 ---
@@ -34,7 +34,7 @@ Fournit rapidement les services suivants afin d’optimiser et de sécuriser les
 
 - **Sécurité** : une fois que vous avez activé les services rapides pour les sites Adobe Commerce, des fonctionnalités de sécurité supplémentaires sont disponibles pour protéger vos sites et votre réseau :
 
-   - [ Web Application Firewall](fastly-waf-service.md) (WAF) : service de pare-feu d’application web géré qui fournit une protection PCI afin de bloquer le trafic malveillant avant qu’il puisse endommager votre production Adobe Commerce sur les sites et le réseau d’infrastructure cloud. Le service WAF est disponible uniquement dans les environnements Pro et Starter Production.
+   - [Pare-feu d’applications web](fastly-waf-service.md) (WAF) : service de pare-feu d’applications web géré qui fournit une protection conforme PCI afin de bloquer le trafic malveillant avant qu’il puisse endommager votre Adobe Commerce de production sur les sites et le réseau d’infrastructure cloud. Le service WAF est disponible uniquement dans les environnements Pro et Starter Production.
 
    - [Protection par déni de service distribué (DDoS)](#ddos-protection) : protection par déni de service intégrée contre les attaques courantes telles que Ping of Death, les attaques à Smurf et d’autres attaques par inondation basées sur l’ICMP.
 
@@ -48,7 +48,7 @@ Fournit rapidement les services suivants afin d’optimiser et de sécuriser les
 
 - **[Optimisation d’image](fastly-image-optimization.md)** : décharge le traitement des images et redimensionne la charge vers le service Fastly afin que les serveurs puissent traiter les commandes et les conversions plus efficacement.
 
-- **[Journaux CDN et WAF rapides](../monitor/new-relic-service.md#new-relic-log-management)** : pour Adobe Commerce sur les projets d’infrastructure cloud Pro, vous pouvez utiliser le service de journaux New Relic pour passer en revue et analyser rapidement les données du journal CDN et WAF.
+- **[Journaux CDN et WAF rapides](../monitor/new-relic-service.md#new-relic-log-management)** : pour les projets Adobe Commerce sur l’infrastructure cloud Pro, vous pouvez utiliser le service New Relic Logs pour examiner et analyser rapidement les données du réseau de diffusion de contenu et des journaux WAF.
 
 ## Module CDN rapide pour Magento 2
 
@@ -58,7 +58,9 @@ Lors de la mise en service ou de la mise à niveau initiale de votre projet Adob
 
 ## Compte de service et informations d’identification rapides
 
-Les achats Adobe sur les projets d’infrastructure cloud ne nécessitent pas de compte ou de propriétaire de compte Fastly dédié. À la place, chaque environnement d’évaluation et de production dispose d’informations d’identification Fastly uniques (jeton API et ID de service) pour configurer et gérer les services Fastly à partir de l’administrateur. Vous avez également besoin des informations d’identification pour envoyer rapidement des demandes d’API.
+Adobe Commerce sur les projets d’infrastructure cloud ne reçoit pas de compte Fastly dédié. Le service Fastly est géré dans un compte centralisé enregistré dans Adobe et le tableau de bord de gestion n’est accessible que par l’équipe de support cloud.
+
+À la place, chaque environnement d’évaluation et de production dispose d’informations d’identification Fastly uniques (jeton API et ID de service) pour configurer et gérer les services Fastly à partir de l’administrateur Commerce. L’API Fastly est disponible pour une gestion avancée du service Fastly, qui nécessite les informations d’identification pour envoyer ces requêtes.
 
 Pendant la mise en service du projet, Adobe ajoute votre projet au compte de service Fastly d’Adobe Commerce sur l’infrastructure cloud et ajoute les informations d’identification Fastly à la configuration des environnements d’évaluation et de production. Voir [Obtenir des informations d’identification rapides](fastly-configuration.md#get-fastly-credentials).
 

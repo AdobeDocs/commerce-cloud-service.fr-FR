@@ -2,20 +2,20 @@
 title: Configuration des emails sortants
 description: Découvrez comment activer les emails sortants pour Adobe Commerce sur l’infrastructure cloud.
 exl-id: 814fe2a9-15bf-4bcb-a8de-ae288fd7f284
-source-git-commit: 59f82d891bb7b1953c1e19b4c1d0a272defb89c1
+source-git-commit: ec9192caa5daa1cd25a3eec6095c2c3cf8fbefb4
 workflow-type: tm+mt
-source-wordcount: '363'
+source-wordcount: '373'
 ht-degree: 0%
 
 ---
 
 # Configuration des emails sortants
 
-Vous pouvez activer et désactiver les emails sortants pour chaque environnement à partir de [!DNL Cloud Console] ou de la ligne de commande. Activez les e-mails sortants pour les environnements d’intégration et d’évaluation afin d’envoyer des e-mails d’authentification à deux facteurs ou de réinitialisation de mot de passe pour les utilisateurs de projet Cloud.
+Vous pouvez activer et désactiver les emails sortants pour chaque environnement à partir de [!DNL Cloud Console] ou de la ligne de commande. Activez les e-mails sortants pour les environnements d’intégration (et d’évaluation pour les environnements de démarrage uniquement) afin d’envoyer des e-mails d’authentification à deux facteurs ou de réinitialiser un mot de passe pour les utilisateurs de projet Cloud.
 
-Par défaut, les emails sortants sont activés dans les environnements de production et d’évaluation. Cependant, [!UICONTROL Enable outgoing emails] peut apparaître désactivé dans les paramètres de l’environnement jusqu’à ce que vous définissiez la propriété `enable_smtp` via la [ligne de commande](#enable-emails-in-the-cli) ou la [console cloud](outgoing-emails.md#enable-emails-in-the-cloud-console).
+Par défaut, les emails sortants sont activés dans les environnements de production et d’évaluation (Pro uniquement). Cependant, le paramètre **[!UICONTROL Enable outgoing emails]** peut apparaître désactivé dans les paramètres de l’environnement, quel que soit l’état, jusqu’à ce que vous définissiez la propriété `enable_smtp` via la [ligne de commande](#enable-emails-in-the-cli) ou la [console cloud](outgoing-emails.md#enable-emails-in-the-cloud-console).
 
-La mise à jour de la valeur de propriété [!UICONTROL enable_smtp] par [ligne de commande](#enable-emails-in-the-cli) modifie également la valeur de paramètre [!UICONTROL Enable outgoing emails] pour cet environnement sur la console cloud.
+La mise à jour de la valeur de propriété `enable_smtp` par [ligne de commande](#enable-emails-in-the-cli) modifie également la valeur de paramètre [!UICONTROL Enable outgoing emails] pour cet environnement sur la console cloud.
 
 {{redeploy-warning}}
 

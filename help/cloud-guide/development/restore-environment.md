@@ -4,16 +4,16 @@ description: Découvrez comment désinstaller l’application Adobe Commerce à 
 role: Developer
 topic: Development
 exl-id: b76bd6c3-986e-4adc-abd0-5b27db0d8a3b
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: 9e4e58d2470b73b221168c182c7d563ce6f6502f
 workflow-type: tm+mt
-source-wordcount: '480'
+source-wordcount: '493'
 ht-degree: 0%
 
 ---
 
 # Restaurer un environnement
 
-Si vous rencontrez des problèmes dans l’environnement d’intégration et que vous ne disposez pas d’une [sauvegarde valide](../storage/snapshots.md), essayez de restaurer votre environnement à l’aide de l’une des méthodes suivantes :
+Si vous rencontrez des problèmes dans l’environnement d’intégration et que vous ne disposez pas d’une [sauvegarde valide](../storage/snapshots.md), ou si vous souhaitez réinitialiser l’environnement sur une liste vide, vous pouvez restaurer/réinitialiser votre environnement à l’aide de l’une des méthodes suivantes :
 
 - Réinitialiser ou rétablir le code dans la branche Git
 - Désinstallation de l’application [!DNL Commerce]

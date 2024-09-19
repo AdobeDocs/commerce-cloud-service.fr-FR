@@ -4,9 +4,9 @@ description: Découvrez les environnements pris en charge par l’architecture P
 feature: Cloud, Auto Scaling, Iaas, Paas, Storage
 topic: Architecture
 exl-id: d10d5760-44da-4ffe-b4b7-093406d8b702
-source-git-commit: eccf69d792f5f8bbd32fb24ac731fffa1eeb91ba
+source-git-commit: 66b1f86c8c674d0de4e2895e328a5a850eadf903
 workflow-type: tm+mt
-source-wordcount: '1511'
+source-wordcount: '1559'
 ht-degree: 0%
 
 ---
@@ -167,6 +167,10 @@ En raison du matériel unique et redondant, Adobe peut fournir trois serveurs de
 Adobe Commerce sur l’infrastructure cloud utilise une architecture haute disponibilité qui reproduit chaque projet Pro sur trois zones de disponibilité AWS ou Azure distinctes, chacune d’elles disposant d’un centre de données distinct. En plus de cette redondance, les environnements d’évaluation et de production Pro reçoivent des sauvegardes en direct régulières, conçues pour être utilisées en cas d’_échec catastrophique_.
 
 **Les sauvegardes automatiques** incluent des données persistantes de tous les services en cours d’exécution, telles que la base de données MySQL et les fichiers stockés sur les volumes montés. Les sauvegardes sont enregistrées dans un stockage en bloc chiffré (EBS) dans la même région que l’environnement de production. Les sauvegardes automatiques ne sont pas accessibles publiquement car elles sont stockées dans un système distinct.
+
+>[!NOTE]
+>
+>Les volumes montés incluent/se réfèrent uniquement aux [ montages modifiables](https://experienceleague.adobe.com/en/docs/commerce-cloud-service/user-guide/configure/app/properties/properties#mounts) et n’incluront pas l’ensemble de votre répertoire `app/`. Comme pour les autres fichiers, ils sont créés/générés par le [processus de création et de déploiement](https://experienceleague.adobe.com/en/docs/commerce-cloud-service/user-guide/architecture/pro-develop-deploy-workflow#deployment-workflow), et vous devrez également vérifier votre référentiel Git pour les fichiers restants.
 
 {{pro-backups}}
 

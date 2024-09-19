@@ -4,9 +4,9 @@ description: Découvrez les environnements pris en charge par l’architecture P
 feature: Cloud, Auto Scaling, Iaas, Paas, Storage
 topic: Architecture
 exl-id: d10d5760-44da-4ffe-b4b7-093406d8b702
-source-git-commit: 95b033ba430cb5dc74fa654b9d519dfcd5b6d319
+source-git-commit: eccf69d792f5f8bbd32fb24ac731fffa1eeb91ba
 workflow-type: tm+mt
-source-wordcount: '1472'
+source-wordcount: '1511'
 ht-degree: 0%
 
 ---
@@ -66,7 +66,9 @@ Les environnements d’intégration sont conçus pour des tests et un développe
 
 Pour de meilleures performances dans l’environnement d’intégration, suivez les bonnes pratiques suivantes :
 
-- Limitation de la taille du catalogue
+- Limiter la taille du catalogue : à titre de référence, l’exemple de données contient environ 2 048 produits. Essayez de réduire la taille de votre catalogue à environ 4 000 à 5 000 produits.
+
+- Réduire le nombre de groupes de clients : un trop grand nombre de groupes de clients peut affecter les performances d’indexation et les performances globales.
 
 - Limiter l’utilisation à un ou deux utilisateurs simultanés
 

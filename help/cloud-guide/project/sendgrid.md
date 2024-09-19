@@ -2,9 +2,9 @@
 title: Service de messagerie SendGrid
 description: Découvrez le service de messagerie SendGrid pour Adobe Commerce sur l’infrastructure cloud et comment tester votre configuration DNS.
 exl-id: 30d3c780-603d-4cde-ab65-44f73c04f34d
-source-git-commit: 1226be333deb1b1da402b4c0d2e141f9be1eb93b
+source-git-commit: b5c8dc062a940e9e202d9bd4cca6901b07109e07
 workflow-type: tm+mt
-source-wordcount: '1128'
+source-wordcount: '1273'
 ht-degree: 0%
 
 ---
@@ -55,7 +55,7 @@ DKIM est une technologie d&#39;authentification d&#39;email qui permet aux fourn
 
 >[!WARNING]
 >
->Les signatures DKIM SendGrid et la prise en charge de l’authentification de domaine ne sont disponibles que pour les projets Pro et non pour les projets de démarrage. Par conséquent, les emails transactionnels sortants sont susceptibles d’être marqués par des filtres de spam. L’utilisation de DKIM améliore le taux de diffusion en tant qu’expéditeur d’email authentifié. Pour améliorer le taux de diffusion des messages, vous pouvez effectuer une mise à niveau de Starter vers Pro ou utiliser votre propre serveur SMTP ou votre propre fournisseur de services de diffusion par email. Voir [Configuration des connexions de messagerie](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/communications/email-communications) dans le _guide des systèmes d’administration_.
+>Les signatures DKIM SendGrid et la prise en charge de l’authentification de domaine ne sont disponibles que dans les environnements de production et d’évaluation pour les projets Pro, mais pas pour tous les environnements de démarrage. Par conséquent, les emails transactionnels sortants sont susceptibles d’être marqués par des filtres de spam. L’utilisation de DKIM améliore le taux de diffusion en tant qu’expéditeur d’email authentifié. Pour améliorer le taux de diffusion des messages, vous pouvez effectuer une mise à niveau de Starter vers Pro ou utiliser votre propre serveur SMTP ou votre propre fournisseur de services de diffusion par email. Voir [Configuration des connexions de messagerie](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/communications/email-communications) dans le _guide des systèmes d’administration_.
 
 ### Authentification de l&#39;expéditeur et du domaine
 
@@ -137,3 +137,13 @@ Il n’existe aucune limite stricte au nombre d’emails pouvant être envoyés 
 ### Email sending réputation
 
 Une réputation d’envoi d’email est un score attribué par un fournisseur d’accès Internet (FAI) à une entreprise qui envoie des emails. Plus le score est élevé, plus un FAI est susceptible de diffuser des messages vers la boîte de réception d’un destinataire. Si le score est inférieur à un certain niveau, le FAI peut acheminer les messages vers le dossier spam des destinataires, voire rejeter complètement les messages. Le score de réputation est déterminé par plusieurs facteurs, tels qu’une moyenne de 30 jours de vos adresses IP par rapport à d’autres adresses IP et au taux de plaintes pour spam. Voir [8 façons de vérifier la réputation de l’envoi d’emails](https://sendgrid.com/en-us/blog/5-ways-check-sending-reputation).
+
+### Listes de suppression des emails
+
+Une liste de suppression d’emails est une liste de destinataires à qui les emails ne doivent pas être envoyés si cela nuit à votre réputation d’envoi et à vos taux de diffusion. La loi CAN-SPAM l’exige pour s’assurer que les expéditeurs de courrier électronique disposent d’une méthode d’exclusion des destinataires qui se sont désabonnés ou ont marqué un courrier électronique comme spam. La liste de suppression collecte également les emails qui rebondissent, sont bloqués ou non valides.
+
+Pour empêcher que les emails ne soient envoyés en premier lieu dans le dossier spam, suivez l’article de bonnes pratiques de Sendgrid, [Pourquoi mes emails sont-ils envoyés vers Spam ?](https://sendgrid.com/en-us/blog/10-tips-to-keep-email-out-of-the-spam-folder).
+
+Si certains destinataires ne reçoivent pas vos emails, vous pouvez [envoyer un ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide#submit-ticket) pour demander une révision des listes de suppression et supprimer le ou les destinataires si nécessaire.
+
+Pour plus d&#39;informations, reportez-vous à la section [Qu&#39;est-ce qu&#39;une liste de suppression ?](https://sendgrid.com/en-us/blog/what-is-a-suppression-list)

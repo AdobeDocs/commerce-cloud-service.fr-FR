@@ -3,9 +3,9 @@ title: VCL personnalisée pour les requêtes de blocage
 description: Bloquez les requêtes entrantes par adresse IP à l’aide d’une liste de contrôle d’accès Edge (ACL) avec un extrait de code VCL personnalisé.
 feature: Cloud, Configuration, Security
 exl-id: 1f637612-3858-49d0-91f7-9b8823933cc9
-source-git-commit: 0e9ace747cc56808108781e42b97c86756089818
+source-git-commit: 16c34b6c693c4d4d5c67b21c79e0cd5d198e047b
 workflow-type: tm+mt
-source-wordcount: '961'
+source-wordcount: '996'
 ht-degree: 0%
 
 ---
@@ -109,7 +109,15 @@ Les exemples suivants montrent comment bloquer des requêtes à l’aide d’ins
 
 >[!WARNING]
 >
->Dans ces exemples, le code VCL est formaté en tant que charge utile JSON pouvant être enregistrée dans un fichier et envoyée dans une requête d’API Fastly. Vous pouvez envoyer le fragment de code [VCL à partir de l’Admin](#add-the-custom-vcl-snippet) ou sous la forme d’une chaîne JSON à l’aide de l’API Fastly. Pour empêcher la validation lorsque vous utilisez l’API Fastly avec une chaîne JSON, vous devez utiliser une barre oblique inverse pour échapper les caractères spéciaux.
+>Dans ces exemples, le code VCL est formaté en tant que charge utile JSON pouvant être enregistrée dans un fichier et envoyée dans une requête d’API Fastly. Vous pouvez envoyer le fragment de code [VCL à partir de l’Admin](#add-the-custom-vcl-snippet) ou sous la forme d’une chaîne JSON à l’aide de l’API Fastly. Pour éviter les erreurs de validation lorsque vous utilisez l’API Fastly avec une chaîne JSON, vous devez utiliser une barre oblique inverse pour échapper les caractères spéciaux.
+
+>[!NOTE]
+>Si vous envoyez le fragment de code VCL depuis l’administrateur, extrayez les valeurs individuelles de l’exemple de code VCL et saisissez-les dans les champs correspondants. Par exemple :
+>- Nom : `<name of the VCL>`
+>- Dynamique : `<0/1>`
+>- Type : `<type>`
+>- Priorité : `<priority>`
+>- Contenu : `<content>`
 
 Voir [Utilisation de fragments de code VCL dynamiques](https://docs.fastly.com/vcl/vcl-snippets/) dans la documentation Fastly VCL.
 

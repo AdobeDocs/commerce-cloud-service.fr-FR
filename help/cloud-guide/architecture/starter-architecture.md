@@ -3,9 +3,9 @@ title: Architecture de démarrage
 description: Découvrez les environnements pris en charge par l’architecture de démarrage.
 feature: Cloud, Paas
 exl-id: 03365d32-4eb4-42d4-82a7-771df5e7b3da
-source-git-commit: c61d711b1041ecf76ec6468cd225a34fd77c24b1
+source-git-commit: e5cb79cab4e22d1c787859ab98e6bab6cd2dc2eb
 workflow-type: tm+mt
-source-wordcount: '903'
+source-wordcount: '942'
 ht-degree: 0%
 
 ---
@@ -64,7 +64,9 @@ Les environnements d’intégration sont conçus pour un test et un développeme
 
 Pour de meilleures performances dans l’environnement d’intégration, suivez les bonnes pratiques suivantes :
 
-- Limitation de la taille du catalogue
+- Limiter la taille du catalogue : à titre de référence, l’exemple de données contient environ 2 048 produits. Essayez de réduire la taille de votre catalogue à environ 4 000 à 5 000 produits.
+
+- Réduire le nombre de groupes de clients : un trop grand nombre de groupes de clients peut affecter les performances d’indexation et les performances globales.
 
 - Limiter l’utilisation à un ou deux utilisateurs simultanés
 

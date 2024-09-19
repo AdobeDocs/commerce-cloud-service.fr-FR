@@ -6,9 +6,9 @@ feature: Cloud, Roles/Permissions
 last-substantial-update: 2023-06-27T00:00:00Z
 topic: Security
 exl-id: 3357a3ea-bf86-4a65-95d1-6b24f1152248
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: 5e4be034a392716ea55e2878d336cb9ecac1e052
 workflow-type: tm+mt
-source-wordcount: '1454'
+source-wordcount: '1459'
 ht-degree: 0%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 Les projets Adobe Commerce sur l’infrastructure cloud utilisent un accès basé sur les rôles. Deux rôles sont disponibles au niveau du projet :
 
-- **Administrateur de projet** : accédez en écriture à tous les environnements de projet et pouvez gérer les utilisateurs, envoyer du code et mettre à jour les paramètres du projet.
+- **Administrateur de projet** : accédez en écriture à tous les environnements de projet et pouvez gérer les utilisateurs, envoyer du code et mettre à jour les paramètres du projet. (Antérieurement appelé **Super administrateur**)
 - **Visionneuse de projet** : accès en lecture seule à tous les environnements de projet.
 
 Les visionneuses de projets ne peuvent pas effectuer de tâches sur un environnement, mais vous pouvez accorder aux visionneuses de projets l’accès en écriture à un type d’environnement spécifique.

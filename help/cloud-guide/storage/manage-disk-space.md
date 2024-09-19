@@ -3,7 +3,7 @@ title: Gestion de l’espace disque
 description: Découvrez comment gérer l’espace disque à l’aide de l’interface de ligne de commande.
 feature: Cloud, Storage
 exl-id: 480cb33b-ac83-441d-946e-5b4de09ad84e
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: 0cc0b8e49e2cccf4266ecf84ef935f24fde1c7a4
 workflow-type: tm+mt
 source-wordcount: '714'
 ht-degree: 0%
@@ -93,7 +93,7 @@ df -h
 
 L’option `-h` affiche le rapport dans un format lisible par l’utilisateur (Ko, Mo ou Go).
 
-Dans l’exemple de réponse suivant, le montage `/mnt/shared` affiche l’espace disque pour le média et le montage `/data/mysql/` l’espace disque pour la base de données :
+Dans l’exemple de réponse suivant, le montage `/data/exports` affiche l’espace disque pour le média et le montage `/data/mysql/` l’espace disque pour la base de données :
 
 ```
 Filesystem                                    Size  Used Avail Use% Mounted on

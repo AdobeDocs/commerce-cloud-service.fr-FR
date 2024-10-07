@@ -3,9 +3,9 @@ title: Composants cloud pour Commerce
 description: Consultez la liste des dernières améliorations apportées au module Composants Cloud .
 recommendations: noDisplay, catalog
 exl-id: b4e2508a-3558-4fa8-bae0-3eb76c7b2775
-source-git-commit: c02dfd2709cdc63ac1630edaa8c89cad5f737ea1
+source-git-commit: 30eafa856aaa57bb2fd2ce26e3be2a69aee726e2
 workflow-type: tm+mt
-source-wordcount: '560'
+source-wordcount: '590'
 ht-degree: 0%
 
 ---
@@ -23,11 +23,18 @@ Les notes de mise à jour incluent :
 
 <!--Add release notes below-->
 
-## v1.0.14 {#latest}
+## v1.1.0 {#latest}
+
+Date de publication : 7 octobre 2024
+
+- ![Icône de correctif](../../assets/fix.svg) **Code restructuré**—Suppression de la prise en charge des anciennes versions de PHP 7.4, 7.3, 7.2 et des bibliothèques associées.<!-- MCLOUD-9278 - -->
+- ![Icône de correctif](../../assets/fix.svg) **Mise à niveau de la version monolog**—Ajout de la prise en charge de monolog 3.6.<!-- MCLOUD-12855 - -->
+
+## v1.0.14
 
 Date de publication : 8 avril 2024
 
-- ![nouvelle icône](../../assets/new.svg) **PHP** — Prise en charge de PHP 8.3.
+- ![nouvelle icône](../../assets/new.svg) **PHP** : prise en charge de PHP 8.3.
 
 ## v1.0.13
 
@@ -121,4 +128,4 @@ Date de publication : 12 juin 2019
 
 Il s’agit de la première version du package [`magento/magento-cloud-components`](https://github.com/magento/magento-cloud-components), qui est une nouvelle dépendance pour le package `ece-tools` version 2002.0.20 et ultérieure.
 
-- ![nouvelle icône](../../assets/new.svg) Ajout de la possibilité d’utiliser des modèles regex pour configurer la variable d’environnement **WARM_UP_PAGES** afin de mettre en cache des pages uniques, plusieurs domaines et plusieurs pages. Voir [Variables de déploiement Post](../environment/variables-post-deploy.md#warm_up_pages).<!--MAGECLOUD-3258-->
+- ![nouvelle icône](../../assets/new.svg) Ajout de la possibilité d’utiliser des modèles regex pour configurer la variable d’environnement **WARM_UP_PAGES** afin de mettre en cache des pages uniques, plusieurs domaines et plusieurs pages. Voir [Variables de post-déploiement](../environment/variables-post-deploy.md#warm_up_pages).<!--MAGECLOUD-3258-->

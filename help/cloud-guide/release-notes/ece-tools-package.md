@@ -2,11 +2,11 @@
 title: Notes de mise à jour de CEE-Outils
 description: Consultez la liste des dernières améliorations apportées au module d'outils de la CEE.
 recommendations: noDisplay, catalog
-last-substantial-update: 2024-05-21T00:00:00Z
+last-substantial-update: 2024-10-07T00:00:00Z
 exl-id: a464b940-c56e-4a7c-9948-559539e25361
-source-git-commit: 923e2114270df22e134e0676ac97f84d770bb226
+source-git-commit: 30eafa856aaa57bb2fd2ce26e3be2a69aee726e2
 workflow-type: tm+mt
-source-wordcount: '2929'
+source-wordcount: '2990'
 ht-degree: 0%
 
 ---
@@ -28,7 +28,16 @@ Les notes de mise à jour incluent :
 
 <!--Add release notes below-->
 
-## v2002.1.19 {#latest}
+## v2002.2.0 {#latest}
+
+Date de publication : 7 octobre 2024
+
+- ![nouvelle icône](../../assets/new.svg) **MariaDB 11.4** - Prise en charge supplémentaire de MariaDB 11.4.
+- ![icône de correctif](../../assets/fix.svg) **Code restructuré**-Suppression de la prise en charge des anciennes versions de PHP 7.4, 7.3, 7.2 et des bibliothèques associées.<!-- MCLOUD-9278 -->
+- ![icône de correctif](../../assets/fix.svg) **Mise à niveau de la version de Monolog** - Ajout de la prise en charge de monolog 3.6.<!-- MCLOUD-12855 -->
+- ![icône de correctif](../../assets/fix.svg) **Validator for RabbitMQ, MariaDB et PHP** - Correction du programme de validation qui produisait un message trompeur sur la mauvaise version du service.
+
+## v2002.1.19
 
 Date de publication : 21 mai 2024
 
@@ -40,7 +49,7 @@ Date de publication : 21 mai 2024
 Date de publication : 8 avril 2024
 
 - ![nouvelle icône](../../assets/new.svg) **PHP** — Prise en charge de PHP 8.3.
-- ![icône de correctif](../../assets/fix.svg) Validator - Validator EOL mise à jour.
+- ![icône de correctif](../../assets/fix.svg) **Validator** - Validator EOL mise à jour
 
 ## v2002.1.17
 

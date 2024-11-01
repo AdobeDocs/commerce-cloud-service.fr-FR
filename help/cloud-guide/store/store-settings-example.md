@@ -2,9 +2,9 @@
 title: Exemple de gestion des paramètres spécifiques au système
 description: Consultez un exemple de gestion et de synchronisation des paramètres de configuration du magasin dans tous les environnements Adobe Commerce sur l’infrastructure cloud.
 hidefromtoc: true
-source-git-commit: 13e76d3e9829155995acbb72d947be3041579298
+source-git-commit: 196efa316b9998c1980412ad96577d7ce42d4aec
 workflow-type: tm+mt
-source-wordcount: '865'
+source-wordcount: '864'
 ht-degree: 0%
 
 ---
@@ -29,7 +29,7 @@ L’exemple utilise la procédure suivante définie dans [Paramètres du magasin
 
 Par exemple, vous pouvez définir les paramètres suivants :
 
-* Désactivez les paramètres d&#39;optimisation de fichier statique et [locale](https://glossary.magento.com/locale) dans votre environnement d&#39;intégration.
+* Désactivation des paramètres régionaux et d’optimisation des fichiers statiques dans votre environnement d’intégration
 * Activation de l’optimisation des fichiers statiques dans les environnements d’évaluation et de production
 * Configuration rapide dans les environnements d’évaluation et de production avec des informations d’identification spécifiques pour chaque
 
@@ -56,7 +56,7 @@ Dans l’environnement d’intégration, vous pouvez vous connecter à l’admin
    ![Modifier le paramètre régional](../../assets/locale-options.png)
 
 1. Cliquez sur **Enregistrer la configuration**.
-1. Si vous y êtes invité, [videz le cache](https://docs.magento.com/user-guide/system/cache-management.html).
+1. Si vous y êtes invité, [videz le cache](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/tools/cache-management).
 1. Déconnectez-vous de l’administrateur.
 
 ## Exportez des valeurs et transférez config.php vers votre système local.
@@ -159,7 +159,7 @@ Pour ajouter des valeurs de configuration dans l’administrateur de l’environ
 1. Dans le volet de droite, développez **Paramètres JavaScript**.
 1. Dans la liste **Fusionner les fichiers JavaScript**, cliquez sur **Oui**.
 1. Cliquez sur **Enregistrer la configuration**.
-1. Si vous y êtes invité, [videz le cache](https://docs.magento.com/user-guide/system/cache-management.html).
+1. Si vous y êtes invité, [videz le cache](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/tools/cache-management).
 1. Déconnectez-vous de l’administrateur.
 
 En exécutant à nouveau la commande de vidage, la nouvelle configuration est ajoutée au fichier.

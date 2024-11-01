@@ -3,7 +3,7 @@ title: Workflow du projet de démarrage
 description: Découvrez comment utiliser les workflows de développement et de déploiement de Starter.
 feature: Cloud, Paas
 exl-id: f334047a-1e0d-45c7-bf96-5c2964741951
-source-git-commit: 08f43a3b0a50cdb2a5e8a45bd2e2448bc6dbca2b
+source-git-commit: 196efa316b9998c1980412ad96577d7ce42d4aec
 workflow-type: tm+mt
 source-wordcount: '2103'
 ht-degree: 0%
@@ -105,9 +105,9 @@ Lorsque vous êtes prêt à configurer votre magasin, envoyez tout votre code ve
 Pour obtenir les meilleures informations sur les configurations, consultez la documentation d’Adobe Commerce et des extensions installées. Voici quelques liens et idées qui vous aident à démarrer :
 
 - [Bonnes pratiques pour la configuration de magasin](../store/best-practices.md) pour connaître les bonnes pratiques spécifiques dans le cloud
-- [ Configuration de base](https://docs.magento.com/user-guide/configuration/configuration-basic.html) pour l’accès administrateur de magasin, le nom, les langues, les devises, la marque, les sites, les vues de magasin, etc.
-- [Thème](https://docs.magento.com/user-guide/design/design-theme.html) pour votre aspect du site et des magasins, y compris les mises en page et CSS
-- [ Configuration système ](https://docs.magento.com/user-guide/system/system.html) pour les rôles, outils, notifications et votre clé de chiffrement pour votre base de données
+- [ Configuration de base](https://experienceleague.adobe.com/en/docs/commerce-admin/start/setup/store-details) pour l’accès administrateur de magasin, le nom, les langues, les devises, la marque, les sites, les vues de magasin, etc.
+- [Thème](https://experienceleague.adobe.com/en/docs/commerce-admin/content-design/content-menu#design-features) pour votre aspect du site et des magasins, y compris les mises en page et CSS
+- [ Configuration système ](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/guide-overview) pour les rôles, outils, notifications et votre clé de chiffrement pour votre base de données
 - Paramètres d’extension utilisant leur documentation
 
 Au-delà des seuls paramètres de magasin, vous pouvez configurer davantage plusieurs sites et magasins, des services configurés, etc. Voir [Configuration de votre boutique](../store/overview.md).
@@ -165,7 +165,7 @@ Pour aider à exporter des données de production en tant que données de test �
 
 - [Exécutez les utilitaires de support](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/cli/run-support-utilities.html) Commandes d’interface de ligne de commande (recommandées) lors de l’exportation d’une sauvegarde protégée des données client et de stockage à l’aide de votre clé de chiffrement Adobe Commerce
 
-- Outil [Collecte de données](https://docs.magento.com/user-guide/system/support-data-collector.html) pour générer et exporter des données
+- Outil [Collecte de données](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/tools/support#data-collector) pour générer et exporter des données
 
 Pour migrer ces données, voir [Migration et déploiement de fichiers statiques et de données](../deploy/staging-production.md#migrate-static-files).
 

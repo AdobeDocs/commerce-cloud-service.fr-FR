@@ -2,7 +2,7 @@
 title: Liste de contrôle de lancement
 description: Consultez les éléments de liste de contrôle pour le lancement du site.
 exl-id: 4525742e-18c5-40d1-975d-00ba3f3a51a0
-source-git-commit: 5b0a691a4355f5eda31d42cd3da9925439dfb510
+source-git-commit: 196efa316b9998c1980412ad96577d7ce42d4aec
 workflow-type: tm+mt
 source-wordcount: '1104'
 ht-degree: 0%
@@ -105,7 +105,7 @@ Les modifications et vérifications suivantes sont recommandées :
 
 - [Fin du test des emails sortants](../project/outgoing-emails.md)
 
-- [ Configuration sécurisée pour les informations d’identification d’administrateur et URL d’administrateur de base](https://docs.magento.com/user-guide/stores/security-admin.html)
+- [ Configuration sécurisée pour les informations d’identification d’administrateur et URL d’administrateur de base](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/security/security-admin)
 
 - [Optimiser toutes les images pour le web](../cdn/fastly-image-optimization.md)
 
@@ -137,13 +137,13 @@ Vous pouvez également tester à l’aide des options tierces suivantes :
 
 - [Configuration de votre analyse de sécurité](overview.md#set-up-the-security-scan-tool)
 
-- [Configuration sécurisée pour l’utilisateur administrateur](https://docs.magento.com/user-guide/stores/security-admin.html)
+- [Configuration sécurisée pour l’utilisateur administrateur](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/security/security-admin)
 
-- [Configuration sécurisée pour l’URL d’administration](https://docs.magento.com/user-guide/stores/store-urls-custom-admin.html)
+- [Configuration sécurisée pour l’URL d’administration]https://experienceleague.adobe.com/en/docs/commerce-admin/stores-sales/site-store/store-urls#use-a-custom-admin-url)
 
 - [Supprimer tous les utilisateurs qui ne se trouvent plus dans Adobe Commerce sur le projet d’infrastructure cloud](../project/user-access.md)
 
-- [Configuration de l’authentification à deux facteurs](https://devdocs.magento.com/guides/v2.4/security/two-factor-authentication.html)
+- [Configuration de l’authentification à deux facteurs](https://developer.adobe.com/commerce/testing/functional-testing-framework/two-factor-authentication/)
 
 ## Suivi des performances
 

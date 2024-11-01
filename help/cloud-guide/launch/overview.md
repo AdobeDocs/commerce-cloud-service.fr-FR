@@ -2,7 +2,7 @@
 title: Lancement du site
 description: Découvrez comment commencer la préparation du lancement du site.
 exl-id: a7b3f260-b76e-4220-b521-699548a9928a
-source-git-commit: 1253d8357fd2554050d1775fefbc420a2097db5f
+source-git-commit: 196efa316b9998c1980412ad96577d7ce42d4aec
 workflow-type: tm+mt
 source-wordcount: '902'
 ht-degree: 0%
@@ -43,7 +43,7 @@ Dans le cadre d’Adobe Commerce sur l’abonnement à l’infrastructure cloud,
 
 >[!NOTE]
 >
->Si vous souhaitez déployer votre propre certificat SSL de validation étendue pour votre entreprise au lieu d’utiliser le certificat de chiffrement, contactez votre CTA ou [Envoyez un ticket de support Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket).
+>Si vous souhaitez déployer votre propre certificat SSL de validation étendue pour votre entreprise au lieu d’utiliser le certificat de chiffrement, contactez votre CTA ou [Envoyez un ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket).
 
 ## Configuration de l’outil d’analyse de sécurité
 
@@ -65,7 +65,7 @@ L’outil d’analyse de sécurité vous permet de surveiller régulièrement vo
 
 - Recevoir les mises à jour de sécurité et les notifications spécifiques au site
 
-Pour plus d’informations sur la configuration et l’utilisation de l’outil d’analyse de sécurité, consultez le [Guide de l’utilisateur](https://docs.magento.com/user-guide/magento/security-scan.html) . En règle générale, vous commencez à utiliser cet outil lorsque vous commencez les tests d’acceptation utilisateur (UAT).
+Pour plus d’informations sur la configuration et l’utilisation de l’outil d’analyse de sécurité, consultez le [Guide de l’utilisateur](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/security/security-scan) . En règle générale, vous commencez à utiliser cet outil lorsque vous commencez les tests d’acceptation utilisateur (UAT).
 
 Chaque site que vous analysez doit être enregistré via l’onglet Analyse de sécurité . Pendant le processus d’enregistrement, vous devez accepter la clause de non-responsabilité avant de pouvoir commencer l’analyse. Vous contrôlez le planning et autorisez l’utilisateur à recevoir des notifications une fois chaque analyse terminée. Vous pouvez planifier des analyses pour une date et une heure récurrentes spécifiques, ou exécuter une analyse à la demande, si nécessaire.
 

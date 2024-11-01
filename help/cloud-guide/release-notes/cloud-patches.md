@@ -4,9 +4,9 @@ description: Consultez la liste des dernières améliorations apportées au modu
 recommendations: noDisplay, catalog
 last-substantial-update: 2024-10-07T00:00:00Z
 exl-id: ae6b511b-a37d-4776-9a5e-ad7d9f9f6611
-source-git-commit: 30eafa856aaa57bb2fd2ce26e3be2a69aee726e2
+source-git-commit: 196efa316b9998c1980412ad96577d7ce42d4aec
 workflow-type: tm+mt
-source-wordcount: '2275'
+source-wordcount: '2256'
 ht-degree: 0%
 
 ---
@@ -154,7 +154,7 @@ Date de publication : 12 août 2021
 
 Correctif critique pour Adobe Commerce 2.4.3 et 2.3.7-p1 :
 
-- **Problème lié à la limitation du débit de l’API** : ce correctif corrige une limite de débit par défaut qui empêchait les API Web de traiter les demandes comportant plus de 20 éléments dans un tableau. Ce correctif augmente la valeur par défaut de la limite de taux. Voir les [ notes de mise à jour 2.4.3 d’Adobe Commerce ](https://devdocs.magento.com/guides/v2.4/release-notes/commerce-2-4-3.html#apply-mc-43048__set_rate_limits__243patch-to-address-issue-with-api-rate-limiting) et les [ notes de mise à jour 2.3.7](https://devdocs.magento.com/guides/v2.3/release-notes/2-3-7-p1.html#apply-mc-43048__set_rate_limits__237-p1patch-to-address-issue-with-api-rate-limiting).<!-- MC-43048 -->
+- **Problème lié à la limitation du débit de l’API** : ce correctif corrige une limite de débit par défaut qui empêchait les API Web de traiter les demandes comportant plus de 20 éléments dans un tableau. Ce correctif augmente la valeur par défaut de la limite de taux. Voir les [ notes de mise à jour 2.4.3 d’Adobe Commerce ](https://experienceleague.adobe.com/en/docs/commerce-operations/release/notes/adobe-commerce/2-4-3#apply-mc-43048__set_rate_limits__243patch-to-address-issue-with-api-rate-limiting).<!-- MC-43048 -->
 
 ## v1.0.11
 
@@ -222,7 +222,7 @@ Date de publication :
 
 Date de publication : 26 juin 2020
 
-- **Améliorations des performances Redis** : ajoute des fonctionnalités d’optimisation Redis aux versions 2.3.3 et 2.3.4 d’Adobe Commerce. Ces correctifs ont été inclus dans la version 2.3.5 d’Adobe Commerce. Voir [Améliorations des performances](https://devdocs.magento.com/guides/v2.3/release-notes/release-notes-2-3-5-commerce.html#performance-boosts) dans les _notes de mise à jour d’Adobe Commerce 2.3.5_.<!--MCLOUD-5771-->
+- **Améliorations des performances Redis** : ajoute des fonctionnalités d’optimisation Redis aux versions 2.3.3 et 2.3.4 d’Adobe Commerce. Ces correctifs ont été inclus dans la version 2.3.5 d’Adobe Commerce.<!--MCLOUD-5771-->
 
 - **New Relic Log Enricher** : ajoute l’interface de processeur Monolog requise pour prendre en charge les améliorations des fonctionnalités de journalisation New Relic introduites dans les composants Cloud de Commerce version 1.0.4. Ce correctif est nécessaire pour déployer Adobe Commerce 2.1.x. Si le correctif n&#39;est pas appliqué, la version échoue pendant le processus `di:compile`.<!--MCLOUD-6029-->
 

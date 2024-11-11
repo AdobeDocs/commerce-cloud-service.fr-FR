@@ -3,7 +3,7 @@ title: Affichage et gestion des journaux
 description: Découvrez les types de fichiers journaux disponibles dans l’infrastructure cloud et où les trouver.
 last-substantial-update: 2023-05-23T00:00:00Z
 exl-id: d7f63dab-23bf-4b95-b58c-3ef9b46979d4
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: 633e5e75ae23a933d15a0faedae22092797d5d0b
 workflow-type: tm+mt
 source-wordcount: '1056'
 ht-degree: 0%
@@ -194,7 +194,7 @@ Comme pour les journaux de déploiement, les journaux d’application sont uniqu
 | **Journal d’accès PHP** | `/var/log/php.access.log` | Demandes au service PHP. |
 | **Journal FPM PHP** | `/var/log/app.log` | |
 
-Pour les environnements d’évaluation et de production Pro, les journaux Déploiement, Déploiement Post et Cron sont disponibles uniquement sur le premier noeud de la grappe :
+Pour les environnements d’évaluation et de production Pro, les journaux Déploiement, Post-déploiement et Cron sont disponibles uniquement sur le premier noeud de la grappe :
 
 | Fichier journal | Pro Staging | Pro Production |
 | ------------------- | --------------------------------------------------- | ----------------------------------------------- |
@@ -208,7 +208,7 @@ Pour les environnements d’évaluation et de production Pro, les journaux Dépl
 
 ### Fichiers journaux archivés
 
-Les journaux d’application sont compressés et archivés une fois par jour et conservés pendant un an. Les journaux compressés sont nommés à l’aide d’un identifiant unique qui correspond au `Number of Days Ago + 1`. Par exemple, dans les environnements de production Pro, un journal d’accès PHP de 21 jours dans le passé est stocké et nommé comme suit :
+Les journaux de l’application sont compressés et archivés une fois par jour et conservés pendant **30 jours**. Les journaux compressés sont nommés à l’aide d’un identifiant unique qui correspond au `Number of Days Ago + 1`. Par exemple, dans les environnements de production Pro, un journal d’accès PHP de 21 jours dans le passé est stocké et nommé comme suit :
 
 ```
 /var/log/platform/<project-ID>/php.access.log.22.gz
@@ -242,4 +242,4 @@ Les journaux de service sont archivés et enregistrés pendant différentes pér
 
 Dans les environnements de production et d’évaluation Pro, utilisez la [gestion des journaux New Relic](../monitor/log-management.md) intégrée à votre projet pour gérer les données de journaux agrégées de tous les journaux associés à votre projet d’infrastructure cloud Adobe Commerce.
 
-L’application New Relic Logs fournit un tableau de bord de gestion des journaux centralisé pour dépanner et surveiller Adobe Commerce sur les environnements de production et d’évaluation de l’infrastructure cloud. Le tableau de bord permet également d’accéder aux données de journal pour les services Fastly CDN, Image Optimization et WAF (pare-feu d’applications web). Voir [Services New Relic](../monitor/new-relic-service.md).
+L’application New Relic Logs fournit un tableau de bord de gestion des journaux centralisé pour dépanner et surveiller Adobe Commerce sur les environnements de production et d’évaluation de l’infrastructure cloud. Le tableau de bord permet également d’accéder aux données de journal pour les services de réseau de diffusion de contenu Fastly, d’optimisation des images et de pare-feu d’applications web (WAF). Voir [Services New Relic](../monitor/new-relic-service.md).

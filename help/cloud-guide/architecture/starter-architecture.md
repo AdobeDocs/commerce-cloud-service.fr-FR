@@ -3,9 +3,9 @@ title: Architecture de démarrage
 description: Découvrez les environnements pris en charge par l’architecture de démarrage.
 feature: Cloud, Paas
 exl-id: 03365d32-4eb4-42d4-82a7-771df5e7b3da
-source-git-commit: e5cb79cab4e22d1c787859ab98e6bab6cd2dc2eb
+source-git-commit: 1fea819aec27002e0e043cddf635f10c4edd7c5b
 workflow-type: tm+mt
-source-wordcount: '942'
+source-wordcount: '956'
 ht-degree: 0%
 
 ---
@@ -65,6 +65,11 @@ Les environnements d’intégration sont conçus pour un test et un développeme
 Pour de meilleures performances dans l’environnement d’intégration, suivez les bonnes pratiques suivantes :
 
 - Limiter la taille du catalogue : à titre de référence, l’exemple de données contient environ 2 048 produits. Essayez de réduire la taille de votre catalogue à environ 4 000 à 5 000 produits.
+Pour vérifier le nombre de produits dans le catalogue, exécutez la requête MySQL suivante :
+
+  ```sql
+  select distinct count(entity_id) from catalog_product_entity;
+  ```
 
 - Réduire le nombre de groupes de clients : un trop grand nombre de groupes de clients peut affecter les performances d’indexation et les performances globales.
 

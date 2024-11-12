@@ -3,9 +3,9 @@ title: Ajout de robots de carte de site et de moteur de recherche
 description: Découvrez comment ajouter des robots de carte de site et de moteur de recherche à Adobe Commerce sur l’infrastructure cloud.
 feature: Cloud, Configuration, Search, Site Navigation
 exl-id: b98f43fa-1878-466d-8ea0-1e7207af8b60
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: fda88fdf03afa4a59f40e52802c16b6136d8716f
 workflow-type: tm+mt
-source-wordcount: '517'
+source-wordcount: '537'
 ht-degree: 0%
 
 ---
@@ -117,10 +117,12 @@ Dans la configuration admin `sitemap`, vous devez spécifier l’emplacement du 
 
 ### Configuration de l’indexation par moteur de recherche
 
-Pour activer les personnalisations de `robots.txt`, vous devez activer l’option **L’indexation par les moteurs de recherche est activée pour`<environment-name>`** dans les paramètres de votre projet.
+Pour activer les personnalisations de `robots.txt` en production, vous devez activer l’option **L’indexation par les moteurs de recherche est activée pour`<environment-name>`** dans les paramètres de votre projet.
 
 ![ Utilisez le [!DNL Cloud Console] pour gérer les environnements](../../assets/robots-indexing-by-search-engine.png)
 
 >[!NOTE]
 >
->Si vous utilisez PWA Studio et que vous ne parvenez pas à accéder à votre fichier `robots.txt` configuré, ajoutez `robots.txt` à la [Liste autorisée de prénom](https://github.com/magento/magento2-upward-connector#front-name-allowlist) sur **Magasins** > Configuration > **Général** > **Web** > Configuration du PWA UPWARD.
+>- L’indexation par moteur de recherche ne peut être activée que dans Production, mais pas dans les environnements inférieurs.
+>
+>- Si vous utilisez PWA Studio et que vous ne parvenez pas à accéder à votre fichier `robots.txt` configuré, ajoutez `robots.txt` à la [Liste autorisée de prénom](https://github.com/magento/magento2-upward-connector#front-name-allowlist) sur **Magasins** > Configuration > **Général** > **Web** > Configuration du PWA UPWARD.

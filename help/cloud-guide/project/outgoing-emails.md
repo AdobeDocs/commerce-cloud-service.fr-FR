@@ -2,20 +2,24 @@
 title: Configuration des emails sortants
 description: Découvrez comment activer les emails sortants pour Adobe Commerce sur l’infrastructure cloud.
 exl-id: 814fe2a9-15bf-4bcb-a8de-ae288fd7f284
-source-git-commit: ec9192caa5daa1cd25a3eec6095c2c3cf8fbefb4
+source-git-commit: 75318be63adcbe23bb8b6699b1c59b2b4a3c1a4d
 workflow-type: tm+mt
-source-wordcount: '373'
+source-wordcount: '384'
 ht-degree: 0%
 
 ---
 
 # Configuration des emails sortants
 
-Vous pouvez activer et désactiver les emails sortants pour chaque environnement à partir de [!DNL Cloud Console] ou de la ligne de commande. Activez les e-mails sortants pour les environnements d’intégration (et d’évaluation pour les environnements de démarrage uniquement) afin d’envoyer des e-mails d’authentification à deux facteurs ou de réinitialiser un mot de passe pour les utilisateurs de projet Cloud.
+Vous pouvez activer et désactiver les emails sortants pour les environnements d’intégration (et d’évaluation pour les environnements de démarrage uniquement) à partir de [!DNL Cloud Console] ou de la ligne de commande. Activez les courriers électroniques sortants pour envoyer des messages d’authentification à deux facteurs ou réinitialiser des mots de passe pour les utilisateurs de projet Cloud.
 
 Par défaut, les emails sortants sont activés dans les environnements de production et d’évaluation (Pro uniquement). Cependant, le paramètre **[!UICONTROL Enable outgoing emails]** peut apparaître désactivé dans les paramètres de l’environnement, quel que soit l’état, jusqu’à ce que vous définissiez la propriété `enable_smtp` via la [ligne de commande](#enable-emails-in-the-cli) ou la [console cloud](outgoing-emails.md#enable-emails-in-the-cloud-console).
 
 La mise à jour de la valeur de propriété `enable_smtp` par [ligne de commande](#enable-emails-in-the-cli) modifie également la valeur de paramètre [!UICONTROL Enable outgoing emails] pour cet environnement sur la console cloud.
+
+>[!NOTE]
+>
+>L’activation/désactivation du paramètre **[!UICONTROL Enable outgoing emails]** n’activera pas/ne désactivera pas les emails dans les environnements d’évaluation ou de production Pro.
 
 {{redeploy-warning}}
 
@@ -27,14 +31,14 @@ Si les emails sortants doivent être désactivés ou réactivés dans les enviro
 
 >[!TIP]
 >
->L’état des courriers électroniques sortants peut ne pas être reflété pour les environnements Pro dans Cloud Console. Utilisez plutôt la [ligne de commande](#enable-emails-in-the-cli) pour activer et tester les emails sortants.
+>L’état du courrier électronique sortant peut ne pas être reflété pour les environnements d’évaluation ou de production Pro dans la console Cloud.
 
 **Pour gérer la prise en charge des emails à partir de[!DNL Cloud Console]** :
 
 1. Connectez-vous à [[!DNL Cloud Console]](https://console.adobecommerce.com).
 1. Sélectionnez un projet dans la liste _Tous les projets_.
 1. Dans le tableau de bord du projet, cliquez sur l’icône de configuration en haut à droite.
-1. Cliquez sur **[!UICONTROL Environments]** et sélectionnez un environnement spécifique dans la liste.
+1. Cliquez sur **[!UICONTROL Environments]** et sélectionnez un environnement spécifique dans la liste (à l’exception de Test et Production pour Pro).
 1. Pour activer ou désactiver les emails sortants, activez _Activer les emails sortants_ **On** ou **Off**.
 
    ![Activer la configuration des emails sortants](../../assets/outgoing-emails.png)

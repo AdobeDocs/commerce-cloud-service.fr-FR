@@ -3,9 +3,9 @@ title: Mettre à niveau la version de Commerce
 description: Découvrez comment mettre à niveau la version d’Adobe Commerce dans le projet d’infrastructure cloud.
 feature: Cloud, Upgrade
 exl-id: 87821007-4979-4a20-940b-aa3c82c192d8
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: 8851db6ee962bf1a65b31d344e2bd71065e9340d
 workflow-type: tm+mt
-source-wordcount: '1439'
+source-wordcount: '1547'
 ht-degree: 0%
 
 ---
@@ -286,6 +286,19 @@ Passez en revue les [versions de service](../services/services-yaml.md#service-v
    ```bash
    composer update
    ```
+
+1. Examinez les correctifs actuellement appliqués :
+
+   - Si des correctifs sont installés dans le répertoire `m2-hotfixes`, [ envoyez un ticket d’assistance Adobe Commerce](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide#support-case) et travaillez avec l’assistance Adobe Commerce pour vérifier quels correctifs peuvent encore être appliqués à la nouvelle version. Supprimez le ou les correctifs non applicables du répertoire `m2-hotfixes`.
+
+   - Si des [ correctifs de qualité ] sont appliqués dans le fichier `.magento.env.yaml`, vérifiez s’ils peuvent toujours être appliqués à la nouvelle version. Supprimez le ou les correctifs non applicables de la section `QUALITY_PATCHES` du fichier `.magento.env.yaml`.
+
+   **Méthode 1** : [Vérifiez les versions applicables dans les notes de mise à jour des correctifs de qualité](https://experienceleague.adobe.com/en/docs/commerce-operations/tools/quality-patches-tool/release-notes)
+
+   **Méthode 2** : [afficher les correctifs disponibles et l’état](https://experienceleague.adobe.com/en/docs/commerce-cloud-service/user-guide/develop/upgrade/apply-patches#view-available-patches-and-status)
+
+   **Méthode 3** : [Recherche de correctifs](https://experienceleague.adobe.com/tools/commerce-quality-patches/index.html?lang=en)
+
 
 1. Ajout, validation et modification du code push.
 

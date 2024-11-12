@@ -4,9 +4,9 @@ description: Découvrez les environnements pris en charge par l’architecture P
 feature: Cloud, Auto Scaling, Iaas, Paas, Storage
 topic: Architecture
 exl-id: d10d5760-44da-4ffe-b4b7-093406d8b702
-source-git-commit: 66b1f86c8c674d0de4e2895e328a5a850eadf903
+source-git-commit: a1e7674b99d7e289531268e1a298f61344c7bd8f
 workflow-type: tm+mt
-source-wordcount: '1559'
+source-wordcount: '1573'
 ht-degree: 0%
 
 ---
@@ -67,6 +67,11 @@ Les environnements d’intégration sont conçus pour des tests et un développe
 Pour de meilleures performances dans l’environnement d’intégration, suivez les bonnes pratiques suivantes :
 
 - Limiter la taille du catalogue : à titre de référence, l’exemple de données contient environ 2 048 produits. Essayez de réduire la taille de votre catalogue à environ 4 000 à 5 000 produits.
+Pour vérifier le nombre de produits dans le catalogue, exécutez la requête MySQL suivante :
+
+  ```sql
+  select distinct count(entity_id) from catalog_product_entity;
+  ```
 
 - Réduire le nombre de groupes de clients : un trop grand nombre de groupes de clients peut affecter les performances d’indexation et les performances globales.
 

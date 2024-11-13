@@ -2,7 +2,7 @@
 title: Test d’évaluation et de production
 description: Découvrez comment tester dans les environnements d’évaluation et de production.
 exl-id: 5b762d59-04c5-4e89-a637-719141759158
-source-git-commit: 1253d8357fd2554050d1775fefbc420a2097db5f
+source-git-commit: c6d4128792e688485e021bad75d9814a9f4d3b4f
 workflow-type: tm+mt
 source-wordcount: '1329'
 ht-degree: 0%
@@ -12,6 +12,8 @@ ht-degree: 0%
 # Test d’évaluation et de production
 
 Après une migration réussie de votre code, fichiers et données vers l’environnement d’évaluation ou de production, utilisez les URL d’environnement pour tester vos sites et magasins. Vous trouverez ci-dessous des informations sur la vérification des journaux, le test de configurations rapides, le test d’acceptation utilisateur (UAT), etc.
+
+{{second-staging}}
 
 ## Fichiers de log
 

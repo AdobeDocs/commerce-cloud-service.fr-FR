@@ -3,7 +3,7 @@ title: Workflow du projet Pro
 description: Découvrez comment utiliser les workflows de développement et de déploiement Pro.
 feature: Cloud, Iaas, Paas
 exl-id: 103e90d5-2ef2-4fef-845c-439344666b00
-source-git-commit: 08f43a3b0a50cdb2a5e8a45bd2e2448bc6dbca2b
+source-git-commit: c6d4128792e688485e021bad75d9814a9f4d3b4f
 workflow-type: tm+mt
 source-wordcount: '782'
 ht-degree: 0%
@@ -91,6 +91,8 @@ Combinez toutes les modifications de code vérifiées en fusionnant votre branch
 L’évaluation est un environnement de pré-production qui fournit tous les services et paramètres aussi proches que possible de l’environnement de production. Envoyez toujours vos modifications de code de l’environnement `integration` vers l’environnement `staging` afin que vous puissiez effectuer des tests approfondis avec tous les services. La première fois que vous utilisez l’environnement d’évaluation, vous devez configurer des services, tels que [Fastly CDN](../cdn/fastly.md) et [New Relic](../monitor/new-relic-service.md). Configurez les passerelles de paiement, l’expédition, les notifications et d’autres services essentiels avec un environnement de test ou des informations d’identification de test.
 
 Il est préférable de tester minutieusement chaque service, de vérifier vos outils de test de performances et d’effectuer des tests UAT en tant qu’administrateur et client, jusqu’à ce que vous estimiez que votre boutique est prête pour l’environnement de production. Voir [Déployer votre boutique](../deploy/staging-production.md).
+
+{{second-staging}}
 
 ### Fusionner vers la production
 

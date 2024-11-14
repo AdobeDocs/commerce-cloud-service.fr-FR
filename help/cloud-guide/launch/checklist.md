@@ -2,7 +2,7 @@
 title: Liste de contrôle de lancement
 description: Consultez les éléments de liste de contrôle pour le lancement du site.
 exl-id: 4525742e-18c5-40d1-975d-00ba3f3a51a0
-source-git-commit: 196efa316b9998c1980412ad96577d7ce42d4aec
+source-git-commit: 6ac23cbcf7ab48d09b494ebe8c7136518d213c4e
 workflow-type: tm+mt
 source-wordcount: '1104'
 ht-degree: 0%
@@ -139,7 +139,7 @@ Vous pouvez également tester à l’aide des options tierces suivantes :
 
 - [Configuration sécurisée pour l’utilisateur administrateur](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/security/security-admin)
 
-- [Configuration sécurisée pour l’URL d’administration]https://experienceleague.adobe.com/en/docs/commerce-admin/stores-sales/site-store/store-urls#use-a-custom-admin-url)
+- [Configuration sécurisée pour l’URL d’administration](https://experienceleague.adobe.com/en/docs/commerce-admin/stores-sales/site-store/store-urls#use-a-custom-admin-url)
 
 - [Supprimer tous les utilisateurs qui ne se trouvent plus dans Adobe Commerce sur le projet d’infrastructure cloud](../project/user-access.md)
 

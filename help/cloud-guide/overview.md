@@ -2,9 +2,9 @@
 title: Commerce sur l’infrastructure cloud
 description: Découvrez comment créer, déployer et gérer Commerce sur l’infrastructure cloud.
 exl-id: c0accd55-95ac-49d9-b6f4-0da19b82c28f
-source-git-commit: eace5d84fa0915489bf562ccf79fde04f6b9d083
+source-git-commit: 6ac23cbcf7ab48d09b494ebe8c7136518d213c4e
 workflow-type: tm+mt
-source-wordcount: '224'
+source-wordcount: '236'
 ht-degree: 0%
 
 ---
@@ -19,6 +19,10 @@ Adobe Commerce sur l’infrastructure cloud fournit une plateforme d’hébergem
 - Hébergement Amazon Web Services (AWS) qui offre un environnement évolutif et sécurisé pour les ventes en ligne et la vente au détail.
 
 ![Avantages du cloud](../assets/CloudBenefits.svg)
+
+>[!NOTE]
+>
+>Pour plus d&#39;informations sur la sécurité, consultez la [liste de contrôle du lancement de la sécurité](https://experienceleague.adobe.com/en/docs/commerce-cloud-service/user-guide/launch/checklist#security-configuration).
 
 Affichez la [pile de technologies](architecture/tech-stack.md) en détail ou en savoir plus sur des fonctionnalités spécifiques et des produits pris en charge dans [Architecture cloud pour Commerce](architecture/cloud-architecture.md).
 

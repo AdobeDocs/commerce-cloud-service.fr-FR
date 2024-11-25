@@ -3,7 +3,7 @@ title: Dépannage rapide
 description: Découvrez comment résoudre les problèmes et gérer les services et le module CDN Fastly pour Adobe Commerce.
 feature: Cloud, Configuration, Cache, Services
 exl-id: e4c47035-cbad-4838-8d44-fa5eaaac42d1
-source-git-commit: e066e9c7e1a6010c9d316f66f1632e28a0c40652
+source-git-commit: 38c29e3a2cee1658bb73922f0f56fdfa84af5a6f
 workflow-type: tm+mt
 source-wordcount: '1834'
 ht-degree: 0%
@@ -32,7 +32,7 @@ Les développeurs et les utilisateurs avancés de VCL peuvent utiliser un VCL pe
 log {"syslog"} req.service_id {" my_logging_endpoint_name :: "}
 ```
 
-Vous pouvez utiliser le même VCL pour les environnements de production et d’évaluation. Voir [Comment configurer vcl_log](https://support.fastly.com/hc/en-us/community/posts/360040447172-How-to-configure-vcl-log).
+Vous pouvez utiliser le même VCL pour les environnements de production et d’évaluation. Voir [`vcl_log`](https://www.fastly.com/documentation/reference/vcl/subroutines/log/) dans la _documentation Fastly_.
 
 ## Problèmes de performances, de purge et de cache du site
 

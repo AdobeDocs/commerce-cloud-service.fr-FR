@@ -4,9 +4,9 @@ description: Découvrez comment accéder à votre tableau de bord New Relic et a
 feature: Cloud, Observability
 topic: Performance
 exl-id: 8d1e2ad6-14d0-4754-9703-960d93e135a9
-source-git-commit: eace5d84fa0915489bf562ccf79fde04f6b9d083
+source-git-commit: 38c29e3a2cee1658bb73922f0f56fdfa84af5a6f
 workflow-type: tm+mt
-source-wordcount: '844'
+source-wordcount: '833'
 ht-degree: 0%
 
 ---
@@ -85,11 +85,11 @@ Lorsque l’infrastructure du site ou les conditions d’application déclenchen
 
 Ne modifiez aucune alerte incluse dans la stratégie Alertes gérées pour Adobe Commerce. Adobe met à jour et améliore les conditions d’alerte de cette stratégie au fil du temps, ce qui remplace toutes les personnalisations que vous ajoutez à la stratégie.
 
-Au lieu de modifier une alerte existante, vous pouvez créer une stratégie d’alerte. Copiez ensuite les conditions d’alerte dans la nouvelle stratégie. Voir [Mise à jour de stratégies ou de conditions](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/update-or-disable-policies-conditions/) dans la documentation _New Relic_.
+Au lieu de modifier une alerte existante, vous pouvez créer une stratégie d’alerte. Copiez ensuite les conditions d’alerte dans la nouvelle stratégie.
 
 >[!TIP]
 >
->Pour plus d’informations sur les alertes, les stratégies d’alerte et les workflows, voir [Présentation des alertes](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/learn-alerts/alerts-concepts-workflow/) dans la documentation _New Relic_ .
+>Pour plus d’informations sur les alertes, les stratégies d’alerte et les workflows, voir [Présentation des alertes](https://docs.newrelic.com/docs/alerts/overview/) dans la documentation _New Relic_ .
 
 ## Configuration d’un workflow pour les notifications
 

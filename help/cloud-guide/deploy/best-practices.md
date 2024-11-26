@@ -3,7 +3,7 @@ title: Bonnes pratiques de déploiement
 description: Découvrez les bonnes pratiques de déploiement d’Adobe Commerce sur l’infrastructure cloud.
 feature: Cloud, Deploy, Best Practices
 exl-id: bac3ca83-0eee-4fda-9a5c-a84ab25a837a
-source-git-commit: eace5d84fa0915489bf562ccf79fde04f6b9d083
+source-git-commit: 269681efb9925d78ffb608ecbef657be740b5531
 workflow-type: tm+mt
 source-wordcount: '1904'
 ht-degree: 0%
@@ -118,7 +118,7 @@ Cette phase exécute également `composer install` pour récupérer les dépenda
 Cette phase crée le code base et exécute les points d’extension dans la section `build` de `.magento.app.yaml`. Le crochet de génération par défaut est la commande `php ./vendor/bin/ece-tools` et effectue les opérations suivantes :
 
 - Applique des correctifs dans `vendor/magento/ece-patches` et des correctifs facultatifs spécifiques au projet dans `m2-hotfixes`.
-- Régénère le code et la configuration [injection de dépendance](https://experienceleague.adobe.com/docs/commerce-operations/operational-playbook/glossary.html) (c’est-à-dire le répertoire `generated/`, qui comprend `generated/code` et `generated/metapackage`) en utilisant `bin/magento setup:di:compile`.
+- Régénère le code et la configuration [injection de dépendance](https://experienceleague.adobe.com/en/docs/commerce-operations/implementation-playbook/glossary) (c’est-à-dire le répertoire `generated/`, qui comprend `generated/code` et `generated/metapackage`) en utilisant `bin/magento setup:di:compile`.
 - Vérifie si le fichier [`app/etc/config.php`](../store/store-settings.md) existe dans le code base. Adobe Commerce génère automatiquement ce fichier s’il ne le détecte pas pendant la phase de création et comprend une liste de modules et d’extensions. Si elle existe, la phase de création se poursuit normalement, compresse les fichiers statiques à l’aide de GZIP et se déploie, ce qui réduit le temps d’arrêt pendant la phase de déploiement. Pour plus d&#39;informations sur la personnalisation ou la désactivation de la compression de fichier, voir [options de création](../environment/variables-build.md) .
 
 >[!WARNING]
@@ -145,7 +145,7 @@ La balise de fermeture comprend tous les fichiers et dossiers **à l&#39;excepti
 
 ### Phase 4 : déploiement des diffusions et de la grappe
 
-Vos applications et tous les services [backend](https://experienceleague.adobe.com/docs/commerce-operations/operational-playbook/glossary.html) fonctionnent comme suit :
+Vos applications et tous les services [backend](https://experienceleague.adobe.com/en/docs/commerce-operations/implementation-playbook/glossary) fonctionnent comme suit :
 
 - Monte chaque service dans un conteneur, tel que serveur web, OpenSearch, [!DNL RabbitMQ]
 - Monte le système de fichiers en lecture-écriture (monté sur une grille de stockage distribué hautement disponible).
@@ -183,7 +183,7 @@ Il existe deux hooks de déploiement. Le crochet `pre-deploy.php` effectue le ne
 >
 >Le script de déploiement utilise les valeurs définies par les fichiers de configuration dans le répertoire `.magento`, puis le script supprime le répertoire et son contenu. Votre environnement de développement local n’est pas affecté.
 
-### Déploiement Post : configuration du routage
+### Post-déploiement : configuration du routage
 
 Pendant le déploiement en cours d’exécution, le processus interrompt le trafic entrant au point d’entrée pendant 60 secondes et reconfigure le routage afin que le trafic web arrive au niveau de la grappe nouvellement créée.
 

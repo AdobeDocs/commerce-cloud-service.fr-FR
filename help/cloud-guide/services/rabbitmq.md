@@ -3,7 +3,7 @@ title: Configuration du service RabbitMQ
 description: Découvrez comment activer le service RabbitMQ pour gérer les files d’attente de messages pour Adobe Commerce sur l’infrastructure cloud.
 feature: Cloud, Services
 exl-id: 85794b8f-2260-4a6e-b5a6-a1b4c356594e
-source-git-commit: 196efa316b9998c1980412ad96577d7ce42d4aec
+source-git-commit: 269681efb9925d78ffb608ecbef657be740b5531
 workflow-type: tm+mt
 source-wordcount: '398'
 ht-degree: 0%
@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Configuration du service [!DNL RabbitMQ]
 
-[Message Queue Framework (MQF)](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/message-queues/message-queue-framework.html) est un système d’Adobe Commerce qui permet à un [module](https://experienceleague.adobe.com/en/docs/commerce-operations/operational-playbook/glossary#module) de publier des messages dans les files d’attente. Il définit également les consommateurs qui reçoivent les messages de manière asynchrone.
+[Message Queue Framework (MQF)](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/message-queues/message-queue-framework.html) est un système d’Adobe Commerce qui permet à un [module](https://experienceleague.adobe.com/en/docs/commerce-operations/implementation-playbook/glossary#module) de publier des messages dans les files d’attente. Il définit également les consommateurs qui reçoivent les messages de manière asynchrone.
 
 Le MQF utilise [RabbitMQ](https://www.rabbitmq.com/) comme courtier de messagerie, qui fournit une plateforme évolutive pour l’envoi et la réception de messages. Il comprend également un mécanisme de stockage des messages non diffusés. [!DNL RabbitMQ] est basé sur la spécification AMQP (Advanced Message Queuing Protocol) 0.9.1.
 

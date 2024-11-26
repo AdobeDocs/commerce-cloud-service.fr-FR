@@ -3,7 +3,7 @@ title: Déploiement vers l’évaluation et la production
 description: Découvrez comment déployer votre Adobe Commerce sur le code d’infrastructure cloud dans les environnements d’évaluation et de production pour effectuer d’autres tests.
 feature: Cloud, Console, Deploy, SCD, Storage
 exl-id: 4b82289f-ee04-4b14-a0ed-7a8a19fc6a6a
-source-git-commit: ae7eb6a0c3de773377c8e1efb5ce2e92c06506bd
+source-git-commit: 269681efb9925d78ffb608ecbef657be740b5531
 workflow-type: tm+mt
 source-wordcount: '1310'
 ht-degree: 0%
@@ -140,7 +140,7 @@ L’interface de ligne de commande de Cloud fournit des commandes pour déployer
 
 ## Migration de fichiers statiques
 
-[Les fichiers statiques](https://experienceleague.adobe.com/docs/commerce-operations/operational-playbook/glossary.html) sont stockés dans `mounts`. Il existe deux méthodes pour migrer des fichiers d’un emplacement de montage source, tel que votre environnement local, vers un emplacement de montage de destination. Les deux méthodes utilisent l’utilitaire `rsync`, mais Adobe recommande d’utiliser l’interface de ligne de commande `magento-cloud` pour déplacer des fichiers entre l’environnement local et distant. Adobe recommande également d’utiliser la méthode `rsync` lors du déplacement de fichiers d’une source distante vers un autre emplacement distant.
+[Les fichiers statiques](https://experienceleague.adobe.com/en/docs/commerce-operations/implementation-playbook/glossary) sont stockés dans `mounts`. Il existe deux méthodes pour migrer des fichiers d’un emplacement de montage source, tel que votre environnement local, vers un emplacement de montage de destination. Les deux méthodes utilisent l’utilitaire `rsync`, mais Adobe recommande d’utiliser l’interface de ligne de commande `magento-cloud` pour déplacer des fichiers entre l’environnement local et distant. Adobe recommande également d’utiliser la méthode `rsync` lors du déplacement de fichiers d’une source distante vers un autre emplacement distant.
 
 ### Migration de fichiers à l’aide de l’interface en ligne de commande
 

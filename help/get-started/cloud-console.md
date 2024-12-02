@@ -1,5 +1,5 @@
 ---
-title: "Connectez-vous à [!DNL Cloud Console]"
+title: Connectez-vous à [!DNL Cloud Console]
 description: Découvrez l’ [!DNL Cloud Console]  pour l’infrastructure Adobe Commerce on Cloud.
 recommendations: noDisplay, catalog
 last-substantial-update: 2024-02-06T00:00:00Z

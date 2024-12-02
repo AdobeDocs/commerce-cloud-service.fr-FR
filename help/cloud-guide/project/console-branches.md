@@ -1,5 +1,5 @@
 ---
-title: "Gérer les branches avec le  [!DNL Cloud Console]"
+title: Gestion des branches avec le  [!DNL Cloud Console]
 description: Découvrez comment gérer les branches d’environnement pour Adobe Commerce sur l’infrastructure cloud à l’aide de la  [!DNL Cloud Console].
 role: Developer
 feature: Cloud, Install

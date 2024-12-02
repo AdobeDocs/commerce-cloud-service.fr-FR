@@ -1,5 +1,5 @@
 ---
-title: '[!DNL Onboarding] to Commerce'
+title: '[!DNL Onboarding] vers Commerce'
 description: Accédez à votre compte cloud et configurez un projet d’infrastructure cloud Adobe Commerce.
 role: Admin
 recommendations: noDisplay, catalog
